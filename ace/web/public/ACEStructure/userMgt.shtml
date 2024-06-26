@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE User Management</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>User Management</h3>
+
+<p>Users register themselves in ACE.  The user enters
+the information that ACE then stores in 
+<span class="database">institutions_v1</span> 
+and <span class="database">users_v4</span> in the
+course of the registration process.  The ACE administrator must verify the
+identity of any user who registers as an instructor before that individual may
+use ACE. The ACE administrator may choose to grant
+master <a href="qbank.shtml">authoring</a> or 
+<a href="intlizn.shtml">translating</a>
+privileges to the instructor.  </p>
+
+<!--#include file="db/institutions.html"-->
+<!--#include file="db/users.html"-->
+
+<p>Originally, ACE stored every user's password, email address, and security 
+questions for password reset in its own database. Now, if a registrant 
+indicates that he attends the ACE installation's default university, ACE 
+outsources the username/password authentication process to a campus server 
+using the LDAP protocol. Users who are not at the default university
+or who registered with ACE before we implemented the new authentication 
+process must continue to use the usernames and passwords they originally 
+entered.</p>
+
+<p>Each time a user logs into ACE, ACE creates a <span
+class="classname">User</span> object and populates it with information that it
+retrieves from the <span class="database">users_v4</span> table.  </p>
+
+<p>Users may designate one or more <a href="intlizn.shtml">languages</a> 
+that they prefer over English via the <span class="link">My Profile</span> 
+page. For students at institutions whose primary language 
+of instruction is not English, ACE automatically assigns them that
+language, and these students may not delete that
+language from their list of languages. 
+</p>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Combining Rules</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Combining Rules in ACE</h3>
+
+<p>It is sometimes necessary in ACE to use conjunctions to combine 
+several <a href="questions.shtml#evals">subevaluators</a> into a single evaluator 
+or several conditions for
+<a href="questions.shtml#qData">permissible starting materials</a> into 
+a single condition.  ACE encodes such expressions in a form
+called <i>Polish postfix</i>.  Polish postfix notation consists of
+a colon-separated list of numbers representing rules
+and the symbols @ and | representing the conjunctions <i>and</i> 
+and <i>or</i>, respectively.  Each
+conjunction combines the rules preceding it: two rules if no
+number follows the conjunction symbol, three or more rules if one does.
+When a conjunction combines rules, any conjunctions that appear later 
+in the expression treat the combined rules as a single new rule: for 
+example, in the expression <i>1:2:3:|:@</i>, the @ symbol combines rule 
+<i>1</i> and the complex rule <i>2:3:|</i>.
+We have extended the standard Polish postfix notation by adding 
+a new conjunction, <i>m</i>/<i>n</i>/<i>p</i>, which returns true when 
+<i>m</i> to <i>n</i> of the preceding <i>p</i> rules are true.
+</p>
+
+<table class="dbTable">
+<tr><th>Postfix expression</th><th>English equivalent</th></tr>
+<tr><td>1:2:@</td><td>If <i>1</i> and <i>2</i></td></tr>
+<tr><td>1:2:|</td><td>If <i>1</i> or <i>2</i></td></tr>
+<tr><td>1:2:3:|3</td><td>If <i>1</i> or <i>2</i> or <i>3</i></td></tr>
+<tr><td>1:2:3:|:@</td><td>If <i>1</i> and (<i>2</i> or <i>3</i>)</td></tr>
+<tr><td>1:2:3:@:|</td><td>If <i>1</i> or (<i>2</i> and <i>3</i>)</td></tr>
+<tr><td>1:2:|:3:4:|:5:6:|:@3</td><td>If (<i>1</i> or <i>2</i>) 
+and (<i>3</i> or <i>4</i>) and (<i>5</i> or <i>6</i>)</td></tr>
+<tr><td>1:2:3:4:2/3/4</td><td>If 2&ndash;3 of [<i>1</i>, <i>2</i>, <i>3</i>,
+<i>4</i>]</td></tr>
+<tr><td>1:2:3:4:5:2/3/4:@:6:7:|3</td><td>If (<i>1</i> and (2 to 3 of 
+[<i>2</i>, <i>3</i>, <i>4</i>, <i>5</i>])) or <i>6</i> or <i>7</i></td></tr>
+</table>
+
+<p>In the case of evaluators, ACE stores the postfix expression in the
+<span class="database">subexp</span> field of 
+<span class="database">evaluators_v4</span>
+or <span class="database">user_evaluators_v4</span>.  The expression
+describes how to combine other evaluators with the same value for
+<span class="database">major_id</span> and different values for
+<span class="database">minor_id</span>.  (The postfix expression has 
+<span class="database">minor_id</span> = 0.)  
+
+<!--#include file="db/evaluators.html"-->
+
+<p>In the case of
+permissible starting materials, ACE stores the postfix expression in the
+<span class="database">data</span> field of
+<span class="database">question_data_v3</span>
+or <span class="database">user_question_data_v3</span>
+with a corresponding value of <b>SMExpr</b> in 
+<span class="database">data_type</span>.
+</p>
+
+<!--#include file="db/question_data.html"-->
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+# vim:filetype=make:
+# master makefile.  include it in others.
+# provide HERE to indicate current directory.
+# sample:
+#	HERE = evals/impl
+#	include ../../Makefile.master
+# if a class contains another class, indicate the name of the resulting object
+# in OTHEROBJS, such as
+#   OTHEROBJS=Dihedral\$$Simple3DVector
+# use the convention shown above for embedded $ characters in file names.
+
+# what distinguishes this implementation
+VERSION = DEV-5.1
+HOME = /home/aceorg
+WS = $(HOME)/aceorg/$(VERSION)/ace
+JCHEMDIR = /home/aceorg/aceorg/jchem$(VERSION)/lib
+# TOMCATLIB=/usr/share/tomcat8/lib
+TOMCATLIB=/opt/tomcat9/lib
+DIR = $(WS)/build
+DEST = $(DIR)/com/epoch/$(HERE)# where we compile to
+# where compiled code is put to make it live
+FINALDEST = $(HOME)/aceorg/$(VERSION)/ace/web/WEB-INF/classes/com/epoch/$(HERE)
+FD = $(HOME)/aceorg/$(VERSION)/ace/web/WEB-INF/classes/com/
+
+LOCKFILE = $(HOME)/aceorg/$(VERSION)/ace/.lock
+
+LIBS = $(JCHEMDIR)/jchem.jar:$(TOMCATLIB)/tomcat-dbcp.jar:$(TOMCATLIB)/commons-pool.jar:$(TOMCATLIB)/servlet-api.jar:$(TOMCATLIB)/commons-lang.jar:$(TOMCATLIB)/unbescape.jar:$(TOMCATLIB)/commons-math.jar:$(TOMCATLIB)/commons-collections.jar:$(TOMCATLIB)/guava.jar:$(DIR):/home/aceorg/aceorg/stanford-parser-2011-09-14/stanford-parser.jar
+
+SOURCES = $(wildcard *.java)
+OBJECTS = $(patsubst %.java,$(DEST)/%.class,$(SOURCES))
+JAVAARGS = -deprecation  -Xlint:all -Xlint:-path -d $(DIR) -classpath $(LIBS)
+TESTJAVAARGS = -deprecation  -Xlint:all -Xlint:-path -d /tmp/build -classpath $(LIBS)
+FINALOBJECTS = $(patsubst %.java,$(FINALDEST)/%.class,$(SOURCES))
+SUBDIRS = `find . -type d -maxdepth 1 -mindepth 1`
+JVM9 = /usr/lib/jvm/jdk-9.0.4
+JVM = /usr/lib/jvm/jdk-10.0.1
+JVM8 = /usr/lib/jvm/java-8-oracle
+JAVAC = $(JVM8)/bin/javac
+JAVADOC = $(JVM8)/bin/javadoc
+
+default: compile
+
+$(DEST)/%.class: %.java
+	$(JAVAC) $(JAVAARGS) $*.java 2>&1 ; true
+	# $(JAVAC) $(JAVAARGS) $*.java 
+
+
+$(FINALDEST)/%.class: $(DEST)/%.class
+	@ls -l $(FINALDEST)/$*.class $(DEST)/$*.class
+	cp $(DEST)/$*.class $(FINALDEST)/$*.class
+
+.PHONY: lock unlock needlock
+
+lock:
+	@ if [ -e $(LOCKFILE) ] ; then \
+		if [ -O $(LOCKFILE) ] ; then \
+			echo You already own the $(VERSION) lock.; \
+		else \
+			echo -n Sorry, `cat $(LOCKFILE)` has been holding the $(VERSION) lock since ; \
+			echo -n " " ; ls -l $(LOCKFILE) | awk '{print $$7, $$6}' ; \
+			echo Run \"make unlock\" to remove it.; \
+		fi \
+	else \
+		echo $(USER) > $(LOCKFILE); \
+		echo $(USER) now owns the $(VERSION) lock.; \
+	fi
+
+unlock:
+	@ if [ -e $(LOCKFILE) ] ; then \
+		echo Removing $(VERSION) lock owned by `cat $(LOCKFILE)`.; \
+		/bin/rm -f $(LOCKFILE); \
+	else \
+		echo Nobody was holding the $(VERSION) lock.; \
+	fi
+	
+needlock:
+	@ if [ -e $(LOCKFILE) ] ; then \
+		if [ ! -O $(LOCKFILE) ] ; then \
+			echo -n Sorry, `cat $(LOCKFILE)` has been holding the $(VERSION) lock since ; \
+			echo -n " " ; ls -l $(LOCKFILE) | awk '{print $$7, $$6}'; \
+			echo Run \"make unlock\" to remove it.; \
+			false; \
+		fi \
+	else \
+		echo You need to get the $(VERSION) lock first by running	; \
+		echo "  " make lock; \
+		false; \
+	fi
+compile: needlock $(OBJECTS)
+publish: needlock $(FINALOBJECTS)
+	@if [ x"$(OTHEROBJS)" != x ] ; then \
+		for aFile in $(OTHEROBJS) ; do \
+			if [ $(DEST)/$$aFile.class -nt $(FINALDEST)/$$aFile.class ] ; then \
+				echo "Also copying $(DEST)/$$aFile.class"; \
+				cp $(DEST)/$$aFile.class $(FINALDEST); \
+			fi; \
+		done; \
+	fi
+
+compileAll: needlock
+	/bin/rm -rf $(DIR)/com/epoch
+	cd $(WS)/src/com/epoch; \
+		find -name '*.java' | xargs $(JAVAC) $(JAVAARGS) 2>&1 ; \
+	true
+
+publishAll: needlock
+	# cd $(DIR)/com; tar cf - epoch | (cd $(FD) ; tar xf - 2> /dev/null; true)
+	cp -dR $(DIR)/com/epoch $(FD) 
+
+compileDirectory: needlock
+	$(JAVAC) $(JAVAARGS) *.java
+
+testCompile: 
+	/bin/rm -rf /tmp/build
+	mkdir /tmp/build
+	chgrp aceorg /tmp/build
+	chmod g+s /tmp/build
+	cd $(WS)/src/com/epoch; \
+		find . -name '*.java' | xargs $(JAVAC) $(TESTJAVAARGS) 2>&1 ; \
+	true
+	# /bin/rm -rf /tmp/build
+	@ echo 'Class files retained in /tmp/build.'
+
+# -html5 
+
+javadoc:
+	$(JAVADOC) -d $(WS)/web/public/ACEStructure/API \
+		-sourcepath $(WS)/src \
+		-private \
+		-stylesheetfile $(HOME)/notes/javadocStyle.css \
+		-subpackages com \
+		-link https://docs.oracle.com/javase/8/docs/api \
+		-link ../../../nosession/api \
+		-classpath $(WS)/web/WEB-INF/lib/jchem.jar:$(TOMCATLIB)/commons-pool.jar:$(TOMCATLIB)/commons-collections.jar:$(TOMCATLIB)/servlet-api.jar:$(TOMCATLIB)/commons-lang.jar:$(TOMCATLIB)/commons-math.jar:$(TOMCATLIB)/guava.jar:$(TOMCATLIB)/unbescape.jar:$(TOMCATLIB)/tomcat-dbcp.jar:/home/aceorg/aceorg/stanford-parser-2011-09-14/stanford-parser.jar
+	cd $(WS)/web/public/ACEStructure/API; \
+		ln -sf ../../../nosession/api jchemAPI; \
+		ln -sf jchemAPI/stylesheet.css
+		# ln -sf jchemAPI/resources; \
+

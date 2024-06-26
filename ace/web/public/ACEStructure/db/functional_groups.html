@@ -1,0 +1,25 @@
+<div>
+<p align="center"><span class="database">functional_groups_v2</span>,
+functional groups</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">group_id<sup>1</sup></td>
+<td>unique identifier for the group</td>
+<td>number(38)</td></tr>
+<tr><td class="database">name</td>
+<td>English name of the group</td>
+<td>varchar2(80)</td></tr>
+<tr><td class="database">definition</td>
+<td>SMILES (usually), SMARTS, CXSMARTS, or MRV definition</td>
+<td>CLOB</td></tr>
+<tr><td class="database">category</td>
+<td>used to organize functional groups</td>
+<td>varchar2(40)</td></tr>
+<tr><td class="database">sortkey</td>
+<td>name by which to alphabetize</td>
+<td>varchar2(100)</td></tr>
+<tr><td class="database">functional_groups_seq</td>
+<td>sequencer for <span class="database">group_id</span></td></tr>
+</table></div>
+
+

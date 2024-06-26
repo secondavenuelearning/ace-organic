@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Adding a New Question Type To ACE</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Adding a New Question Type to ACE</h3>
+
+<p>Adding a new <a href="questions.shtml#type">type of question</a> to ACE 
+involves the following steps:</p>
+<ol>
+<li>Devise a format for a response encoded into a 
+<span class="classname">String</span>.  An XML format is optimal.
+
+</li><li>Create a new object, like 
+<span class="classname">Mechanism</span>, to hold a processed response.
+
+</li><li>Make ACE aware of the new question type.
+	<ul>
+	<li><span class="filename">qBank/QuestionConstants.java</span> (add new
+	constant and name of question type),
+	<span class="filename">Question.java</span> 
+	(<span class="filename">isX()</span> methods)
+	</li><li><span class="filename">js/marvinQuestionConstants.jsp.h</span>
+	(if needed by MarvinJS)
+	or <span class="filename">js/otherQuestionConstants.jsp.h</span>
+	</li><li><span class="filename">authortool/question.js*</span>
+	</li><li><span class="filename">authortool/figures/loadFigure.jsp</span> 
+	(default <a href="questions.shtml#figs">Figure</a> type)
+	</li></ul>
+
+</li><li>Choose or create a <a href="solve.shtml#answer">response collector</a>.  If the 
+collector does not do so itself, write a method that encodes the response as a 
+<span class="classname">String</span>.
+	<ul><li><span class="filename">homework/answer*</span>
+	</li><li><span class="filename">session/HWSession.java</span> 
+	(<span class="filename">formatOK()</span> method,
+	if you need to check the format of the response) 
+	</li>
+	</ul>
+
+</li><li>If this question type will require <a href="questions.shtml#qData">question
+data</a>:  
+	<ul><li>If the question data types (text, Marvin, etc.) do not already exist:
+		<ul><li><span class="filename">qBank/QDatum.java</span>
+		</li><li><span class="filename">db/QuestionRead.java</span>, 
+		<span class="filename">QuestionWrite.java</span>
+		</li><li><span class="filename">authortool/questionsList.jsp</span>,
+		<span class="filename">qData/loadQData.jsp</span> 
+		</li><li><span class="filename">hwcreator/hwEditor.jsp</span> 
+		</li></ul>
+	</li><li>If a master author must enter instances of this question data from which 
+other authors will choose (e.g., R-group collections):
+		<ul><li><span class="filename">folder/NewQDType.java</span>
+		</li><li>new database table, <span class="database">new_qdatum_type_v1</span>
+		</li><li><span class="filename">db/DBTables.java</span>
+		</li><li><span class="filename">db/NewQDTypeReadWrite.java</span>
+		</li><li><span class="filename">authortool/question.jsp</span>,
+		<span class="filename">qData/viewNewQDType.jsp</span>, 
+		<span class="filename">editNewQDType.jsp</span>,
+		<span class="filename">saveNewQDType.jsp</span>
+		</li></ul>
+	</li><li>Allow authors to enter or select question data:
+		<ul><li><span class="filename">authortool/question.*</span>,
+		<span class="filename">qData/loadQData.jsp</span>,
+		maybe <span class="filename">saveQData.jsp</span>
+		</li></ul>
+	</li><li>If ACE must display the question data to students answering questions:
+		<ul>
+		<li><span class="filename">qBank/Question.java</span> 
+		(<span class="filename">getQDataTexts()</span>)
+		</li><li><span class="filename">homework/answerJS.jsp.h</span>,
+		<span class="filename">answerHTML.jsp.h</span>, maybe
+		<span class="filename">answerJava.jsp.h</span>
+		</li></ul>
+	</li><li>If the question data distinguish otherwise identical questions:
+		<ul><li><span class="filename">hwcreator/hwEditor.jsp</span> 
+		</li></ul>
+	</li><li>If one needs the question data to understand student responses:
+		<ul><li><span class="filename">gradebook/showMol.jsp</span>,
+		<span class="filename">resetConfirm.jsp</span>
+		</li></ul>
+	</li></ul>
+
+</li><li> If necessary (probably not), add compression of response 
+<span class="classname">String</span>.
+	<ul><li><span class="filename">chem/ChemUtils.java</span>
+	</li></ul>
+
+</li><li>Add parsing and other processing of the response before evaluation.
+	<ul><li><span class="filename">responses/Response.java</span>
+	</li></ul>
+
+</li><li>Make list of existing evaluators that will be available for this 
+question type, and choose a default evaluator.
+	<ul><li><span class="filename">evals/EvalManager.java</span>
+	</li></ul>
+
+</li><li>Add new <a href="addEvaluator.html">evaluators</a> for this 
+question type, if there are any.
+
+</li><li>Add a default empty preload value for this question type.
+	<ul><li><span class="filename">qBank/Question.java</span>
+	(<span class="filename">getPreloadMol()</span>)
+	</li></ul>
+
+</li><li>Add methods for initializing responses to this question type and 
+verifying their format (unless the response collector does the work for you).
+	<ul><li><span class="filename">session/HWSession.java</span>
+	</li></ul>
+
+</li><li>Allow display of student responses.
+	<ul><li><span class="filename">gradebook/showMol.jsp</span>
+	</li><li><span class="filename">gradebook/resetConfirm.jsp</span>
+	</li><li><span class="filename">session/HWSession(int, String,
+		int, String[])</span> (if response display requires the first figure)
+	</li></ul>
+
+</li><li>Enable or disable <a class="link" href="questions.shtml#view">View
+Responses</a> for this question type.  (Disable if ACE cannot determine 
+whether two responses are identical.)  
+	<ul><li><span class="filename">db/ResponseLogger.java</span>
+	</li><li><span class="filename">authortool/FIHeader.jsp</span>, 
+	<span class="filename">FIHistory.jsp</span>
+	</li></ul>
+</li></ol>
+
+</body>
+</html>
+

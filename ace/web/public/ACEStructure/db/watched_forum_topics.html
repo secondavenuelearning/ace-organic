@@ -1,0 +1,12 @@
+<p align="center"><span class="database">watched_forum_topics_v1</span>, who is
+watching which discussion topics in forums</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">student_id<sup>1,2</sup></td>
+<td>person watching this topic &rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">topic_id<sup>1,2</sup></td>
+<td>unique ID number of the topic &rarr; 
+<span class="database">forum_topics_v1.topic_id</span></td>
+<td>number(38)</td></tr>
+</table>

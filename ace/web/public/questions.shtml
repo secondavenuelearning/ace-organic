@@ -1,0 +1,2760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Questions</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Questions</h3>
+
+<p>When instructors add or edit a question, they arrive at the question-editing
+page, <span class="filename">authortool/question.jsp</span>.  The code for
+<span class="filename">question.jsp</span> includes <span
+class="filename">question.js</span>, a set of Javascript methods that the
+designers moved to a different file simply to reduce the length of <span
+class="filename">question.jsp</span>.  A question consists of the following
+parts:</p> 
+
+<ul><li>a unique ID number;
+</li><li><a href="#type">the type of question</a>; 
+</li><li><a href="#flags">various display options</a>; 
+</li><li><a href="#prov">the question provenance (book, chapter, remarks)</a>; 
+</li><li>keywords describing this question; 
+</li><li><a href="#stmt">the question statement</a>; 
+</li><li><a href="#figs">figures</a> (may be none); 
+</li><li><a href="#qData">question data</a> 
+(data that ACE needs to instantiate the question or evaluate responses);
+</li><li><a href="#evals">evaluators</a> (at least one).  
+</li></ul>
+
+<p>ACE stores master-authored questions in <span
+class="database">questions_v3</span>.  It stores questions that have been
+modified or newly authored by instructors in <span
+class="database">user_questions_v3</span>.  The tables are very similar, but
+<span class="database">user_questions_v3</span> contains a field for the ACE ID
+of the instructor.  If the instructor has modified a database question, ACE
+stores the modified question in <span class="database">user_questions_v3</span>
+with the same unique question ID as the original database question.  If the
+question is a new one, ACE gives it a negative unique ID number.  ACE stores
+figures, question data, evaluators, and (in ACE 1.6) molecules associated with
+the question in their own separate tables, again putting the information from
+database and locally authored questions in separate tables.</p>  
+
+<!--#include file="db/questions.html"-->
+
+<a name="type"/>
+<h4>Question type</h4>
+
+<p>The author chooses the major question type from a pull-down menu in the
+upper left of the question-editing page and the other options with checkboxes
+in the upper middle of the page.  We have organized the question types, 
+which we store in <span class="database">q_type</span>, into three groups: </p>
+
+<ul>
+<li>Chemistry question types:
+	<ul>
+	<li>Lewis structure;
+	</li><li>draw-structure (includes R-group, atom mapping or selection, 
+	and conformation);
+	</li><li>mechanism (includes resonance structure; may use R groups);
+	</li><li>synthesis (may use R groups); 
+	</li><li>orbital energy diagram;
+	</li><li>reaction coordinate diagram;
+	</li><li>formula.
+	</li></ul>
+</li><li>Generic question types:
+	<ul><li>multiple-choice;
+	</li><li>fill-in-the-blank;
+	</li><li>ordering/ranking;
+	</li><li>text;
+	</li><li>logical statements;
+	</li><li>numeric (may show different values to different users);
+	</li><li>complete-the-table;
+	</li><li>clickable image <span style="font-color:red">[may not work on all browsers]</span>.
+	</li></ul>
+</li><li>Math &amp; physics question types:
+	<ul><li>equations;
+	</li><li>draw-vectors.
+	</li></ul>
+</li></ul>
+
+<p>In questions that use R groups, ACE will show different groups to different users.</p>
+
+<a name="flags"/>
+<h4>Question flags</h4>
+
+<p>We store the question flags in 
+<span class="database">q_flags</span>.  Each bit of the flags value
+represents one of the following question modifications or display
+options, which are all off by default:</p>  
+
+<ul><li>PRELOAD: load the structure in Figure 1 onto the LewisJS or 
+or <a href="http://www.chemaxon.com/product/marvin/marvin-js/" 
+target="window2">MarvinJS</a> 
+canvas if there is no previous response 
+</li><li>FIG_TO_PRELOAD (two bits): which figure (up to Figure 4) to load 
+into the response applet
+</li><li>SHOWMAPPING: this question uses atom mapping 
+</li><li>THREEDIM: this question asks about 3D conformation 
+and requires students to draw structures in 3D
+</li><li>SHOWNOH, SHOWHETEROH, SHOWALLH: (two bits) how to show 
+implicit H atoms
+</li><li>SHOWALLC: show the letter C for every C atom
+</li><li>SHOWLONEPAIRS: turn on lone pair display
+</li><li>SHOWRSLABELS: label stereocenters with R and S configurations 
+</li><li>BADVALENCEINVISIBLE: don't highlight valence errors in Marvin
+</li><li>USES_SUBSTNS: this question uses R groups or, in numeric questions,
+variable values; different students see different versions 
+</li><li>DISALLOW_SUPERFLUOUS_WEDGES: generate an error message when a student
+draws wedge bonds at nonstereocenters
+</li><li>SCRAMBLE: scramble options in multiple-choice, ordering, and 
+fill-in-the-blank questions
+</li><li>EXCEPT_LAST: when scrambling options, leave the last option last
+</li><li>DISALLOW_MULT: disallow more than one selection in multiple-choice questions
+</li><li>ALLOW_UNRANKED: allow students not to rank some items in ordering questions
+</li><li>LABEL_ORBS: allow labeling of orbitals in an orbital energy diagram
+</li><li>NUMS_ONLY: require numbers for table entries
+</li><li>REQUIRE_INT: require a numeric response to be an integer
+</li><li>USE_SCI_NOTN: use scientific notation in a numeric question
+</li><li>NO_CONSTANTS_FIELD: in equations questions, do not include a field
+for constants
+</li><li>NO_CHEM_FORMATTING: do not format text according to organic chemistry 
+conventions; e.g., do not convert N3^- to N<sub>3</sub><sup>&minus;</sup>
+</li><li>HIDE: hide a question from other instructors (available to master 
+author only)
+</li></ul>
+
+<p>ACE displays only the options that are relevant to the selected question
+type.  The question type has effects in various parts of ACE.  For example, ACE
+allots more space to the Marvin canvas on the <a
+href="solve.shtml">question-answering page</a> for mechanism and synthesis
+questions, it makes different evaluators available when the author has turned
+on the SHOWMAPPING or THREEDIM flags, and it creates new figures and evaluates
+responses differently when the author turns on the USES_SUBSTNS flag.</p>  
+
+<a name="prov"/>
+<h4>Provenance</h4>
+
+<p>A question's book may be Bruice, Wade, or Other.  When a question is from
+Bruice or Wade, the author should enter a chapter number and question number;
+otherwise, the author should enter his own initials.  ACE uses the chapter
+numbers to build the list of per-chapter questions from Bruice or Wade in the
+<a href="assgnts.shtml">assignment assembly tool</a>.  ACE
+provides as options on the question-editing page all of the books associated
+with courses in the database.  ACE displays each question's
+book, chapter, and remarks to instructors only in the <a
+href="assgnts.shtml">assignment assembly tool</a> and on the <a
+href="solve.shtml">question list</a> page of an assignment.</p>  
+
+<a name="stmt"/>
+<h4>Statement</h4>
+<p>The question statement is simply the English text of a question, such as,
+"Draw the product of the following reaction."  (The question statements of
+fill-in-the-blank questions are more complex; see below.)  A question must have
+either a statement or at least one <a href="#figs">figure</a> for ACE to save
+it.</p>  
+
+<p>If the question set in which a question resides has a common question
+statement, then, when ACE displays any question in that set to a student, it
+appends the common question statement to the beginning of the question's own
+statement.  You may edit the common question statement directly
+from the <a href="topics.shtml">question set</a> display page by pressing the
+<span class="link">Edit</span> icon next to the common question statement on
+the upper right, but, in ACE 1.6, you must click on the <span class="link">Edit
+topics and question sets</span> link on the upper left of the <a
+href="topics.shtml">question set</a> display page.  Furthermore, in ACE 1.6,
+instructors may not modify the common question statements of database question
+sets, though they may edit the common question statements of question sets that
+they themselves have <a href="topics.shtml">created</a>.</p> 
+
+<p>The author writes the question statement as ordinary text, but ACE uses
+<span class="filename">Utils.toDisplay()</span> to format it in a chemically
+relevant way; for example, C5H5^- becomes
+C<sub>5</sub>H<sub>5</sub><sup>&ndash;</sup>.  ACE includes a <a
+href="http://epoch.chem.uky.edu/ace/public/toDisplay.jsp"
+target="window2">public access page</a> for authors to see the rules and to
+enter expressions to see how ACE formats them.  ACE uses <a
+href="http://java.sun.com/docs/books/tutorial/essential/regex/"
+target="window2">regular expressions</a> to format the text; starting in ACE
+1.7, ACE <a href="overallStruct.shtml">reads the expressions</a> from <span
+class="filename">WEB-INF/displayRules.txt</span>.  ACE uses these
+rules to format not only the question statement, but also feedback, <a
+href="#qData">question data</a> text, text above and below the arrow in a
+reaction <a href="#figs">figure</a>, and <a href="assgnts.shtml">assignment
+names</a>.  An author may also use standard HTML commands and character entity
+references such as &lt;i&gt; and &amp;middot; to format the question
+statement.</p>  
+
+<p>The statement of a fill-in-the-blank question includes one or more pull-down
+menus.  The author denotes a pulldown menu in the question statement with the
+notation <span class="code">[[1, 4, 5]]</span>, in which the menu options
+consist of <a href="#qData">question data</a> 1, 4, and 5.</p>  
+
+<p>The statement of a numeric question may contain one or more variables
+in the format <span class="code">[[x1]]</span>, etc. ACE replaces these 
+variables with words or arithmetical values when it displays the question 
+statement to the user. </p>
+
+<a name="figs"/>
+<h4>Figures</h4>
+
+<p>A question may have one or more figures, each of which may be one of several
+types.  The figure types are:</p> 
+
+<ul><li>molecule, a single 
+<a href="https://www.chemaxon.com/products/marvin/marvin-js/"
+target="window2">MarvinJS</a>
+drawing stored in the MRV format.
+(Originally, ACE stored a molecule figure in MOL format.  Later, we introduced
+the mechanism figure, which ACE stored in MRV format.  Because the MRV format
+could store anything that MOL could, but the reverse was not true, we then 
+eliminated the mechanism figure and began storing all molecules in MRV.)
+The drawing may contain a single structure, or it may include several 
+structures or objects such as textboxes and electron-flow arrows.  
+</li><li>reaction, a Marvin drawing plus some text that ACE displays above and
+below a reaction arrow.  
+</li><li>synthesis, a Marvin drawing plus one or more reaction conditions 
+associated with stages in a multistep synthesis.
+</li><li>Lewis structure, a LewisJS drawing.  The drawing is stored as a single
+text file in an extended MOL format that describes a molecular structure and the
+lone pairs associated with its atoms.  
+</li><li>Jmol, a figure that ACE should display in a Jmol applet.  Most often this 
+figure will be a depiction of orbitals.  The question author uploads a single file
+such as one in the .mo format.  The question author may also specify Jmol
+scripts that ACE should execute when it displays the applet.
+</li><li>image, a JPEG, PNG, or other graphic file that an author uploads into ACE.
+Most figures in ACE of the image type are spectra.  
+</li></ul>
+
+<p>ACE uses JChem methods to convert all figure types (except Jmol figures 
+and images) into SVG XML that can be embedded directly into the HTML.
+</p>
+
+<p>ACE stores most of the information about a figure in 
+<span class="database">figures_v5</span> or 
+<span class="database">user_figures_v5</span>.</p>  
+
+<!--#include file="db/figures.html"-->
+
+<p>ACE stores the filenames of images in their own table, 
+<span class="database">images_v2</span> or 
+<span class="database">user_images_v2</span>.  It stores the images 
+themselves in their own directories on the disk: 
+<span class="filename">figures</span> and 
+<span class="filename">user_figures</span>, respectively.  </p>
+
+<!--#include file="db/images.html"-->
+
+<p>Depending on the figure type and question type, an author may be able to
+instruct ACE to load one of the question figures into the 
+<a href="solve.shtml#answer">response collector</a>.  In
+the case of clickable image and draw-vector questions, ACE always displays 
+Figure 1 as the image
+on which the user should click; in the case of other questions, the author
+can choose to load any of Figures 1&ndash;4 into the response collector.</p>
+
+<a name="qData"/>
+<h4>Question data</h4>
+
+<p>Question data consist of miscellaneous items that ACE requires for some
+question types.  An author can edit, reorder, or delete question data with the
+tools on the question-editing page.  There are several types of question
+data:</p> 
+
+<ul><li>text for rank, multiple choice, choose-and-explain, and 
+fill-in-the-blank questions;
+</li><li>Marvin, consisting of a 
+<a href="https://www.chemaxon.com/products/marvin/marvin-js/"
+target="window2">MarvinJS</a>
+structure and its name;
+</li><li>R-group collections;
+</li><li>possible values for variables in the question statement;
+</li><li>rules about permissible starting materials for multistep syntheses;
+</li><li>table dimensions and captions;
+</li><li>table prefill values;
+</li><li>orbital energy diagram dimensions, column captions, and
+an energy unit and scale for the y-axis;
+</li><li>reaction coordinate diagram dimensions, labels for the minima and 
+maxima, and an energy unit and scale for the y-axis;
+</li><li>color for the mark in a clickable image question;
+</li><li>color for the arrows in a draw-vectors question;
+</li><li>additional acceptable words in a logical statements question;
+</li><li>equations to preload in an equations question.
+</li></ul>
+
+<p>The question-editing page will show a section for question data only if the
+question type requires it.</p>  
+
+<p>Multiple-choice and fill-in-the-blank questions require two or more options
+from which students will choose a response, and ordering/ranking questions require 
+two or more items for students to sequence.  The question author enters these
+options or items as question data, which may be of the Marvin or text types.
+The author also enters a name for question data of the Marvin type.</p>  
+
+<!--#include file="db/question_data.html"-->
+
+<p>Questions that use R groups require one or more question
+data of the R-group type.  In an R-group question, Figure 1 contains one or
+more R<sup>1</sup>, R<sup>2</sup>, etc., and each student will see a different
+group substituted for each R<sup><i>n</i></sup>.  Each question datum <i>n</i>
+defines the groups that ACE may substitute for R<sup><i>n</i></sup> in the
+figure.  When an author adds or edits an R-group question datum, the page that
+appears, <span class="filename">authortool/qData/loadQData.jsp</span>, lists a
+set of R-group collections, each defined by a comma-separated list of shortcut
+group abbreviations, such as Me, Ph, etc., that themselves are defined in a
+shortcut group definition file, 
+<span class="filename">../../marvin-extra/ACE.abbrevgroups</span>.  
+For example, one R-group
+collection consists of alkyl groups with one to four C atoms, one contains aryl
+groups, etc.  The author may select one or more of these R-group collections
+for each R group in the question figure.  A master author can also add or edit
+R-group collections from this page.</p>  
+
+<!--#include file="db/r_group_class.html"-->
+
+<p>Numeric questions may contain variables in the question statement
+in the format [[x1]], [[x2]], etc. These questions
+require as many question data as there are variables. Each question datum
+contains a list of arithmetical values, or pairs of words and arithmetical 
+values, that may substitute for each variable. Each student will see a different
+word or arithmetical value substituted for each <i>x<sub>n</sub></i> in the
+question statement, and the author may use the corresponding arithmetical value 
+in the <a href="#NumberIs">evaluator</a> that assesses the accuracy of a student's 
+numerical response. </p>
+
+<p>Complete-the-table questions require the author to specify
+in two items the number of rows and columns that the table should contain.  The
+author may also specify row and column captions in these two items and, in a
+third item, prefill values for the table.  These items are all of the text
+type.</p>
+
+<p>Orbital energy diagram questions require the 
+author to specify in one item the number of rows that the diagram should 
+contain.  The author may also specify captions for two of the three columns.
+This item is of the text type.</p>
+
+<p>Reaction coordinate diagram questions require the 
+author to specify in one item the number of rows and columns that the diagram 
+should contain.  The author may also specify labels for the maxima and minima.
+This item is of the text type.</p>
+
+<p>Multistep synthesis questions require that the author add
+at least one rule describing the permissible starting materials for each
+question.  An author may require permissible starting materials to be
+particular compounds, to have one or more particular functional groups, to have
+a certain number of contiguous or total C atoms, to have a certain formula,
+to have a certain number of
+rings, or to be uncharged and metal-free.  Authors may 
+<a href="combiningRules.shtml">combine rules</a> in any
+logical combination.  (By default, ACE combines them with OR conjunctions.)
+The <a href="#evals">evaluators</a> <a href="#SynthScheme"><span
+class="classname">SynthScheme</span></a> and <a href="#SynthScheme"><span
+class="classname">SynthEfficiency</span></a> require the permissible starting
+materials to evaluate a response.</p>
+
+<a name="evals"/>
+<h4>Evaluators</h4>
+
+<p>Evaluators are at the heart of ACE.  Evaluators examine a student's response
+for various properties, provide appropriate feedback, and decide how many
+points the response is worth.  They act as a hierarchical sieve; that is, ACE
+tests the response against each evaluator in order, and the first evaluator
+that the response satisfies determines the student's grade and the feedback
+that ACE provides.  An author may add, edit, reorder, delete, or combine
+evaluators with the tools on the question-editing page.</p>  
+
+<p>An <span class="classname">Evaluator</span> in ACE contains 
+a list of one or more <span class="classname">Subevaluators</span>, plus
+a grade and feedback that ACE will assign to the student if the student's
+response satisfies this evaluator.  
+If an <span class="classname">Evaluator</span>'s list of 
+<span class="classname">Subevaluators</span> has more than one member,
+the <span class="classname">Evaluator</span> also contains an expression
+that describes how to <a href="combiningRules.shtml">combine</a> the
+<span class="classname">Subevaluators</span> logically.
+Each <span class="classname">Subevaluator</span> contains the information 
+that ACE needs to instantiate one of the approximately 75 evaluator
+implementations, which exercise the actual calculations on the
+students' responses.
+</p>
+
+<p>When an author creates an evaluator, the evaluator is, by default, a simple 
+one, consisting of an <span class="classname">Evaluator</span> that contains
+just one <span class="classname">Subevaluator</span>.  The author may 
+combine any number of simple evaluators into a complex evaluator; in this case,
+ACE subsumes the <span class="classname">Subevaluators</span> of the 
+second and subsequent simple evaluators into the list of 
+<span class="classname">Subevaluators</span> inside the first
+<span class="classname">Evaluator</span>.  Conversely, an author may
+split a joined complex evaluator into its constituent simple evaluators;
+here, ACE removes each <span class="classname">Subevaluator</span> but one from
+the joined <span class="classname">Evaluator</span> and places each 
+removed <span class="classname">Subevaluator</span>
+into its own new <span class="classname">Evaluator</span>.</p>  
+
+<!--#include file="db/evaluators.html"-->
+
+<p>ACE currently has over 75 different types of evaluator implementations, all 
+of which reside in <span class="filename">evals/impl/</span>.  We have divided
+our evaluators into three groups: evaluators for <a href="#chemEvals">chemistry</a>, 
+<a href="#genericEvals">generic</a>, and <a href="#physicsEvals">math &amp;
+physics</a> questions.  Some evaluators are appropriate for several different 
+<a href="#type">question types</a> within each class (e.g., ACE can use 
+<span class="classname">Is</span> to evaluate structure, conformation, 
+atom mapping, mechanism, and synthesis questions, and it can
+use <span class="classname">MultipleCheck</span> for both multiple-choice and
+fill-in-the-blank questions), whereas others apply to only a single
+question type (e.g., ACE can use <span class="classname">RankOrderCheck</span> 
+only to evaluate ordering/ranking questions).  ACE makes available to authors 
+only the evaluators appropriate to the question's type.</p>  
+
+<a name="chemEvals"/>
+
+<h3 style="text-align:center;">Evaluators of responses containing
+chemical structures</h3>
+<table class="nonDbTable" summary="">
+<tr><th style="width:15%;">Evaluator type</th>
+<th style="width:40%;">What it evaluates</th>
+<th style="width:35%;">Coded data</th>
+<th style="width:10%;">Additional information</th></tr>
+
+<tr><td><span class="classname">Atoms</span></td>
+<td>If the 
+<select>
+<option>number of</option>
+<option>largest number of contiguous</option>
+</select>
+atoms of a particular element in the response (or response formula)
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... 
+<br/>OR if the number of compounds in the response whose
+<select>
+<option>number of</option>
+<option>largest number of contiguous</option>
+</select>
+atoms of a particular element
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i>,
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>p</i> ... </td>
+<td>
+<span class="codedDatum">atomsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numAtoms</span>
+<br/><span class="codedDatum">element</span>
+<br/><span class="codedDatum">contiguous</span> ("Y" or "N")
+<br/><span class="codedDatum">countEach</span> ("Y" or "N")
+<br/><span class="codedDatum">molsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numMols</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">BondAngle</span></td>
+<td>If the bond angle about an atom in the response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authAngle</span>
+<br/><span class="codedDatum">tolerance</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">Charge</span></td>
+<td>If the total charge of the response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+is <i>n</i> ...
+<br/>OR if the number of compounds whose total charge is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i>, is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>p</i> ... </td>
+<td>
+<span class="codedDatum">chgOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">chargeValue</span>
+<br/><span class="codedDatum">countEach</span> ("Y" or "N")
+<br/><span class="codedDatum">molsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numMols</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">Chiral</span></td>
+<td>If 
+<select>
+<option>none</option>
+<option>some</option>
+<option>any</option>
+<option>all</option>
+</select> 
+of the compounds in the response are 
+<select>
+<option>chiral</option>
+<option>achiral</option>
+</select> ... </td>
+<td>
+<span class="codedDatum">proportion</span>
+<br/><span class="codedDatum">kind</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">Contains</span></td>
+<td>If 
+<select>
+<option>no</option>
+<option>the only</option>
+<option>exactly one</option>
+<option>any</option>
+<option>not every</option>
+<option>every</option>
+</select> 
+compound in the response contains the 
+<a href="authoring.html#skelsub">substructure or skeleton</a>
+represented by the author's structure ... </td>
+<td>
+<span class="codedDatum">howMany</span> 
+(1&ndash;6 = "none", "any", "not all", etc.) 
+<br/><span class="codedDatum">method</span> (1&ndash;2 = 
+"substructure" or "skeleton")
+<br/><span class="codedDatum">chgRadIso</span> (1&ndash;3 = 
+"exact", "default (specified in author's structure must be present in 
+response)", or "ignore")
+</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">CountMetals</span></td>
+<td>If the number of compounds in the response with
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i>
+<select>
+<option>transition</option>
+<option>main group</option>
+<option>alkali or alkaline earth</option>
+<option>nontransition</option>
+<option>metalloid or</option>
+</select>
+metal atoms is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>p</i> ... </td>
+<td>
+<span class="codedDatum">metalsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numMetals</span>
+<br/><span class="codedDatum">metalKind</span> (0&ndash;4 = "all", "dblock", 
+"main", "col1+2", "!dblock", "metal+oid")
+<br/><span class="codedDatum">countEach</span> (always "Y")
+<br/><span class="codedDatum">molsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numMols</span>
+</td>
+<td align="center">available only for defining 
+<a href="#qData">permissible starting materials</a> 
+for <a href="#type">multistep syntheses</a></td></tr>
+<tr><td><span class="classname">FnalGroup</span></td>
+<td>If the number of times
+a <a href="overallStruct.shtml">functional group</a> appears 
+in the response
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ...
+<br/>OR if the number of compounds with
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> instances of a <a href="overallStruct.shtml">functional group</a>, is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>m</i> ... </td>
+<td>
+<span class="codedDatum">groupId</span>
+<br/><span class="codedDatum">groupOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numGroups</span>
+<br/><span class="codedDatum">countEach</span> ("Y" or "N")
+<br/><span class="codedDatum">molsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numMols</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">HasFormula</span></td>
+<td>If the number of compounds that
+<select>
+<option>have</option>
+<option>don't have</option>
+</select>
+the given formula in the response
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... , OR
+if the response
+<select>
+<option>has</option>
+<option>does not have</option>
+</select> 
+a given formula ...</td>
+<td><span class="codedDatum">authFormula</span> (* means any number including 0)
+<br/><span class="codedDatum">countEach</span> ("Y" or "N")
+<br/><span class="codedDatum">withFormula</span> ("Y" or "N")
+<br/><span class="codedDatum">molsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numMols</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">Is</span></td>
+<td>If
+<select>
+<option>no</option>
+<option>the only</option>
+<option>exactly one</option>
+<option>any</option>
+<option>not every</option>
+<option>every</option>
+</select> 
+compound in the response is the author's structure or its enantiomer or a resonance
+structure thereof, or has the same &sigma;-bond network ... </td>
+<td>
+<span class="codedDatum">howMany</span> (1&ndash;6)
+<br/><span class="codedDatum">flags</span> (bits 0&ndash;4 = "either enantiomer", 
+"no normalization", "resonance-permissive", "&sigma;-bond network", 
+"isotope-lenient") 
+</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">Is2DChair</span></td>
+<td>If
+<select>
+<option>no</option>
+<option>the only</option>
+<option>exactly one</option>
+<option>any</option>
+<option>not every</option>
+<option>every</option>
+</select> 
+compound in the response is a 2D chair representation of the author's 
+structure 
+<select>
+<option>exactly</option>
+<option>or its enantiomer</option>
+</select> 
+... </td>
+<td>
+<span class="codedDatum">howMany</span> (1&ndash;6)
+<br/><span class="codedDatum">flags</span> (bit 0 = "either enantiomer")
+</td>
+<td align="center">uses <span class="filename">molStruct</span>, 
+automatic feedback</td></tr>
+<tr><td><span class="classname">NumMols</span></td>
+<td>If the 
+<select>
+<option>total number of molecules</option>
+<option>number of distinct molecules</option>
+</select>
+in the response
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNumMols</span>
+<br/><span class="codedDatum">distinct</span> ("Y" or "N")
+<br/><span class="codedDatum">flags</span> (bits 0&ndash;3 = "either enantiomer", 
+"no normalization", "resonance-permissive", "&sigma;-bond network") 
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">Rings</span></td>
+<td>If the total number of rings
+in the response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ...
+<br/>OR if the number of compounds with
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> rings is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>m</i> ... </td>
+<td>
+<span class="codedDatum">ringsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numRings</span>
+<br/><span class="codedDatum">countEach</span> ("Y" or "N")
+<br/><span class="codedDatum">molsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numMols</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">Weight</span></td>
+<td>If the number of compounds with an 
+<select>
+<option>average molecular weight</option>
+<option>exact mass</option>
+</select>
+that is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>x</i> &plusmn; <i>y</i>, 
+is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">authWtStr</span>
+<br/><span class="codedDatum">toleranceStr</span>
+<br/><span class="codedDatum">wtOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">wtType</span> (0&ndash;1 = exact or average)
+<br/><span class="codedDatum">molsOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numMols</span>
+</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">ConformChair</span></td>
+<td>If the number of times a group is 
+<select>
+<option>axial</option>
+<option>equatorial</option>
+</select>
+in a chair-shaped six-membered ring (2D representation or 3D) is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td>
+<span class="codedDatum">bondAngle</span> (0&ndash;1 = "axial" or "equatorial")
+<br/><span class="codedDatum">formula</span> (shortcut name or SMILES)
+<br/><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">number</span>
+</td>
+<td align="center">automatic feedback if poorly drawn</td></tr>
+<tr><td><span class="classname">ConformBond</span></td>
+<td>If two groups attached to adjacent atoms in a 3D structure 
+<select>
+<option>are</option>
+<option>are not </option>
+</select> 
+<select>
+<option>anti</option>
+<option>gauche</option>
+<option>staggered</option>
+<option>eclipsed</option>
+</select>
+... </td>
+<td><span class="codedDatum">formula</span> (shortcut name or SMILES)
+<br/><span class="codedDatum">formula2</span> (shortcut name or SMILES)
+<br/><span class="codedDatum">groupRelationship</span> 
+(1&ndash;8 = "anti", "not gauche", etc.)</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">LewisElecDeficientNumber</span></td>
+<td>If the number of electron-deficient atoms of a particular element (or
+any element) in a Lewis structure response is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">number</span>
+<br/><span class="codedDatum">element</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">LewisFormalCharge</span></td>
+<td>If, in a Lewis structure response, 
+<select>
+<option>any atom has an incorrect</option>
+<option>every atom has a correct</option>
+</select> 
+formal charge ... </td>
+<td>"Y" or "N"</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">LewisIsomorph</span></td>
+<td>If the structure of a Lewis structure response 
+<select>
+<option>is</option>
+<option>is not</option>
+</select> 
+identical to the author's Lewis structure ... </td>
+<td>"Y" or "N"</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">LewisOuterNumber</span></td>
+<td>If the number of electrons in the outer shell of 
+<select>
+<option>any atom exceeds</option>
+<option>every atom does not exceed</option>
+</select> 
+the maximum ...
+<br/>OR if
+the number of electrons in the outer shell of
+each atom of a particular element (or any element) is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td>
+<span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">number</span>
+<br/><span class="codedDatum">element</span> (may be X)
+<br/><span class="codedDatum">anyEvery</span> ("A", "E" = any atom or every atom)
+<br/><span class="codedDatum">condNumber</span> 
+(1&ndash;3 = "every atom &le; its maximum", "any atom
+&gt; its maximum", or "[anyEvery] [element] [oper] [number]")
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">LewisValenceTotal</span></td>
+<td>If the total number of valence electrons in a Lewis structure response
+<select>
+<option>=</option>
+<option>&ne;</option>
+</select> 
+the number calculated from the structure and formal charges ...</td>
+<td>"Y" or "N"</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">MapProperty</span></td>
+<td>If 
+<select>
+<option>the map numbers or selection</option>
+<option>the mapping pattern</option>
+</select> 
+of the atoms in a response are 
+<select>
+<option>exactly</option>
+<option>at least</option>
+</select> 
+as shown in the author's structure 
+<select>
+<option>or its enantiomer</option>
+</select> 
+<select>
+<option>with</option>
+<option>without</option>
+</select> 
+aromatization ... </td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N") 
+<br/><span class="codedDatum">oper</span> (1&ndash;2)
+<br/><span class="codedDatum">patternOnly</span> ("Y" or "N")
+<br/><span class="codedDatum">checkEnant</span> ("Y" or "N")
+<br/><span class="codedDatum">aromatize</span> ("Y" or "N")
+</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+
+<tr><td><span class="classname">MapSelectionsCounter</span></td>
+<td>If the selections of the response
+<select>
+<option>or its enantiomer</option>
+</select> 
+<select>
+<option>with</option>
+<option>without</option>
+</select> 
+aromatization match or mismatch the author's selections, 
+add <i>x</i> or subtract <i>y</i> points per response selection, 
+respectively ...
+</td>
+<td>
+<span class="codedDatum">checkEnant</span> ("Y" or "N")
+<br/><span class="codedDatum">aromatize</span> ("Y" or "N")
+<br/><span class="codedDatum">matchPtsStr</span>
+<br/><span class="codedDatum">mismatchPtsStr</span>
+</td>
+<td align="center">uses <span class="filename">molStruct</span>,
+<br/>always calculates grade, 
+<br/>automatic feedback</td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">MechCounter</span></td>
+<td>If the number of 
+<select>
+<option>boxes</option>
+<option>reaction arrows</option>
+<option>reaction and resonance arrows</option>
+</select> 
+in a mechanism response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">component</span> (1&ndash;3)
+<br/><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">number</span>
+</td>
+<td align="center">may calculate grade</td></tr>
+<tr><td><span class="classname">MechEquals</span></td>
+<td>If the response mechanism
+<select>
+<option>matches</option>
+<option>does not match</option>
+</select> 
+exactly the following mechanism ... </td> 
+<td><span class="codedDatum">isPositive</span> ("Y" or "N")
+</td>
+<td align="center">uses <span class="filename">molStruct</span>
+</td></tr>
+<tr><td><span class="classname">MechFlowsValid</span></td>
+<td>If, given permissible starting materials, the electron-flow arrows in each
+step of a mechanism response 
+<select>
+<option>lead</option>
+<option>do not lead</option>
+</select> 
+to the compounds shown in the subsequent step ... </td> 
+<td><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">flags</span> (bits 0&ndash;1 = "accept resonance
+structures of starting materials", "ignore stereochemistry")
+</td>
+<td align="center">uses <span class="filename">molStruct</span>, 
+automatic feedback</td></tr>
+<tr><td><span class="classname">MechInitiation</span></td>
+<td>If a free radical mechanism
+<select>
+<option>has</option>
+<option>does not have</option>
+</select> 
+a correctly drawn initiation part ...</td>
+<td><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">flags</span> (bits 0&ndash;1 = "accept resonance
+structures of starting materials", "ignore stereochemistry")
+</td>
+<td align="center">uses <span class="filename">molStruct</span>, 
+automatic feedback</td></tr>
+<tr><td><span class="classname">MechProdStartIs</span></td>
+<td>If, given the compounds below,
+<select>
+<option>none is a response starting material</option>
+<option>any is a response starting material</option>
+<option>all are response starting materials</option>
+<option>not all are response starting materials</option>
+<option>the response starting materials are all among them</option>
+<option>the response starting materials are not all among them</option>
+<option>the response starting materials match one-to-one with them</option>
+<option>the response starting materials do not match one-to-one with them</option>
+<option>none is a response product</option>
+<option>any is a response product</option>
+<option>all are response products</option>
+<option>not all are response products</option>
+<option>the response products are all among them</option>
+<option>the response products are not all among them</option>
+<option>the response products match one-to-one with them</option>
+<option>the response products do not match one-to-one with them</option>
+</select>
+...
+</td>
+<td>
+<span class="codedDatum">combination</span> (0&ndash;7)
+<br/><span class="codedDatum">productOrStart</span> (1&ndash;2)
+<br/><span class="codedDatum">flags</span> (bits 0&ndash;1 = "accept resonance
+structures of starting materials", "ignore stereochemistry")
+</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">MechProdStartProps</span></td>
+<td>If
+<select>
+<option>no</option>
+<option>the only</option>
+<option>exactly one</option>
+<option>any</option>
+<option>not every</option>
+<option>every</option>
+</select>
+<select>
+<option>product</option>
+<option>starting material</option>
+<option>intermediate</option>
+</select>
+in the response mechanism is consistent with the following
+<select>
+<option>functional group</option>
+<option>formula</option>
+<option>ring-counting</option>
+<option>atom-counting</option>
+</select>
+rule ...
+</td>
+<td>
+<span class="codedDatum">howMany</span> 
+(1&ndash;6 = "none", "any", "not all", etc.) 
+<br/><span class="codedDatum">cpdsType</span> (1&ndash;3 = response 
+product, response starting material, response intermediate)
+</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">MechRule</span></td>
+<td>If the mechanism response 
+<select>
+<option>upholds</option>
+<option>violates</option>
+</select> 
+the 
+<a href="#mechRulesTable">selected rule</a> ... </td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">rule</span> number
+<br/><span class="codedDatum">pKvalue</span> (also represents flags if <span
+class="codedDatum">flags</span> is absent)
+<br/><span class="codedDatum">flags</span> (may be absent)
+</td><td align="center">automatic feedback, <a href="#mechRulesTable">depending</a></td></tr>
+
+<tr><td><span class="classname">MechSubstructure</span></td>
+<td>If the mechanism response 
+<select>
+<option>contains</option>
+<option>does not contain</option>
+</select> 
+an author's substructure and 
+electron-flow arrows ... </td>
+<td><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">flags</span> (bits 0&ndash;2 = "ignore
+charge", "ignore radical state", "ignore isotopes")</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">MechTopology</span></td>
+<td>If the topology of a mechanism response 
+<select>
+<option>is</option>
+<option>is not</option>
+</select>
+<select>
+<option>linear</option>
+<option>cyclic</option>
+<option>linear or cyclic</option>
+</select> 
+... </td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">topology</span> (0&ndash;3 = "invalid", 
+"linear", "cyclic", "linear or cyclic")</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">SynthEquals</span></td>
+<td>If the response synthesis
+<select>
+<option>matches</option>
+<option>does not match</option>
+</select> 
+exactly the following synthesis, 
+<select>
+<option>considering</option>
+<option>ignoring</option>
+</select> 
+reaction conditions ... </td> 
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">considerRxnCondns</span> ("Y" or "N")
+</td>
+<td align="center">uses <span class="filename">molStruct</span>
+</td></tr>
+<tr><td><span class="classname">SynthTarget</span></td>
+<td>If the target of a synthesis response 
+<select>
+<option>is</option>
+<option>is not</option>
+</select>
+<select>
+<option>exactly</option>
+<option>either enantiomer of</option>
+</select>
+the desired target ... </td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">checkEnantiomer</span> ("Y" or "N")
+</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">SynthScheme</span></td>
+<td>
+<a name="SynthScheme"/>
+If, given the <a href="#qData">rules about starting materials</a>, 
+each step in a synthesis response 
+<select>
+<option>leads</option>
+<option>does not lead</option>
+</select> 
+to the compounds shown in the subsequent step ...</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">partCreditsStr</span> (e.g., "6:50;8:75"; optional)
+</td>
+<td align="center">automatic feedback, may calculate grade</td></tr>
+<tr><td><span class="classname">SynthSelective</span></td>
+<td>If, given the <a href="#qData">rules about starting materials</a>, 
+a synthesis response
+<select>
+<option>is</option>
+<option>is not</option>
+</select> 
+<select>
+<option>enantioselective</option>
+<option>diastereoselective</option>
+<option>structure-selective</option>
+</select> ....
+(The author may exclude a specific reaction from consideration.)</td>
+<td>
+<span class="codedDatum">kind</span> (1&ndash;3)
+<br/><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">partCreditsStr</span> (e.g., "6:50;8:75"; optional)
+</td>
+<td align="center">may use <span class="filename">molStruct</span>, 
+automatic feedback, may calculate grade</td></tr>
+<tr><td><span class="classname">SynthEfficiency</span></td>
+<td>If, given the <a href="#qData">rules about starting materials</a>, 
+<select>
+<option>any</option>
+<option>no</option>
+</select> 
+compound that is produced by a reaction of one of the preceding step
+is a permissible starting material ... </td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">SynthOneRxn</span></td>
+<td>If the given synthetic step 
+<select>
+<option>is</option>
+<option>is not</option>
+</select> 
+<select>
+<option>identical to</option>
+<option>a substructure of</option>
+</select> 
+a synthetic step of the response ...</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">type</span> (0&ndash;1)</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">SynthStart</span></td>
+<td>If, given the compounds below,
+<select>
+<option>none is a response starting material</option>
+<option>any is a response starting material</option>
+<option>all are response starting materials</option>
+<option>not all are response starting materials</option>
+<option>the response starting materials are all among them</option>
+<option>the response starting materials are not all among them</option>
+<option>the response starting materials match one-to-one with them</option>
+<option>the response starting materials do not match one-to-one with them</option>
+</select>
+...
+</td>
+<td><span class="codedDatum">combination</span> (0&ndash;7)</td>
+<td align="center">uses <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">SynthSteps</span></td>
+<td>If the number of 
+<select>
+<option>linear</option>
+<option>total</option>
+</select> 
+steps in a synthesis response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td>
+<span class="codedDatum">kind</span> (1&ndash;2)
+<br /><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">number</span>
+</td>
+<td align="center">may calculate grade</td></tr>
+
+</table>
+
+<h3 style="text-align:center;">Evaluators of nonstructural responses to 
+chemistry-specific questions</h3>
+<table class="nonDbTable" summary="">
+<tr><th style="width:15%;">Evaluator type</th>
+<th style="width:40%;">What it evaluates</th>
+<th style="width:35%;">Coded data</th>
+<th style="width:10%;">Additional information</th></tr>
+
+<tr><td><span class="classname">FormulaFormat</span></td>
+<td>If the response formula 
+<select>
+<option>violates</option>
+<option>does not violate</option>
+</select> 
+the rule:
+<select>
+<option>element symbols have the proper capitalization</option>
+<option>elements are in Hill order</option>
+<option>no 1 when there is one of an atom in a formula</option>
+</select> 
+</td>
+<td><span class="codedDatum">rule</span> number
+<br/><span class="codedDatum">isPositive</span> ("Y" or "N")
+</td>
+<td align="center">automatic feedback</td></tr>
+<tr><td><span class="classname">FormulaWeight</span></td>
+<td>If the response formula has an 
+<select>
+<option>average molecular weight</option>
+<option>exact mass</option>
+</select>
+that is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>x</i> &plusmn; <i>y</i> ...
+</td>
+<td><span class="codedDatum">authWtStr</span>
+<br/><span class="codedDatum">toleranceStr</span>
+<br/><span class="codedDatum">wtOper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">wtType</span> (0&ndash;1 = exact or average)
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">HasFormula</span></td>
+<td>If the response formula
+<select>
+<option>is</option>
+<option>is not</option>
+</select> 
+a given formula ...</td>
+<td><span class="codedDatum">authFormula</span> (* means any number including 0)
+<br/><span class="codedDatum">withFormula</span> (always "Y")
+<br/><span class="codedDatum">countEach</span> (always "N")
+<br/><span class="codedDatum">molsOper</span> ("Y&gt;" or "Y=")
+<br/><span class="codedDatum">numMols</span> (always 0)
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">UnsaturIndex</span></td>
+<td>If the unsaturation index of the response formula
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i>, or is negative or fractional ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc., "bad", 
+"negative", "fractional")
+<br/><span class="codedDatum">authUI</span>
+</td>
+<td align="center">automatic feedback for negative or fractional
+unsaturation index</td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">OEDDiff</span></td>
+<td>
+If the 
+<select>
+<option>orbitals, occupancies, correlations, and labels</option>
+<option>orbitals, occupancies, and correlations</option>
+<option>orbitals and occupancies</option>
+<option>numbers of each type of orbital</option>
+<option>types of orbitals</option>
+</select>
+in the response orbital energy diagram
+<select>
+<option>match</option>
+<option>don't match</option>
+</select>
+<select>
+<option>exactly</option>
+<option>at least</option>
+</select>
+those in the author's diagram, where "match" means that
+<select>
+<option>orbitals' absolute energies must match</option>
+<option>orbitals' relative energies must match</option>
+<option>orbitals' energy differences must have the same sign</option>
+<option>disregard orbital energies</option>
+</select>
+...
+</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">oper</span> (1&ndash;2)
+<br/><span class="codedDatum">compareExtent</span> (0&ndash;4)
+<br/><span class="codedDatum">energies</span> (0&ndash;3)
+<br/><span class="codedDatum">tolerance</span>
+</td>
+<td align="center">uses <span class="filename">molStruct</span>, 
+automatic feedback</td></tr>
+<tr><td><span class="classname">OEDElecCt</span></td>
+<td>If the number of electrons in 
+<select>
+<option>s</option>
+<option>p</option>
+<option>sp</option>
+<option>sp&sup2;</option>
+<option>sp&sup3;</option>
+<option>&sigma;</option>
+<option>&pi;</option>
+<option>&sigma;*</option>
+<option>&pi;*</option>
+<option>any type of</option>
+<option>atomic</option>
+<option>hybrid</option>
+<option>molecular</option>
+<option>bonding</option>
+<option>antibonding</option>
+</select>
+orbitals in
+<select>
+<option>column 1</option>
+<option>column 2</option>
+<option>column 3</option>
+<option>columns 1 and 3</option>
+</select>
+of the orbital energy diagram
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> or the number of electrons in column 
+<select>
+<option>column 1</option>
+<option>column 2</option>
+<option>column 3</option>
+</select>
+...
+</td>
+<td>
+<span class="codedDatum">column</span> (0 = "columns 1 and 3", 1&ndash;3)
+<br/><span class="codedDatum">orbType</span> (&ndash;5 to 9)
+<br /><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">number</span> (&ndash;1 to &ndash;3 
+for electron count of another column, 0 or more otherwise)
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">OEDOrbType</span></td>
+<td>If the number of
+<select>
+<option>s</option>
+<option>p</option>
+<option>sp</option>
+<option>sp&sup2;</option>
+<option>sp&sup3;</option>
+<option>&sigma;</option>
+<option>&pi;</option>
+<option>&sigma;*</option>
+<option>&pi;*</option>
+<option>any type of</option>
+<option>atomic</option>
+<option>hybrid</option>
+<option>molecular</option>
+<option>bonding</option>
+<option>antibonding</option>
+</select>
+orbitals in
+<select>
+<option>column 1</option>
+<option>column 2</option>
+<option>column 3</option>
+</select>
+of the orbital energy diagram
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td>
+<span class="codedDatum">column</span> (1&ndash;3)
+<br/><span class="codedDatum">orbType</span> (&ndash;5 to 9)
+<br /><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">number</span> 
+</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">RCDDiff</span></td>
+<td>
+If the 
+<select>
+<option>maxima and minima, connections between them, and labels</option>
+<option>maxima and minima and connections between them</option>
+<option>maxima and minima</option>
+</select>
+in the response reaction coordinate diagram
+<select>
+<option>match</option>
+<option>don't match</option>
+</select>
+<select>
+<option>exactly</option>
+<option>at least</option>
+</select>
+those in the author's diagram, where "match" means that
+<select>
+<option>absolute maxima and minima energies must match</option>
+<option>relative maxima and minima energies must match</option>
+<option>maxima and minima energy differences must have the same sign</option>
+<option>disregard maxima and minima energies</option>
+</select>
+...
+</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">oper</span> (1&ndash;2)
+<br/><span class="codedDatum">compareExtent</span> (0&ndash;2)
+<br/><span class="codedDatum">energies</span> (0&ndash;3)
+<br/><span class="codedDatum">tolerance</span>
+</td>
+<td align="center">uses <span class="filename">molStruct</span>,
+automatic feedback</td></tr>
+<tr><td><span class="classname">RCDStateCt</span></td>
+<td>If the number of 
+<select>
+<option>maxima</option>
+<option>minima</option>
+<option>maxima and minima</option>
+</select>
+with or without a particular label in
+<select>
+<option>none</option>
+<option>each</option>
+<option>any</option>
+<option>all</option>
+</select>
+of the selected columns of the reaction coordinate diagram
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td>
+<span class="codedDatum">which</span> (0&ndash;2)
+<br/><span class="codedDatum">label</span> (1-based label number, 0 for any)
+<br/><span class="codedDatum">mode</span> (0&ndash;3)
+<br/><span class="codedDatum">columnsStr</span> (colon-separated 1-based column numbers)
+<br /><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">number</span>
+</td>
+<td align="center"></td></tr>
+
+</table>
+
+<a name="genericEvals"/>
+<h3 style="text-align:center;">Evaluators of responses to generic types of questions</h3>
+<table class="nonDbTable" summary="">
+<tr><th style="width:15%;">Evaluator type</th>
+<th style="width:40%;">What it evaluates</th>
+<th style="width:35%;">Coded data</th>
+<th style="width:10%;">Additional information</th></tr>
+
+<tr><td><span class="classname">ClickHere</span></td>
+<td>If 
+<select>
+<option>no</option>
+<option>the only</option>
+<option>exactly one</option>
+<option>any</option>
+<option>not every</option>
+<option>every</option>
+</select> 
+mark is in one of the indicated regions of the image ... </td>
+<td><span class="codedDatum">howMany</span> 
+(1&ndash;6 = "none", "any", "not all", etc.) 
+</td>
+<td align="center">regions stored in <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">ClickNumber</span></td>
+<td>If 
+<select>
+<option>no</option>
+<option>the only</option>
+<option>exactly one</option>
+<option>any</option>
+<option>not every</option>
+<option>every</option>
+</select> 
+mark in one of the indicated regions of the image
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>m</i> &plusmn; <i>n</i> ... </td>
+<td><span class="codedDatum">howMany</span> 
+(1&ndash;6 = "none", "any", "not all", etc.) 
+<br/><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+<br/><span class="codedDatum">tolerance</span>
+</td>
+<td align="center">regions stored in <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">ClickText</span></td>
+<td>If 
+<select>
+<option>no</option>
+<option>the only</option>
+<option>exactly one</option>
+<option>any</option>
+<option>not every</option>
+<option>every</option>
+</select> 
+mark in one of the indicated regions of the image
+<select>
+<option>does</option>
+<option>does not</option>
+</select>
+<select>
+<option>equal</option>
+<option>start with</option>
+<option>end with</option>
+<option>contain</option>
+<option>contain internally</option>
+<option>match the regular expression</option>
+<option>exist within</option>
+</select>
+<br />(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case) the following value ... </td>
+<td><span class="codedDatum">howMany</span> 
+(1&ndash;6 = "none", "any", "not all", etc.) 
+<br/><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">where</span> (0&ndash;6)
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+</td>
+<td align="center">regions and string stored in <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">ClickLabelsCompare</span></td>
+<td>If 
+<select>
+<option>no</option>
+<option>any</option>
+</select> 
+mark in one of the indicated regions of the image
+has text that is
+<select>
+<option>identical to</option>
+<option>different from</option>
+</select>
+that of any other marks in the indicated region(s)
+starting at character <i>n</i>
+<br />(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case) ... </td>
+<td><span class="codedDatum">howMany</span> ("none" or "any") 
+<br/><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">startChar</span>
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+</td>
+<td align="center">regions stored in <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">ClickCount</span></td>
+<td>If the total number of marks in the response is
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">MultipleCheck</span></td>
+<td>If the student
+<select>
+<option>has</option>
+<option>has not</option>
+</select>
+chosen
+<select>
+<option>exactly</option>
+<option>at least</option>
+<option>only from among</option>
+<option>options that only partly overlap</option>
+</select>
+the following checked options ...
+</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">oper</span> (1&ndash;4 = "exactly", 
+"at least", "subset", "partly overlap") 
+<br/><span class="codedDatum">list</span> (colon-separated list of question 
+datum numbers)
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">MultipleNumChosen</span></td>
+<td>If the student
+<select>
+<option>has</option>
+<option>has not</option>
+</select>
+chosen
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> of the following checked options ... </td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">oper</span> (1&ndash;6 or "Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numChosen</span>
+<br/><span class="codedDatum">options</span> (colon-separated list of question 
+datum numbers)
+</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"> <a name="NumberIs"/> <hr/></td></tr>
+<tr><td><span class="classname">NumberIs</span></td>
+<td>If the numerical response
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+(<i>m</i> &plusmn; <i>n</i>) &times; 10<sup><i>p</i></sup>, either
+unitless or in a particular unit or the equivalent in another unit ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+<br/><span class="codedDatum">tolerance</span>
+<br/><span class="codedDatum">authExponent</span>
+<br/><span class="codedDatum">authUnit</span>
+</td>
+<td align="center">authNum may be an expression containing variables, which ACE
+substitutes with the values assigned to the student</td></tr>
+<tr><td><span class="classname">NumberSigFigs</span></td>
+<td>If the number of significant figures
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">NumberUnit</span></td>
+<td>If the student 
+<select>
+<option>has</option>
+<option>has not</option>
+</select>
+chosen one of the following checked units ... </td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br /><span class="codedDatum">unitNums</span> (colon-separated list of question 
+datum numbers)
+</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">RankOrderCheck</span></td>
+<td>
+If the student's response
+<select>
+<option>orders</option>
+<option>does not order</option>
+</select>
+the selected options
+<select>
+<option>contiguously</option>
+<option>contiguously or noncontiguously</option>
+</select>
+in the following relative order ...
+</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">contiguous</span> ("Y" or "N")
+<br/><span class="codedDatum">increasing</span> ("Y" or "N")
+<br/><span class="codedDatum">list</span> (colon-separated list of question 
+datum numbers; numbers preceded by ~ must be unordered)
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">RankPositionCheck</span></td>
+<td>
+If the student's response 
+<select>
+<option>numbers</option>
+<option>does not number</option>
+</select>
+item <i>m</i> as <i>n</i> or unnumbered ...
+</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">selection</span> ("<i>m</i>:<i>n</i>" where <i>m</i>
+is a question datum number and <i>n</i> is its rank)  
+</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">TableDiff</span></td>
+<td>If
+<select>
+<option>every cell in the response table does</option>
+<option>any cell in the response table does not</option>
+</select>
+<select>
+<option>equal (perhaps within a numerical range)</option>
+<option>start with</option>
+<option>end with</option>
+<option>contain</option>
+<option>contain internally</option>
+<option>match the regular expression</option>
+<option>exist within</option>
+</select>
+(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case) the corresponding cell in the author's table ...
+</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">where</span> (0&ndash;6)
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+<br/><span class="codedDatum">calcGrade</span> ("Y" or "N")
+<br/><span class="codedDatum">highlightWrong</span> ("Y" or "N")
+</td>
+<td align="center">author's table stored in <span class="filename">molStruct</span>, 
+may calculate grade, may highlight errors</td></tr>
+<tr><td><span class="classname">TableNumVal</span></td>
+<td>If the numerical value of the cell in
+<select>
+<option>any row</option>
+<option>every row</option>
+<option>no row</option>
+<option>row number n</option>
+</select>
+and
+<select>
+<option>any column</option>
+<option>every column</option>
+<option>no column</option>
+<option>column number n</option>
+</select>
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>m</i> &plusmn; <i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">row</span>
+(&ndash;1 to &ndash;3 = "any", "every", "no", otherwise row number)
+<br/><span class="codedDatum">column</span>
+(&ndash;1 to &ndash;3 = "any", "every", "no", otherwise column number)
+<br/><span class="codedDatum">emptyCell</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">nonnumeric</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">authNum</span>
+<br/><span class="codedDatum">tolerance</span>
+</td>
+<td align="center">may highlight errors</td></tr>
+<tr><td><span class="classname">TableCellNumCt</span></td>
+<td>If the number of cells in
+<select>
+<option>every row</option>
+<option>row number n</option>
+</select>
+and
+<select>
+<option>every column</option>
+<option>column number n</option>
+</select>
+in which the numerical value
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>m</i> &plusmn; <i>n</i>
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>p</i> ... </td>
+<td>
+<span class="codedDatum">operCells</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numCells</span>
+<br/><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">row</span> (&ndash;2 = "every" or row number)
+<br/><span class="codedDatum">column</span> (&ndash;2 = "every" or column number)
+<br/><span class="codedDatum">emptyCell</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">nonnumeric</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">authNum</span>
+<br/><span class="codedDatum">tolerance</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">TableTextVal</span></td>
+<td>If the text value of the cell in
+<select>
+<option>any row</option>
+<option>every row</option>
+<option>no row</option>
+<option>row number n</option>
+</select>
+and
+<select>
+<option>any column</option>
+<option>every column</option>
+<option>no column</option>
+<option>column number n</option>
+</select>
+<select>
+<option>does</option>
+<option>does not</option>
+</select>
+<select>
+<option>equal</option>
+<option>start with</option>
+<option>end with</option>
+<option>contain</option>
+<option>contain internally</option>
+<option>match the regular expression</option>
+<option>exist within</option>
+</select>
+(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case) the following value ...
+</td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">row</span>
+(&ndash;1 to &ndash;3 = "any", "every", "no", otherwise row number)
+<br/><span class="codedDatum">column</span>
+(&ndash;1 to &ndash;3 = "any", "every", "no", otherwise column number)
+<br/><span class="codedDatum">emptyCell</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">where</span> (0&ndash;6)
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+</td>
+<td align="center">string stored in <span class="filename">molStruct</span>,
+may highlight errors</td></tr>
+<tr><td><span class="classname">TableCellTextCt</span></td>
+<td>If the number of cells in
+<select>
+<option>every row</option>
+<option>row number n</option>
+</select>
+and
+<select>
+<option>every column</option>
+<option>column number n</option>
+</select>
+in which the text value
+<select>
+<option>does</option>
+<option>does not</option>
+</select>
+<select>
+<option>equal</option>
+<option>start with</option>
+<option>end with</option>
+<option>contain</option>
+<option>contain internally</option>
+<option>match the regular expression</option>
+<option>exist within</option>
+</select>
+(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case) the following value
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td>
+<span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">numCells</span>
+<br/><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">row</span> ("every", row number)
+<br/><span class="codedDatum">column</span> ("every", column number)
+<br/><span class="codedDatum">emptyCell</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">where</span> (0&ndash;6)
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+</td>
+<td align="center">string stored in <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">TableTextText</span></td>
+<td>If, for  
+<select>
+<option>any</option>
+<option>every</option>
+</select>
+row in which the text in column <i>m</i> is the following value, 
+the text in column <i>n</i>
+<select>
+<option>does</option>
+<option>does not</option>
+</select>
+<select>
+<option>equal</option>
+<option>start with</option>
+<option>end with</option>
+<option>contain</option>
+<option>contain internally</option>
+<option>match the regular expression</option>
+<option>exist within</option>
+</select>
+(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case) the following value ... </td>
+<td><span class="codedDatum">rowOper</span> ("any", "every")
+<br/><span class="codedDatum">columnRef</span>
+<br/><span class="codedDatum">columnTest</span>
+<br/><span class="codedDatum">emptyCell</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">where</span> (0&ndash;6)
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+</td>
+<td align="center">strings stored in <span class="filename">molStruct</span>,
+may highlight errors</td></tr>
+<tr><td><span class="classname">TableTextNum</span></td>
+<td>If, for  
+<select>
+<option>any</option>
+<option>every</option>
+</select>
+row in which the text in column <i>m</i> is the following value 
+(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case), the numerical value in column <i>n</i>
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>p</i> &plusmn; <i>q</i> ... </td>
+<td><span class="codedDatum">rowOper</span> ("any", "every")
+<br/><span class="codedDatum">columnRef</span>
+<br/><span class="codedDatum">columnTest</span>
+<br/><span class="codedDatum">emptyCell</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">nonnumeric</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+<br/><span class="codedDatum">tolerance</span>
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+</td>
+<td align="center">string stored in <span class="filename">molStruct</span>,
+may highlight errors</td></tr>
+<tr><td><span class="classname">TableNumText</span></td>
+<td>If, for  
+<select>
+<option>any</option>
+<option>every</option>
+</select>
+row in which the numerical value in column <i>m</i>
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>p</i> &plusmn; <i>q</i>, 
+the text in column <i>n</i>
+<select>
+<option>does</option>
+<option>does not</option>
+</select>
+<select>
+<option>equal</option>
+<option>start with</option>
+<option>end with</option>
+<option>contain</option>
+<option>contain internally</option>
+<option>match the regular expression</option>
+<option>exist within</option>
+</select>
+the following value
+(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case) ... </td>
+<td><span class="codedDatum">rowOper</span> ("any", "every")
+<br/><span class="codedDatum">columnRef</span>
+<br/><span class="codedDatum">columnTest</span>
+<br/><span class="codedDatum">emptyCell</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">nonnumeric</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+<br/><span class="codedDatum">tolerance</span>
+<br/><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">where</span> (0&ndash;6)
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+</td>
+<td align="center">string stored in <span class="filename">molStruct</span>,
+may highlight errors</td></tr>
+<tr><td><span class="classname">TableNumNum</span></td>
+<td>If, for  
+<select>
+<option>any</option>
+<option>every</option>
+</select>
+row in which the numerical value in column <i>m</i>
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>p</i> &plusmn; <i>q</i>, 
+the numerical value in column <i>n</i>
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>r</i> &plusmn; <i>s</i> ... </td>
+<td><span class="codedDatum">rowOper</span> ("any", "every")
+<br/><span class="codedDatum">columnRef</span>
+<br/><span class="codedDatum">columnTest</span>
+<br/><span class="codedDatum">emptyCell</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">nonnumeric</span> (0&ndash;2 = "ignore", "zero", "disallow")
+<br/><span class="codedDatum">operRef</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNumRef</span>
+<br/><span class="codedDatum">toleranceRef</span>
+<br/><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+<br/><span class="codedDatum">tolerance</span>
+</td>
+<td align="center">may highlight errors</td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">LogicStmtsCt</span></td>
+<td>If the number of statements in the response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+</td>
+<tr><td><span class="classname">TextContains</span></td>
+<td>If the student's text
+<select>
+<option>does</option>
+<option>does not</option>
+</select>
+<select>
+<option>equal</option>
+<option>start with</option>
+<option>end with</option>
+<option>contain</option>
+<option>contain internally</option>
+<option>match the regular expression</option>
+<option>exist within</option>
+</select>
+(<select>
+<option>ignoring</option>
+<option>heeding</option>
+</select>
+case) the following value ... </td>
+<td>
+<span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">where</span> (0&ndash;6)
+<br/><span class="codedDatum">ignoreCase</span> ("Y" or "N")
+</td>
+<td align="center">string stored in <span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">TextWordCount</span></td>
+<td>If the number of words in the text response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">HumanReqd</span></td>
+<td>If the response requires human evaluation ...</td>
+<td></td>
+<td align="center">automatic feedback</td></tr>
+
+</table>
+
+<a name="physicsEvals"/>
+<h3 style="text-align:center;">Math &amp; physics evaluators</h3>
+<table class="nonDbTable" summary="">
+<tr><th style="width:15%;">Evaluator type</th>
+<th style="width:40%;">What it evaluates</th>
+<th style="width:35%;">Coded data</th>
+<th style="width:10%;">Additional information</th></tr>
+
+<tr><td><span class="classname">EqnSolved</span></td>
+<td>If every equation in the last entry of the response 
+<select>
+<option>is</option>
+<option>is not</option>
+</select>
+solved for the variable <i>x</i>...
+</td>
+<td><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">mustBeReduced</span> (refers to numerical solution; "Y" or "N")
+<br/><span class="codedDatum">variable</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">EqnIs</span></td>
+<td>If the equations or expressions in the 
+<select>
+<option>first</option>
+<option>last</option>
+</select>
+entry of the response 
+<select>
+<option>are</option>
+<option>are not</option>
+</select>
+equivalent to the author's equation or expression, and if the
+response equations or expressions constitute
+<select>
+<option>some</option>
+<option>all</option>
+</select>
+of the author's solutions...
+</td>
+<td><span class="codedDatum">which</span> ("first" or "last")
+<br/><span class="codedDatum">isPositive</span> ("Y" or "N")
+<br/><span class="codedDatum">howManySolutions</span> ("one" or "all")
+</td>
+<td align="center">author's equation stored in 
+<span class="filename">molStruct</span></td></tr>
+<tr><td><span class="classname">EqnsFollow</span></td>
+<td>If each equation or expression in the response 
+<select>
+<option>is</option>
+<option>is not</option>
+</select>
+equivalent to the next equation or expression ...
+</td>
+<td><span class="codedDatum">isPositive</span> ("Y" or "N")
+</td>
+<td align="center">automatic feedback</td></tr>
+<tr><td><span class="classname">EqnsCt</span></td>
+<td>If the number of entries in the response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">EqnVariables</span></td>
+<td>If the number of variables in the
+<select>
+<option>first</option>
+<option>last</option>
+</select>
+entry in the response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+<br/><span class="codedDatum">which</span> ("first" or "last")
+</td>
+<td align="center"></td></tr>
+
+<tr><td colspan="4"><hr/></td></tr>
+<tr><td><span class="classname">VectorsAxes</span></td>
+<td>If 
+<select>
+<option>no</option>
+<option>the only</option>
+<option>exactly one</option>
+<option>any</option>
+<option>not every</option>
+<option>every</option>
+</select>
+vector in the response lays along the
+<select>
+<option>x-</option>
+<option>y-</option>
+<option>x- or y-</option>
+</select>
+axis ... </td>
+<td><span class="codedDatum">howMany</span> 
+(1&ndash;6 = "none", "any", "not all", etc.) 
+<br/><span class="codedDatum">direction</span>
+<br/><span class="codedDatum">tolerance</span>
+</td>
+<td align="center"></td></tr>
+
+<tr><td><span class="classname">VectorsCt</span></td>
+<td>If the number of vectors in the response 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+<i>n</i> ... </td>
+<td><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">authNum</span>
+</td>
+<td align="center"></td></tr>
+<tr><td><span class="classname">VectorsCompare</span></td>
+<td>If the 
+<select>
+<option>magnitude and direction</option>
+<option>magnitude</option>
+<option>direction</option>
+</select>
+of 
+<select>
+<option>none</option>
+<option>any</option>
+<option>the sum</option>
+</select>
+of the vectors in the response is/are 
+<select>
+<option>=</option>
+<option>&lt;</option>
+<option>&gt;</option>
+<option>&ne;</option>
+<option>&ge;</option>
+<option>&le;</option>
+</select>
+the same in the author's vector
+<td><span class="codedDatum">noAnySum</span>("no_vec", "any_vec", "vec_sum")
+<br/><span class="codedDatum">vectorQuant</span>("whole", "length", "direction")
+<br/><span class="codedDatum">oper</span> ("Y=", "N&lt;", etc.)
+<br/><span class="codedDatum">lengthTolerance</span>
+<br/><span class="codedDatum">lengthToleranceUnit</span>("percent", "pixels")
+<br/><span class="codedDatum">angleTolerance</span>
+</td>
+<td align="center">author's vector stored in 
+<span class="filename">molStruct</span></td></tr>
+
+</table>
+
+<p>Many of the evaluator classes share common superclasses, 
+which may or may not themselves be evaluator classes.  In the list
+below, we have marked in <span style="color:blue;">blue</span> those 
+superclasses that are not themselves evaluators.</p>  
+
+<ul><li>
+<span class="classname" style="color:blue;">CompareNums</span>
+	<ul><li>
+	<span class="classname">BondAngle</span>
+	</li><li>
+	<span class="classname" style="color:blue;">CompareNumsOfNums</span>
+		<ul><li>
+		<span class="classname">Atoms</span>
+		</li><li>
+		<span class="classname">Charge</span>
+		</li><li>
+		<span class="classname">FnalGroup</span>
+		</li><li>
+		<span class="classname">HasFormula</span>
+		</li><li>
+		<span class="classname">Rings</span>
+		</li><li>
+		<span class="classname">Weight</span>
+			<ul><li>
+			<span class="classname">FormulaWeight</span>
+			</li></ul>
+		</li></ul>
+	</li><li>
+	<span class="classname" style="color:blue;">Conformations</span>
+		<ul><li>
+		<span class="classname">ConformBond</span>
+		</li><li>
+		<span class="classname">ConformChair</span>
+		</li></ul>
+	</li><li>
+	<span class="classname">EqnsCt</span>
+	</li><li>
+	<span class="classname">EqnVariables</span>
+	</li><li>
+	<span class="classname">LewisElecDeficCt</span>
+	</li><li>
+	<span class="classname">LewisOuterNumber</span>
+	</li><li>
+	<span class="classname">LogicStmtsCt</span>
+	</li><li>
+	<span class="classname">MechCounter</span>
+	</li><li>
+	<span class="classname">MultipleNumChosen</span>
+	</li><li>
+	<span class="classname">NumberSigFigs</span>
+	</li><li>
+	<span class="classname">NumMols</span>
+	</li><li>
+	<span class="classname">OEDOrbType</span>
+		<ul><li>
+		<span class="classname">OEDElecCt</span>
+		</li></ul>
+	</li><li>
+	<span class="classname">RCDStateCt</span>
+	</li><li>
+	<span class="classname">SynthSteps</span>
+	</li><li>
+	<span class="classname" style="color:blue;">TextAndNumbers</span>
+		<ul><li>
+		<span class="classname" style="color:blue;">Counter</span>
+			<ul><li>
+			<span class="classname">ClickHere</span>
+				<ul><li>
+				<span class="classname">ClickText</span>
+				</li></ul>
+			</li><li>
+			<span class="classname">Contains</span>
+			</li><li>
+			<span class="classname">Is</span>
+				<ul><li>
+				<span class="classname">Is2DChair</span>
+				</li></ul>
+			</li><li>
+			<span class="classname">MechProdStartProps</span>
+			</li></ul>
+		</li><li>
+		<span class="classname">NumberIs</span>
+		</li><li>
+		<span class="classname" style="color:blue;">TableDependent</span>
+			<ul><li>
+			<span class="classname">TableTextText</span>
+			</li><li>
+			<span class="classname">TableNumText</span>
+			</li><li>
+			<span class="classname">TableTextNum</span>
+			</li><li>
+			<span class="classname">TableNumNum</span>
+			</li></ul>
+		</li><li>
+		<span class="classname" style="color:blue;">TableVal</span>
+			<ul><li>
+			<span class="classname">TableNumVal</span>
+				<ul><li>
+				<span class="classname">TableCellNumCt</span>
+				</li></ul>
+			</li><li>
+			<span class="classname">TableTextVal</span>
+				<ul><li>
+				<span class="classname">TableCellTextCt</span>
+				</li></ul>
+			</li></ul>
+		</li><li>
+		<span class="classname">TextContains</span>
+			<ul><li>
+			<span class="classname">TableDiff</span>
+			</li></ul>
+		</li></ul>
+	</li><li>
+	<span class="classname">TextWordCount</span>
+	</li><li>
+	<span class="classname">UnsaturIndex</span>
+	</li></ul>
+</li><li>
+<span class="classname" style="color:blue;">EDiagramDiff</span>
+	<ul><li>
+	<span class="classname">OEDDiff</span>
+	</li><li>
+	<span class="classname">RCDDiff</span>
+	</li></ul>
+</li><li>
+<span class="classname" style="color:blue;">EqnsEquiv</span>
+	<ul><li>
+	<span class="classname">EqnIs</span>
+	</li><li>
+	<span class="classname">EqnsFollow</span>
+	</li></ul>
+</li><li>
+<span class="classname" style="color:blue;">SynthPartCredits</span>
+	<ul><li>
+	<span class="classname">SynthScheme</span>
+	</li><li>
+	<span class="classname">SynthSelective</span>
+	</li></ul>
+</li></ul>
+
+<p>
+The purpose of organizing the classes in this way is to reduce redundancy of 
+fields, constants, and methods among the many similar classes.  The remaining 
+evaluators are:</p>
+<ul><li>
+<span class="classname">Chiral</span>
+</li><li>
+<span class="classname">EqnSolved.java</span>
+</li><li>
+<span class="classname">FormulaFormat.java</span>
+</li><li>
+<span class="classname">HumanReqd.java</span>
+</li><li>
+<span class="classname">LewisFormalCharge.java</span>
+</li><li>
+<span class="classname">LewisIsomorph.java</span>
+</li><li>
+<span class="classname">LewisValenceTotal.java</span>
+</li><li>
+<span class="classname">MapProperty.java</span>
+</li><li>
+<span class="classname">MapSelectionsCounter.java</span>
+</li><li>
+<span class="classname">MechEquals.java</span>
+</li><li>
+<span class="classname">MechFlowsValid.java</span>
+</li><li>
+<span class="classname">MechInitiation.java</span>
+</li><li>
+<span class="classname">MechProdStartIs.java</span>
+</li><li>
+<span class="classname">MechRule.java</span>
+</li><li>
+<span class="classname">MechShape.java</span>
+</li><li>
+<span class="classname">MechSubstructure.java</span>
+</li><li>
+<span class="classname">MultipleCheck.java</span>
+</li><li>
+<span class="classname">NumberUnit.java</span>
+</li><li>
+<span class="classname">RankOrder.java</span>
+</li><li>
+<span class="classname">RankPosition.java</span>
+</li><li>
+<span class="classname">SynthEfficiency.java</span>
+</li><li>
+<span class="classname">SynthEquals.java</span>
+</li><li>
+<span class="classname">SynthOneRxn.java</span>
+</li><li>
+<span class="classname">SynthStart.java</span>
+</li><li>
+<span class="classname">SynthTarget.java</span>
+</li></ul>
+
+<p>Any response will satisfy the <span class="classname">HumanReqd</span> 
+evaluator.  When ACE encounters this evaluator, it marks the response as 
+needing an instructor to assign a grade.  The instructor can see in the gradebook 
+which responses he or she needs to grade.  The instructor clicks on the
+student's name and uses <span class="link">alter</span> to assign a grade.</p>
+
+<a name="mechRulesTable"/>
+<p>The <span class="classname">MechRule</span> evaluator evaluates an entire
+mechanism for violations of a heuristic mechanisms rule chosen by the author 
+of the question.  ACE can search responses for violations of the rules listed
+in the next table.</p>
+
+<!--#include file="mechRules.html"-->
+
+<p>The code identifies each evaluator with a short 
+<span class="classname">String</span>, called a "match code"; ACE stores the 
+match codes in a single list in 
+<span class="classname">EvalManager</span>.  Every 
+evaluator shares certain fields and methods, which ACE enumerates in 
+<span class="classname">EvaluatorInterface</span>.  The most
+important fields are the coded data and the molecule.  Coded data 
+consists of a <span class="classname">String</span> of
+slash-separated data whose meanings are
+specific to the evaluator type.  For example, the coded data for the 
+<span class="classname">Is</span> evaluator consists of two integers; 
+the first represents how many times a structure should or should not appear 
+in the response, and the
+second holds flags that describe whether the evaluator should consider
+enantiomers, resonance structures, or other variants of the given structure.
+Many evaluators also require an author's molecule for evaluations.
+</p>
+
+<p>When an author adds or edits a simple evaluator, the page that appears,
+<span class="filename">authortool/evaluators/loadEvaluatorChem.jsp</span>,
+<span class="filename">loadEvaluatorGeneric.jsp</span>,
+or <span class="filename">loadEvaluatorPhysics.jsp</span>,
+consists of three parts.  The upper part, 
+derived from <span class="filename">selectorFooter.jsp.h</span>, allows the
+author to select an evaluator type appropriate for the question type and the
+points associated with a response that satisfies the evaluator.  The lower
+part, also derived from <span class="filename">selectorFooter.jsp.h</span>, 
+allows the author to enter the
+feedback associated with this evaluator.  ACE will suggest feedback for some
+evaluator types.  ACE will also generate automatic feedback for some evaluator
+types, as shown in the table; ACE stores these types in a 
+<span class="classname">List</span> in 
+<span class="classname">EvalManager</span>.  The middle part is
+evaluator-specific and may contain LewisJS 
+or <a href="https://www.chemaxon.com/products/marvin/marvin-js/"
+target="window2">MarvinJS</a>,
+checkboxes and pulldown menus, etc.
+If a subevaluator of a complex evaluator generates automatic feedback, then
+the complex evaluator will return that automatic feedback if the 
+subevaluator is the <i>last</i> individual expression of an OR expression
+or the <i>first</i> individual expression of an AND expression.
+</p>  
+
+<p>For most question types, it is possible for an author to write an evaluator
+that examines whether a response is correct.  However, no single evaluator
+exists that can determine whether a mechanism or synthesis is correct.  Instead,
+ACE must evaluate responses to these questions by seeing whether the response
+contains any mistakes.  For example, the response to a mechanism question must
+be wrong if it does not arrive at the target compound, if it uses starting
+materials that the question description did not provide, if it includes or omits
+certain key intermediates, if the electron-flow arrows in any step do not lead
+to the compounds in the subsequent step, and so on.  On the other hand, if a
+response fails to satisfy any of these evaluators, then the response contains no
+errors, so it must be correct.  We use the evaluator, "If the number of C atoms
+is more than 0," to catch any response that has failed to satisfy any of the
+other evaluators, and we associate this evaluator with a grade of 1.0 and the
+feedback, "Good! Your mechanism appears to be correct."</p> 
+
+<h4>Additional information that evaluators use</h4>
+<p>Below the evaluators, a master author may see buttons that allow him or her 
+to add or modify (but not delete) definitions of functional groups, reaction 
+conditions, impossible starting materials in synthesis questions, compounds 
+that must be pulled from the reagents menu in synthesis questions, and unit 
+conversion factors.  A
+button to edit a table appears only if the author is editing a question of 
+a type that uses evaluators that use the information in that particular table.
+</p>
+
+<!--#include file="db/functional_groups.html"-->
+<!--#include file="db/reaction_conditions.html"-->
+<!--#include file="db/impossible_SMs.html"-->
+<!--#include file="db/menu_only_reagents.html"-->
+<!--#include file="db/unit_conversions.html"-->
+
+<p>A word about reaction condition definitions.  We use ChemAxon's 
+<a href="http://www.chemaxon.com/product/reactor.html">Reactor</a>
+to calculate reaction products from starting materials that the
+user provides and reaction definitions that we provide.  Because
+each reaction definition defines one reaction, but ACE asks 
+students to subject starting materials and intermediates to reaction 
+<i>conditions</i> under which many different reactions may occur,
+we combine and modify definitions using our own 
+<a href="synthGlossary.html">terms</a> as well.
+</p>
+
+<h4>Preview</h4>
+<p>When authors make changes to a question, they can examine the way that the
+change affects ACE's evaluation of various responses by pressing the 
+<span class="link">Preview</span> button.  ACE directs the author to 
+<span class="filename">authortool/startPreview.jsp</span>, then to 
+<span class="filename">homework/jumpGo.jsp</span>, and thence to the 
+<a href="solve.shtml">question-answering page</a>, 
+<span class="filename">homework/answerframe.jsp</span>.</p> 
+
+
+<a name="view"/>
+<h4>View Responses</h4>
+<p>An author can see all of the responses that students have made to a
+particular question by pressing the <span class="link">View Responses</span>
+button.  The page that appears, 
+<span class="filename">authortool/FIHistory.jsp</span>, shows which 
+<a href="#evals">evaluators</a> the 20 most frequent responses satisfied.  An
+author may choose to add or edit an evaluator based on this information.  ACE
+will collate the responses of <i>all</i> students, not just that author's
+students, who have responded to this question.  (Locally authored questions, of
+course, are accessible only to the students of the author who created those
+questions.)  The View Responses function does not work for mechanism or
+synthesis questions because ACE has no algorithm for deciding whether two
+responses are identical.</p> 
+
+</body>
+</html>

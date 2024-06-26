@@ -1,0 +1,38 @@
+<div>
+<p align="center"><span class="database">captions_v1</span>
+and <span class="database">user_captions_v1</span>,
+row and column captions, pulldown menu labels, and y-axis scale values 
+for complete-the-table and energy diagram questions</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td><span class="database">question_id<sup>1,2*</sup></span>
+</td>
+<td>question;
+*foreign key only for <span class="database">captions_v1</span>,
+&rarr; 
+<span class="database">questions_v3.id</span> (or 
+<span class="database">user_questions_v3.id</span>);
+</td>
+<td>number(38)</td></tr> 
+<tr><td><span class="database">user_id<sup>2</sup></span> 
+</td>
+<td>
+<span class="database">user_captions_v1</span> only;
+question author &rarr;
+<span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">type</td>
+<td><b>R</b> for row caption, 
+<b>C</b> for column caption, 
+<b>L</b> for pulldown menu label,
+or <b>Y</b> for y-axis scale quantities</td>
+<td>char(1)</td></tr>
+<tr><td class="database">serial_no</td>
+<td>serial number of the item; starts at 0 for 
+column captions in complete-the-table questions, 1 otherwise</td>
+<td>number(38)</td></tr>
+<tr><td class="database">text</td>
+<td>the caption or label text or the y-axis scale quantity</td>
+<td>CLOB</td></tr>
+</table></div>
+

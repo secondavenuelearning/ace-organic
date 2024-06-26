@@ -1,0 +1,20 @@
+<p align="center"><span class="database">hwset_extensions_v1</span>, 
+assignment extensions</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">hw_id<sup>1,2</sup></td>
+<td>unique assignment ID &rarr; <span class="database">hwsets_v5.hw_id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">student_id<sup>1,2</sup></td>
+<td>student's username &rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">extension</td>
+<td>the extension in days or minutes</td>
+<td>number(8,2)</td></tr>
+<tr><td class="database">extension_str</td>
+<td>string value of the extension</td>
+<td>varchar2(10)</td></tr>
+<tr><td class="database">serial_no</td>
+<td>serial number of the extension; used to preserve order by student name</td>
+<td>number(38)</td></tr>
+</table>

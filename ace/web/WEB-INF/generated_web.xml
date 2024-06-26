@@ -1,0 +1,3252 @@
+
+<!--
+Automatically created by Apache Tomcat JspC.
+Place this fragment in the web.xml before all icon, display-name,
+description, distributable, and context-param elements.
+-->
+
+    <servlet>
+        <servlet-name>org.apache.jsp.userHome_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.userHome_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.logout_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.logout_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.loginNow_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.loginNow_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.login_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.login_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.discovery_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.discovery_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.showTable_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.showTable_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.saveStatement_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.saveStatement_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.enterAuthortool_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.enterAuthortool_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.chooseRxnCondsUser_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.chooseRxnCondsUser_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.errorParam_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.errorParam_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.reentryActions_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.reentryActions_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.saveEditables_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.saveEditables_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.editCommonQStatement_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.editCommonQStatement_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.newWindow_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.newWindow_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.noQset_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.noQset_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.startPreview_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.startPreview_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.FIHeader_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.FIHeader_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.questionsList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.questionsList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.jumpToQ_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.jumpToQ_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.question_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.question_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.noViewResp_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.noViewResp_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.revertCommonQStatement_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.revertCommonQStatement_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.errorQNull_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.errorQNull_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.FIHistory_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.FIHistory_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.dbactions_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.dbactions_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.evaluators.joinEvaluators_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.evaluators.joinEvaluators_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.evaluators.saveEvaluator_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.evaluators.saveEvaluator_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.evaluators.saveJoinedEvaluators_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.evaluators.saveJoinedEvaluators_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.evaluators.loadEvaluatorGeneric_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.evaluators.loadEvaluatorGeneric_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.evaluators.loadEvaluatorPhysics_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.evaluators.loadEvaluatorPhysics_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.evaluators.loadEvaluatorChem_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.evaluators.loadEvaluatorChem_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.export.exportSet_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.export.exportSet_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.import_.importSet_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.import_.importSet_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.import_.import_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.import_.import_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.import_.browseFile_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.import_.browseFile_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qBank.editQset_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qBank.editQset_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qBank.topicsEditor_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qBank.topicsEditor_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qBank.viewQset_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qBank.viewQset_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qBank.viewTopic_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qBank.viewTopic_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qBank.deleteQset_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qBank.deleteQset_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qBank.saveQset_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qBank.saveQset_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qBank.saveTopic_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qBank.saveTopic_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qBank.editTopic_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qBank.editTopic_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.figures.imgUpload_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.figures.imgUpload_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.figures.changeFigure_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.figures.changeFigure_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.figures.saveFigure_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.figures.saveFigure_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.figures.loadFigure_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.figures.loadFigure_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.figures.calcUpload_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.figures.calcUpload_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.move.moveQ_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.move.moveQ_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.move.changeQSet_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.move.changeQSet_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qData.loadQData_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qData.loadQData_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.qData.saveQData_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.qData.saveQData_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveFnalGrp_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.saveFnalGrp_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.editReaction_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.editReaction_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveRGroupColl_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.saveRGroupColl_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewBadSMs_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.viewBadSMs_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewCanonicalizedUnits_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.viewCanonicalizedUnits_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.changeReactionResult1_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.changeReactionResult1_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveCanonicalizedUnit_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.saveCanonicalizedUnit_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewFnalGroups_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.viewFnalGroups_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.removeCanonicalizedUnit_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.removeCanonicalizedUnit_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewMenuOnlyRgts_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.viewMenuOnlyRgts_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveReaction_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.saveReaction_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.changeReactionResult2_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.changeReactionResult2_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.deleteReactionResult1_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.deleteReactionResult1_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveMenuOnlyRgt_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.saveMenuOnlyRgt_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.addUnitConversion_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.addUnitConversion_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.removeUnitConversion_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.removeUnitConversion_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.addCanonicalizedUnit_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.addCanonicalizedUnit_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveUnitConversion_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.saveUnitConversion_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewReactions_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.viewReactions_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.editBadSM_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.editBadSM_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewUnitConversions_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.viewUnitConversions_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveBadSM_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.saveBadSM_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.editFnalGrp_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.editFnalGrp_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.deleteReactionResult2_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.deleteReactionResult2_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.editMenuOnlyRgt_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.editMenuOnlyRgt_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.universalData.editRGroupColl_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.universalData.editRGroupColl_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.chooseLanguage_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.chooseLanguage_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.exportAllTranslatables_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.exportAllTranslatables_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.savePhraseTranslations_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.savePhraseTranslations_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.phraseTranslate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.phraseTranslate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.deletePhrase_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.deletePhrase_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.readPhrases_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.readPhrases_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.findUntranslated_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.findUntranslated_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.saveTranslations_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.saveTranslations_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.translate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.translate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.exportPhrases_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.exportPhrases_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.exportTranslations_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.exportTranslations_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.getTranslationsFile_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.getTranslationsFile_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.readTranslations_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.readTranslations_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.authortool.translation.importTranslations_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.authortool.translation.importTranslations_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.hwmain_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.hwmain_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.chooseRxnCondsUser_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.chooseRxnCondsUser_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.imageLarge_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.imageLarge_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.answerPreview_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.answerPreview_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.maximaToTex_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.maximaToTex_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.showMol_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.showMol_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.list_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.list_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.submitUnsubmitted_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.submitUnsubmitted_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.jumpGo_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.jumpGo_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.homework.answerframe_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.homework.answerframe_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.findOldUsers_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.findOldUsers_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.listOldUsers_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.listOldUsers_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.getInventory_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.getInventory_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.setPaymentGracePeriod_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.setPaymentGracePeriod_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.setImpersonatedUser_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.setImpersonatedUser_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.saveDefaultLanguage_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.saveDefaultLanguage_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.setPermissions_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.setPermissions_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.addEnglishPhrase_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.addEnglishPhrase_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.removeUser_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.removeUser_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.setDefaultLanguage_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.setDefaultLanguage_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.reloadSingletons_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.reloadSingletons_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.removeOldPostImages_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.removeOldPostImages_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.removeOldUsers_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.removeOldUsers_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.savePaymentGracePeriod_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.savePaymentGracePeriod_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.listProfiles_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.listProfiles_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.admintools_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.admintools_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.exitManager_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.exitManager_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.evalTextConvert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.evalTextConvert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.questionDataConvert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.questionDataConvert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.translationConvert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.translationConvert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.autoConvert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.autoConvert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.clearReactorCache_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.clearReactorCache_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.statementsConvert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.statementsConvert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.translationConvertAll_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.translationConvertAll_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.updateDB_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.updateDB_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.headersConvert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.headersConvert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.feedbackConvert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.admin.dbUpdate.feedbackConvert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.saveCourse_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.saveCourse_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.saveCoinstructor_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.saveCoinstructor_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.saveNotes_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.saveNotes_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.moveCourse_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.moveCourse_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.editNotes_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.editNotes_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.enterCourse_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.enterCourse_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.enterCourseVerify_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.enterCourseVerify_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.courseHome_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.courseHome_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.revealCourse_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.revealCourse_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.deleteCoinstructor_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.deleteCoinstructor_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.cloneHWSets_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.cloneHWSets_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.saveRevealed_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.saveRevealed_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.marvinLive_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.marvinLive_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.selectCourse_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.selectCourse_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.deleteCourse_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.deleteCourse_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.endMarvinLive_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.endMarvinLive_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.editCourse_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.editCourse_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.saveCoursePassword_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.saveCoursePassword_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.course.addCoinstructor_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.course.addCoinstructor_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.forum.imgUpload_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.forum.imgUpload_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.forum.savePost_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.forum.savePost_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.forum.posts_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.forum.posts_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.forum.topics_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.forum.topics_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.forum.searchPosts_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.forum.searchPosts_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.forum.saveTopic_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.forum.saveTopic_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.forum.editTopic_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.forum.editTopic_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.forum.addPost_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.forum.addPost_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.listRegistered_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.listRegistered_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.inventEnrollment_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.inventEnrollment_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.saveBatchEnrollment_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.saveBatchEnrollment_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.inventFinish_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.inventFinish_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.listEnrollmentTxt_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.listEnrollmentTxt_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.modifyTAStatus_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.modifyTAStatus_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.fileUpload_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.fileUpload_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.deleteFinish_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.deleteFinish_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.saveEnrollment_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.saveEnrollment_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.listEnrollment_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.listEnrollment_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.transferWork_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.transferWork_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.paymentFinish_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.paymentFinish_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.inventStudents_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.inventStudents_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.transferFinish_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.transferFinish_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.chooseMatches_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.chooseMatches_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.editEnrollment_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.editEnrollment_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.payment_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.payment_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.enrollRegistered_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.enrollRegistered_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.deleteEnrollment_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.deleteEnrollment_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.batchEnrollment_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.batchEnrollment_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.getMatches_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.getMatches_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.deleteExamIds_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.deleteExamIds_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.forumAccess_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.forumAccess_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.enroll.finishEnroll_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.enroll.finishEnroll_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.setAssgtDependency_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.setAssgtDependency_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.dupeHWSet_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.dupeHWSet_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.hwEditor_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.hwEditor_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.addNewHWSet_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.addNewHWSet_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.mergeHWSets_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.mergeHWSets_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.moveHWSet_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.moveHWSet_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.showExtensions_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.showExtensions_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.uploadHWSets_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.uploadHWSets_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.saveHW_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.saveHW_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.editHWSet_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.editHWSet_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.hwSetList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.hwSetList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.deleteHWSet_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.deleteHWSet_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.saveExamData_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.saveExamData_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.importHWSets_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.importHWSets_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.editExams_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.editExams_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.editHWProps_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.editHWProps_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.chooseRxnConds_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.chooseRxnConds_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.saveSelfExtension_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.saveSelfExtension_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.exportHWSets_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.exportHWSets_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.hwcreator.selfExtend_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.hwcreator.selfExtend_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.showAlert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.showAlert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.showElemAnal_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.showElemAnal_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.updateFigure_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.updateFigure_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.getRxnIdsFromMRV_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.getRxnIdsFromMRV_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.addRxnCondsToMRV_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.addRxnCondsToMRV_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.modifyProperty_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.modifyProperty_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.showSourceCode_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.showSourceCode_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.measure_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.measure_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.jmolWindow_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.jmolWindow_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.marvinJSViewer_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.marvinJSViewer_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.includes.marvinJSWindow_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.includes.marvinJSWindow_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.errormsgs.errorHandler_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.errormsgs.errorHandler_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.reports.chooseStudents_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.reports.chooseStudents_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.reports.startView_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.reports.startView_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.reports.reportTxt_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.reports.reportTxt_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.reports.getReports_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.reports.getReports_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.reports.showMol_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.reports.showMol_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.detailedGrade_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.detailedGrade_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.startView_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.startView_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.detailedGradeTxt_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.detailedGradeTxt_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.resetConfirm_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.resetConfirm_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.regradeConfirm_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.regradeConfirm_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.showMol_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.showMol_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.grade_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.grade_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.doRegrade_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.doRegrade_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.gradeTxt_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.gradeTxt_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.allGrades_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.allGrades_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.notify_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.notify_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.gradebook.doReset_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.gradebook.doReset_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.demo.index_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.demo.index_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.setNewPwd_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.setNewPwd_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.securityQs_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.securityQs_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.register_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.register_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.email_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.email_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.saveNewUser_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.saveNewUser_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.getUsername_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.getUsername_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.getNewPwd_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.getNewPwd_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.showAlert_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.showAlert_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.showElemAnal_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.showElemAnal_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.updateFigure_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.updateFigure_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.getRxnIdsFromMRV_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.getRxnIdsFromMRV_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.addRxnCondsToMRV_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.addRxnCondsToMRV_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.modifyProperty_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.modifyProperty_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.showSourceCode_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.showSourceCode_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.measure_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.measure_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.jmolWindow_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.jmolWindow_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.marvinJSViewer_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.marvinJSViewer_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.nosession.includes.marvinJSWindow_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.nosession.includes.marvinJSWindow_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.hybrids_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.hybrids_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.getDataURL_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.getDataURL_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.findDisallowedSN2_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.findDisallowedSN2_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.lookForCarbocation_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.lookForCarbocation_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.enterEqns_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.enterEqns_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.canonicalizeFormula_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.canonicalizeFormula_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.toDisplay_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.toDisplay_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.outOfMemoryTest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.outOfMemoryTest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.flowsValidTest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.flowsValidTest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.periodic_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.periodic_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.invertStereo_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.invertStereo_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.compareSkeletons_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.compareSkeletons_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.countSigFigs_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.countSigFigs_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.impossibleSM_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.impossibleSM_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.standardize_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.standardize_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.testClick_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.testClick_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.repeatedImport_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.repeatedImport_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.enterLogical_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.enterLogical_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.dblBondStereo_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.dblBondStereo_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.flipChairOrHalfChair_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.flipChairOrHalfChair_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.testSort_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.testSort_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.rotateDihedral_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.rotateDihedral_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.findDisallowedIonization_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.findDisallowedIonization_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.enumerateStereoisomers_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.enumerateStereoisomers_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.constrained_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.constrained_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.compareACE_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.compareACE_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.fnalGroups_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.fnalGroups_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.mechmarvin_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.mechmarvin_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.parity_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.parity_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.flipChair_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.flipChair_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.valenceCheckTest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.valenceCheckTest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.maximaTest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.maximaTest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.lewisJSTest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.lewisJSTest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.compareJChem_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.compareJChem_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.pointOnLine_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.pointOnLine_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.testContextMenu_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.testContextMenu_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.compareConformers_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.compareConformers_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.countContiguous_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.countContiguous_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.isPericyclic_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.isPericyclic_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.features.qTypes_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.features.qTypes_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.features.grades_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.features.grades_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.ACEStructure.pKa_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.ACEStructure.pKa_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.ACEStructure.shortRxnCond_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.ACEStructure.shortRxnCond_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.ACEStructure.pasteSynthTest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.ACEStructure.pasteSynthTest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.ACEStructure.synthTest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.ACEStructure.synthTest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.mviewWebStart.writeMolFile_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.mviewWebStart.writeMolFile_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.mviewWebStart.mview_002djnlp_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.mviewWebStart.mview_002djnlp_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.public_.mviewWebStart.javaWebStart_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.public_.mviewWebStart.javaWebStart_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.profile.saveProfile_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.profile.saveProfile_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.profile.saveLanguages_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.profile.saveLanguages_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.profile.editLanguages_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.profile.editLanguages_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.profile.editProfile_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.profile.editProfile_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.extAuth.extAuth_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.extAuth.extAuth_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.browsercheckup.cookietest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.browsercheckup.cookietest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.browsercheckup.popuptest_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.browsercheckup.popuptest_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.browsercheckup.browserCheck_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.browsercheckup.browserCheck_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.browsercheckup.faq_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.browsercheckup.faq_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.moveSections_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.moveSections_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.imgUpload_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.imgUpload_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.chooseTextbook_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.chooseTextbook_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.addCoauthor_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.addCoauthor_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.readTextbook_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.readTextbook_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.writeChapter_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.writeChapter_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.chapterActions_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.chapterActions_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.saveCoauthor_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.saveCoauthor_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.loadContent_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.loadContent_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.saveContent_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.saveContent_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.textbookActions_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.textbookActions_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.deleteCoauthor_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.deleteCoauthor_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.readChapter_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.readChapter_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.calcUpload_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.calcUpload_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.startQuestion_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.startQuestion_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.printChapter_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.printChapter_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.writeTextbook_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.writeTextbook_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.saveMove_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.saveMove_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.textbooks.previewChapter_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.textbooks.previewChapter_jsp</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.userHome_jsp</servlet-name>
+        <url-pattern>/userHome.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.logout_jsp</servlet-name>
+        <url-pattern>/logout.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.loginNow_jsp</servlet-name>
+        <url-pattern>/loginNow.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.login_jsp</servlet-name>
+        <url-pattern>/login.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.discovery_jsp</servlet-name>
+        <url-pattern>/discovery.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.showTable_jsp</servlet-name>
+        <url-pattern>/authortool/showTable.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.saveStatement_jsp</servlet-name>
+        <url-pattern>/authortool/saveStatement.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.enterAuthortool_jsp</servlet-name>
+        <url-pattern>/authortool/enterAuthortool.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.chooseRxnCondsUser_jsp</servlet-name>
+        <url-pattern>/authortool/chooseRxnCondsUser.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.errorParam_jsp</servlet-name>
+        <url-pattern>/authortool/errorParam.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.reentryActions_jsp</servlet-name>
+        <url-pattern>/authortool/reentryActions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.saveEditables_jsp</servlet-name>
+        <url-pattern>/authortool/saveEditables.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.editCommonQStatement_jsp</servlet-name>
+        <url-pattern>/authortool/editCommonQStatement.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.newWindow_jsp</servlet-name>
+        <url-pattern>/authortool/newWindow.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.noQset_jsp</servlet-name>
+        <url-pattern>/authortool/noQset.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.startPreview_jsp</servlet-name>
+        <url-pattern>/authortool/startPreview.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.FIHeader_jsp</servlet-name>
+        <url-pattern>/authortool/FIHeader.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.questionsList_jsp</servlet-name>
+        <url-pattern>/authortool/questionsList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.jumpToQ_jsp</servlet-name>
+        <url-pattern>/authortool/jumpToQ.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.question_jsp</servlet-name>
+        <url-pattern>/authortool/question.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.noViewResp_jsp</servlet-name>
+        <url-pattern>/authortool/noViewResp.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.revertCommonQStatement_jsp</servlet-name>
+        <url-pattern>/authortool/revertCommonQStatement.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.errorQNull_jsp</servlet-name>
+        <url-pattern>/authortool/errorQNull.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.FIHistory_jsp</servlet-name>
+        <url-pattern>/authortool/FIHistory.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.dbactions_jsp</servlet-name>
+        <url-pattern>/authortool/dbactions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.evaluators.joinEvaluators_jsp</servlet-name>
+        <url-pattern>/authortool/evaluators/joinEvaluators.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.evaluators.saveEvaluator_jsp</servlet-name>
+        <url-pattern>/authortool/evaluators/saveEvaluator.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.evaluators.saveJoinedEvaluators_jsp</servlet-name>
+        <url-pattern>/authortool/evaluators/saveJoinedEvaluators.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.evaluators.loadEvaluatorGeneric_jsp</servlet-name>
+        <url-pattern>/authortool/evaluators/loadEvaluatorGeneric.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.evaluators.loadEvaluatorPhysics_jsp</servlet-name>
+        <url-pattern>/authortool/evaluators/loadEvaluatorPhysics.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.evaluators.loadEvaluatorChem_jsp</servlet-name>
+        <url-pattern>/authortool/evaluators/loadEvaluatorChem.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.export.exportSet_jsp</servlet-name>
+        <url-pattern>/authortool/export/exportSet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.import_.importSet_jsp</servlet-name>
+        <url-pattern>/authortool/import/importSet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.import_.import_jsp</servlet-name>
+        <url-pattern>/authortool/import/import.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.import_.browseFile_jsp</servlet-name>
+        <url-pattern>/authortool/import/browseFile.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qBank.editQset_jsp</servlet-name>
+        <url-pattern>/authortool/qBank/editQset.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qBank.topicsEditor_jsp</servlet-name>
+        <url-pattern>/authortool/qBank/topicsEditor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qBank.viewQset_jsp</servlet-name>
+        <url-pattern>/authortool/qBank/viewQset.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qBank.viewTopic_jsp</servlet-name>
+        <url-pattern>/authortool/qBank/viewTopic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qBank.deleteQset_jsp</servlet-name>
+        <url-pattern>/authortool/qBank/deleteQset.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qBank.saveQset_jsp</servlet-name>
+        <url-pattern>/authortool/qBank/saveQset.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qBank.saveTopic_jsp</servlet-name>
+        <url-pattern>/authortool/qBank/saveTopic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qBank.editTopic_jsp</servlet-name>
+        <url-pattern>/authortool/qBank/editTopic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.figures.imgUpload_jsp</servlet-name>
+        <url-pattern>/authortool/figures/imgUpload.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.figures.changeFigure_jsp</servlet-name>
+        <url-pattern>/authortool/figures/changeFigure.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.figures.saveFigure_jsp</servlet-name>
+        <url-pattern>/authortool/figures/saveFigure.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.figures.loadFigure_jsp</servlet-name>
+        <url-pattern>/authortool/figures/loadFigure.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.figures.calcUpload_jsp</servlet-name>
+        <url-pattern>/authortool/figures/calcUpload.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.move.moveQ_jsp</servlet-name>
+        <url-pattern>/authortool/move/moveQ.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.move.changeQSet_jsp</servlet-name>
+        <url-pattern>/authortool/move/changeQSet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qData.loadQData_jsp</servlet-name>
+        <url-pattern>/authortool/qData/loadQData.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.qData.saveQData_jsp</servlet-name>
+        <url-pattern>/authortool/qData/saveQData.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveFnalGrp_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/saveFnalGrp.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.editReaction_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/editReaction.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveRGroupColl_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/saveRGroupColl.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewBadSMs_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/viewBadSMs.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewCanonicalizedUnits_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/viewCanonicalizedUnits.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.changeReactionResult1_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/changeReactionResult1.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveCanonicalizedUnit_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/saveCanonicalizedUnit.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewFnalGroups_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/viewFnalGroups.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.removeCanonicalizedUnit_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/removeCanonicalizedUnit.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewMenuOnlyRgts_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/viewMenuOnlyRgts.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveReaction_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/saveReaction.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.changeReactionResult2_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/changeReactionResult2.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.deleteReactionResult1_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/deleteReactionResult1.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveMenuOnlyRgt_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/saveMenuOnlyRgt.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.addUnitConversion_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/addUnitConversion.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.removeUnitConversion_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/removeUnitConversion.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.addCanonicalizedUnit_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/addCanonicalizedUnit.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveUnitConversion_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/saveUnitConversion.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewReactions_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/viewReactions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.editBadSM_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/editBadSM.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.viewUnitConversions_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/viewUnitConversions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.saveBadSM_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/saveBadSM.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.editFnalGrp_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/editFnalGrp.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.deleteReactionResult2_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/deleteReactionResult2.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.editMenuOnlyRgt_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/editMenuOnlyRgt.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.universalData.editRGroupColl_jsp</servlet-name>
+        <url-pattern>/authortool/universalData/editRGroupColl.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.chooseLanguage_jsp</servlet-name>
+        <url-pattern>/authortool/translation/chooseLanguage.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.exportAllTranslatables_jsp</servlet-name>
+        <url-pattern>/authortool/translation/exportAllTranslatables.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.savePhraseTranslations_jsp</servlet-name>
+        <url-pattern>/authortool/translation/savePhraseTranslations.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.phraseTranslate_jsp</servlet-name>
+        <url-pattern>/authortool/translation/phraseTranslate.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.deletePhrase_jsp</servlet-name>
+        <url-pattern>/authortool/translation/deletePhrase.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.readPhrases_jsp</servlet-name>
+        <url-pattern>/authortool/translation/readPhrases.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.findUntranslated_jsp</servlet-name>
+        <url-pattern>/authortool/translation/findUntranslated.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.saveTranslations_jsp</servlet-name>
+        <url-pattern>/authortool/translation/saveTranslations.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.translate_jsp</servlet-name>
+        <url-pattern>/authortool/translation/translate.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.exportPhrases_jsp</servlet-name>
+        <url-pattern>/authortool/translation/exportPhrases.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.exportTranslations_jsp</servlet-name>
+        <url-pattern>/authortool/translation/exportTranslations.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.getTranslationsFile_jsp</servlet-name>
+        <url-pattern>/authortool/translation/getTranslationsFile.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.readTranslations_jsp</servlet-name>
+        <url-pattern>/authortool/translation/readTranslations.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.authortool.translation.importTranslations_jsp</servlet-name>
+        <url-pattern>/authortool/translation/importTranslations.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.hwmain_jsp</servlet-name>
+        <url-pattern>/homework/hwmain.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.chooseRxnCondsUser_jsp</servlet-name>
+        <url-pattern>/homework/chooseRxnCondsUser.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.imageLarge_jsp</servlet-name>
+        <url-pattern>/homework/imageLarge.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.answerPreview_jsp</servlet-name>
+        <url-pattern>/homework/answerPreview.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.maximaToTex_jsp</servlet-name>
+        <url-pattern>/homework/maximaToTex.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.showMol_jsp</servlet-name>
+        <url-pattern>/homework/showMol.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.list_jsp</servlet-name>
+        <url-pattern>/homework/list.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.submitUnsubmitted_jsp</servlet-name>
+        <url-pattern>/homework/submitUnsubmitted.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.jumpGo_jsp</servlet-name>
+        <url-pattern>/homework/jumpGo.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.homework.answerframe_jsp</servlet-name>
+        <url-pattern>/homework/answerframe.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.findOldUsers_jsp</servlet-name>
+        <url-pattern>/admin/findOldUsers.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.listOldUsers_jsp</servlet-name>
+        <url-pattern>/admin/listOldUsers.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.getInventory_jsp</servlet-name>
+        <url-pattern>/admin/getInventory.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.setPaymentGracePeriod_jsp</servlet-name>
+        <url-pattern>/admin/setPaymentGracePeriod.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.setImpersonatedUser_jsp</servlet-name>
+        <url-pattern>/admin/setImpersonatedUser.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.saveDefaultLanguage_jsp</servlet-name>
+        <url-pattern>/admin/saveDefaultLanguage.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.setPermissions_jsp</servlet-name>
+        <url-pattern>/admin/setPermissions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.addEnglishPhrase_jsp</servlet-name>
+        <url-pattern>/admin/addEnglishPhrase.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.removeUser_jsp</servlet-name>
+        <url-pattern>/admin/removeUser.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.setDefaultLanguage_jsp</servlet-name>
+        <url-pattern>/admin/setDefaultLanguage.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.reloadSingletons_jsp</servlet-name>
+        <url-pattern>/admin/reloadSingletons.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.removeOldPostImages_jsp</servlet-name>
+        <url-pattern>/admin/removeOldPostImages.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.removeOldUsers_jsp</servlet-name>
+        <url-pattern>/admin/removeOldUsers.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.savePaymentGracePeriod_jsp</servlet-name>
+        <url-pattern>/admin/savePaymentGracePeriod.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.listProfiles_jsp</servlet-name>
+        <url-pattern>/admin/listProfiles.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.admintools_jsp</servlet-name>
+        <url-pattern>/admin/admintools.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.exitManager_jsp</servlet-name>
+        <url-pattern>/admin/exitManager.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.evalTextConvert_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/evalTextConvert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.questionDataConvert_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/questionDataConvert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.translationConvert_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/translationConvert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.autoConvert_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/autoConvert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.clearReactorCache_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/clearReactorCache.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.statementsConvert_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/statementsConvert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.translationConvertAll_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/translationConvertAll.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.updateDB_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/updateDB.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.headersConvert_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/headersConvert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.admin.dbUpdate.feedbackConvert_jsp</servlet-name>
+        <url-pattern>/admin/dbUpdate/feedbackConvert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.saveCourse_jsp</servlet-name>
+        <url-pattern>/course/saveCourse.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.saveCoinstructor_jsp</servlet-name>
+        <url-pattern>/course/saveCoinstructor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.saveNotes_jsp</servlet-name>
+        <url-pattern>/course/saveNotes.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.moveCourse_jsp</servlet-name>
+        <url-pattern>/course/moveCourse.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.editNotes_jsp</servlet-name>
+        <url-pattern>/course/editNotes.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.enterCourse_jsp</servlet-name>
+        <url-pattern>/course/enterCourse.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.enterCourseVerify_jsp</servlet-name>
+        <url-pattern>/course/enterCourseVerify.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.courseHome_jsp</servlet-name>
+        <url-pattern>/course/courseHome.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.revealCourse_jsp</servlet-name>
+        <url-pattern>/course/revealCourse.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.deleteCoinstructor_jsp</servlet-name>
+        <url-pattern>/course/deleteCoinstructor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.cloneHWSets_jsp</servlet-name>
+        <url-pattern>/course/cloneHWSets.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.saveRevealed_jsp</servlet-name>
+        <url-pattern>/course/saveRevealed.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.marvinLive_jsp</servlet-name>
+        <url-pattern>/course/marvinLive.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.selectCourse_jsp</servlet-name>
+        <url-pattern>/course/selectCourse.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.deleteCourse_jsp</servlet-name>
+        <url-pattern>/course/deleteCourse.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.endMarvinLive_jsp</servlet-name>
+        <url-pattern>/course/endMarvinLive.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.editCourse_jsp</servlet-name>
+        <url-pattern>/course/editCourse.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.saveCoursePassword_jsp</servlet-name>
+        <url-pattern>/course/saveCoursePassword.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.course.addCoinstructor_jsp</servlet-name>
+        <url-pattern>/course/addCoinstructor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.forum.imgUpload_jsp</servlet-name>
+        <url-pattern>/forum/imgUpload.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.forum.savePost_jsp</servlet-name>
+        <url-pattern>/forum/savePost.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.forum.posts_jsp</servlet-name>
+        <url-pattern>/forum/posts.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.forum.topics_jsp</servlet-name>
+        <url-pattern>/forum/topics.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.forum.searchPosts_jsp</servlet-name>
+        <url-pattern>/forum/searchPosts.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.forum.saveTopic_jsp</servlet-name>
+        <url-pattern>/forum/saveTopic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.forum.editTopic_jsp</servlet-name>
+        <url-pattern>/forum/editTopic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.forum.addPost_jsp</servlet-name>
+        <url-pattern>/forum/addPost.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.listRegistered_jsp</servlet-name>
+        <url-pattern>/enroll/listRegistered.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.inventEnrollment_jsp</servlet-name>
+        <url-pattern>/enroll/inventEnrollment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.saveBatchEnrollment_jsp</servlet-name>
+        <url-pattern>/enroll/saveBatchEnrollment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.inventFinish_jsp</servlet-name>
+        <url-pattern>/enroll/inventFinish.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.listEnrollmentTxt_jsp</servlet-name>
+        <url-pattern>/enroll/listEnrollmentTxt.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.modifyTAStatus_jsp</servlet-name>
+        <url-pattern>/enroll/modifyTAStatus.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.fileUpload_jsp</servlet-name>
+        <url-pattern>/enroll/fileUpload.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.deleteFinish_jsp</servlet-name>
+        <url-pattern>/enroll/deleteFinish.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.saveEnrollment_jsp</servlet-name>
+        <url-pattern>/enroll/saveEnrollment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.listEnrollment_jsp</servlet-name>
+        <url-pattern>/enroll/listEnrollment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.transferWork_jsp</servlet-name>
+        <url-pattern>/enroll/transferWork.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.paymentFinish_jsp</servlet-name>
+        <url-pattern>/enroll/paymentFinish.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.inventStudents_jsp</servlet-name>
+        <url-pattern>/enroll/inventStudents.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.transferFinish_jsp</servlet-name>
+        <url-pattern>/enroll/transferFinish.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.chooseMatches_jsp</servlet-name>
+        <url-pattern>/enroll/chooseMatches.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.editEnrollment_jsp</servlet-name>
+        <url-pattern>/enroll/editEnrollment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.payment_jsp</servlet-name>
+        <url-pattern>/enroll/payment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.enrollRegistered_jsp</servlet-name>
+        <url-pattern>/enroll/enrollRegistered.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.deleteEnrollment_jsp</servlet-name>
+        <url-pattern>/enroll/deleteEnrollment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.batchEnrollment_jsp</servlet-name>
+        <url-pattern>/enroll/batchEnrollment.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.getMatches_jsp</servlet-name>
+        <url-pattern>/enroll/getMatches.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.deleteExamIds_jsp</servlet-name>
+        <url-pattern>/enroll/deleteExamIds.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.forumAccess_jsp</servlet-name>
+        <url-pattern>/enroll/forumAccess.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.enroll.finishEnroll_jsp</servlet-name>
+        <url-pattern>/enroll/finishEnroll.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.setAssgtDependency_jsp</servlet-name>
+        <url-pattern>/hwcreator/setAssgtDependency.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.dupeHWSet_jsp</servlet-name>
+        <url-pattern>/hwcreator/dupeHWSet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.hwEditor_jsp</servlet-name>
+        <url-pattern>/hwcreator/hwEditor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.addNewHWSet_jsp</servlet-name>
+        <url-pattern>/hwcreator/addNewHWSet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.mergeHWSets_jsp</servlet-name>
+        <url-pattern>/hwcreator/mergeHWSets.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.moveHWSet_jsp</servlet-name>
+        <url-pattern>/hwcreator/moveHWSet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.showExtensions_jsp</servlet-name>
+        <url-pattern>/hwcreator/showExtensions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.uploadHWSets_jsp</servlet-name>
+        <url-pattern>/hwcreator/uploadHWSets.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.saveHW_jsp</servlet-name>
+        <url-pattern>/hwcreator/saveHW.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.editHWSet_jsp</servlet-name>
+        <url-pattern>/hwcreator/editHWSet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.hwSetList_jsp</servlet-name>
+        <url-pattern>/hwcreator/hwSetList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.deleteHWSet_jsp</servlet-name>
+        <url-pattern>/hwcreator/deleteHWSet.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.saveExamData_jsp</servlet-name>
+        <url-pattern>/hwcreator/saveExamData.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.importHWSets_jsp</servlet-name>
+        <url-pattern>/hwcreator/importHWSets.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.editExams_jsp</servlet-name>
+        <url-pattern>/hwcreator/editExams.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.editHWProps_jsp</servlet-name>
+        <url-pattern>/hwcreator/editHWProps.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.chooseRxnConds_jsp</servlet-name>
+        <url-pattern>/hwcreator/chooseRxnConds.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.saveSelfExtension_jsp</servlet-name>
+        <url-pattern>/hwcreator/saveSelfExtension.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.exportHWSets_jsp</servlet-name>
+        <url-pattern>/hwcreator/exportHWSets.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.hwcreator.selfExtend_jsp</servlet-name>
+        <url-pattern>/hwcreator/selfExtend.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.showAlert_jsp</servlet-name>
+        <url-pattern>/includes/showAlert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.showElemAnal_jsp</servlet-name>
+        <url-pattern>/includes/showElemAnal.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.updateFigure_jsp</servlet-name>
+        <url-pattern>/includes/updateFigure.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.getRxnIdsFromMRV_jsp</servlet-name>
+        <url-pattern>/includes/getRxnIdsFromMRV.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.addRxnCondsToMRV_jsp</servlet-name>
+        <url-pattern>/includes/addRxnCondsToMRV.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.modifyProperty_jsp</servlet-name>
+        <url-pattern>/includes/modifyProperty.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.showSourceCode_jsp</servlet-name>
+        <url-pattern>/includes/showSourceCode.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.measure_jsp</servlet-name>
+        <url-pattern>/includes/measure.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.jmolWindow_jsp</servlet-name>
+        <url-pattern>/includes/jmolWindow.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.marvinJSViewer_jsp</servlet-name>
+        <url-pattern>/includes/marvinJSViewer.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.includes.marvinJSWindow_jsp</servlet-name>
+        <url-pattern>/includes/marvinJSWindow.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.errormsgs.errorHandler_jsp</servlet-name>
+        <url-pattern>/errormsgs/errorHandler.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.reports.chooseStudents_jsp</servlet-name>
+        <url-pattern>/reports/chooseStudents.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.reports.startView_jsp</servlet-name>
+        <url-pattern>/reports/startView.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.reports.reportTxt_jsp</servlet-name>
+        <url-pattern>/reports/reportTxt.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.reports.getReports_jsp</servlet-name>
+        <url-pattern>/reports/getReports.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.reports.showMol_jsp</servlet-name>
+        <url-pattern>/reports/showMol.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.detailedGrade_jsp</servlet-name>
+        <url-pattern>/gradebook/detailedGrade.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.startView_jsp</servlet-name>
+        <url-pattern>/gradebook/startView.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.detailedGradeTxt_jsp</servlet-name>
+        <url-pattern>/gradebook/detailedGradeTxt.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.resetConfirm_jsp</servlet-name>
+        <url-pattern>/gradebook/resetConfirm.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.regradeConfirm_jsp</servlet-name>
+        <url-pattern>/gradebook/regradeConfirm.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.showMol_jsp</servlet-name>
+        <url-pattern>/gradebook/showMol.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.grade_jsp</servlet-name>
+        <url-pattern>/gradebook/grade.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.doRegrade_jsp</servlet-name>
+        <url-pattern>/gradebook/doRegrade.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.gradeTxt_jsp</servlet-name>
+        <url-pattern>/gradebook/gradeTxt.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.allGrades_jsp</servlet-name>
+        <url-pattern>/gradebook/allGrades.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.notify_jsp</servlet-name>
+        <url-pattern>/gradebook/notify.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.gradebook.doReset_jsp</servlet-name>
+        <url-pattern>/gradebook/doReset.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.demo.index_jsp</servlet-name>
+        <url-pattern>/demo/index.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.setNewPwd_jsp</servlet-name>
+        <url-pattern>/nosession/setNewPwd.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.securityQs_jsp</servlet-name>
+        <url-pattern>/nosession/securityQs.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.register_jsp</servlet-name>
+        <url-pattern>/nosession/register.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.email_jsp</servlet-name>
+        <url-pattern>/nosession/email.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.saveNewUser_jsp</servlet-name>
+        <url-pattern>/nosession/saveNewUser.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.getUsername_jsp</servlet-name>
+        <url-pattern>/nosession/getUsername.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.getNewPwd_jsp</servlet-name>
+        <url-pattern>/nosession/getNewPwd.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.showAlert_jsp</servlet-name>
+        <url-pattern>/nosession/includes/showAlert.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.showElemAnal_jsp</servlet-name>
+        <url-pattern>/nosession/includes/showElemAnal.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.updateFigure_jsp</servlet-name>
+        <url-pattern>/nosession/includes/updateFigure.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.getRxnIdsFromMRV_jsp</servlet-name>
+        <url-pattern>/nosession/includes/getRxnIdsFromMRV.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.addRxnCondsToMRV_jsp</servlet-name>
+        <url-pattern>/nosession/includes/addRxnCondsToMRV.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.modifyProperty_jsp</servlet-name>
+        <url-pattern>/nosession/includes/modifyProperty.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.showSourceCode_jsp</servlet-name>
+        <url-pattern>/nosession/includes/showSourceCode.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.measure_jsp</servlet-name>
+        <url-pattern>/nosession/includes/measure.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.jmolWindow_jsp</servlet-name>
+        <url-pattern>/nosession/includes/jmolWindow.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.marvinJSViewer_jsp</servlet-name>
+        <url-pattern>/nosession/includes/marvinJSViewer.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.nosession.includes.marvinJSWindow_jsp</servlet-name>
+        <url-pattern>/nosession/includes/marvinJSWindow.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.hybrids_jsp</servlet-name>
+        <url-pattern>/public/hybrids.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.getDataURL_jsp</servlet-name>
+        <url-pattern>/public/getDataURL.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.findDisallowedSN2_jsp</servlet-name>
+        <url-pattern>/public/findDisallowedSN2.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.lookForCarbocation_jsp</servlet-name>
+        <url-pattern>/public/lookForCarbocation.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.enterEqns_jsp</servlet-name>
+        <url-pattern>/public/enterEqns.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.canonicalizeFormula_jsp</servlet-name>
+        <url-pattern>/public/canonicalizeFormula.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.toDisplay_jsp</servlet-name>
+        <url-pattern>/public/toDisplay.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.outOfMemoryTest_jsp</servlet-name>
+        <url-pattern>/public/outOfMemoryTest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.flowsValidTest_jsp</servlet-name>
+        <url-pattern>/public/flowsValidTest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.periodic_jsp</servlet-name>
+        <url-pattern>/public/periodic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.invertStereo_jsp</servlet-name>
+        <url-pattern>/public/invertStereo.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.compareSkeletons_jsp</servlet-name>
+        <url-pattern>/public/compareSkeletons.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.countSigFigs_jsp</servlet-name>
+        <url-pattern>/public/countSigFigs.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.impossibleSM_jsp</servlet-name>
+        <url-pattern>/public/impossibleSM.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.standardize_jsp</servlet-name>
+        <url-pattern>/public/standardize.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.testClick_jsp</servlet-name>
+        <url-pattern>/public/testClick.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.repeatedImport_jsp</servlet-name>
+        <url-pattern>/public/repeatedImport.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.enterLogical_jsp</servlet-name>
+        <url-pattern>/public/enterLogical.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.dblBondStereo_jsp</servlet-name>
+        <url-pattern>/public/dblBondStereo.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.flipChairOrHalfChair_jsp</servlet-name>
+        <url-pattern>/public/flipChairOrHalfChair.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.testSort_jsp</servlet-name>
+        <url-pattern>/public/testSort.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.rotateDihedral_jsp</servlet-name>
+        <url-pattern>/public/rotateDihedral.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.findDisallowedIonization_jsp</servlet-name>
+        <url-pattern>/public/findDisallowedIonization.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.enumerateStereoisomers_jsp</servlet-name>
+        <url-pattern>/public/enumerateStereoisomers.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.constrained_jsp</servlet-name>
+        <url-pattern>/public/constrained.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.compareACE_jsp</servlet-name>
+        <url-pattern>/public/compareACE.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.fnalGroups_jsp</servlet-name>
+        <url-pattern>/public/fnalGroups.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.mechmarvin_jsp</servlet-name>
+        <url-pattern>/public/mechmarvin.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.parity_jsp</servlet-name>
+        <url-pattern>/public/parity.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.flipChair_jsp</servlet-name>
+        <url-pattern>/public/flipChair.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.valenceCheckTest_jsp</servlet-name>
+        <url-pattern>/public/valenceCheckTest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.maximaTest_jsp</servlet-name>
+        <url-pattern>/public/maximaTest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.lewisJSTest_jsp</servlet-name>
+        <url-pattern>/public/lewisJSTest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.compareJChem_jsp</servlet-name>
+        <url-pattern>/public/compareJChem.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.pointOnLine_jsp</servlet-name>
+        <url-pattern>/public/pointOnLine.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.testContextMenu_jsp</servlet-name>
+        <url-pattern>/public/testContextMenu.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.compareConformers_jsp</servlet-name>
+        <url-pattern>/public/compareConformers.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.countContiguous_jsp</servlet-name>
+        <url-pattern>/public/countContiguous.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.isPericyclic_jsp</servlet-name>
+        <url-pattern>/public/isPericyclic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.features.qTypes_jsp</servlet-name>
+        <url-pattern>/public/features/qTypes.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.features.grades_jsp</servlet-name>
+        <url-pattern>/public/features/grades.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.ACEStructure.pKa_jsp</servlet-name>
+        <url-pattern>/public/ACEStructure/pKa.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.ACEStructure.shortRxnCond_jsp</servlet-name>
+        <url-pattern>/public/ACEStructure/shortRxnCond.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.ACEStructure.pasteSynthTest_jsp</servlet-name>
+        <url-pattern>/public/ACEStructure/pasteSynthTest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.ACEStructure.synthTest_jsp</servlet-name>
+        <url-pattern>/public/ACEStructure/synthTest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.mviewWebStart.writeMolFile_jsp</servlet-name>
+        <url-pattern>/public/mviewWebStart/writeMolFile.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.mviewWebStart.mview_002djnlp_jsp</servlet-name>
+        <url-pattern>/public/mviewWebStart/mview-jnlp.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.public_.mviewWebStart.javaWebStart_jsp</servlet-name>
+        <url-pattern>/public/mviewWebStart/javaWebStart.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.profile.saveProfile_jsp</servlet-name>
+        <url-pattern>/profile/saveProfile.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.profile.saveLanguages_jsp</servlet-name>
+        <url-pattern>/profile/saveLanguages.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.profile.editLanguages_jsp</servlet-name>
+        <url-pattern>/profile/editLanguages.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.profile.editProfile_jsp</servlet-name>
+        <url-pattern>/profile/editProfile.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.extAuth.extAuth_jsp</servlet-name>
+        <url-pattern>/extAuth/extAuth.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.browsercheckup.cookietest_jsp</servlet-name>
+        <url-pattern>/browsercheckup/cookietest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.browsercheckup.popuptest_jsp</servlet-name>
+        <url-pattern>/browsercheckup/popuptest.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.browsercheckup.browserCheck_jsp</servlet-name>
+        <url-pattern>/browsercheckup/browserCheck.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.browsercheckup.faq_jsp</servlet-name>
+        <url-pattern>/browsercheckup/faq.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.moveSections_jsp</servlet-name>
+        <url-pattern>/textbooks/moveSections.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.imgUpload_jsp</servlet-name>
+        <url-pattern>/textbooks/imgUpload.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.chooseTextbook_jsp</servlet-name>
+        <url-pattern>/textbooks/chooseTextbook.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.addCoauthor_jsp</servlet-name>
+        <url-pattern>/textbooks/addCoauthor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.readTextbook_jsp</servlet-name>
+        <url-pattern>/textbooks/readTextbook.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.writeChapter_jsp</servlet-name>
+        <url-pattern>/textbooks/writeChapter.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.chapterActions_jsp</servlet-name>
+        <url-pattern>/textbooks/chapterActions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.saveCoauthor_jsp</servlet-name>
+        <url-pattern>/textbooks/saveCoauthor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.loadContent_jsp</servlet-name>
+        <url-pattern>/textbooks/loadContent.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.saveContent_jsp</servlet-name>
+        <url-pattern>/textbooks/saveContent.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.textbookActions_jsp</servlet-name>
+        <url-pattern>/textbooks/textbookActions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.deleteCoauthor_jsp</servlet-name>
+        <url-pattern>/textbooks/deleteCoauthor.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.readChapter_jsp</servlet-name>
+        <url-pattern>/textbooks/readChapter.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.calcUpload_jsp</servlet-name>
+        <url-pattern>/textbooks/calcUpload.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.startQuestion_jsp</servlet-name>
+        <url-pattern>/textbooks/startQuestion.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.printChapter_jsp</servlet-name>
+        <url-pattern>/textbooks/printChapter.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.writeTextbook_jsp</servlet-name>
+        <url-pattern>/textbooks/writeTextbook.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.saveMove_jsp</servlet-name>
+        <url-pattern>/textbooks/saveMove.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.textbooks.previewChapter_jsp</servlet-name>
+        <url-pattern>/textbooks/previewChapter.jsp</url-pattern>
+    </servlet-mapping>
+
+<!--
+All session-config, mime-mapping, welcome-file-list, error-page, taglib,
+resource-ref, security-constraint, login-config, security-role,
+env-entry, and ejb-ref elements should follow this fragment.
+-->

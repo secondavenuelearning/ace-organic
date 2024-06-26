@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>ACE Packages and Symlinks</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<style>
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+table td {
+  border: 1px solid black;
+  padding: 5px;
+}
+</style>
+</head>
+<body>
+<h3>Packages and symbolic links needed for ACE that are not under SVN control</h3>
+
+<p>Valid for Tomcat 9.
+</p>
+
+	<table>
+	<tr><th style="width:100px; text-align:left;">Key</th><th>Meaning</th></tr>
+	<tr>
+	<td style="width:100px;">$BASE</td>
+	<td><span class="filename">/home/aceorg/aceorg</span>
+	</td>
+	</tr><tr>
+	<td>$WHO</td>
+	<td>the current version of ACE, e.g., DEV-4.6 or UKY-4.5.  
+	</td>
+	</tr><tr>
+	<td>$JVERS</td>
+	<td>the current version of JChem, e.g., 19.9.0.  
+	</td>
+	</tr><tr>
+	<td>$ACE</td>
+	<td><span class="filename">$BASE/$WHO</span>
+	</td>
+	</tr><tr>
+	<td>$WEB</td>
+	<td><span class="filename">$ACE/ace/web</span>
+	</td>
+	</tr>
+	</table>
+
+<ol>
+<li><p>Download and install the following packages. (You should also download
+<a href="http://www.chemaxon.com/products/marvin/marvin-live"
+target="window2">Marvin Live</a>, but via the instructions given below.)</p>
+
+<table>
+<tr><th>Package</th><th>Name</th><th>Destination</th></tr>
+<tr>
+<td>
+<a href="http://www.chemaxon.com/products/jchem-base/?menu=5cbe662c"
+target="window2">JChem</a>
+<br /><a href="http://sourceforge.net/projects/jsmol/" target="window2">JSmol</a>
+</td><td>
+<span class="filename">jchem$JVERS</span>
+<br /><span class="filename">.</span>
+</td><td>
+<span class="filename">$BASE</span>
+</td></tr>
+
+<tr><td>
+<span class="filename"><a href="http://commons.apache.org/lang/">commons-lang-2.4.jar</a></span>
+<br /><span class="filename"><a href="http://commons.apache.org/math/">commons-math-2.0.jar</a></span>
+<br /><span class="filename"><a href="http://commons.apache.org/proper/commons-collections/">commons-collections4-4.0.jar</a></span>
+<br /><span class="filename"><a href="http://commons.apache.org/proper/commons-fileupload.jar/">commons-fileupload-1.2.1.jar</a></span>
+<br /><span class="filename"><a href="http://www.java2s.com/Code/Jar/g/Downloadguava150rc1jar.htm">guava-15.0-rc1.jar</a></span>
+<br /><span class="filename"><a href="https://www.unbescape.org">unbescape-1.1.6.RELEASE.jar</a></span>
+</td><td>
+</td><td>
+<span class="filename">/usr/share/java</span>
+</td></tr>
+
+<tr><td>
+<span class="filename"><a href="http://www.mutt.org">mutt</a></span>
+[mail user agent]
+</td><td>
+</td><td>
+<span class="filename">/usr/bin/</span>
+</td></tr>
+
+<tr><td>
+<span class="filename"><a href="http://maxima.sourceforge.net/">maxima-5.27.0</a></span>
+[mathematics package]
+</td><td>
+</td><td>
+<span class="filename">/opt/</span>
+</td></tr>
+</table>
+<p>
+(Note: We need to name the first three files explicitly in 
+the <span class="code">TESTLIB</span> variable in
+<span class="filename">Makefile.master</span>.)
+
+</p></li><li><p>Place the JChem license file in 
+<span class="filename">/home/tomcat9/.chemaxon/</span>, and 
+point to it a symlink 
+<span class="filename" style="color:blue;">license.cxl</span>
+in the same directory.
+
+</li><li><p>Add the following symlinks by running the following Perl programs
+found in <span class="filename">$BASE/scripts</span>:</p>
+
+<blockquote>
+<span class="code">configureJChem.pl $WHO jchem$JVERS</span>
+<br /><span class="code">setIdentity.pl $WHO</span>
+</blockquote>
+
+	<table><tr>
+	<th>Symlink directory</th>
+	<th>Original file or directory</th>
+	<th>Symlink name</th>
+	<th>Script</th>
+	</tr><tr>
+	<td>
+	<span class="filename">/home/tomcat9</span>
+	</td>
+	<td>
+	<span class="filename">$WEB/nosession/dot_muttrc</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">.muttrc</span>
+	</td>
+	<td>none</td>
+	</tr><tr>
+	<td>
+	<span class="filename">/home/tomcat9/.chemaxon</span>
+	</td>
+	<td>new directory, not a symlink
+	</td>
+	<td>
+	<span class="filename" >$JVERS</span>
+	</td>
+	<td>none</td>
+	</tr><tr>
+	<td>
+	<span class="filename">/home/tomcat9/.chemaxon/$JVERS</span>
+	</td>
+	<td>
+	<span class="filename">$ACE/marvin-extra/evaluator.xml</span> 
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">.</span>
+	</td>
+	<td>configureJChem</td>
+	</tr><tr>
+	<td>
+	<span class="filename">/usr/share/java</span>
+	</td>
+	<td>
+	<span class="filename">commons-lang-2.4.jar</span>
+	<br /><span class="filename">commons-math-2.0.jar</span>
+	<br /><span class="filename">commons-collections4-4.0.jar</span>
+	<br /><span class="filename">commons-fileupload-1.2.1.jar</span>
+	<br /><span class="filename">guava-15.0-rc1.jar</span>
+	<br /><span class="filename">unbescape-1.1.6.RELEASE.jar</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">commons-lang.jar</span>
+	<br /><span class="filename" style="color:blue;">commons-math.jar</span>
+	<br /><span class="filename" style="color:blue;">commons-collections.jar</span>
+	<br /><span class="filename" style="color:blue;">commons-fileupload.jar</span>
+	<br /><span class="filename" style="color:blue;">guava.jar</span>
+	<br /><span class="filename" style="color:blue;">unbescape.jar</span>
+	</td>
+	<td>none</td>
+	</tr><tr>
+	<td>
+	<span class="filename">/opt/tomcat9/lib</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">/usr/share/java/commons-lang.jar</span>
+	<br /><span class="filename" style="color:blue;">/usr/share/java/commons-math.jar</span>
+	<br /><span class="filename" style="color:blue;">/usr/share/java/commons-collections.jar</span>
+	<br /><span class="filename" style="color:blue;">/usr/share/java/commons-fileupload.jar</span>
+	<br /><span class="filename" style="color:blue;">/usr/share/java/guava.jar</span>
+	<br /><span class="filename" style="color:blue;">/usr/share/java/unbescape.jar</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">.</span>
+	</td>
+	<td>none</td>
+	</tr><tr>
+	<td>
+	<span class="filename">/opt</span>
+	</td>
+	<td>
+	<span class="filename">maxima-5.27.0</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">maxima</span>
+	</td>
+	<td>none</td>
+	</tr><tr>
+	<td>
+	<span class="filename">$BASE</span>
+	</td>
+	<td>
+	<span class="filename">jsmol-13.3.5/</span> (for example)
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">jsmol</span>
+	</td>
+	<td>none</td>
+	</tr><tr>
+	<td>
+	<span class="filename">$BASE</span>
+	</td>
+	<td>
+	<span class="filename">MathJax-2.7.2/</span> (for example)
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">mathjax</span>
+	</td>
+	<td>none</td>
+	</tr><tr>
+	<td>
+	<span class="filename">$BASE</span>
+	</td>
+	<td>
+	<span class="filename">jchem$JVERS/</span><sup>1</sup>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">jchem$WHO</span>
+	</td>
+	<td>configureJChem<sup>1</sup></td>
+	</tr><tr>
+	<td><span class="filename">$BASE/<span 
+			style="color:blue;">jchem$WHO</span></span>
+	</td>
+	<td>new directory, not a symlink
+	</td>
+	<td><span class="filename">config</span>
+	</td>
+	<td>configureJChem</td>
+	</tr><tr>
+	<td><span class="filename">$BASE/<span 
+			style="color:blue;">jchem$WHO/</span>config</span>
+	</td>
+	<td>
+	<span class="filename">$ACE/marvin-extra/evaluator.xml</span> 
+	</td>
+	<td><span class="filename" style="color:blue;">.</span>
+	</td>
+	<td>configureJChem</td>
+	</tr><tr>
+	<td><span class="filename">$WEB/WEB-INF/lib</span>
+	</td>
+	<td>
+	<span class="filename">$BASE/<span style="color:blue;">jchem$WHO</span>/lib/*</span> 
+	<br/><span class="filename">$BASE/stanford-parser-2011-09-14/stanford-parser.jar</span>
+	</td>
+	<td><span class="filename" style="color:blue;">.</span>
+	</td>
+	<td>configureJChem</td>
+	</tr><tr>
+	<td><span class="filename">$WEB/nosession</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">../../../../jchem$WHO</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">jchem</span>
+	</td>
+	<td>setIdentity
+	</td>
+	</tr><tr>
+	<td><span class="filename">$WEB/nosession</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">jchem</span><span 
+			class="filename">/developer/beans/api/</span>
+	<br /><span class="filename">/home/tomcat9/.chemaxon/<span 
+			style="color:blue;">license.cxl</span></span> 
+	<br /><span class="filename">../../../../<span style="color:blue;">jsmol/</span></span> 
+	<br /><span class="filename">../../../../<span style="color:blue;">mathjax/</span></span> 
+	<br /><span class="filename">../images/</span> 
+	<br /><span class="filename">../includes/</span> 
+	</td>
+	<td><span class="filename" style="color:blue;">.</span>
+	</td>
+	<td>setIdentity</td>
+	</tr><tr>
+	<td><span class="filename">$WEB/public/ACEStructure</span>
+	</td>
+	<td>
+	<span class="filename">../authoring.html</span>
+	<br /><span class="filename">../questions.html</span>
+	<br /><span class="filename">../exams.html</span>
+	<br /><span class="filename">../mechRules.html</span>
+	</td>
+	<td><span class="filename" style="color:blue;">.</span>
+	</td>
+	<td>setIdentity</td>
+	</tr><tr>
+	<td><span class="filename">$WEB/public/ACEStructure/API</span>
+	</td>
+	<td>
+	<span class="filename" style="color:blue;">../../../nosession/api/</span>
+	</td>
+	<td><span class="filename" style="color:blue;">jchemAPI</span>
+	</td>
+	<td>setIdentity</td>
+	</tr><tr>
+	<td><span class="filename">$WEB/public/ACEStructure/API</span>
+	</td>
+	<td>
+	<span class="filename"><span style="color:blue;">jchemAPI</span>/stylesheet.css</span>
+	<br/><span class="filename"><span style="color:blue;">jchemAPI</span>/resources/</span>
+	</td>
+	<td><span class="filename" style="color:blue;">.</span>
+	</td>
+	<td>setIdentity</td>
+	</tr>
+	</table>
+
+<br />
+<br />
+<sup>1</sup>Change symlink manually to use a different version of JChem.
+<br />
+
+</li><li><p>The directories <span class="filename">$WEB/figures</span>,
+<span class="filename">user_figures</span>, <span class="filename">tempfiles</span>,
+and <span class="filename">logger</span> must grant permission to the
+application owner (e.g., tomcat9) to read and write files.
+
+<br/>
+
+</li><li><p>When upgrading JSmol, in 
+<span class="filename">$BASE/jsmol/Jmol2.js</span>, change:
+<blockquote class="code">
+      jarPath: "java",
+      <br/>jarFile: "",
+      <br/>j2sPath: "j2s",
+</blockquote>
+to:
+<blockquote class="code">
+      jarPath: "/nosession/jsmol/java",
+      <br/>jarFile: "",
+      <br/>j2sPath: "/nosession/jsmol/j2s",
+</blockquote>
+
+</li>
+</ol>
+
+</body>
+</html>

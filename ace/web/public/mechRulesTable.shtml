@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Heuristic mechanism rules</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<meta charset="UTF-8">
+</head>
+<body style="overflow:auto;">
+<h2 style="text-align:center;">ACE's Heuristic Mechanism Rules</h2>
+<!--#include file="mechRules.html"-->
+</body>
+</html>

@@ -1,0 +1,71 @@
+This file shows how to manipulate ACE for
+	Java 9, Oracle 11g, Tomcat9, Ubuntu 16.04
+	DEV-4.4 and UKY-4.3
+
+It will be updated as necessary.
+
+Environment variables (csh syntax)
+
+	setenv JAVA_HOME /usr/lib/jvm/jdk-9.0.4
+	setenv ORACLE_PORT 1521
+	setenv BASE /home/aceorg/aceorg
+	setenv CATALINA_BASE /opt/apache-tomcat-9.0.4
+	setenv sv DEV-4.4
+	setenv s $BASE/$sv
+	setenv sj $s/ace/web
+	setenv st $s/ace/src/com/epoch
+	setenv sl $CATALINA_BASE/logs/$sv.`date +%Y-%m-%d`.log
+	setenv uv UKY-4.3
+	setenv u $BASE/$uv
+	setenv uj $u/ace/web
+	setenv ut $u/ace/src/com/epoch
+	setenv ul $CATALINA_BASE/logs/$uv.`date +%Y-%m-%d`.log
+
+Tomcat
+
+	to manipulate
+
+		cd $CATALINA_BASE/conf
+		sudo ./tomcat9-$sv start
+		sudo ./tomcat9-$sv stop
+		sudo ./tomcat9-$sv restart
+		sudo ./tomcat9-$uv start
+		sudo ./tomcat9-$uv stop
+		sudo ./tomcat9-$uv restart
+	
+	logs are in $CATALINA_BASE/logs
+
+		daily debug output: $sl and $ul
+		There are other logs there as well.
+
+Oracle
+
+	To start docker image containing Oracle
+	
+		docker run -d -p ${ORACLE_PORT}:$ORACLE_PORT \
+		    -v /home/oracle-data:/external --name=ORACLE \
+			alexeiled/docker-oracle-xe-11g
+
+	To get a shell inside the docker image
+
+		docker exec -i -t ORACLE bash
+
+	Inside the docker image shell, to manipulate Oracle
+
+		/etc/init.d/oracle-xe stop
+		/etc/init.d/oracle-xe start
+		/etc/init.d/oracle-xe restart
+
+ACE
+
+	To test compilation
+
+		cd $st; make testCompile
+
+	To install new compilation
+
+		cd $st; make unlock lock compileAll publish unlock
+
+	To check into SVN
+
+		cd $s; svn ci .

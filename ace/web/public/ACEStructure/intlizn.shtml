@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Internationalization</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Internationalization</h3>
+
+Users may designate one or more languages that they
+prefer over English via the <span class="link">My Profile</span> page.  
+ACE stores these preferences in <span class="database">languages_v1</span>.
+Instructors who are registering with ACE for the first time may
+add new languages to the database.
+
+<!--#include file="db/languages.html"-->
+
+<p>When an instructor at a new institution registers with ACE,
+the instructor indicates her institution's primary language of 
+instruction. ACE automatically assigns to students their institution's
+primary language of instruction when they first log 
+in. Students may not delete their institution's primary language 
+of instruction from their list of languages, but they may choose 
+another language and assign it higher priority. 
+</p>
+
+<!--#include file="db/institutions.html"-->
+
+<p>Throughout the program,
+whenever ACE displays a page that might be seen by a student, it searches for
+translations of that text in the user's preferred languages. If it finds
+translations in more than one of the user's preferred languages, it chooses the 
+translation in the most-preferred language. If it fails to find a translation 
+in any of the user's preferred languages, it displays the text in English.  </p>
+
+<!--#include file="db/translations.html"-->
+
+<p>The ACE database administrator inserts 
+<a href="http://www.loc.gov/standards/iso639-2/php/code_list.php">languages</a> 
+of users directly into <span class="database">language_codes_v1</span> if those 
+languages' alphabetization rules differ from English. If ACE finds an 
+instructor's preferred language in <span class="database">language_codes_v1</span>, 
+ACE will apply that language's alphabetization rules when it displays lists 
+of the instructor's students.</p>
+
+<!--#include file="db/language_codes.html"-->
+
+<h4>Entering translations</h4>
+
+<p>The <a href="admin.shtml">administrator</a> may confer translator privileges 
+on selected instructors.  These instructors then have the authority to enter or 
+modify translations in their chosen languages, both of phrases hardwired into
+ACE (button labels, alerts, automatically generated feedback, etc.)
+and of the question statements, feedback, and question data of 
+master-database questions. </p>
+
+<p>An authorized translator who enters the
+<a href="topics.shtml">question bank</a> will see a 
+<span class="link">Translate General</span> button.  The translator presses this
+button to enter translations of phrases hardwired into ACE. </p>
+
+<p>If the translator chooses a question set, the
+<span class="link">Translate General</span> button will change to 
+<span class="link">Translate Set</span>.  The translator presses this
+button to enter translations of the master-database questions (not locally 
+authored questions) in the chosen question set.  There is no "local translator"
+in ACE, and translations do not apply to locally authored (or modified) 
+questions.  </p>
+
+<h4>Editing questions with translations</h4>
+
+<p>If a master author modifies a question statement, evaluator, or question
+datum of an existing question and then saves the question, ACE deletes all 
+translations associated with the modified item, preserving translations of those
+items that remain unmodified.  However, if a master author moves evaluators or 
+question data within a list, ACE preserves the translations associated with
+them.  </p>
+
+<p>If a master author duplicates an existing question, ACE will copy all 
+translations associated with the original question and associate them with the
+new question.  However, editing the question statement, evaluators, or question
+data will cause ACE to delete the translations associated with those items. </p>
+
+<p>When a local author makes any 
+changes to an existing question, ACE will continue to translate the 
+<i>unmodified</i> portions of the question, but it will not translate
+any <i>modified</i> 
+portions of the question (for example, feedback for a new evaluator, 
+or a modified question statement), because these locally authored
+phrases will have no translations associated 
+with them. A local author should write the modified 
+portions of a locally authored question in her dominant language
+the author's students will see those phrases in that language 
+only.</p>
+
+<h4>Finding and substituting translations</h4>
+
+<p>ACE stores translations in <span class="database">translations_v2</span>.  
+Each English phrase has associated with it an ID number that allows ACE to
+find translations of the phrase.</p>
+<ul><li>For phrases that are hardwired into the ACE Java or
+Javascript code, the ID number is the negative of the absolute value of the hash
+code of the trimmed phrase.  For phrases that have variable
+parts (e.g., "Fig. 1 of 3"), we use *** to demark the variable part of the phrase, 
+and we substitute the desired variable for the contents of the demarcation after 
+we obtain the phrase's translation.  We may also use *** to demark a word that
+should remain unchanged in the translation.  We give instructions on how to handle
+specific phrases on a case-by-case basis on the phrase translation page, 
+<span class="filename">authortool/phraseTranslate.jsp</span>.  
+</li><li>For question statements, feedback, and question data such as multiple-choice
+options, rank items, and table headings, a sequencer generates the ID number,
+which ACE stores in the appropriate table alongside the English.
+</li></ul>
+
+<!--#include file="db/translations.html"-->
+
+<p>Where in the code ACE acquires the translation of a phrase depends on 
+the kind of phrase.</p>
+<ul><li>ACE substitutes translations of question statements, evaluators, and
+question data of master-database questions in 
+<span class="filename">db/QuestionRead.java</span>
+after it obtains the English versions of the questions from the database. 
+
+</li><li>ACE substitutes translations of automatically generated feedback for the
+English versions in <span class="code">Question.translate()</span> 
+before it appends the question author's feedback.  
+
+</li><li>ACE translates phrases that appear only in JSP pages
+by calling <span class="code">User.translate()</span> or, for
+translations that are placed within single quotes as Javascript variables,
+<span class="code">User.translateJS()</span>.  
+</li></ul>
+
+<p>Many ACE phrases have a variable part; for example, "(you earned 
+<i>x</i>").  Rather than storing a separate translation for every possible 
+number in this phrase, ACE stores a single example phrase that contains a
+placeholder demarcated by ***, e.g., "(you earned ***0.5***)".  When we call 
+<span class="code">User.translate()</span> or
+<span class="code">User.translateJS()</span>, we also send the word, phrase, 
+or number that should appear in place of the placeholder.  The method splits 
+the translated phrase at the *** demarcations and splices in the desired 
+word, phrase, or number.</p>
+
+<p>(Some phrases, such as "Fig. <i>x</i> of <i>y</i>", have more than one 
+variable part, and these variable parts
+may occur in a different sequence in a translated phrase from the sequence in
+which they occur in the English.  This circumstance is why ACE instructs the 
+translator to leave the placeholders of the translated phrases <i>unchanged</i>
+from the English.  By comparing the sequence of the placeholders in the 
+translated phrase with their sequence in the English, 
+<span class="code">User.translate()</span> and 
+<span class="code">User.translateJS()</span> determine in what order they 
+should splice the variable words into the translation.)</p>
+
+<p>Some automatically generated feedback phrases also have variable parts, 
+and how <span class="code">Question.translate()</span> handles these cases 
+depends on the specific content of the feedback.  The evaluator stores flags 
+in the <span class="classname">SingleEvalResult</span> that it returns to
+<span class="code">Question.evaluateResponse()</span>.  One flag tells 
+<span class="code">Question.translate()</span> whether to substitute the 
+variable parts for demarcated phrases (e.g., when the feedback includes 
+the name of an impossible synthetic starting material) or to insert the 
+variable parts around them (e.g., for hyperlinks to calculated mechanism 
+or synthesis products).  Another flag tells it whether to translate the 
+variable parts.  </p>
+
+</body>
+</html>

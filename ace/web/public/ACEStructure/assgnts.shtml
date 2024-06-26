@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Assignments</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Assignments</h3>
+
+<p>Clicking on the <span class="link">Assignments</span> tab brings one to the
+assignments list page, <span class="filename">hwcreator/hwSetList.jsp</span>.
+Students see a list of assignments, their due dates and times, and factors that
+ACE should apply to a grade based on the question number, the number of attempts,
+or the submission time of the response.  ACE modifies
+each student's due date to reflect any extension that the student's instructor
+may have granted.  Instructors see, in addition, tools that allow them to
+duplicate, delete, reorder, import, or export assignments.  </p>
+
+<p>Import and export of assignments is an easy way for instructors to share 
+assignments.  Exporting an assignment creates a file that can be downloaded to 
+one's hard drive.  The file contains the list of questions in each exported 
+assignment.  The assignments can then be imported by other instructors.  
+Instructors can also add new assignments or edit existing assignments. As a 
+courtesy, we offer some templates of assignments across an entire semester, 
+which we store in <span class="database">hwsets_for_import_v1</span>.
+
+<!--#include file="db/hwsets_for_import.html"-->
+</p>
+
+<p>ACE stores information about an assignment in 
+<span class="database">hwsets_v5</span>,
+<span class="database">hwset_qs_v2</span>,
+<span class="database">hwset_grading_params_v1</span>,
+<span class="database">hwset_extensions_v1</span>,
+and
+<span class="database">hwset_rxn_condns_v1</span>.</p>
+
+<!--#include file="db/hwsets.html"-->
+<!--#include file="db/hwset_qs.html"-->
+<!--#include file="db/hwset_grading_params.html"-->
+<!--#include file="db/hwset_extensions.html"-->
+<!--#include file="db/hwset_rxn_condns.html"-->
+
+<h4>Assignment assembly tool: content</h4>
+<p>When instructors choose to add or edit an assignment, they first arrive at
+the content-editing page,
+<span class="filename">hwcreator/hwEditor.jsp</span>.  On this page, 
+instructors enter the following information: </p>
+
+<ul>
+<li>the assignment name; 
+</li><li>whether the assignment requires demonstration of 
+<a href="#mastery">mastery</a> of each question; 
+</li><li>the maximum number of attempts allowed per question, if any, or, for 
+<a href="#mastery">mastery</a> assignments, the maximum number of attempts 
+allowed for ACE to consider a question mastered; 
+</li><li>for assignments that include multistep synthesis questions, a list of
+reaction conditions to show the students and from which they will be allowed to
+select (optional; stored in <span class="database">hwset_rxn_condns_v1</span>);
+</li><li>which questions from the database the instructor wants to include in the 
+assignment; 
+</li><li>the order of questions in the assignment; 
+</li><li>how many points each question is worth (the instructor may set different
+values for different questions);
+</li><li>whether to arrange any questions in the assignment into groups from which 
+ACE will choose a different selection for each student 
+(<a href="#random">randomized questions</a>); 
+</li><li>for each nonrandomized question, whether ACE should not display it 
+to a student until he or she has answered another question correctly (question 
+dependencies).
+</li></ul>
+
+<p>Instructors can choose to browse the database for 
+<a href="questions.shtml">questions</a> by textbook chapter (available to Bruice or
+Wade users only) or by <a href="topics.shtml">topic</a> (available to all users).
+ACE uses information retrieved from
+<span class="classname">BookSet</span> to display questions by textbook chapter 
+number and name on the left side of the content-editing page.  ACE
+<a href="overallStruct.shtml">reads</a> the names of Bruice and Wade chapters 
+from the file 
+<span class="filename">WEB-INF/textChapterNames.txt</span>. 
+
+<a name="random"/>
+<p>Instructors can choose to include in an assignment  
+groups of "randomized" questions.  
+The instructor can further subdivide each group of randomized questions into 
+"bundles" of a size chosen by the instructor.  When a student first chooses
+to view an assignment, ACE randomly assigns to the student the number of bundles 
+of questions that the instructor has designated.
+For example, if the instructor has grouped questions 1&ndash;12 into bundles of 
+3 questions and told ACE to choose 2 out of the 4 bundles
+for each student, each student will
+see a total of 6 questions comprising two of the sets
+1&ndash;3, 4&ndash;6, 7&ndash;9, and 10&ndash;12.
+If an instructor chooses not to bundle the questions, ACE will simply randomly 
+choose the number of questions designated by the instructor.
+ACE stores the list of 
+questions that each student sees in an assignment in 
+<span class="database">assigned_questions_v4</span>.</p>
+
+<!--#include file="db/assigned_questions.html"-->
+
+<p>ACE imposes some 
+restrictions on assignments that contain randomized questions:</p>
+<ul><li>The display of a randomized question cannot depend on whether 
+a student has answered another question correctly.
+</li><li>Once any student begins an assignment containing one or more random 
+question groups, an instructor cannot remove any question within a group or 
+ungroup it from its group.  The instructor may only remove or ungroup the 
+entire group.  The instructor may still remove or reorder questions
+not part of a random group as usual.
+</li><li>Once any student begins an assignment containing one or more random 
+question groups, the instructor may add no new groups to that assignment.
+</li><li>Instructors may not delete from the database questions 
+that are included in a random question group in any assignment until
+they delete all such assignments.
+</li></ul>
+
+<a name="props"/>
+<h4>Assignment assembly tool: properties</h4>
+
+<p>When instructors have finished creating or editing the assignment's content,
+they move to the assignment properties-editing page, 
+<span class="filename">hwcreator/editHWProps.jsp</span>.  TAs also have
+access to this page. Here, they enter the following information: </p>
+<ul><li>the due date and time;
+</li><li>whether ACE should allow students to see the assignment at this time; 
+</li><li>whether ACE should record work in the gradebook after the due date; 
+</li><li>whether ACE should eschew immediate grading and feedback display 
+(the instructor can later use the <a href="gradebook.shtml">gradebook</a> 
+to have ACE grade the responses); 
+</li><li>whether the assignment is an <a href="#exams">exam</a>, and, if so, 
+whether every response should be saved in the database (rather than just the 
+last response);
+</li><li>attempt-dependent grading parameters (applied to all questions in the
+assignment; stored in <span class="database">hwset_grading_params_v1</span>);
+</li><li>submission-time-dependent grading parameters (applied to all questions 
+in the assignment; stored in 
+<span class="database">hwset_grading_params_v1</span>); 
+</li><li>which students have extensions (stored in 
+<span class="database">hwset_extensions_v1</span>).  
+</li></ul>
+
+<p>Instructors may edit either the content or properties of existing assignments
+at any time, even when students are already working on it.</p>
+
+<a name="mastery"></a>
+<h4>Mastery assignments</h4>
+
+<p>A mastery assignment requires that a student answer correctly
+every question in an assignment before ACE considers the assignment
+to be mastered. 
+If a student submits the correct response within the number of attempts
+specified by the instructor, then the student has mastered the question.
+If a student fails to master a question, the student is permitted to 
+continue to work on it (with no limit on the number of tries), or
+the student can press the <span class="link">Solve related</span>
+button to reinstantiate the question. 
+So that ACE can reinstantiate a question, a mastery assignment may
+contain only <a href="#random">randomized questions</a>
+and <a href="questions.shtml#type">R-group questions</a>.
+When ACE reinstantiates an R group question, it
+sets the student's assigned R groups to new values; when it
+reinstantiates a randomized question, ACE assigns
+a new question at random from the appropriate question group.) 
+When a student chooses to solve a related question, ACE discards 
+the original instantiation and any responses that the student has
+already made. ACE does not keep track of the number
+of times that a student reinstantiates a question.
+</p>
+<p>An instructor can require that a student master the questions in a 
+master assignment A before ACE allows the student to enter
+another assignment B. An instructor sets these assignment dependencies
+on the assignment list page.
+</p>
+
+<h4>Self-granted extensions</h4>
+
+<p>An instructor may choose to allow students to grant themselves extensions
+on assignments. The <a href="courseMgt.shtml">course-editing page</a> provides
+a field where the instructor may enter the maximum to which a student's
+extensions may sum across a course. An instructor or TA may also designate a 
+maximum extension for any particular assignment on the 
+<a href="#prop">assignment properties-editing page</a>.
+</p>
+
+<p>When the student goes to the
+assignments list page, and she has not used her total allowance of
+extensions, then an edit button appears next to each assignment that 
+is not an exam, does not record responses after the due date or uses
+time-dependent grading, and is 
+not past due (ignoring any extension that the student may already have 
+received). Upon pressing the edit button, the student arrives at a 
+page where she can grant herself an extension that does not exceed the 
+remainder of her total allowance or the maximum for the particular 
+assignment, whichever is smaller.
+</p>
+
+<p>An instructor or TA may grant any student an extension at any time, 
+regardless of whether the student has exhausted his allowance. An extension 
+granted by an instructor or TA counts against that student's allowance, 
+but an instructor or TA can grant extensions that exceed the student's 
+allowance. 
+</p>
+
+<p>If an instructor or TA pushes the due date of an assignment into the 
+future, then ACE reduces existing extensions by a corresponding amount.
+</p>
+
+<a name="exams"/>
+<h4>Exam assignments</h4>
+
+Assignments that instructors have flagged as <a href="exams.html">exams</a> 
+have some additional features.
+<ul><li>The units for extensions are minutes, not days.
+</li><li>With each response, ACE reloads the extensions from the 
+database and recalculates the due date and time.  This feature allows
+instructors to grant extensions or extend the exam time without requiring
+students to interrupt their work.
+</li><li>ACE logs the IP address of a student every time he or she enters an 
+exam assignment, and it logs <i>every</i> student 
+response (along with the student name and time of response)  
+to questions in an exam assignment.  The instructor may download the log
+files to his or her hard drive.  These features help identify cheaters.
+</li><li>Students may not give themselves extensions on exam assignments.
+</li></ul>
+
+<p>An instructor may flag an exam as timed. In this case, the exam has
+a duration, decided by the instructor, for the student to do the exam after
+first entering it. (ACE stores the time of first entry in 
+<span class="database">assigned_questions_v4</span>.)
+ACE adds extensions for a timed exam to both the duration
+and the assignment due date.
+</p>
+
+<p>We advise an instructor who wants to administer an exam with ACE to
+place the assignment in a <a href="courseMgt.shtml#exams">course</a> dedicated 
+to that purpose.</p>
+
+<h4>Working assignments</h4>
+
+<p>A user clicks on the name of an assignment on the assignments list page to
+enter that assignment and <a href="solve.shtml">solve questions</a>.  </p>
+
+</body>
+</html>

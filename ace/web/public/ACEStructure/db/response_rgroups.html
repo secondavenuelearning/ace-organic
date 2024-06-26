@@ -1,0 +1,33 @@
+<p align="center"><span class="database">response_rgroups_v1</span>,
+instantiated R groups of R-group questions or variable values in numeric
+questions, assigned to students</p>
+<table class="dbTable" summary="">
+<tr><td class="database">hw_id<sup>1,2</sup></td>
+<td>assignment number 
+&rarr; <span class="database">hwsets_v5.hw_id</span></td>
+<td>number(38)</td>
+</tr>
+<tr><td class="database">student_id<sup>1,2</sup></td>
+<td>student's username 
+&rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td>
+</tr>
+<tr><td class="database">pb_id<sup>1</sup></td>
+<td>unique question ID number 
+&rarr; <span class="database">questions_v3.id</span>
+or <span class="database">user_questions_v3.id</span></td>
+<td>number(38)</td>
+</tr>
+<tr><td class="database">r_group_num<sup>1</sup></td>
+<td>serial number of the R group or value</td>
+<td>number(2)</td>
+</tr>
+<tr><td class="database">r_group</td>
+<td>either an instantiated R group consisting of an abbreviation for a shortcut group,
+such as <b>Ph</b>, or an arithmetical value, perhaps with an associated word, such as
+<b>H2O = 15.7</b></td>
+<td>varchar2(50)</td>
+</tr>
+</table>
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reactor configuration file -->
+
+<EvaluatorConfiguration Version ="0.1">
+
+    <Plugins>
+	<Plugin ID="dynamicpKa" Class="chemaxon.marvin.calculations.pKaPlugin" JAR="pKaPlugin.jar">
+		<Param Name="prefix" Value="dynamic"/>
+		<Param Name="type" Value="acidic"/>
+		<Param Name="mode" Value="micro"/>
+		<Param Name="min" Value="-1000"/>
+		<Param Name="max" Value="1000"/>
+	</Plugin>
+	<Plugin ID="dynamicpKb" Class="chemaxon.marvin.calculations.pKaPlugin" JAR="pKaPlugin.jar">
+		<Param Name="prefix" Value="dynamic"/>
+		<Param Name="type" Value="basic"/>
+		<Param Name="mode" Value="micro"/>
+		<Param Name="min" Value="-1000"/>
+		<Param Name="max" Value="1000"/>
+	</Plugin>
+    </Plugins>
+
+</EvaluatorConfiguration>

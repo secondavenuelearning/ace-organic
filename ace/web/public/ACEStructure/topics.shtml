@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Topics and question sets</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Topics and question sets</h3>
+
+<p>The questions in ACE are organized into topics, each of which is organized
+into subtopics, a.k.a. question sets or problem sets.
+</p>
+
+<!--#include file="db/chapters.html"-->
+
+<!--#include file="db/pbsets.html"-->
+
+<p>When instructors press the <span class="link">Question Bank</span>
+button, they first see the question set display page, <span
+class="filename">authortool/questionsList.jsp</span>.  The top
+section contains navigation tools and displays information about the currently
+selected question set.  The bottom section displays the selected question set.
+</p>
+
+<p>The top section contains a link, <span class="link">Edit topics &amp;
+question sets</span>, that brings the author to the topics display page, <span
+class="filename">authortool/qstore/topicsEditor.jsp</span>.  A local author
+(instructor) may use this page to add a new question set to a topic.  The
+contents of the question set will be visible only to the creator and his or her
+students.  A master author may also edit the information of existing topics and
+question sets or add new topics.  </p>
+
+<p>An instructor may also use the pulldown menus in <span
+class="filename">questionsList.jsp</span> to select a topic and a question
+set.  ACE displays the name, remarks, and common question statement of that
+question set in the section on the
+upper right.  The common question statement is appended to the beginning of
+every question in that set.  instructors may edit the
+common question statements of either database or locally authored question sets
+by pressing the <span class="link">Edit</span> icon next to the statement.
+After an instructor modifies a database common question statement, a <span
+class="link">Revert</span> icon will appear next to the <span
+class="link">Edit</span> icon.  ACE stores the modified common question
+statements in <span class="database">modified_headers_v2</span>.  </p>
+
+<!--#include file="db/modified_headers.html"-->
+
+<p>When an instructor chooses a question set from the pulldown menu, ACE
+displays the list of <a href="questions.shtml">questions</a> in that question
+set.  ACE normally lists questions in order of their unique ID numbers (which 
+reflects the order in which they were authored), with master-database questions 
+listed first and locally authored questions last.  However, a master author may 
+reorder the master-database questions, and a local author may reoder his or 
+her own questions.  Note: ACE recalls from the database,
+stores, and displays only some of the data associated with each question on the
+question set display page (light load).  It recalls neither the second and
+subsequent <a href="questions.shtml#figs">figures</a>, nor the molecular
+structures associated with <a href="questions.shtml#evals">evaluators</a> and
+<a href="questions.shtml#qData">question data</a>.  Only when an instructor
+chooses to edit a particular question does ACE load the additional data (full
+load).  </p>
+
+<p>If a student or the instructor has been <a href="solve.shtml">solving a
+question</a> in an assignment, and the instructor is dissatisfied with the <a
+href="questions.shtml#stmt">question statement</a>, <a
+href="questions.shtml#evals">evaluators, or feedback</a> and so wants to <a
+href="questions.shtml">modify them</a>, the instructor can acquire the unique
+ID number of the question from the <a href="solve.shtml">questions list</a>
+page (not visible to students), press <span class="link">Question Bank</span>,
+enter the number in the textbox in the upper section of the question set
+display page, and press <span class="link">Go</span> to go directly to the
+question-editing page for that question.  </p>
+
+<p>An instructor can choose to add a <a href="questions.shtml">question</a> to
+a set by pressing the <span class="link">Add Question</span> button, or she may
+edit a question by pressing the <span class="link">Edit</span> icon next to the
+question's serial number in the set.  An instructor can delete a question that
+she has authored (unless it is included in an
+<a href="assgnts.shtml">assignment</a> as a randomized question), and she can 
+revert a modified question back to the database version.  </p>
+
+<p>An instructor can move one or more questions from one question set to 
+another in the same topic or a different one if he or she has authored the 
+question. The author selects the question(s) and then presses 
+<span class="link">Relocate</span>.</p>
+
+<p>An instructor can also choose to export some or all of the questions in a
+set or to import questions into the set.  Exporting and importing questions is
+the only way that instructors can share locally authored questions with other
+instructors.  However, when ACE imports a question, it treats
+it as a brand-new question, even if its copy exists elsewhere in the database.
+Do not confuse exporting and importing <a href="questions.shtml">questions</a>
+with exporting and importing <a href="assgnts.shtml">assignments</a>.  </p>
+
+<p>When an instructor exports one or more questions, ACE converts the questions
+into a semireadable XML format and writes the XML to a text document.  ACE
+bundles the XML document into a zip file along with any figures associated with
+the exported questions.  Instructors may share this zip file with others.  If
+an instructor wishes to import the questions, he uploads the zip file (not the
+XML file) to ACE.  Many ACE classes contain methods called <span
+class="filename">toXML()</span> and <span class="filename">parseXML()</span>,
+which are the methods responsible for export and import, respectively.  </p>
+
+<p>If instructor A has designated B as a coinstructor of a course,
+and B wants to make changes in the database that will be visible to the
+students of the shared course, then B should choose A from the <span
+class="link">Select coinstructor</span> menu.  ACE will assign to A any changes
+that B makes thenceforth in the current authoring session.  Note that the
+changes will <i>not</i> be visible to students in any courses that B has
+created.  Instructor B can resume claiming his or her own work by pressing
+<span class="link">Question Bank</span> again.  </p>
+
+</body>
+</html>

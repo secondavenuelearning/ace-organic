@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>testing SVG</title>
+<script src="SVGGraphics.js" type="text/javascript"></script>
+
+</head>
+<body>
+<table id="testArea" width = "100%">
+<tr><td align="center">
+<div id="canvas" style="position:relative; left:0px; top:0px;
+						width:600px; height:600px; overflow:visible;">
+</div>
+<div>
+<script type="text/javascript">
+	var Graphics = new SVGGraphics('canvas');
+	Graphics.setFont('sans-serif', '100px');
+	Graphics.drawString('hi', 100, 50);
+	Graphics.drawLine(0, 100, 200, 200);
+	Graphics.setColor('#FF0000'); //Red
+	Graphics.drawLine(0, 0, 200, 200);
+	Graphics.setStroke(-1);
+	Graphics.setColor('#00FF00'); //Green
+	Graphics.drawLine(200, 0, 0, 200);
+	Graphics.paint();
+</script>
+</div>
+</td></tr>
+</table>
+
+</body>
+</html>
+<!--
+
+This is a test of the SVGGraphics library, meant to replace
+wz_jsgraphics.
+The old library is ../js/wz_jsgraphics.js
+the new SVGGraphics library is in SVGGraphics.js
+A test of lewis sketch is in rafiLewis4JS.js
+It is called from rafiTest.jsp
+-->

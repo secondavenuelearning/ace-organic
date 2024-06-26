@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<title>Acceptable words</title>
+<head>
+<link rel="stylesheet" href="../includes/epoch.css" type="text/css" />
+<script type="text/javascript" src="../js/jslib.js"></script>
+<script type="text/javascript" src="../js/wordCheck.js"></script>
+<script type="text/javascript">
+	// <!-- 
+	function finish() {
+		setInnerHTML('wordsList', opener.getWords());
+	}
+	// -->
+</script>
+</head>
+<body class="regtext" style="overflow:auto;" onload="finish();">
+<span id="wordsList"></span>
+</body>
+</html>

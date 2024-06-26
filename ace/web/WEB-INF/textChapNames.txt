@@ -1,0 +1,56 @@
+Wade	7	Introduction and Review
+Wade	7	Structure and Properties of Organic Molecules
+Wade	7	Structure and Stereochemistry of Alkanes
+Wade	7	The Study of Chemical Reactions
+Wade	7	Stereochemistry
+Wade	7	Alkyl Halides: Nucleophilic Substitution and Elimination
+Wade	7	Structure and Synthesis of Alkenes
+Wade	7	Reactions of Alkenes
+Wade	7	Alkynes
+Wade	7	Structure and Synthesis of Alcohols
+Wade	7	Reactions of Alcohols
+Wade	7	Infrared Spectroscopy and Mass Spectrometry
+Wade	7	Nuclear Magnetic Resonance Spectroscopy
+Wade	7	Ethers, Epoxides, and Sulfides
+Wade	7	Conjugated Systems, Orbital Symmetry, and Ultraviolet Spectroscopy
+Wade	7	Aromatic Compounds
+Wade	7	Reactions of Aromatic Compounds
+Wade	7	Ketones and Aldehydes
+Wade	7	Amines
+Wade	7	Carboxylic Acids
+Wade	7	Carboxylic Acid Derivatives
+Wade	7	Alpha Substitutions and Condensations of Enols and Enolate Ions
+Wade	7	Carbohydrates and Nucleic Acids
+Wade	7	Amino Acids, Peptides, and Proteins
+Wade	7	Lipids
+Wade	7	Synthetic Polymers
+Bruice	5	Electronic Structure and Bonding; Acids & Bases
+Bruice	5	Introduction to Organic Compounds
+Bruice	5	Alkenes: Structure, Nomenclature, Introduction to Reactivity
+Bruice	5	The Reactions of Alkenes
+Bruice	5	Stereochemistry
+Bruice	5	The Reactions of Alkynes
+Bruice	5	Delocalized Electrons
+Bruice	5	Substitution Reactions of Alkyl Halides
+Bruice	5	Elimination Reactions of Alkyl Halides
+Bruice	5	Reactions of Alcohols, Amines, Ethers, Epoxides, etc.
+Bruice	5	Radicals; Reactions of Alkanes
+Bruice	5	Mass, Infrared, Ultraviolet/Visible Spectroscopy
+Bruice	5	NMR Spectroscopy
+Bruice	5	Aromaticity; Reactions of Benzene
+Bruice	5	Reactions of Substituted Benzenes
+Bruice	5	Carbonyl Compounds I: Nucleophilic Acyl Substitution
+Bruice	5	Carbonyl Compounds II: Reactions of Aldehydes and Ketones
+Bruice	5	Carbonyl Compounds III: Reactions at the alpha-Carbon
+Bruice	5	More About Oxidation-Reduction Reactions
+Bruice	5	More About Amines. Heterocyclic Compounds
+Bruice	5	Carbohydrates
+Bruice	5	Amino Acids, Peptides, and Proteins
+Bruice	5	Catalysis
+Bruice	5	The Organic Mechanisms of the Coenzymes
+Bruice	5	The Chemistry of Metabolism
+Bruice	5	Lipids
+Bruice	5	Nucleosides, Nucleotides, and Nucleic Acids
+Bruice	5	Synthetic Polymers
+Bruice	5	Pericyclic Reactions
+Bruice	5	The Organic Chemistry of Drugs

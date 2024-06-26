@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>All ACE database tables</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+
+<h2 align="center">All ACE database tables</h2>
+
+<ul><li><a href="#cw">Tables storing users and courses</a> 
+<ul><li class="database">institutions_v1
+</li><li class="database">users_v4
+</li><li class="database">languages_v1
+</li><li class="database">language_codes_v1
+</li><li class="database">cw_courses_v3
+</li><li class="database">coinstructors_v2
+</li><li class="database">allowed_ips_v1
+</li><li class="database">cw_course_enrollment_v3
+</li><li class="database">exam_students_v2
+</li><li class="database">preenrollment_v4
+</li></ul>
+</li><li><a href="#Qs">Tables storing questions</a> 
+<ul><li class="database">chapters_v1
+</li><li class="database">pbsets_v3
+</li><li class="database">modified_headers_v2
+</li><li class="database">questions_v3
+</li><li class="database">figures_v5
+</li><li class="database">images_v2
+</li><li class="database">question_data_v4
+</li><li class="database">captions_v1
+</li><li class="database">evaluators_v4
+</li><li class="database">translations_v2
+</li></ul>
+</li><li><a href="#data">Tables storing information used in certain question types</a> 
+<ul><li class="database">functional_groups_v2
+</li><li class="database">impossible_SMs_v2
+</li><li class="database">menu_only_reagents_v1
+</li><li class="database">r_group_class_v3
+</li><li class="database">reaction_conditions_v3
+</li><li class="database">unit_conversions_v1
+</li><li class="database">canonicalized_units_v1
+</li></ul>
+</li><li><a href="#assgn">Tables storing assignments and responses</a> 
+<ul><li class="database">hwsets_v5
+</li><li class="database">hwset_qs_v2
+</li><li class="database">hwsets_for_import_v1
+</li><li class="database">hwset_rxn_condns_v1
+</li><li class="database">hwset_grading_params_v1
+</li><li class="database">hwset_extensions_v1
+</li><li class="database">assigned_questions_v4
+</li><li class="database">response_rgroups_v1
+</li><li class="database">responses_v6
+</li><li class="database">reactor_results_v4
+</li></ul>
+</li><li><a href="#forums">Tables storing forums</a> 
+<ul><li class="database">forum_topics_v1
+</li><li class="database">forum_posts_v1
+</li><li class="database">blocked_from_forums_v1
+</li><li class="database">watched_forum_topics_v1
+</li></ul>
+</li><li><a href="#texts">Tables storing textbooks</a> 
+<ul><li class="database">textbooks_v1
+</li><li class="database">text_chaps_v1
+</li><li class="database">text_content_v1
+</li><li class="database">text_coauthors_v1
+</li></ul>
+</li><li><a href="#indices">Indices</a> 
+</li><li><a href="#sequences">Sequences</a> 
+</li><li><a href="#primary">Primary keys</a> 
+</li><li><a href="#foreign">Foreign keys</a> 
+</li><li><a href="#functions">Functions and procedures</a> 
+</li></ul>
+
+<p>To convert a CLOB to a string of defined length, use:</p>
+<pre>dbms_lob.substr(field, length(field), 1)</pre>
+
+<a name="cw"></a>
+<hr/>
+<h3>Tables storing users and courses</h3> 
+
+<!--#include file="db/institutions.html"-->
+<!--#include file="db/users.html"-->
+<!--#include file="db/languages.html"-->
+<!--#include file="db/language_codes.html"-->
+<!--#include file="db/cw_courses.html"-->
+<!--#include file="db/coinstructors.html"-->
+<!--#include file="db/allowed_ips.html"-->
+<!--#include file="db/cw_course_enrollment.html"-->
+<!--#include file="db/exam_students.html"-->
+<!--#include file="db/preenrollment.html"-->
+
+<a name="Qs"></a>
+<p>&nbsp;</p><hr/>
+<h3>Tables storing questions</h3> 
+
+<!--#include file="db/chapters.html"-->
+<!--#include file="db/pbsets.html"-->
+<!--#include file="db/modified_headers.html"-->
+<!--#include file="db/questions.html"-->
+<!--#include file="db/figures.html"-->
+<!--#include file="db/images.html"-->
+<!--#include file="db/question_data.html"-->
+<!--#include file="db/captions.html"-->
+<!--#include file="db/evaluators.html"-->
+<!--#include file="db/translations.html"-->
+
+<a name="data"></a>
+<p>&nbsp;</p><hr/>
+<h3>Tables storing information used in certain question types.</h3> 
+
+<!--#include file="db/functional_groups.html"-->
+<!--#include file="db/impossible_SMs.html"-->
+<!--#include file="db/menu_only_reagents.html"-->
+<!--#include file="db/r_group_class.html"-->
+<!--#include file="db/reaction_conditions.html"-->
+<!--#include file="db/unit_conversions.html"-->
+<!--#include file="db/canonicalized_units.html"-->
+
+<a name="assgn"></a>
+<p>&nbsp;</p><hr/>
+<h3>Tables storing assignments and responses</h3>
+
+<!--#include file="db/hwsets.html"-->
+<!--#include file="db/hwset_qs.html"-->
+<!--#include file="db/hwsets_for_import.html"-->
+<!--#include file="db/hwset_rxn_condns.html"-->
+<!--#include file="db/hwset_grading_params.html"-->
+<!--#include file="db/hwset_extensions.html"-->
+<!--#include file="db/assigned_questions.html"-->
+<!--#include file="db/response_rgroups.html"-->
+<!--#include file="db/responses.html"-->
+<!--#include file="db/reactor_results.html"-->
+
+<a name="forums"></a>
+<p>&nbsp;</p><hr/>
+<h3>Tables storing forums</h3> 
+
+<!--#include file="db/forum_topics.html"-->
+<!--#include file="db/forum_posts.html"-->
+<!--#include file="db/blocked_from_forums.html"-->
+<!--#include file="db/watched_forum_topics.html"-->
+
+<a name="texts"></a>
+<p>&nbsp;</p><hr/>
+<h3>Tables storing textbooks</h3>
+
+<!--#include file="db/textbooks.html"-->
+<!--#include file="db/text_chaps.html"-->
+<!--#include file="db/text_content.html"-->
+<!--#include file="db/text_coauthors.html"-->
+
+<a name="indices"></a>
+<p>&nbsp;</p><hr/>
+<h3>Indices</h3> 
+
+<p>To list indices:</p>
+<pre>
+select index_name from user_indexes where index_name like '%_IDX' order by index_name;
+</pre>
+
+<p>Example of creating an index:</p>
+<pre>
+create index assigned_questions_v4_idx on assigned_questions_v4 (pb_id);
+</pre>
+
+<table class="dbTable" summary="">
+<tr><th>Index name</th><th>Table</th><th>Column(s)</th></tr>
+<tr class="database"><td>allowed_ips_v1_idx</td><td>allowed_ips_v1</td><td>course_id</td></tr>
+<tr class="database"><td>assigned_questions_v4_idx</td><td>assigned_questions_v4</td><td>pb_id</td></tr>
+<tr class="database"><td>cw_courses_v3_idx</td><td>cw_courses_v3</td><td>instructor_id</td></tr>
+<tr class="database"><td>evaluators_v4_idx</td><td>evaluators_v4</td><td>feedback_id</td></tr>
+<tr class="database"><td>forum_posts_v1_idx</td><td>forum_posts_v1</td>
+<td>topic_id, user_id, date_created, date_edited</td></tr>
+<tr class="database"><td>forum_topics_v1_idx</td><td>forum_topics_v1</td>
+<td>course_id, creator_id, date_created</td></tr>
+<tr class="database"><td>hwset_qs_v2_idx</td><td>hwset_qs_v2</td><td>pb_id</td></tr>
+<tr class="database"><td>institutions_v1_idx</td><td>users_v4</td><td>institution_id</td></tr>
+<tr class="database"><td>pbsets_v3_idx</td><td>pbsets_v3</td><td>chap_id, header_id, user_id</td></tr>
+<tr class="database"><td>preenrollment_v4_idx</td><td>preenrollment_v4</td><td>course_id, institution_id</td></tr>
+<tr class="database"><td>question_data_v4_idx</td><td>question_data_v4</td><td>question_id, text_id</td></tr>
+<tr class="database"><td>questions_v3_idx</td><td>questions_v3</td><td>set_id, statement_id</td></tr>
+<tr class="database"><td>responses_v6_idx</td><td>responses_v6</td><td>status, most_recent, grade, modified_grade</td></tr>
+<tr class="database"><td>text_chaps_v1_idx</td><td>text_chaps_v1</td><td>text_id</td></tr>
+<tr class="database"><td>text_content_v1_idx</td><td>text_content_v1</td><td>chap_id</td></tr>
+<tr class="database"><td>textbooks_v1_idx</td><td>textbooks_v1</td><td>user_id, flags</td></tr>
+<tr class="database"><td>user_question_data_v4_idx</td><td>user_question_data_v4</td><td>question_id</td></tr>
+<tr class="database"><td>user_questions_v3_idx</td><td>user_questions_v3</td><td>set_id</td></tr>
+<tr class="database"><td>users_v4_idx</td><td>users_v4</td><td>role, institution_id</td></tr>
+</table>
+
+<a name="sequences"></a>
+<p>&nbsp;</p><hr/>
+<h3>Sequences</h3> 
+
+<p>To list sequences:</p>
+<pre>
+select sequence_name from user_sequences order by sequence_name;
+</pre>
+
+<p>Example of creating a sequence (number cannot be replaced with a subquery):</p>
+<pre>
+create sequence forum_topic_seq start with 1;
+</pre>
+
+<table class="dbTable" summary="">
+<tr><th>Sequence name</th><th>Table</th><th>Column</th></tr>
+<tr class="database"><td>chapters_seq</td><td>chapters_v1</td><td>id</td></tr>
+<tr class="database"><td>cw_courses_seq</td><td>cw_courses_v3</td><td>id</td></tr>
+<tr class="database"><td>forum_post_seq</td><td>forums_v1</td><td>post_id</td></tr>
+<tr class="database"><td>forum_topic_seq</td><td>forums_v1</td><td>topic_id</td></tr>
+<tr class="database"><td>functional_groups_seq</td><td>functional_groups_v2</td><td>group_id</td></tr>
+<tr class="database"><td>hwsets_for_import_seq</td><td>hwsets_for_import_v1</td><td>id</td></tr>
+<tr class="database"><td>hwsets_seq</td><td>hwsets_v5</td><td>hw_id</td></tr>
+<tr class="database"><td>institutions_seq</td><td>institutions_v1</td><td>id</td></tr>
+<tr class="database"><td>pbsets_seq</td><td>pbsets_v3</td><td>id</td></tr>
+<tr class="database"><td>problem_seq</td><td>(user_)questions_v3</td><td>id</td></tr>
+<tr class="database"><td>question_data_seq</td><td>(user_)question_data_v4</td><td>data_id</td></tr>
+<tr class="database"><td>r_group_class_seq</td><td>r_group_class_v3</td><td>id</td></tr>
+<tr class="database"><td>reaction_conditions_seq</td><td>reaction_conditions_v3</td><td>rxn_cond_id</td></tr>
+<tr class="database"><td>reference_seq</td><td>(user_)figures_v5</td><td>fig_id</td></tr>
+<tr class="database"><td>text_chaps_seq</td><td>text_chaps_v1</td><td>id</td></tr>
+<tr class="database"><td>text_content_seq</td><td>text_content_v1</td><td>id</td></tr>
+<tr class="database"><td>textbooks_seq</td><td>textbooks_v1</td><td>id</td></tr>
+<tr class="database"><td>translations_seq</td><td>translations_v2</td><td>phrase_id</td></tr>
+</table>
+
+
+<a name="primary"></a>
+<p>&nbsp;</p><hr/>
+<h3>Primary keys</h3> 
+
+<p>To list primary keys:</p>
+<pre>
+select substr(cons.constraint_name, 1, 25) as constraint_name,
+substr(cols.table_name || '.' || cols.column_name, 1, 45) as key
+from user_constraints cons, user_cons_columns cols
+where cons.constraint_name = cols.constraint_name
+and cons.constraint_type = 'P' 
+and cons.constraint_name like 'P_%'
+order by cols.table_name, cols.column_name;
+</pre>
+
+<p>Example of adding a primary key to an existing table:</p>
+<pre>
+alter table evaluators_v4 add constraint p_evals3 primary key (pb_id, major_id, minor_id);
+</pre>
+
+<table class="dbTable" summary="">
+<tr><th>Table</th><th>Constraint name</th><th>Column(s)</th></tr>
+
+<tr><td class="database">assigned_questions_v4</td>
+<td class="database">p_assgd_qs4</td>
+<td class="database">hw_id, student_id, serial_no</td>
+</tr>
+
+<tr><td class="database">blocked_from_forums_v1</td>
+<td class="database">p_blocked1</td>
+<td class="database">course_id, user_id</td>
+</tr>
+
+<tr><td class="database">canonicalized_units_v1</td>
+<td class="database">p_canon_units1</td>
+<td class="database">unit_symbol, unit_name</td>
+</tr>
+
+<tr><td class="database">captions_v1</td>
+<td class="database">p_capts1</td>
+<td class="database">question_id, row_or_column, serial_no</td>
+</tr>
+
+<tr><td class="database">chapters_v1</td>
+<td class="database">p_chaps1</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">coinstructors_v2</td>
+<td class="database">p_coinstructors2</td>
+<td class="database">course_id, instructor_id</td>
+</tr>
+
+<tr><td class="database">cw_courses_v3</td>
+<td class="database">p_courses3</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">cw_course_enrollment_v3</td>
+<td class="database">p_enroll3</td>
+<td class="database">course_id, student_id</td>
+</tr>
+
+<tr><td class="database">evaluators_v4</td>
+<td class="database">p_evals4</td>
+<td class="database">pb_id, major_id, minor_id</td>
+</tr>
+
+<tr><td class="database">exam_students_v2</td>
+<td class="database">p_exam_user2</td>
+<td class="database">user_id</td>
+</tr>
+
+<tr><td class="database">figures_v5</td>
+<td class="database">p_figs5</td>
+<td class="database">pb_id, serial_no</td>
+</tr>
+
+<tr><td class="database">forum_posts_v1</td>
+<td class="database">p_forumpost1</td>
+<td class="database">post_id</td>
+</tr>
+
+<tr><td class="database">forum_topics_v1</td>
+<td class="database">p_forumtopic1</td>
+<td class="database">topic_id</td>
+</tr>
+
+<tr><td class="database">functional_groups_v2</td>
+<td class="database">p_fnalgrps2</td>
+<td class="database">group_id</td>
+</tr>
+
+<tr><td class="database">hwset_extensions_v1</td>
+<td class="database">p_hw_exts1</td>
+<td class="database">hw_id</td>
+</tr>
+
+<tr><td class="database">hwset_grading_params_v1</td>
+<td class="database">p_hw_grades1</td>
+<td class="database">hw_id, param_type, limit</td>
+</tr>
+
+<tr><td class="database">hwset_qs_v2</td>
+<td class="database">p_hw_qs2</td>
+<td class="database">hw_id, group_num, pb_num_in_group</td>
+</tr>
+
+<tr><td class="database">hwset_rxn_condns_v1</td>
+<td class="database">p_hw_rxnconds1</td>
+<td class="database">hw_id, rxn_cond_id</td>
+</tr>
+
+<tr><td class="database">hwsets_v5</td>
+<td class="database">p_hws5</td>
+<td class="database">hw_id</td>
+</tr>
+
+<tr><td class="database">hwsets_for_import_v1</td>
+<td class="database">p_hwsets_import1</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">images_v2</td>
+<td class="database">p_imgs2</td>
+<td class="database">pic_id</td>
+</tr>
+
+<tr><td class="database">impossible_sms_v2</td>
+<td class="database">p_impossiblesms2</td>
+<td class="database">name</td>
+</tr>
+
+<tr><td class="database">institutions_v1</td>
+<td class="database">p_instns1</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">languages_v1</td>
+<td class="database">p_language1</td>
+<td class="database">user_id, language</td>
+</tr>
+
+<tr><td class="database">menu_only_reagents_v1</td>
+<td class="database">p_menurgts1</td>
+<td class="database">definition</td>
+</tr>
+
+<tr><td class="database">modified_headers_v2</td>
+<td class="database">p_modheaders2</td>
+<td class="database">user_id, pbset_id</td>
+</tr>
+
+<tr><td class="database">pbsets_v3</td>
+<td class="database">p_qsets3</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">question_data_v4</td>
+<td class="database">p_qdata4</td>
+<td class="database">data_id</td>
+</tr>
+
+<tr><td class="database">questions_v3</td>
+<td class="database">p_qs3</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">response_rgroups_v1</td>
+<td class="database">p_resp_rgrps1</td>
+<td class="database">hw_id, pb_id, student_id, r_group_num</td>
+</tr>
+
+<tr><td class="database">responses_v6</td>
+<td class="database">p_responses6</td>
+<td class="database">hw_id, pb_id, student_id, tries</td>
+</tr>
+
+<tr><td class="database">r_group_class_v3</td>
+<td class="database">p_r_grp_class3</td>
+<td class="database">id, member_num</td>
+</tr>
+
+<tr><td class="database">text_chaps_v1</td>
+<td class="database">p_textchaps1</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">text_coauthors_v1</td>
+<td class="database">p_coauths1</td>
+<td class="database">book_id, user_id</td>
+</tr>
+
+<tr><td class="database">text_content_v1</td>
+<td class="database">p_textcontent1</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">textbooks_v1</td>
+<td class="database">p_texts1</td>
+<td class="database">id</td>
+</tr>
+
+<tr><td class="database">unit_conversions_v1</td>
+<td class="database">p_units1</td>
+<td class="database">unit_to, unit_from</td>
+</tr>
+
+<tr><td class="database">user_evaluators_v4</td>
+<td class="database">p_userevals4</td>
+<td class="database">user_id, pb_id, major_id, minor_id</td>
+</tr>
+
+<tr><td class="database">user_figures_v5</td>
+<td class="database">p_userfigs5</td>
+<td class="database">user_id, pb_id, serial_no</td>
+</tr>
+
+<tr><td class="database">user_images_v2</td>
+<td class="database">p_userimgs2</td>
+<td class="database">pic_id</td>
+</tr>
+
+<tr><td class="database">user_question_data_v4</td>
+<td class="database">p_userqdata4</td>
+<td class="database">data_id</td>
+</tr>
+
+<tr><td class="database">user_questions_v3</td>
+<td class="database">p_userqs3</td>
+<td class="database">user_id, id</td>
+</tr>
+
+<tr><td class="database">user_captions_v1</td>
+<td class="database">p_usercapts1</td>
+<td class="database">question_id, user_id, row_or_column, serial_no</td>
+</tr>
+
+<tr><td class="database">users_v4</td>
+<td class="database">p_users4</td>
+<td class="database">user_id</td>
+</tr>
+
+<tr><td class="database">watched_forum_topics_v1</td>
+<td class="database">p_watchtopic1</td>
+<td class="database">student_id, topic_id</td>
+</tr>
+
+</table>
+
+
+<a name="foreign"></a>
+<p>&nbsp;</p><hr/>
+<h3>Foreign keys</h3> 
+
+<p>To list foreign keys:</p>
+<pre>
+select con.constraint_name,
+	con.table_name || '.' || con.column_name || ' -> ' ||
+		rel.table_name || '.' || rel.column_name as key
+from user_cons_columns con 
+join user_constraints cc 
+	on con.constraint_name = cc.constraint_name
+join user_cons_columns rel 
+	on cc.r_constraint_name = rel.constraint_name 
+	and con.position = rel.position
+where cc.constraint_type = 'R'
+order by con.constraint_name;
+</pre>
+
+<p>Example of adding a foreign key to an existing table:</p>
+<pre>
+alter table users_v4
+add constraint f_users4_instn_id
+foreign key (institution_id) references institutions_v1(id);
+</pre>
+
+<table class="dbTable" summary="">
+<tr><th>Table</th><th>Constraint name</th><th>Column(s)</th><th>Reference(s)</th></tr>
+
+<tr><td style="padding-top:8px;" class="database">allowed_ips_v1</td>
+<td style="padding-top:8px;" class="database">f_ips1_course</td>
+<td style="padding-top:8px;" class="database">course_id</td>
+<td style="padding-top:8px;" class="database">cw_courses_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">assigned_questions_v4</td>
+<td style="padding-top:8px;" class="database">f_assgd_qs4_assgt<br/>f_assgd_qs4_user</td>
+<td style="padding-top:8px;" class="database">hw_id<br/>student_id</td>
+<td style="padding-top:8px;" class="database">hwsets_v5.hw_id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">blocked_from_forums_v1</td>
+<td style="padding-top:8px;" class="database">f_blocked1_user<br/>f_blocked1_course</td>
+<td style="padding-top:8px;" class="database">user_id<br/>course_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id<br/>cw_courses_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">captions_v1</td>
+<td style="padding-top:8px;" class="database">f_capts1_q</td>
+<td style="padding-top:8px;" class="database">question_id</td>
+<td style="padding-top:8px;" class="database">questions_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">coinstructors_v2</td>
+<td style="padding-top:8px;" class="database">f_coinstr2_instructor<br/>f_coinstr2_course</td>
+<td style="padding-top:8px;" class="database">instructor_id<br/>course_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id<br/>cw_courses_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">cw_courses_v3</td>
+<td style="padding-top:8px;" class="database">f_crs3_instructor<br/>f_crs3_text</td>
+<td style="padding-top:8px;" class="database">instructor_id<br/>ace_text_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id<br/>textbooks_v1.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">cw_course_enrollment_v3</td>
+<td style="padding-top:8px;" class="database">f_enroll3_course<br/>f_enroll3_student</td>
+<td style="padding-top:8px;" class="database">course_id<br/>student_id</td>
+<td style="padding-top:8px;" class="database">cw_courses_v3.id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">evaluators_v4</td>
+<td style="padding-top:8px;" class="database">f_evals4_q</td>
+<td style="padding-top:8px;" class="database">pb_id</td>
+<td style="padding-top:8px;" class="database">questions_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">exam_students_v2</td>
+<td style="padding-top:8px;" class="database">f_exam2_user<br/>f_exam2_course</td>
+<td style="padding-top:8px;" class="database">user_id<br/>course_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id<br/>cw_courses_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">figures_v5</td>
+<td style="padding-top:8px;" class="database">f_fig5_q</td>
+<td style="padding-top:8px;" class="database">pb_id</td>
+<td style="padding-top:8px;" class="database">questions_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">forum_posts_v1</td>
+<td style="padding-top:8px;" class="database">f_forumpost1_topic</td>
+<td style="padding-top:8px;" class="database">topic_id</td>
+<td style="padding-top:8px;" class="database">cw_topics_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">forum_topics_v1</td>
+<td style="padding-top:8px;" class="database">f_forumtopic1_course</td>
+<td style="padding-top:8px;" class="database">course_id</td>
+<td style="padding-top:8px;" class="database">cw_courses_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">hwset_extensions_v1</td>
+<td style="padding-top:8px;" class="database">f_hw_exts1_assgt<br/>f_hw_exts1_student</td>
+<td style="padding-top:8px;" class="database">hw_id<br/>student_id</td>
+<td style="padding-top:8px;" class="database">hwsets_v5.hw_id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">hwset_grading_params_v1</td>
+<td style="padding-top:8px;" class="database">f_hw_grades1_assgt</td>
+<td style="padding-top:8px;" class="database">hw_id</td>
+<td style="padding-top:8px;" class="database">hwsets_v5.hw_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">hwset_qs_v2</td>
+<td style="padding-top:8px;" class="database">f_hw_qs2_assgt</td>
+<td style="padding-top:8px;" class="database">hw_id</td>
+<td style="padding-top:8px;" class="database">hwsets_v5.hw_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">hwset_rxn_condns_v1</td>
+<td style="padding-top:8px;" class="database">f_hw_rxnconds1_assgt<br/>f_hw_rxnconds1_rxncond</td>
+<td style="padding-top:8px;" class="database">hw_id<br/>rxn_cond_id</td>
+<td style="padding-top:8px;" class="database">hwsets_v5.hw_id
+	<br/>reaction_conditions_v3.rxn_cond_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">hwsets_v5</td>
+<td style="padding-top:8px;" class="database">f_hws5_course<br/>f_hws5_dep</td>
+<td style="padding-top:8px;" class="database">course_id<br/>depends_on</td>
+<td style="padding-top:8px;" class="database">cw_courses_v3.id<br/>hwsets_v5.hw_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">languages_v1</td>
+<td style="padding-top:8px;" class="database">f_lang1_user</td>
+<td style="padding-top:8px;" class="database">user_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">modified_headers_v2</td>
+<td style="padding-top:8px;" class="database">f_modheaders2_set<br/>f_modheaders2_user</td>
+<td style="padding-top:8px;" class="database">pbset_id<br/>user_id</td>
+<td style="padding-top:8px;" class="database">pbsets_v3.id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">pbsets_v3</td>
+<td style="padding-top:8px;" class="database">f_qsets3_user<br/>f_qsets3_chap</td>
+<td style="padding-top:8px;" class="database">user_id<br/>chap_id</td>
+<td style="padding-top:8px;"><span class="database">users_v4.user_id</span> (or null)
+	<br/><span class="database">chapters_v1.id</span></td></tr>
+
+<tr><td style="padding-top:8px;" class="database">preenrollment_v4</td>
+<td style="padding-top:8px;" class="database">f_preenroll4_course<br/>f_preenroll4_instn_id</td>
+<td style="padding-top:8px;" class="database">course_id<br/>institution_id</td>
+<td style="padding-top:8px;" class="database">cw_courses_v3.id<br/>institutions_v1.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">question_data_v4</td>
+<td style="padding-top:8px;" class="database">f_qdata4_q</td>
+<td style="padding-top:8px;" class="database">question_id</td>
+<td style="padding-top:8px;" class="database">questions_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">questions_v3</td>
+<td style="padding-top:8px;" class="database">f_qs3_set</td>
+<td style="padding-top:8px;" class="database">set_id</td>
+<td style="padding-top:8px;" class="database">pbsets_v3.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">response_rgroups_v1</td>
+<td style="padding-top:8px;" class="database">f_resp_rgrps1_assgt<br/>f_resp_rgrps1_student</td>
+<td style="padding-top:8px;" class="database">hw_id<br/>student_id</td>
+<td style="padding-top:8px;" class="database">hwsets_v5.hw_id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">responses_v6</td>
+<td style="padding-top:8px;" class="database">f_resp6_assgt<br/>f_resp6_student</td>
+<td style="padding-top:8px;" class="database">hw_id<br/>student_id</td>
+<td style="padding-top:8px;" class="database">hwsets_v5.hw_id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">text_chaps_v1</td>
+<td style="padding-top:8px;" class="database">f_textchaps1_book</td>
+<td style="padding-top:8px;" class="database">text_id</td>
+<td style="padding-top:8px;" class="database">textbooks_v1.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">text_coauthors_v1</td>
+<td style="padding-top:8px;" class="database">f_coauths1_book<br/>f_coauths1_user</td>
+<td style="padding-top:8px;" class="database">book_id<br/>user_id</td>
+<td style="padding-top:8px;" class="database">textbooks_v1.id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">text_content_v1</td>
+<td style="padding-top:8px;" class="database">f_textcontent1_chap</td>
+<td style="padding-top:8px;" class="database">chap_id</td>
+<td style="padding-top:8px;" class="database">text_chaps_v1.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">textbooks_v1</td>
+<td style="padding-top:8px;" class="database">f_texts1_user<br/>f_texts1_lock</td>
+<td style="padding-top:8px;" class="database">user_id<br/>lock_holder</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">user_evaluators_v4</td>
+<td style="padding-top:8px;" class="database">f_userevals4_user</td>
+<td style="padding-top:8px;" class="database">user_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">user_figures_v5</td>
+<td style="padding-top:8px;" class="database">f_userfigs5_user</td>
+<td style="padding-top:8px;" class="database">user_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">user_question_data_v4</td>
+<td style="padding-top:8px;" class="database">f_userqdata4_user</td>
+<td style="padding-top:8px;" class="database">user_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">user_questions_v3</td>
+<td style="padding-top:8px;" class="database">f_userqs3_set<br/>f_userqs3_user</td>
+<td style="padding-top:8px;" class="database">set_id<br/>user_id</td>
+<td style="padding-top:8px;" class="database">pbsets_v3.id<br/>users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">user_captions_v1</td>
+<td style="padding-top:8px;" class="database">f_usercapts1_user</td>
+<td style="padding-top:8px;" class="database">user_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">users_v4</td>
+<td style="padding-top:8px;" class="database">f_users4_instn_id</td>
+<td style="padding-top:8px;" class="database">institution_id</td>
+<td style="padding-top:8px;" class="database">institutions_v1.id</td></tr>
+
+<tr><td style="padding-top:8px;" class="database">watched_forum_topics_v1</td>
+<td style="padding-top:8px;" class="database">f_watchtopic1_student<br/>f_watchtopic1_topic</td>
+<td style="padding-top:8px;" class="database">student_id<br/>topic_id</td>
+<td style="padding-top:8px;" class="database">users_v4.user_id<br/>forum_topics_v1.topic_id</td></tr>
+
+</table>
+
+<a name="functions"></a>
+<p>&nbsp;</p><hr/>
+<h3>Functions and procedures</h3> 
+
+<p>To list names and code of functions and procedures:</p>
+<pre>
+select unique name from user_source order by name;
+select text from user_source where nls_lower(name) = 'grade_factor_v2' order by line;
+</pre>
+
+<!--#include file="db/functions.html"-->
+
+<p>&nbsp;</p><hr/>
+<p>
+<br /><sup>1</sup>Primary key.
+<br /><sup>2</sup>Foreign key.
+<br /><sup>3</sup>Indexed.
+</p>
+
+</body>
+</html>

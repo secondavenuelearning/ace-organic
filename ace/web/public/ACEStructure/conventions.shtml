@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Programming Conventions</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Where to find configurations</h3>
+
+<ul><li>Find configurations in
+<span class="filename">WEB-INF/epoch.properties</span>.  The file includes:
+	<ul><li>Oracle database location and login information
+	</li><li>email address of administrator 
+	</li><li>name and email address of instructor verifier
+	</li><li>tutorial course ID
+	</li><li>location of display rules definition file
+	</li><li>Oracle database location and login information
+	</li><li>location of <a href="solve.shtml#logs">response logger</a> directory
+	</li><li>location of tempfiles directory
+	</li><li>location of shortcut groups and functional groups definition files
+	</li><li>location of display rules definition file, textbook
+	chapters file, and default textbook editions file.
+	</li></ul>
+</li><li>Find CSS definitions in
+<span class="filename">includes/epoch.css</span>.  
+</li><li>Find Java methods for making buttons in
+<span class="filename">includes/functions.inc.jsp</span>.  
+</li><li>Find widely used JavaScript methods in
+<span class="filename">js/jslib.js</span>,
+<span class="filename">openWindows.js</span>,
+<span class="filename">ajax.js</span>,
+and <span class="filename">marvinJSStart.js</span>.  The last file uses constants
+set in <span class="filename">marvinQuestionConstants.jsp</span>.
+</li></ul>
+
+<h3>Some ACE programming conventions</h3>
+
+<ul><li>ACE calls database operations from 
+<span class="filename">db/XXX.java</span> files.
+The classes <span class="classname">DBTables</span>
+and <span class="classname">DBLocalTables</span> list the database 
+tables and fields used by ACE, and they provide constants named according to our 
+current usage that all the other database classes use when calling the database.  
+
+</li><li>Use 
+<span class="filename">Utils.toValidJS()</span> whenever
+converting a Java
+<span class="classname">String</span> to JavaScript with 
+<span class="code">&lt;%= ... %&gt;</span> tags, and  
+enclose the Javascript variables in single quotes, not double
+quotes.  If you violate this convention, hilarity can ensue.  
+
+</li><li>Use 
+<span class="filename">Utils.toValidTextbox()</span> whenever
+displaying text in a text input field:
+<blockquote>
+<span class="code">&lt;textarea&gt;&lt;%= Utils.toValidTextBox(feedback)
+%&gt;&lt;/textarea&gt;</span>
+<br /><span class="code">&lt;input type="text" 
+value="&lt;%= Utils.toValidTextBox(feedback) %&gt;" /&gt;</span>
+</blockquote>
+
+</li><li>Use 
+<span class="filename">Utils.toValidHTMLAttributeValue()</span> whenever
+setting the value of a hidden input field or a select option:
+<blockquote>
+<span class="code">&lt;input type="hidden" 
+value="&lt;%= Utils.toValidHTMLAttributeValue(feedback) %&gt;" /&gt;</span>
+<br /><span class="code">&lt;option 
+value="&lt;%= Utils.toValidHTMLAttributeValue(feedback) %&gt;"&gt;</span>
+</blockquote>
+
+</li><li>Use <span class="filename">Utils.toDisplay()</span> whenever
+displaying to users a <span class="classname">String</span> that may contain 
+organic chemistry terms.
+
+</li><li>When a user enters text into a form and submits it, ACE must convert
+any non-ASCII characters into character entity references.  If the page submits
+the text as part of a form, apply
+<span class="filename">Utils.inputToCERs()</span> to the 
+<span class="classname">String</span> after the Java code in the next page 
+retrieves the data.  However, if the page submits the text
+as a URI (part of the URL of the next page), or if you use AJAX to submit the
+text, apply the Javascript method
+<span class="filename">encodeURIComponent()</span> to the 
+<span class="classname">String</span> before the page submits, and then apply
+<span class="filename">Utils.unicodeToCERs()</span> after the Java code in 
+the next page retrieves the data.  
+
+</li><li>Use <span class="filename">toAlert()</span> and
+<span class="filename">toConfirm()</span> instead of
+<span class="filename">alert()</span> and
+<span class="filename">confirm()</span> for alerts that ACE may
+display in a foreign language.
+These methods are located in <span class="filename">js/jslib.js</span>.
+
+</li><li>Format Java variables for use by AJAX as follows:
+<blockquote>
+<span class="code">molValue = @@@@&lt;%= Utils.lineBreaksToJS(lastResp) %&gt;@@@@</span>
+</blockquote>
+This line should appear in the <span class="code">&lt;head&gt;</span> block,
+preceded by <span class="code">//</span> if it is located within a 
+<span class="code">&lt;script&gt;</span> block and enclosed in 
+<span class="code">&lt;!-- ... --&gt;</span> if it is located outside.  Note the use
+of <span class="filename">Utils.lineBreaksToJS()</span> to format the
+<span class="classname">String</span>.  
+
+</li><li>All pages that use 
+<a href="http://www.chemaxon.com/products/marvin/marvin-js/" 
+target="window2">MarvinJS</a> 
+refer to <span class="filename">js/marvinJSStart.js</span>
+(among other js pages listed there), which contains the Javascript method, 
+<span class="code">startMarvinJS()</span>, 
+that starts the application.  These pages also include
+<span class="filename">js/marvinQuestionConstants.jsp.h</span>
+and must import <span class="classname">Question</span>.
+
+</li><li>All pages that use LewisJS refer to
+<span class="filename">js/lewisJS.js</span>
+(among other js pages listed there).
+
+</li><li>In the Java code, "index" usually refers to a serial number, whereas "id"
+usually refers to a unique ID number.  Unfortunately, programmers sometimes 
+violate this convention.  The suffix "Num", as in "courseNum" or "qNum", almost
+always refers to a serial number also.  Serial numbers generally begin at 1
+(not zero).
+
+</li><li>We use CLOBs to store MRV representations of molecules.  Oracle 10g allows 
+us to treat CLOBs like we would strings.  Oracle limits the length of string
+literals in SQL queries to 4000 characters, so we use PreparedStatements to
+insert string values into CLOB fields in the database.
+
+</li><li>When a class contains both constants and variable fields, we generally 
+place the constants in a separate interface that the class then implements.  This
+convention makes the API easier to read and makes it easier to use the constants
+in unrelated classes.
+
+</li><li>ACE uses the files in 
+<span class="filename">navigation/</span> to display the
+navigation menu bar and tabs.  All pages that ACE displays to users
+(except popup windows) should include 
+<span class="filename">menuHeaderJava.jsp</span>,
+<span class="filename">menuHeaderJS.jsp.h</span>, and
+either <span class="filename">menuHeaderHtml.jsp</span> or 
+<span class="filename">menuHeaderHtmlNoTranslate.jsp</span>, 
+and all pages that the user accesses from within a course 
+(except popup windows) should also include 
+<span class="filename">courseSidebarJava.jsp</span>,
+<span class="filename">courseSidebarJS.jsp.h</span>, and
+<span class="filename">courseSidebarHtml.jsp</span>. 
+</li><li>The file <span class="filename">menuHeaderJava.jsp</span> defines global Java 
+variables
+<span class="code">UserSession userSess</span>,
+<span class="code">User realUser</span> and <span class="code">user</span>,
+<span class="code">char realRole</span> and <span class="code">role</span>, and
+<span class="code">boolean aceMaster</span>.
+The file <span class="filename">courseSidebarJava.jsp</span> defines global 
+Java variables
+<span class="code">Course course</span>,
+<span class="code">Assgt[] assgts</span>, and
+<span class="code">boolean isInstructor</span> and <span class="code">isTA</span>.
+</li><li>The local page must define the variable <span class="code">String pathToRoot</span>.  
+Furthermore, <span class="code">&lt;div&gt;</span> markers must surround the 
+content of the local page, or it will not display properly.  
+The most common <span class="code">&lt;div&gt;</span> markers for local page 
+content are 
+<span class="code">&lt;div id="contentsWithoutTabs"&gt;</span>,
+<span class="code">&lt;div id="contentsWithTabsWithoutFooter"&gt;</span>, and
+<span class="code">&lt;div id="contentsWithTabsWithFooter"&gt;</span>.
+</li></ul>
+
+<h3>To regenerate the API</h3>
+
+<p>Move to the Java source code directory, and enter:
+<blockquote><pre>
+make javadoc 
+</pre></blockquote>
+
+</body>
+</html>
+

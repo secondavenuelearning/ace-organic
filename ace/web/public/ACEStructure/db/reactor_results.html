@@ -1,0 +1,20 @@
+<div>
+<p align="center"><span class="database">reactor_results_v4</span>,
+JChem table containing results of Reactor calculations</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">cd_id</td>
+<td>JChem column; identifies each row uniquely</td>
+<td>integer</td></tr>
+<tr><td class="database">cd_structure</td>
+<td>JChem column; contains one or more substrates of a reaction</td>
+<td>MEDIUMBLOB</td></tr>
+<tr><td class="database">rxn_id</td> 
+<td>reaction conditions to which the substrates were subjected
+&rarr; <span class="database">reaction_conditions_v3.rxn_cond_id</span>
+</td>
+<td>number(38)</td></tr>
+<tr><td class="database">calcd_products</td>
+<td>MRV of products calculated by Reactor</td>
+<td>CLOB</td></tr>
+</table></div>

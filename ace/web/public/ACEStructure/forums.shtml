@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Discussion forums and chat rooms</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Discussion forums</h3>
+
+<p>On the <a href="courseMgt.shtml">course-editing page</a>, an 
+instructor may choose to establish a discussion forum for that
+course.  If a course has a discussion forum associated with it, 
+ACE will display a <span class="link">Forum</span> tab
+when the instructor or student enters the course.  Clicking on this
+tab will bring the user to the forum topics page,
+<span class="filename">topics.jsp</span>.  A user may start
+a new discussion topic, and an instructor may make a topic sticky or 
+unsticky and may delete the topic. 
+</p>
+
+<!--#include file="db/forum_topics.html"-->
+
+<p>Students may choose to watch 
+or stop watching forum topics. If they are watching a topic, they will
+get a text message when another user makes or edits a post in that
+topic. The instructors, coinstructors, and TAs of a course will
+receive a text message when any user modifies any topic in the course.
+When ACE enrolls students in a course, ACE automatically turns on the 
+flag for them to watch the sticky topics in that course's forum.
+</p>
+
+<!--#include file="db/watched_forum_topics.html"-->
+
+<p>If a user clicks on the title of a topic, ACE will bring the user
+to the topic view page, <span class="filename">posts.jsp</span>.  Here 
+users may view all posts in the topic, 
+add new posts to the topic, or edit their own posts.  In addition,
+instructors may edit or delete any posts.  When a user adds or edits
+a post, ACE provides MarvinJS or LewisJS along with
+the text box, and ACE displays posts' structures in the topic view page.</p>
+
+<!--#include file="db/forum_posts.html"-->
+
+<p>The pulldown menu on the <a href="courseMgt.shtml#TA">enrollment list page</a> 
+under the <span class="link">Enrollment</span> tab contains an option to block 
+a student from using a course's forum.</p>
+
+<!--#include file="db/blocked_from_forums.html"-->
+
+<p>If a course has its forum enabled, then the assignment 
+<a href="solve.shtml">questions list page</a> will have either a
+<span class="link">Start forum topic</span> button 
+or a <span class="link">Go to forum topic</span> button associated with
+every question in the assignment.  Either button will bring the
+user to the forum, where the user can post to a new topic or read to post
+to an existing topic associated with that question.  A topic created 
+in this way will feature a link 
+on the topic view page back to the assignment and question.  The 
+connections between the course forum and the assignment questions 
+are specific to the specific course, assignments, and questions.  For
+example, if a question appears in two different assignments in the
+same course, then a forum topic started for the 
+question in one of the assignments will not link to the same question in a 
+different assignment.  If an instructor removes a question that is linked 
+to a forum topic from an assignment, then ACE will not delete the forum topic,
+but the link will no longer exist.
+</p>
+
+<p>The <a href="admin.shtml">administrator</a> has the ability to delete images
+from posts that are a year or more old.  Images are very large, and this tool
+can reduce the amount of database space that images occupy.
+</p>
+
+<h3>Chat rooms</h3>
+
+<p>A chat room allows instructors and students at multiple sites to
+share a single MarvinJS editor and to chat by text in real time. It's an 
+ideal tool for virtual office hours. ACE establishes separate chat rooms for 
+different courses.</p>
+
+<p>An instructor who wishes to open a chat room for a course presses
+the <span class="link">Open chat room</span> button on the
+course home page, <span class="filename">course/courseHome.jsp</span>,
+which opens <span class="filename">course/marvinLive.jsp</span>. 
+ACE finds an unused port to which users should connect and writes it to the
+<span class="database">cw_courses_v3</span> database table. ACE then 
+uses the port number to uniquely name a new, dedicated directory in 
+<span class="filename">tempfiles/</span>, writes a JSON configuration
+file to the directory, and starts up a Marvin Live session
+at the port. Marvin Live then places a session database in the
+aforementioned directory in <span class="filename">tempfiles/</span>.
+</p>
+
+<!--#include file="db/cw_courses.html"-->
+
+<p>Meanwhile, ACE opens a new window and establishes a connection to the 
+course's Marvin Live session therein.
+Finally, the instructor creates and names a room in which the
+instructor and students can chat and draw structures.
+<blockquote>
+Note: Because the Marvin Live session
+uses a nonstandard port, certain firewalls may prevent access to the session.
+</blockquote>
+<blockquote>
+Note: At this time, nothing prevents students from establishing their
+own chat rooms or instructors from opening multiple rooms. 
+</blockquote>
+
+<p>After the instructor has established a chat room for a course, both 
+the instructor and students in the course may enter it by
+pressing the <span class="link">Join chat room</span> button on the
+course home page, <span class="filename">course/courseHome.jsp</span>. 
+The course's Marvin Live session opens in a separate window. The user 
+can then enter the existing chat room or establish a new one.
+</p>
+
+<p>An instructor may close all of a course's chat rooms by
+pressing the <span class="link">Close chat room</span> button on the
+course home page, <span class="filename">course/courseHome.jsp</span>. 
+In this case, ACE deletes the corresponding 
+<span class="filename">tempfiles/</span> directory and deletes the 
+port number from the course's record in the database.
+</p>
+
+</body>
+</html>

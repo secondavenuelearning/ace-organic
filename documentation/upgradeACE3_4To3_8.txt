@@ -1,0 +1,346 @@
+-- [*** create new directories figures and user_figures in ace/web/,
+-- set the owner of the directories to the owner of the web application,
+-- and press "Write images to disk" in admin DB update tool ***/
+
+create table images_v2 as (
+	select pic_id, 
+		id || '_' || pic_id || '.' || extension as file_name 
+	from questions_v3 join figures_v5 on id = pb_id 
+	join image_table1 on fig_id = pic_id 
+	where fig_type = 'IMG' 
+	union select pic_id, 
+		'forumPost' || post_id || '_' || pic_id || '.' || extension 
+	from forum_posts_v1 join image_table1 on to_number(figure) = pic_id 
+	where figure_type = 'IMG'
+);
+
+create table user_images_v2 as (
+	select pic_id, 
+		id || '_' || pic_id || '.' || extension as file_name
+	from user_questions_v3 join user_figures_v5 on id = pb_id 
+		and user_questions_v3.user_id = user_figures_v5.user_id 
+	join user_image_table1 on fig_id = pic_id 
+	where fig_type = 'IMG' 
+	union select pic_id, 
+		'textContent_' || pic_id || '.' || extension 
+	from text_content_v1 join user_image_table1 on to_number(data) = pic_id 
+	where data_type = 'IMG'
+);
+
+alter table images_v2 add constraint P_IMGS2 primary key (pic_id);
+alter table user_images_v2 add constraint P_USERIMGS2 primary key (pic_id);
+
+alter table images_v2 add file_name2 CLOB;
+update images_v2 set file_name2 = file_name;
+alter table images_v2 drop column file_name;
+alter table images_v2 rename column file_name2 to file_name;
+
+alter table user_images_v2 add file_name2 CLOB;
+update user_images_v2 set file_name2 = file_name;
+alter table user_images_v2 drop column file_name;
+alter table user_images_v2 rename column file_name2 to file_name;
+
+-- update click-here coded data
+
+update evaluators_v3 set coded_data = '6' 
+	where match_type = 'CLICK_HERE' and coded_data like 'Y';
+update evaluators_v3 set coded_data = '1' 
+	where match_type = 'CLICK_HERE' and coded_data like 'N';
+update user_evaluators_v3 set coded_data = '6' 
+	where match_type = 'CLICK_HERE' and coded_data like 'Y';
+update user_evaluators_v3 set coded_data = '1' 
+	where match_type = 'CLICK_HERE' and coded_data like 'N';
+
+-- convert click-here response to XML
+
+update responses_v6 
+	set response = regexp_replace(
+		regexp_replace(
+			regexp_replace(response, '^', '<xml><mark x="'), 
+			':', '" y="'), 
+		'$', '" /></xml>') 
+	where pb_id in (
+		select id from questions_v3 
+		where bitand(probtype, 31) = 15
+	) and regexp_like(response, '^\d*:\d*$');
+
+
+update responses_v6 
+	set response = regexp_replace(
+		regexp_replace(
+			regexp_replace(response, '^', '<xml><mark x="'), 
+			':', '" y="'), 
+		'$', '" /></xml>') 
+	where pb_id in (
+		select id from user_questions_v3 
+		where bitand(probtype, 31) = 15
+	) and regexp_like(response, '^\d*:\d*$');
+
+-- *** run "Convert clickable image coordinates to XML" in admin tool ***
+
+-- add IP address field to database
+
+alter table responses_v6 add ip_address varchar2(25);
+
+-- RBG 10/2012 first entry into course to enrollment table
+
+alter table cw_course_enrollment_v3 add first_entry varchar2(25); 
+
+-- RBG 11/2012 unit canonicalization for interconversions
+
+create table canonicalized_units_v1 (
+	unit_symbol varchar2(20) not null,
+	unit_name varchar2(50) not null,
+	what_measures varchar2(50),
+	factor_coefficient number not null,
+	factor_power10 number(3),
+	meter_power number(3),
+	kilogram_power number(3),
+	second_power number(3),
+	ampere_power number(3),
+	kelvin_power number(3),
+	mole_power number(3),
+	candela_power number(3),
+	constraint P_CANON_UNIT1 primary key(unit_symbol, unit_name)
+);
+
+-- RBG 1/2013 serial numbers for courses
+-- "928" represents tutorial course ID number; yours may be different: 
+-- value is stored in web/WEB-INF/epoch.properties
+
+alter table cw_courses_v3 add serial_no number(38);
+alter table coinstructors_v2 add serial_no number(38);
+alter table cw_course_enrollment_v3 add serial_no number(38);
+update cw_courses_v3 set serial_no = 1 where id = 928;
+update cw_course_enrollment_v3 set serial_no = 1 where course_id = 928;
+update coinstructors_v2 set serial_no = 1 where course_id = 928;
+
+-- RBG 2/2013 bigger field for shortcut group names 
+
+alter table r_group_class_v3 modify member varchar2(15);
+
+-- RBG 3/2013 separate probtype into question type and flags fields
+
+alter table questions_v3 add (
+	q_type_num number(38), 
+	q_type_name varchar2(15),
+	q_flags number(38)
+);
+alter table user_questions_v3 add (
+	q_type_num number(38), 
+	q_type_name varchar2(15),
+	q_flags number(38)
+);
+create table q_types (
+	name varchar2(15), 
+	num number(38), 
+	constraint P_QTYPES primary key (num)
+);
+insert into q_types (name, num)
+	select 'OTHER', 0 from dual union all
+	select 'SKELETAL', 1 from dual union all
+	select 'LEWIS', 2 from dual union all
+	select 'MECHANISM', 3 from dual union all
+	select 'MULT_CHOICE', 4 from dual union all
+	select 'ORDERING', 5 from dual union all
+	select 'SYNTHESIS', 6 from dual union all
+	select 'FILL_BLANK', 7 from dual union all
+	select 'NUMERIC', 8 from dual union all
+	select 'TEXT', 9 from dual union all
+	select 'TABLE', 10 from dual union all
+	select 'ORBITAL_DIAG', 11 from dual union all
+	select 'RXN_COORD', 12 from dual union all
+	select 'FREE_BODY', 13 from dual union all
+	select 'CHOOSE_EXPLN', 14 from dual union all
+	select 'CLICK_IMG', 15 from dual union all
+	select 'LOGIC_STMTS', 16 from dual union all
+	select 'VECTORS', 17 from dual union all
+	select 'EQUATIONS', 18 from dual;
+update questions_v3 set 
+	q_type_num = bitand(probtype, 63), 
+	q_flags = bitand(probtype, power(2, 30) - power(2, 6));
+update user_questions_v3 set 
+	q_type_num = bitand(probtype, 63), 
+	q_flags = bitand(probtype, power(2, 30) - power(2, 6));
+update questions_v3 set q_type_name = (
+	select name from q_types where num = questions_v3.q_type_num
+);
+update user_questions_v3 set q_type_name = (
+	select name from q_types where num = user_questions_v3.q_type_num
+);
+drop table q_types;
+
+alter table questions_v3 drop column q_type_num;
+alter table user_questions_v3 drop column q_type_num;
+alter table questions_v3 rename column q_type_name to q_type;
+alter table user_questions_v3 rename column q_type_name to q_type;
+
+-- update some obsolete coded data of SynthScheme and SynthEfficiency evaluators
+
+update evaluators_v3 set coded_data = substr(coded_data, 1, 1) 
+	where match_type = 'SYN_SCHEME' and length(coded_data) > 1;
+update user_evaluators_v3 set coded_data = substr(coded_data, 1, 1) 
+	where match_type = 'SYN_SCHEME' and length(coded_data) > 1;
+update evaluators_v3 set coded_data = substr(coded_data, 1, 1) 
+	where match_type = 'SYN_EFFIC' and length(coded_data) > 1;
+update user_evaluators_v3 set coded_data = substr(coded_data, 1, 1) 
+	where match_type = 'SYN_EFFIC' and length(coded_data) > 1;
+
+-- remove obsolete table (Raphael 7/2014)
+
+drop table responses_v5;
+
+-- add maximum extensions field to course (RBG 8/2014)
+
+alter table cw_courses_v3 add max_extensions_str varchar(10);
+update cw_courses_v3 set max_extensions_str = '0.0';
+alter table hwsets_v5 add max_extension_str varchar(10);
+update hwsets_v5 set max_extension_str = '-1';
+
+-- add assignment dependency column (RBG 1/2015)
+
+alter table hwsets_v5 add depends_on number(38);
+alter table hwsets_v5 add constraint f_hwsets5_dep 
+	foreign key (depends_on) references hwsets_v5(hw_id);
+
+-- add primary language column to institution (RBG 2/2015)
+
+alter table institutions_v1 add primary_language varchar2(150);
+
+-- add text ID fields for translation purposes to tables for locally modified
+-- (and authored) questions (RBG 2/2015)
+
+alter table user_questions_v3 add statement_id number(38);
+alter table user_question_data_v3 add text_id number(38);
+alter table user_evaluators_v3 add feedback_id number(38);
+
+-- now update local tables by copying phrase IDs from master table to those 
+-- question statements, evaluator feedbacks, and question data in local table
+-- that have already been translated
+
+-- run this query to find translated phrases in master table that are also
+-- found in local table
+
+select unique DBMS_LOB.SUBSTR(statement, length(statement), 1) as srch_result 
+	from user_questions_v3 
+	where DBMS_LOB.SUBSTR(statement, length(statement), 1) in (
+		select DBMS_LOB.SUBSTR(statement, length(statement), 1) 
+			from questions_v3 
+			where statement_id != 0
+	) and id > 0 
+	and statement_id = 0;
+
+-- run this query repeatedly, replacing [] with each result from previous query,
+-- to copy phrase IDs from master table to local table with identical phrase
+
+update user_questions_v3 
+	set statement_id = (
+		select statement_id 
+			from (
+				select unique statement_id, rownum 
+					from questions_v3 
+					where statement like '[]'
+			) where rownum = 1
+	) where statement like '[]';
+
+-- run this query to find translated phrases in master table that are also
+-- found in local table
+
+select unique DBMS_LOB.SUBSTR(feedback, length(feedback), 1) as srch_result 
+	from user_evaluators_v3 
+	where DBMS_LOB.SUBSTR(feedback, length(feedback), 1) in (
+		select DBMS_LOB.SUBSTR(feedback, length(feedback), 1) as srch_result
+			from evaluators_v3 
+			where feedback_id != 0
+	) and pb_id > 0 and feedback_id = 0;
+
+-- run this query repeatedly, replacing [] with each result from previous query,
+-- to copy phrase IDs from master table to local table with identical phrase
+
+update user_evaluators_v3 
+	set feedback_id = (
+		select feedback_id 
+			from (
+				select unique feedback_id, rownum 
+					from evaluators_v3 
+					where feedback like '[]'
+			) where rownum = 1
+	) where feedback like '[]';
+
+-- run this query to find translated phrases in master table that are also
+-- found in local table
+
+select unique DBMS_LOB.SUBSTR(data, length(data), 1) as srch_result 
+	from user_question_data_v3 
+	where data_type = 'text' 
+	and DBMS_LOB.SUBSTR(data, length(data), 1) in (
+		select DBMS_LOB.SUBSTR(data, length(data), 1) 
+			from question_data_v3 
+			where text_id != 0 
+			and data_type = 'text'
+	) and question_id > 0 
+	and text_id = 0;
+
+-- run this query repeatedly, replacing [] with each result from previous query,
+-- to copy phrase IDs from master table to local table with identical phrase
+
+update user_question_data_v3 
+	set text_id = (
+		select text_id 
+			from (
+				select unique text_id, rownum 
+					from question_data_v3 
+					where data like '[]'
+					and data_type = 'text'
+			) where rownum = 1
+	) where data like '[]'
+	and data_type = 'text';
+
+-- run this query to find translated phrases in master table that are also
+-- found in local table
+
+select unique DBMS_LOB.SUBSTR(name, length(name), 1) as srch_result 
+	from user_question_data_v3 
+	where data_type = 'marvin' 
+	and DBMS_LOB.SUBSTR(name, length(name), 1) in (
+		select DBMS_LOB.SUBSTR(name, length(name), 1) 
+			from question_data_v3 
+			where text_id != 0 
+			and data_type = 'marvin'
+	) and question_id > 0 
+	and text_id = 0;
+
+-- run this query repeatedly, replacing [] with each result from previous query,
+-- to copy phrase IDs from master table to local table with identical phrase
+
+update user_question_data_v3 
+	set text_id = (
+		select text_id 
+			from (
+				select unique text_id, rownum 
+					from question_data_v3 
+					where name like '[]'
+					and data_type = 'marvin'
+			) where rownum = 1
+	) where name like '[]'
+	and data_type = 'marvin';
+
+-- RBG 3/2015 add parameter to mapping
+
+update evaluators_v3 
+	set coded_data = coded_data || '/Y' 
+	where match_type = 'MAP_PRP'
+	and length(coded_data) <= 7;
+update user_evaluators_v3 
+	set coded_data = coded_data || '/Y' 
+	where match_type = 'MAP_PRP'
+	and length(coded_data) <= 7;
+
+-- RBG 4/2015 new flags field in forum 
+
+alter table forum_posts_v1 add flags number(38);
+
+-- RBG 8/2015 new field for Marvin Live port in courses
+
+alter table cw_courses_v3 add marvin_live_port number(38);
+

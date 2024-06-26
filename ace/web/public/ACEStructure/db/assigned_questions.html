@@ -1,0 +1,25 @@
+<div>
+<p align="center"><span class="database">assigned_questions_v4</span>,
+questions in students' instantiated assignments</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">student_id<sup>1,2</sup></td>
+<td>student's username &rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">hw_id<sup>1,2</sup></td>
+<td>unique assignment ID &rarr; <span class="database">hwsets_v5.hw_id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">entry_date</td>
+<td>date and time the assignment was first entered by the student</td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">serial_no<sup>1</sup></td>
+<td>serial number of the question in the assignment</td>
+<td>number(38)</td></tr>
+<tr><td class="database">pb_id<sup>3</sup></td>
+<td>question ID number &rarr; 
+<span class="database">questions_v3.id</span> or
+<span class="database">user_questions_v3.id</span></td>
+<td>number(38)</td></tr>
+</table>
+</div>
+

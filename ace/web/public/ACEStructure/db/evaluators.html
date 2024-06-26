@@ -1,0 +1,73 @@
+<p align="center"><span class="database">evaluators_v4</span> and
+<span class="database">user_evaluators_v4</span>, evaluator for a question</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td><span class="database">pb_id<sup>1,2*</sup></span>
+</td>
+<td>question this evaluates; 
+*foreign key only for <span class="database">evaluators_v4</span>,
+&rarr; <span class="database">questions_v3.id</span> 
+(or <span class="database">user_questions_v3.id</span>)
+</td>
+<td>number(38)</td></tr>
+<tr><td><span class="database">user_id<sup>1,2</sup></span> 
+</td>
+<td>
+<span class="database">user_evaluators_v4</span> only;
+question author &rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">major_id<sup>1</sup></td>
+<td>sequence number of evaluator, perhaps nonconsecutive</td>
+<td>number(38)</td></tr>
+<tr><td class="database">minor_id<sup>1</sup></td>
+<td>sequence number of subevaluator: 0 for a simple evaluator or for
+the top level of a complex evaluator, and 1 or more for the subevaluators of a
+complex evaluator</td>
+<td>number(38)</td></tr>
+<tr><td class="database">feedback</td>
+<td>string to show to student if evaluator is satisfied; has no value for 
+subevaluators (<span class="database">minor_id</span> &ge; 1)</td>
+<td>CLOB</td></tr>
+<tr><td class="database">grade</td>
+<td>between 0 and 1 inclusive; has no value for subevaluators
+(<span class="database">minor_id</span> &ge; 1)</td>
+<td>number(3,2)</td></tr>
+<tr><td class="database">subexp</td>
+<td>postfix expression encoding how subevaluators combine, such as
+"1:2:3:@:4:|3," meaning, "1 or (2 and 3) or 4;" 
+has a value only for the top level of a complex evaluator
+(<span class="database">minor_id</span> = 0, and there are subevaluators
+with the same <span class="database">major_id</span> and
+<span class="database">minor_id</span> &ge; 1), null otherwise
+</td>
+<td>varchar2(100)</td></tr>
+<tr><td class="database">match_type</td>
+<td>type of evaluator, also known as match code; has a value for 
+subevaluators (<span class="database">minor_id</span> &ge; 1) and 
+when evaluator is simple (no <span class="database">minor_id</span> &ge; 1
+for this <span class="database">major_id</span>), null otherwise
+</td>
+<td>varchar2(10)</td></tr>
+<tr><td class="database">coded_data</td>
+<td>information that the evaluator will use to assess the 
+response, slash-separated; has a value for
+subevaluators (<span class="database">minor_id</span> &ge; 1) and 
+when evaluator is simple (no <span class="database">minor_id</span> &ge; 1
+for this <span class="database">major_id</span>), null otherwise
+</td>
+<td>CLOB</td></tr>
+<tr><td class="database">mol_name</td>
+<td>name of author's reference molecule, if there is one</td>
+<td>CLOB</td></tr>
+<tr><td class="database">mol_structure</td>
+<td>information that the evaluator will use to assess the
+response but that is not suited to storage as part of a slash-separated
+series of values; usually an author's reference molecule, but sometimes 
+something else, like a table, phrase, or regular expression</td>
+<td>CLOB</td></tr>
+<tr><td class="database">feedback_id<sup>3</sup></td>
+<td>serial number of <span class="database">feedback</span>; 
+has value only when <span class="database">pb_id</span> &gt; 0;
+&rarr; <span class="database">translations_v2.phrase_id</span></td>
+<td>number(38)</td></tr>
+</table>

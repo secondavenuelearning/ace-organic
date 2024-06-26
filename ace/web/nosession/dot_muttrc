@@ -1,0 +1,7 @@
+# prevent logging
+set record=
+set use_envelope_from=yes
+set envelope_from_address="ACEOrganic@uky.edu"
+set use_domain=yes
+unset use_from
+set my_hdr="From: ACE Organic"

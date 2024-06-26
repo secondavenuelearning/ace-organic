@@ -1,0 +1,36 @@
+<p align="center"><span class="database">forum_posts_v1</span>, posts to discussion forums</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">post_id<sup>1</sup></td>
+<td>serial number of the post</td>
+<td>number(38)</td></tr>
+<tr><td class="database">topic_id<sup>2,3</sup></td>
+<td>unique ID number of the topic</td>
+<td>number(38)</td></tr>
+<tr><td class="database">user_id<sup>3</sup></td>
+<td>author of post; usually &rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">date_created</td>
+<td>date first written</td>
+<td>varchar2(25)</td></tr>
+<tr><td class="database">date_edited</td>
+<td>date last edited</td>
+<td>varchar2(25)</td></tr>
+<tr><td class="database">flags</td>
+<td>bit 0: anonymous</td>
+<td>number(38)</td></tr>
+<tr><td class="database">text</td>
+<td>text of the post</td>
+<td>CLOB</td></tr>
+<tr><td class="database">figure</td>
+<td><span class="database">figure_type</span> != <b>IMG</b>: figure associated with the post
+<br /><span class="database">figure_type</span> = <b>IMG</b>: ID number &rarr; 
+<span class="database">images_v2.pic_id</span>
+</td>
+<td>CLOB</td></tr>
+<tr><td class="database">figure_type</td>
+<td>type of figure associated with the post: <b>MOL</b>, <b>LEW</b>, or <b>IMG</b></td>
+<td>char(3)</td></tr>
+<tr><td class="database">forum_post_seq</td>
+<td>sequencer for <span class="database">post_id</span></td></tr>
+</table>

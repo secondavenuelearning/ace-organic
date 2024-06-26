@@ -1,0 +1,3 @@
+HERE = .
+
+include Makefile.master

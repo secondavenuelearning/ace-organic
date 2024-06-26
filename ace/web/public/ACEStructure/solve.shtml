@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Questions</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Responding to questions</h3>
+
+<h4>Question list page</h4>
+
+<p>When a user (student or instructor) clicks on the name of an 
+<a href="assgnts.shtml">assignment</a> on the assignments list page, 
+<span class="filename">coursedoc/hwSetList.jsp</span>, ACE directs the user 
+first to <span class="filename">homework/hwmain.jsp</span> and then to 
+<span class="filename">homework/list.jsp</span>, the
+questions list page.  The assignment-solving session is initialized in
+<span class="filename">hwmain.jsp</span>, which calls the
+<span class="classname">HWSession</span> constructor, which calls 
+<span class="classname">HWRead</span> to retrieve the questions that ACE has 
+previously assigned to this student and stored in 
+<span class="database">assigned_questions_v4</span>.  If ACE cannot find a
+record in this table, it instantiates the student's assignment at this time,
+using the assignment content information in
+<span class="database">hwset_qs_v2</span>,
+and stores the instantiated list of questions in 
+<span class="database">assigned_questions_v4</span>.  Different students 
+may have different assignment instantiations when the assignment contains 
+<a href="assgnts.shtml">randomized questions</a>.
+</p> 
+
+<!--#include file="db/hwset_qs.html"-->
+<!--#include file="db/assigned_questions.html"-->
+
+<p>ACE lists the <a href="questions.shtml">questions</a> in the
+assignment on the questions list page.  It also indicates whether the user has
+previously worked or solved the question, and, if they have, how many points
+they earned.  (ACE does not save instructors' work, so they will always see no
+previously worked questions when they first enter this page.)  If a user has not
+earned full credit on a question, and the deadline for the assignment has not
+passed, ACE will display a <span class="link">Solve</span> button for that
+question.  Otherwise, ACE will display a <span class="link">View</span> button
+(for the user to see his or her last response), a 
+<span class="link">Practice</span> button (to try the question afresh
+but without storing the new work in the database), and, in the
+case of an <a href="authoring.html#Rgroup">R-group</a> question, 
+a <span class="link">Practice similar</span> button (to replace the 
+R group or variable values that a student saw originally with a new R group
+or new variable values).  </p>
+
+<p>If a course has its <a href="forums.shtml">forum</a> enabled, then 
+the questions list page will also have either a
+<span class="link">Start forum topic</span> button 
+or a <span class="link">Go to forum topic</span> button associated with
+every question in the assignment.  Pressing this button will bring the
+user to the <a href="forums.shtml">forum</a> for that course, where he or she
+can take additional action.
+</p>
+
+<p>To instructors only, the questions list page also shows each 
+<a href="questions.shtml#prov">question's provenance</a> and its unique ID
+number.</p>
+
+<p>Some types of questions may appear different to individual students, even when 
+ACE assigns the same question to them.  
+</p>
+<ul><li>An author may choose to scramble the order of the options in
+<a href="authoring.html#rank">multiple-choice, fill-in-the-blank, and ranking</a> 
+questions.  In this case, each student will see the same options in a different 
+order.  Upon loading an assignment containing such a question for the first time for a 
+student, ACE initializes the appearance of the question by calling 
+<span class="filename">session/HWSession.initializeStudentView()</span>.  
+The response itself records the sequence of the options, so 
+<span class="filename">initializeStudentView()</span> creates such a response 
+(with no items selected or ranked) and stores it in 
+<span class="database">responses_v6</span> with the value of
+<span class="database">tries</span> set to 0.  
+</li></ul>
+
+<!--#include file="db/responses.html"-->
+
+<ul><li>When ACE displays the assignment questions list,
+each student will see a different figure for an 
+<a href="authoring.html#Rgroup">R-group</a> question.  For example, 
+if the figure is R<sup>1</sup>CH<sub>2</sub>OH, 
+one student may see CH<sub>3</sub>CH<sub>2</sub>OH, another may see
+PhCH<sub>2</sub>CH<sub>2</sub>OH, etc., depending on the groups that the author has 
+<a href="questions.shtml#qData">chosen as possible substitutes</a> for R<sup>1</sup>.  
+When a student displays an assignment containing an R-group question, ACE calls
+<span class="filename">session/HWSession.getCurrentRGroupMols()</span>, which retrieves 
+from <span class="database">response_rgroups_v1</span> the specific R groups 
+that it has chosen for the student, and ACE replaces the generic R
+groups in Figure 1 of the question with these specific R groups. If ACE has not
+yet chosen specific R groups for the student and this question, it chooses them 
+now from the options in the appropriate <a href="questions.shtml#qData">question datum</a>
+and stores them in <span class="database">response_rgroups_v1</span>.  If the
+student leaves the assignment without working the question and comes back to it
+again, ACE will use the stored R groups to create the same view of the question
+for the student.  
+(However, because ACE does not store instructors' question-answering efforts in the 
+database, instructors are likely to see a different view of these types of 
+questions each time they display the question list page.)
+
+<p><a name="responses"/></p>
+
+<!--#include file="db/response_rgroups.html"-->
+
+<p>To replace the generic R groups in the author's Figure 1 with a student's 
+instantiated R groups, ACE calls from the questions list page 
+<span class="filename">qBank/Figure.getDisplayData()</span>, which then calls 
+<span class="filename">substns/SubstnUtils.substituteRGroups()</span>.
+</p>
+
+</li><li>Similarly, when ACE displays the assignment questions list,
+each student will see a different question statement for a 
+<a href="authoring.html#text">numeric</a> question that uses variables.  
+When a student displays an assignment containing such a question, ACE calls
+<span class="filename">session/HWSession.getCurrentSubstns()</span>, which retrieves 
+from <span class="database">response_rgroups_v1</span> the specific substitutions 
+(an arithmetical value or a word&ndash;value pair)
+that it has chosen for the student. ACE replaces the variables in the question
+statement with the word if there is a word&ndash;value pair,
+otherwise with the value. If ACE has not
+yet chosen substitutions for the student and this question, it chooses them now
+from the appropriate <a href="questions.shtml#qData">question datum</a> and 
+stores them in <span class="database">response_rgroups_v1</span>.  If the
+student leaves the assignment without working the question and comes back to it
+again, ACE will use the stored substitutions to create the same view of the question
+for the student.  
+(However, because ACE does not store instructors' question-answering efforts in the 
+database, instructors are likely to see a different view of these types of 
+questions each time they display the question list page.)
+To replace the variables in the author's question statement with the substitutions 
+that it chose for the student, ACE calls from the questions list page 
+<span class="filename">qBank/Question.getDisplayStatement()</span>, which then calls 
+<span class="filename">substns/SubstnUtils.substituteValues()</span>.
+
+</li></ul>
+
+<p><a name="answer"/></p>
+
+<h4>Question-answering page</h4>
+
+<p>When a user presses the <span class="link">Solve</span>, 
+<span class="link">View</span>, <span class="link">Practice</span>, or 
+<span class="link">Practice similar</span> button, ACE opens 
+<span class="filename">homework/jumpGo.jsp</span> and then 
+<span class="filename">answerframe.jsp</span>, the question-answering page.
+Similarly, when an author presses the 
+<span class="link">Preview</span> button on a question-editing page, ACE opens 
+<span class="filename">authortool/startPreview.jsp</span>, which then
+opens <span class="filename">jumpGo.jsp</span> and then
+<span class="filename">answerframe.jsp</span>.  The question-answering page
+displays:</p>
+
+<ul><li>the <a href="questions.shtml#stmt">question statement</a>; 
+</li><li>all <a href="questions.shtml#figs">question figures</a>; 
+</li><li>grade and feedback for the last response;
+</li><li>if <span class="link">Solve</span> or <span class="link">View</span>
+mode, any comment on this response that the instructor has entered into the 
+<a href="gradebook.shtml">gradebook</a>; 
+</li><li>a response collector; 
+</li><li>submission and navigation buttons.  
+</li></ul>
+
+<p>The table shows the
+response collectors of each <a href="questions.shtml#type">question type</a> and
+how ACE or the collector itself formats each response.  </p>
+
+<table class="nonDbTable" summary="">
+<tr><th style="width:15%;">question type</th>
+<th style="width:25%;">response collector</th>
+<th>format of response <span class="classname">String</span></th></tr>
+<tr><td>skeletal structure, label-the-atom, conformation, mechanism</td>
+<td><a href="https://www.chemaxon.com/products/marvin/marvin-js/"
+target="window2">MarvinJS</a>
+</td>
+<td>ChemAxon's 
+<a href="http://www.chemaxon.com/marvin/help/formats/mrv-doc.html"
+target="window2">MRV</a> format</td></tr>
+<tr><td>synthesis</td>
+<td><a href="https://www.chemaxon.com/products/marvin/marvin-js/"
+target="window2">MarvinJS</a>, plus a Javascript-created list of 
+reaction conditions selected by the user
+</td>
+<td>ChemAxon's 
+<a href="http://www.chemaxon.com/marvin/help/formats/mrv-doc.html"
+target="window2">MRV</a> format; ACE stores the reaction conditions 
+that the user selected in the molecule property "reactionIds"</td></tr>
+<tr><td>Lewis structure</td>
+<td>LewisJS</td>
+<td>ChemAxon's 
+<a href="http://www.chemaxon.com/marvin/help/formats/mrv-doc.html"
+target="window2">MRV</a> format; ACE stores the number of paired and 
+unpaired electrons (if nonzero) of each atom in the atom properties 
+"paired electrons" and "unpaired electrons"</td></tr>
+<tr><td>ranking or numbering</td>
+<td>pull-down menus with numbers</td>
+<td> 5:1;2:3;3:4;4:5;1:2, meaning ACE displayed the options in the order 5, 2,
+3, 4, and 1, and the student ranked option 5 as #1, option 2 as #3, etc.;
+unranked options are #0</td></tr>
+<tr><td>formula</td>
+<td>text box</td>
+<td>no special formatting</td></tr>
+<tr><td>text</td>
+<td>text box</td>
+<td>no special formatting</td></tr>
+<tr><td>multiple choice</td>
+<td>select boxes or radio buttons</td>
+<td>2:5+:3:1:4+, meaning ACE displayed the options in the order 2, 5, 3,
+1, and 4, and the student selected data 4 and 5</td></tr>
+<tr><td>choose and explain</td>
+<td>select boxes or radio buttons, plus a text box</td>
+<td>2:5+:3:1:4+[tab]text, meaning ACE displayed the options in the order 2, 5, 3,
+1, and 4, and the student selected data 4 and 5</td></tr>
+<tr><td>fill-in-the-blank</td>
+<td>pull-down menus in question statement</td>
+<td>same as multiple choice</td></tr>
+<tr><td>numerical</td>
+<td>a text box for the number, possibly a second textbox for an exponent,
+possibly a pulldown menu for units</td>
+<td>3.00:9[tab]2, meaning 3.00 &times; 10<sup>9</sup> with question datum 2
+chosen as the unit; the string may omit an exponent or unit</td></tr>
+<tr><td>complete-the-table</td>
+<td>table of text boxes</td>
+<td>XML similar to HTML</td></tr>
+<tr><td>logical statements</td>
+<td>linear series of text boxes</td>
+<td>XML similar to HTML</td></tr>
+<tr><td>energy diagrams (orbital and reaction coordinate)</td>
+<td>table that a user populates with pulldown menus and whose cells the user may 
+connect by lines</td>
+<td>XML describing contents of populated cells and their connections</td></tr>
+<tr><td>clickable image</td>
+<td>browser captures the coordinates of one or more  mouse clicks and text that
+the user may enter where they clicked</td>
+<td>XML describing the coordinates of the clicks and text</td></tr>
+<tr><td>draw vectors</td>
+<td>browser captures the coordinates of vectors drawn with mouse clicks</td>
+<td>XML describing the coordinates of the vector endpoints</td></tr>
+</table>
+
+<p>ACE displays most <a href="questions.shtml#figs">figures</a> 
+as SVG images embedded in the HTML, but the user can click on the image
+to get an alert with the original source code of the molecule, which she
+can then paste into Marvin.  ACE may display some figures with 
+<a href="http://jmol.sourceforge.net/" target="window2">Jmol</a>.  
+Students may enlarge figures that are JPEG, PNG, etc. images simply by 
+clicking on them.
+</p>
+
+<p>A student who wants to leave a question after working 
+on it for some time but is not ready to submit a response for evaluation may 
+save his or her work by pressing <span class="link">Save 
+without submitting</span>.  ACE will save
+the student's work, but it will not evaluate it or count it as an attempt.  The
+feature is most useful in exams and other situations where a student's grade
+depends on the number of tries.  After a student submits a response for
+evaluation, ACE no longer makes the <span class="link">Save 
+without submitting</span> button available.</p>
+
+<p><a name="eval"/></p>
+
+<h4>Evaluating responses</h4>
+
+<p>When the user first enters the question-answering page, ACE sees if a student
+has just now submitted a response or if a previous response is in the database.
+If so, it passes the response through the evaluation process in this way:</p>
+
+<ol><li>The question-answering page, 
+<span class="filename">answerframe.jsp</span>, calls 
+<span class="filename">session/HWSession.submitResponse()</span>.
+
+</li><li>The <span class="filename">submitResponse()</span> method
+checks the current time against the due time.  If the due time has past, ACE
+returns to <span class="filename">answerframe.jsp</span>, alerts the student,
+and throws the student back to the assignments list page.
+
+</li><li><span class="filename">submitResponse()</span> calls
+<span class="filename">Question.evaluateResponse()</span>, which calls the
+<span class="classname">Response</span> constructor. 
+<span class="filename">Response()</span> parses or imports the student's 
+response into an appropriate format such as 
+<span class="classname">Mechanism</span> or
+<span class="classname">Choice</span>, depending on the 
+<a href="questions.shtml#type">question type</a>, and stores both the
+original <span class="classname">String</span> response and the parsed 
+response.  If the student's response is malformed, and 
+<span class="filename">Response()</span> cannot parse it, 
+<span class="filename">Response()</span> sets a boolean flag 
+in the returning <span class="classname">Response</span> and stores in it an 
+<span class="classname">EvalResult</span> that includes the student's 
+response with the problematic part colored and appropriate feedback.  In
+the case of R-group questions, the
+<span class="classname">Response</span> also stores the 
+<span class="classname">Molecule</span> representations of the specific 
+R groups or the <span class="classname">String</span> representations of the
+numeric values that ACE assigned to this student for this question.
+
+</li><li>If <span class="filename">Response()</span> could not parse the 
+student's response, <span class="filename">evaluateResponse()</span> sends 
+the <span class="classname">EvalResult</span> stored in the
+<span class="classname">Response</span>
+back to <span class="filename">submitResponse()</span>.  Otherwise,
+for each <a href="questions.shtml#evals">evaluator</a> in the question 
+starting from the first in the list:
+
+<ol><li><span class="filename">evaluateResponse()</span> 
+sends the <span class="classname">Response</span> to 
+<span class="filename">evals/Evaluator.matchResponse()</span>,
+which sends it to the appropriate evaluator 
+class in the <span class="filename">evals/impl</span> directory.  
+
+</li><li>The evaluator class executes calculations, usually with the help of 
+<a href="http://www.chemaxon.com/jchem" target="window2">JChem</a> 
+methods, on the appropriate member of the 
+<span class="classname">Response</span> and determines 
+whether the response satisfies that evaluator.  It returns to 
+<span class="filename">matchResponse()</span> a 
+<span class="classname">OneEvalResult</span>, which contains a
+boolean indicating whether the response satisfies the evaluator.  If it 
+does, the <span class="classname">OneEvalResult</span> may also contain 
+automatically generated feedback, a partly colored version of the 
+student's response for display back to the student, or data that will allow
+<span class="filename">evaluateResponse()</span> to color the student's
+response.  The evaluator may also calculate a grade for the response.
+
+</li><li>If the evaluator is simple, 
+<span class="filename">matchResponse()</span> passes the
+<span class="classname">OneEvalResult</span> back to 
+<span class="filename">evaluateResponse()</span> directly.  If it is complex,
+<span class="filename">matchResponse()</span> evaluates the result of the
+combined expression and sends back a
+<span class="classname">OneEvalResult</span> with the appropriate values.  
+If the complex evaluator uses OR, then 
+the <span class="classname">OneEvalResult</span> stores the automatic 
+feedback from the <i>first</i> satisfied evaluator in the expression, 
+and if the complex evaluator uses AND, then 
+the <span class="classname">OneEvalResult</span> 
+stores the automatic feedback from the <i>last</i>
+evaluator in the expression.
+</li></ol>
+
+<span class="filename">evaluateResponse()</span>
+repeats this loop until either the response
+satisfies an evaluator or there are no more evaluators.
+
+</li><li>If the response has satisfied an evaluator, 
+<span class="filename">evaluateResponse()</span>
+stores in a new <span class="classname">EvalResult</span>:
+<ul>
+<li>the number of tries;</li>
+<li>the grade (usually determined by the question 
+author, but some <a href="questions.shtml#evals">evaluators</a> 
+may calculate it from a student's response);</li>
+<li>feedback associated with the evaluator (including both any 
+automatically generated feedback and the author-supplied 
+feedback);</li>
+<li>the original response with incorrect parts colored (usually
+generated by the evaluator, but may be generated here if doing so
+requires knowledge of the question's question data).</li>
+</ul>
+Otherwise, it stores a grade of zero and feedback that says, 
+"ACE is unable to provide feedback for this response."
+
+</li><li><span class="filename">evaluateResponse()</span>
+returns the <span class="classname">EvalResult</span> 
+to <span class="filename">submitResponse()</span>. 
+
+</li><li>If the user is a student (but not a TA), and the student is working 
+in SOLVE mode, <span class="filename">submitResponse()</span> stores the 
+contents of the <span class="classname">EvalResult</span> 
+in <span class="database">responses_v6</span>.  The database uses 
+certain stored functions and the parameters stored in 
+<span class="database">hwset_grading_params_v1</span>
+to <a href="gradebook.shtml">calculate the modified grade</a> at the same 
+time that it writes the data, and ACE retrieves the modified grade from the 
+database and stores it in the <span class="classname">EvalResult</span>.
+
+</li><li><span class="filename">submitResponse()</span>
+returns the <span class="classname">EvalResult</span> to 
+<span class="filename">answerframe.jsp</span>,
+which displays the grade, modified grade, feedback, and modified 
+response to the user.  If the response was incorrect or only partially 
+correct, the user may then submit a new response.  
+</li></ol>
+
+<!--#include file="db/functions.html"-->
+<!--#include file="db/hwset_grading_params.html"-->
+
+<p>In the case of multiple-choice, fill-in-the-blank, and ranking
+questions, the last response determines the sequence in which ACE displays the
+<a href="questions.shtml#qData">options</a> to the user.  </p>
+
+<p>In multistep synthesis questions, 
+it is necessary for ACE to calculate the products of the reaction of each
+step in a synthesis from the compounds in that step and the reaction 
+conditions indicated for that step.  ACE uses ChemAxon's
+<a href="https://www.chemaxon.com/products/reactor/">Reactor</a> program 
+and the <span class="classname">SynthSolver</span> and
+<span class="classname">SingleReactionSolver</span> classes
+to execute this calculation.  Unfortunately, the calculation can be extremely
+time-consuming.  For this reason, before it executes a calculation, ACE 
+searches <span class="database">reactor_results_v4</span> 
+for a record containing the same starting materials and reaction conditions.
+If it finds a matching record, ACE retrieves the previously calculated 
+products of that reaction from the record.  If it does
+not find a matching record, ACE does the calculation and then stores 
+the starting materials, reaction conditions ID number, and the calculated 
+products in <span class="database">reactor_results_v4</span>.  This 
+procedure reduces the number of product calculations that ACE must do. </p>
+
+<!--#include file="db/reactor_results.html"-->
+
+<a name="logs"/>
+<h4>Logging responses</h4>
+
+<p>In the case of ordinary homework, ACE stores in the database only a 
+student's most recent response to a question.  
+However, ACE does log every student's response to a question in
+a separate file in the <span class="filename">logger</span>
+directory.  The responses ACE stores here are not associated with any student,
+score, or feedback.  A question author may use the <a href="questions.shtml#view"
+class="link">View Responses</a> button in the question-editing tool to look at
+all of the responses that ACE has logged for that question.  He may find the
+information useful for modifying the question to provide better feedback for
+various incorrect responses.  Unfortunately, <span class="link">View
+Responses</span> does not yet work for mechanism, synthesis, and R-group 
+questions, and it may be buggy for some other question types.  </p>
+
+<p>An instructor can choose to have ACE save <i>all</i> responses in the
+database. (Exception: ACE will overwrite saved-but-not-submitted responses 
+if a student later submits a response for evaluation.)
+If an instructor exercises this option, the instructor may use the gradebook 
+to look at all of a student's responses to a question, not just the most recent 
+one.  If an assignment is flagged as an exam, then, regardless of whether an 
+instructor exercises the option to save all responses in the database, ACE 
+logs all responses, including ones that are saved without submitting, 
+into a file that can be retrieved and opened with a text editor.  </p>
+
+</body>
+</html>

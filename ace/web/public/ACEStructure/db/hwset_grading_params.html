@@ -1,0 +1,32 @@
+<p align="center"><span class="database">hwset_grading_params_v1</span>, 
+assignment grading parameters</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">hw_id<sup>1,2</sup></td>
+<td>unique assignment ID &rarr; <span class="database">hwsets_v5.hw_id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">param_type<sup>1</sup></td>
+<td>type of grading parameter: 
+<b>A</b> for attempt-dependent,
+<b>T</b> for submission-time-dependent
+</td>
+<td>char(1)</td></tr>
+<tr><td class="database">limit_min</td>
+<td>the bottom of the range to which the factor applies
+<td>number(12,2)</td></tr>
+<tr><td class="database">limit_max</td>
+<td>the top of the range to which the factor applies
+<td>number(12,2)</td></tr>
+<tr><td class="database">factor</td>
+<td>factor by which to multiply the grade if the independent value
+&gt; <span class="database">limit_min</span> 
+and &le; <span class="database">limit_max</span>
+</td>
+<td>number(5,2)</td></tr>
+<tr><td class="database">limit_max_str<sup>1</sup></td>
+<td>string value of <span class="database">limit_max</span></td>
+<td>varchar2(10)</td></tr>
+<tr><td class="database">factor_str</td>
+<td>string value of the factor</td>
+<td>varchar2(10)</td></tr>
+</table>

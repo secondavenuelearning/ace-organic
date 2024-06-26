@@ -1,0 +1,2252 @@
+<assignments>
+<assignment id="12510">
+<name>Skeletal structures</name>
+<remarks>Look on page 17 of Ouellette for a list of functional groups.</remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="6809"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1" depends_on="6809">
+<question id="6821"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1" depends_on="6809">
+<question id="6813"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="6810"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1" depends_on="6810">
+<question id="6822"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1" depends_on="6810">
+<question id="6814"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="6811"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1" depends_on="6811">
+<question id="6823"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1" depends_on="6811">
+<question id="6815"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="6824"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1" depends_on="6824">
+<question id="6818"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1" depends_on="6824">
+<question id="6819"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="6820"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="6826"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11030"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11031"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11032"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11033"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11034"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11035"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11036"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11037"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="11038"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="508"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="509"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="510"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="512"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="514"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="513"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="515"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12511">
+<name>Lewis structures</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>false</allow_unlimited>
+<maxtries>5</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2630"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2518"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2632"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2631"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2620"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2499"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2621"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2491"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2492"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2612"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2495"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2519"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2609"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2614"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2613"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2616"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2619"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2509"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2608"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2617"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2618"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2494"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2489"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12512">
+<name>Resonance structures</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>false</allow_unlimited>
+<maxtries>5</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2484"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2485"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2513"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2514"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="6847"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="8683"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2681"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2700"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2692"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2703"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2696"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2697"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2704"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2705"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2711"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2701"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2699"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2702"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="8682"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12513">
+<name>Hybridization</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2470"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2475"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2474"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2473"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2634"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2642"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2643"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2455"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2482"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2626"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2453"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2454"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2463"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2452"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2457"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2458"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2459"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2462"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2625"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2644"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="9671"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12514">
+<name>Acidity</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2422"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2417"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2411"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2412"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2413"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2415"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2416"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2414"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2418"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2421"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2423"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2792"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2793"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2794"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2795"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2796"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="10950"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2797"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="10951"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2799"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="10952"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2800"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2802"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2803"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2804"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2806"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="10955"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="10953"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="10954"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="2741"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="3137"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="3138"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="3139"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="2">
+<question id="8674"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="2">
+<question id="8675"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="2">
+<question id="8676"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="2">
+<question id="8677"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="2">
+<question id="8680"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="2">
+<question id="8681"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12515">
+<name>Acyclic conformations</name>
+<remarks>Please do the energy diagrams tutorial before you attempt this assignment.</remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2424"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="9710"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="5020"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="5021"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12517">
+<name>Alkene stereochemistry</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="765"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="766"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="767"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="655"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="656"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="289"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="657"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1.0">
+<question id="654"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12516">
+<name>Cycloalkane stereochemistry</name>
+<remarks>Please do the stereocehmistry tutorial before you try to answer the questions in this assignment.</remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="769"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="770"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="771"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="286"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="288"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="727"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="728"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="731"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="732"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="9711"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2441"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="4748"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2442"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2432"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2450"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2438"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3329"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2439"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12518">
+<name>Acyclic stereochemistry &amp; chirality</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2524"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2525"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2526"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2527"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2528"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2529"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2532"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2533"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2534"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2535"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2536"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2537"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2531"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2539"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="297"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="442"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="952"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="953"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="930"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="938"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="940"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="942"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="943"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="872"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="874"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1262"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="945"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2299"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2300"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="287"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="726"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="730"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="889"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="-10051"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="-10052"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="-10053"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="-10054"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="-10055"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="-10056"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="928"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="932"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2406"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="-10059"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12519">
+<name>Aromaticity</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3309"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3310"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3311"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3793"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3796"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3794"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12520">
+<name>Drawing substitution products</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1369"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1371"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1367"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1368"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1370"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="52"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="39"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="40"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="41"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="50"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1374"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1376"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="37"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1383"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1384"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1385"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1388"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1391"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="925"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="939"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="941"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="944"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="946"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="948"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="949"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="951"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1227"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1229"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12521">
+<name>Drawing elimination products</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1408"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1413"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1414"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1415"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1416"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1423"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="455"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="456"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="460"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="462"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1425"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1426"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12522">
+<name>Substitution and elimination mechanisms</name>
+<remarks>Identify whether the reaction conditions are acidic or basic, and decide whether you need to do substitution or elimination. Then focus on what bonds you need to make and what bonds you need to break.</remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<permissibleRxnConds>3:23:40:41:44:58:78:203:223:224:302</permissibleRxnConds>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="2742"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="8805"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="6835"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="2706"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4167"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="2772"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="5417"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4819"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12523">
+<name>Substitution and elimination: predict the product</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="4"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="5"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="6"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="7"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="14"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="15"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1335"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1336"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12524">
+<name>Alcohols, ethers, epoxides</name>
+<remarks>TsOH appears in many of these questions. It is a strong acid. Whenever you have a mechanism under acidic conditions, you can draw H^+ instead of the entire acid.</remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2381"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1475"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2380"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1255"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="72"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2384"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1260"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2400"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1175"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1180"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1181"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1210"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1213"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1220"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1333"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1334"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3121"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3122"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3123"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="3124"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="457"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="461"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1394"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4288"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="2953"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="2709"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="2949"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="2950"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3088"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="2680"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12525">
+<name>Ketones and aldehydes as electrophiles</name>
+<remarks></remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1487"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="144"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="150"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1489"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="271"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1602"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1603"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1616"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1989"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1493"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="152"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="4601"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="274"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1478"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1512"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1597"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1528"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3313"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3102"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3300"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3146"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3691"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="5297"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12526">
+<name>Carboxylic acids and derivatives</name>
+<remarks>You cannot grant yourself an extension on this assignment.</remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="817"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="827"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="818"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="816"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="828"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="829"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1677"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1681"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1702"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1704"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1719"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1703"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2407"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2409"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2410"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1695"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1717"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1658"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="142"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="143"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1712"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="132"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1709"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1720"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="134"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="136"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1700"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1701"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3744"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3746"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3775"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3721"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3053"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3695"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4608"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="5477"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3697"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12527">
+<name>Carbonyl compounds as nucleophiles</name>
+<remarks>You cannot grant yourself an extension on this assignment.</remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="5578"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="5580"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="5581"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1485"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1802"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1808"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="170"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2284"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2283"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2281"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2282"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1763"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="173"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1764"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1770"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1804"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1769"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1525"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1774"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="169"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1776"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1777"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="1787"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="166"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="9811"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="9810"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2332"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2343"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2344"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3685"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3686"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4642"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4643"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4656"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3687"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4655"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3400"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3360"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3689"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="3813"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4641"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+<assignment id="12570">
+<name>Reactions with radical intermediates</name>
+<remarks>Do the Radical mechanisms tutorial before you attempt to answer the mechanism questions here. You cannot grant yourself an extension on this assignment.</remarks>
+<flags>1</flags>
+<allow_unlimited>true</allow_unlimited>
+<maxtries>-1</maxtries>
+<instructor>bob</instructor>
+<question_groups>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="481"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="482"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="1">
+<question id="2276"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4502"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4500"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4504"/>
+
+
+</question_group>
+<question_group pick="1" bundle_size="1" points="3">
+<question id="4501"/>
+
+
+</question_group>
+
+</question_groups>
+</assignment>
+</assignments>

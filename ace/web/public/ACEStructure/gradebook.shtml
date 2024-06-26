@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Gradebook</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Gradebook</h3>
+
+<p>When a user clicks on the <span class="link">Gradebook</span> tab, ACE loads
+<span class="filename">grade.jsp</span>, the overall gradebook.  If the user is
+a student and not a TA, the overall gradebook displays that student's grades in each 
+<a href="assgnts.shtml">assignment</a>.  
+(However, if any assignment is a 
+<a href="assgnts.shtml#mastery">mastery assignment</a>, then the gradebook
+displays only whether the student has mastered <i>every</i> question 
+in that assignment.)
+If the user is an instructor or a TA, the overall gradebook displays the 
+same for every student in the class (except the TAs) as well as whether
+each student has begun or completed each tutorial.  
+The overall gradebook labels each column as 
+<span class="link">Set <i>n</i></span> (or, for a 
+<a href="assgnts.shtml#mastery">mastery assignment</a>, 
+<span class="link">Set M<i>n</i></span>), but the
+user may mouse over the link to see the assignment name. 
+The grades
+that ACE displays in the overall gradebook usually reflect any attempt-, 
+time-, or question-dependent grading parameters that instructors entered
+when they <a href="assgnts.shtml">created particular assignments</a>.
+
+<!--#include file="db/hwset_grading_params.html"-->
+
+<p>The user may choose to export the overall gradebook into a Microsoft Excel
+spreadsheet.  The file <span class="filename">gradeTxt.jsp</span>
+sets the output document's type; it then includes 
+<span class="filename">grade.jsp</span>, which generates the output. </p>
+
+<p>If the user clicks on <span class="link">Set <i>n</i></span>, the detailed
+gradebook for that assignment, <span class="filename">detailedGrade.jsp</span>,
+opens.  The detailed gradebook shows for each question in the assignment the
+number of points earned (or, if the assignment is a 
+<a href="assgnts.shtml#mastery">mastery assignment</a>, 
+whether the student has mastered the question),
+the number of attempts, a checkmark (&radic;) if the instructor has
+commented on the student's response, and a link to display the 
+<a href="solve.shtml">student's last response</a>.  (If the instructor has set
+the assignment option to save all responses, the instructor may also choose 
+to see a student's previous responses.) Again, the user may choose to
+export the detailed gradebook into a Microsoft Excel spreadsheet.  The
+file <span class="filename">detailedGradeTxt.jsp</span> sets the
+output document's type; it then includes 
+<span class="filename">detailedGrade.jsp</span>, which generates the output.
+</p>
+
+<p>For instructors, the detailed gradebook has three other important
+features.  </p>
+<ul><li>If an instructor has modified a question so that responses that were
+previously marked as correct are now marked as incorrect, or vice versa, 
+he or she may wish to regrade it by clicking on the 
+<span class="link">Regrade</span> link at the bottom of its column.  
+Likewise, if the instructor has chosen the 
+<a href="assgnts.html#props">delay grading</a> option for the assignment,
+the instructor can click on the <span class="link">Regrade all</span> link.
+The regrade process reevaluates every student's last response and generates 
+a list of students whose grades have changed.
+
+</li><li>An instructor may alter a student's record on a question by clicking 
+on the name of that student, which causes
+<span class="filename">detailedGrade.jsp</span> to reload in a different 
+mode.  On this page, the instructor may click on the 
+<span class="link">alter</span> link 
+underneath the student's grade on each question to enter a new
+grade or number of attempts for that student and question.  The reset process 
+simply alters the <a href="solve.shtml#responses">database record</a> 
+of the student's responses; ACE does not reevaluate the response.  
+Some details of the database changes are:
+<ul>
+<li>If the instructor reduces the number of attempts of the most recent 
+response from <i>x</i> to <i>y</i>, then ACE deletes all responses with 
+attempts from <i>y</i> to <i>x</i> &ndash; 1, then changes the number
+of attempts of the most recent response.  An instructor may not increase the
+number of attempts.
+</li>
+<li>If the instructor changes the grade of
+an earlier response, then ACE deletes all more recent responses, and the
+altered response becomes the most recent one.
+</li>
+</ul>
+
+</li><li>An instructor may also use the record-altering page to enter a 
+comment on a student's response.  ACE displays the comment to the student 
+on the <a href="solve.shtml#answer">question-answering page</a> after the feedback.
+</li></ul>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<p align="center"><span class="database">questions_v3</span>
+and <span class="database">user_questions_v3</span>, a question</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">id<sup>1</sup></td>
+<td>unique ID number of question 
+(in <span class="database">user_questions_v3</span>, 
+negative means new, positive means modified)</td>
+<td>number(38)</td></tr>
+<tr><td><span class="database">user_id<sup>1,2</sup></span> 
+</td>
+<td><span class="database">user_questions_v3</span> only;
+question author &rarr; <span class="database">users_v4.user_id</span>
+</td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">set_id<sup>2,3</sup></td>
+<td><a href="topics.shtml">question set</a> in which this question resides &rarr; 
+<span class="database">pbsets_v3.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">serial_no</td>
+<td>order of presentation within its set</td>
+<td>number(38)</td></tr>
+<tr><td class="database">statement</td>
+<td>question-specific statement</td>
+<td>CLOB</td></tr>
+<tr><td class="database">book</td>
+<td>textbook from which this question derives; "Other" if none</td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">chapter</td>
+<td>chapter number in textbook from which this question derives, 
+or initials of question author</td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">remarks</td>
+<td>chapter and question number (e.g., 6.33i), if question derives from a
+textbook</td>
+<td>varchar2(255)</td></tr>
+<tr><td class="database">q_type</td>
+<td>the type of question (SKELETAL, MECHANISM, etc.)</td>
+<td>varchar2(15)</td></tr>
+<tr><td class="database">q_flags</td>
+<td>contains bitwise flags governing options for displaying the question 
+or analyzing the response</td>
+<td>number(38)</td></tr>
+<tr><td class="database">probtype</td>
+<td>legacy only; equal to (internal integer 
+value of <span class="database">q_type</span>) 
+| <span class="database">q_flags</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">keywords</td>
+<td>describing this question, for search</td>
+<td>CLOB</td></tr>
+<tr><td class="database">created</td>
+<td>date and time this question was created</td>
+<td>varchar2(25)</td></tr>
+<tr><td class="database">last_modified</td>
+<td>date and time this question was last modified</td>
+<td>varchar2(25)</td></tr>
+<tr><td class="database">statement_id<sup>3</sup></td>
+<td>serial number of <span class="database">statement</span>; 
+has value only when <span class="database">id</span> &gt; 0;
+&rarr; <span class="database">translations_v2.phrase_id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">problem_seq</td>
+<td>sequencer for <span class="database">id</span></td></tr>
+</table>

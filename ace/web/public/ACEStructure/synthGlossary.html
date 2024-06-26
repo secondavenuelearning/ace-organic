@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>ACE Reaction Definitions Glossary</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body class="regtext">
+
+<h3>ACE Reaction Definitions Glossary</h3>
+
+
+<p>The reaction definition consists of MRV reaction definitions separated by the
+following dividers:</p>
+
+<table class="nonDbTable" >
+<tr><th>Divider</th><th>Meaning</th></tr>
+<tr><td>***AND_DO*** </td><td> products and unreacted substrates from the
+prior reaction are subjected to the next reaction. 
+</td></tr><tr><td>***IF_NO_PRODS_DO*** </td><td> the subsequent reactions are executed only
+if the prior ones produced no products.
+</td></tr><tr><td>***RESUBJECT_TO*** </td><td> the starting materials for the previous 
+reaction should be applied again to this reaction.
+</td></tr><tr><td>***FNAL_GROUPS{ groupname; groupname; ... }*** </td><td> 
+<a href="../fnalGroups.jsp">functional groups</a> 
+that substrates must have for reaction to proceed; should come immediately
+after any of the preceding dividers and applies to all subsequent reactions
+until turned off by the same sequence with no group names listed.  Group numbers
+can be used in place of group names.
+</td></tr><tr><td> ***(***<br/> ***)*** </td><td>group reaction definitions.
+</td></tr>
+</table>
+
+<p>Reaction definition (RxnMolecule) properties used by SynthSolver:</p>
+
+<table class="nonDbTable" >
+<tr><th>Property</th><th>Value</th><th>Meaning</th></tr>
+<tr><td>Number of reactants</td><td> integer </td><td>the number of substrates that 
+must have been submitted by the user; e.g., for Grignard addition to an ester, the
+user cannot supply two different Grignard reagents if this property has value 2.
+</td></tr><tr><td>Stop after one reaction</td><td> true</td><td> the products of the 
+reaction will not be resubjected to the reaction.
+</td></tr><tr><td>Major or minor product</td><td> "major" or "minor" (in practice, only "minor"
+will be used)</td><td> does this reaction definition give minor products only?
+</td></tr><tr><td>Major or minor explanation</td><td> a String</td><td> provides feedback to student 
+as to why this reaction definition gives minor products, e.g., "The Diels-Alder
+reaction provides mostly the endo product." for the exo reaction definition.
+</td></tr><tr><td>Keep permuting</td><td> true</td><td> don't end trying different 
+permutations after the first successful combination.  Used in aldol reactions, 
+where partners can swap places.
+</td></tr><tr><td>Do not specify configurations</td><td> true</td><td> don't specify 
+configurations in the reaction products.
+</td></tr><tr><td>Asymmetric</td><td> true</td><td> reaction is asymmetric.
+</td></tr><tr><td>Functional group of substrate to clone</td><td> name of functional group</td><td>
+when a reaction definition requires more than one copy of a substrate, the functional group
+of the substrate that should be cloned
+</td></tr><tr><td>Stoichiometry of substrate to clone</td><td> integer</td><td>when 
+a reaction definition requires more than one copy of a substrate, 
+how many copies of the substrate are required by the reaction.
+</td></tr>
+</table>
+
+<p>Reactor product (Molecule) properties set by SynthSolver:</p>
+
+<table class="nonDbTable" >
+<tr><th>Property</th><th>Value</th><th>Meaning</th></tr>
+<tr><td>Reactor index</td><td> integer </td><td>how many times Reactor was called for
+a particular substrate combination before this product was obtained
+</td></tr><tr><td>Major or minor</td><td> "major" or "minor"</td><td> is this compound produced by a 
+reaction that gives minor products only?
+</td></tr><tr><td>Major or minor explanation</td><td> a String </td><td> provides feedback to student 
+as to why this reaction definition gives minor products, e.g., "The Diels-Alder
+reaction provides mostly the exo product." for the endo reaction definition
+</td></tr><tr><td>Reacted</td><td> true</td><td> denotes products of prior reactions that have
+reacted further and should be removed from the list of reaction products
+</td></tr><tr><td>Racemize</td><td> true </td><td> denotes diastereopure but racemic 
+products of achiral or racemic starting materials, or starting material that 
+has racemized; also set by SynthStage
+</td></tr>
+</table>
+
+<p>Reactor product (Molecule) properties set by other classes:</p>
+
+<table class="nonDbTable" >
+<tr><th>Property</th><th>Set by</th><th>Meaning</th></tr>
+<tr><td>Expanded stereoisomer</td><td> SynthParser </td><td>
+when a student submits a compound with ambiguous tetrahedral stereochemistry,
+SynthParser generates all stereoisomers before storing them in the SynthStage; 
+it gives each stereoisomer the value m:n, where m is the number of molecules 
+already in the stage (plus one) and n is the stereoisomer number; used to 
+identify whether a student ran a reaction producing certain isomers but not 
+others, and failed to show which isomers were produced
+</td></tr><tr><td>Producing stage box index</td><td> Synthesis.checkValidRxnProducts()</td><td>
+the object index of the box of the stage whose reaction produces the compound
+</td></tr>
+</table>
+
+</body>
+</html>
+

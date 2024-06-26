@@ -1,0 +1,45 @@
+This directory holds Perl scripts that we use for configuring versions of ACE.
+
+configureMarvin.pl	establishes the symlinks that Marvin needs and that the
+					requested version of ACE needs to access the requested 
+					version of Marvin.
+configureJChem.pl	establishes the symlinks that JChem needs and that the
+					requested version of ACE needs to access the requested
+					version of JChem; also calls configureMarvin.pl for the 
+					version of Marvin inside the requested version of JChem.
+					Point ACE to a lower version of JChem by changing the
+					symlink $BASE/jchemWHO, where WHO is the version of ACE,
+					manually.
+cpDiff.pl			copies source files that differ between versions
+cpSole.pl			copies source files that only exist in one version to another
+createACEcopy.pl	creates a new version
+setIdentity.pl		establishes symlinks and some other files that ACE needs;
+					constructs the symlinks according to the ones present in 
+					the directory $BASE/identity/ .  After running, manually 
+					change epoch-plugin/web/nosession/marvin to point to a 
+					different version of Marvin, if desired.
+
+Examples: 
+
+	setIdentity.pl DEV-2.3
+	configureJChem.pl DEV-2.3 jchem5.3.3
+	configureMarvin.pl DEV-2.2 jchem5.3.2/marvin
+
+
+identity/ contains:
+courseware/conf/courseware.properties
+courseware/lib/jchem.jar -> /home/aceorg/aceorg/jchemWHO/lib/jchem.jar
+courseware/web/userHomeFrm.html
+courseware/web/WEB-INF/courseware.properties
+epoch-plugin/build -> /home/aceorg/aceorg/WHO/courseware/build
+epoch-plugin/lib/LewisSketch.jar -> /home/aceorg/aceorg/lewis/LewisSketch.jar
+epoch-plugin/web/js -> ../../courseware/web/js
+epoch-plugin/web/nosession/api -> /home/aceorg/aceorg/jchemWHO/doc/dev/java/api
+epoch-plugin/web/nosession/jmol -> /home/aceorg/aceorg/jmol
+epoch-plugin/web/nosession/lewis -> /home/aceorg/aceorg/lewis
+epoch-plugin/web/nosession/marvin -> /home/aceorg/aceorg/jchemWHO/marvin
+epoch-plugin/web/public/ACEStructure/API/jchemAPI -> ../../../nosession/api
+epoch-plugin/web/WEB-INF/classes -> ../../../courseware/web/WEB-INF/classes/
+epoch-plugin/web/WEB-INF/lib -> /home/aceorg/aceorg/jchemWHO/lib
+epoch-plugin/web/WEB-INF/chimp.properties
+epoch-plugin/web/WEB-INF/web.xml

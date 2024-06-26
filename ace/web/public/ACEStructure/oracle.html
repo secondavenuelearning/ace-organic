@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Tomcat and Oracle</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Oracle drivers</h3>
+
+<p>The file <span class="filename">ojdbc8-12.2.0.1.jar</span> is the 
+<a href="https://docs.oracle.com/en/database/oracle/oracle-database/12.2/odbcr/index.html">Oracle
+12.2.0.1 driver</a> that Tomcat uses to communicate with Oracle.  
+
+</p><p>
+<span class="filename">$JCHEM/lib/<span style="color:blue;">ojdbc8-12.2.0.1.jar.jar</span></span> &larr;
+<span class="filename">$WEB/WEB-INF/lib/<span style="color:blue;">ojdbc8-12.2.0.1.jar</span></span>
+</p>
+
+<p>However, during compilation, we use only the 
+database communication classes found in 
+<span class="filename">/opt/tomcat9/lib/<span style="color:blue;">servlet-api.jar</span></span>.</p>
+
+<h3>Tomcat configuration files</h3>
+
+<p>We use shell environment variables to set
+<span class="filename">CATALINA_BASE</span> to
+<span class="filename">/opt/apache-tomcat-9.0.80</span>.
+
+</p>
+
+<p><span class="filename">$CATALINA_BASE/<span
+	style="color:blue;">conf</span>/</span> 
+contains several configuration files.</p>
+
+<ul>
+<li><span class="filename">server.xml</span></li>
+<li><span class="filename">web.xml</span></li>
+<li><span class="filename">context.xml</span> defines the JDBC connection
+pool.  The definition should include the attribute:
+<blockquote>
+<span class="code">
+<a href="http://www.oracle.com/technology/sample_code/tech/java/codesnippet/jdbc/clob10g/handlingclobsinoraclejdbc10g.html">
+connectionProperties="SetBigStringTryClob=true"</a>
+</span>
+</blockquote>
+</li>
+<li><span class="filename">Catalina/localhost-dev-5.1/ace.xml</span></li>
+<li><span class="filename">Catalina/localhost-dev-5.1/nosession.xml</span></li>
+</ul>
+
+<p><span class="filename">$CATALINA_BASE/<span style="color:blue;">logs</span>/</span> 
+contains the log files.</p>
+
+<p>See <a href="pkgsSymlinks.html">this document</a> for additional
+information on how to configure ACE.</p>
+</body>
+</html>

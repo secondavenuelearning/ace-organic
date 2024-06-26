@@ -1,0 +1,20 @@
+<p align="center"><span class="database">text_chaps_v1</span>, 
+chapters of embedded ACE textbooks</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">id<sup>1</sup></td>
+<td>ID number</td>
+<td>number(38)</td></tr>
+<tr><td class="database">text_id<sup>2,3</sup></td>
+<td>ID number of the textbook of this chapter &rarr;
+<span class="database">textbooks_v1.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">serial_num</td>
+<td>position of this chapter in the textbook</td>
+<td>number(38)</td></tr>
+<tr><td class="database">name</td>
+<td>name of chapter</td>
+<td>CLOB</td></tr>
+<tr><td class="database">text_chaps_seq</td>
+<td>sequencer for <span class="database">id</span></td></tr>
+</table>

@@ -1,0 +1,90 @@
+<p align="center"><span class="database">question_data_v4</span> and
+<span class="database">user_question_data_v4</span>, 
+a piece of information needed to display or evaluate a question </p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td><span class="database">data_id<sup>1</sup></span>
+</td>
+<td>unique identifier of the data</td>
+<td>number(38)</td></tr>
+<tr><td><span class="database">user_id<sup>2</sup></span> 
+</td>
+<td>
+<span class="database">user_question_data_v4</span> only;
+question author &rarr;
+<span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td><span class="database">question_id<sup>2*,3</sup></span>
+</td>
+<td>question;
+*foreign key only for <span class="database">question_data_v4</span>,
+&rarr; 
+<span class="database">questions_v3.id</span> (or 
+<span class="database">user_questions_v3.id</span>);
+</td>
+<td>number(38)</td></tr> 
+<tr><td class="database">serial_no</td>
+<td>serial number of the data within question, perhaps nonconsecutive</td>
+<td>number(38)</td></tr>
+<tr><td class="database">data_type</td>
+<td>the type of question data: <b>marvin</b>, <b>text</b>, <b>substn</b>,
+<b>synthOkSM</b>, or <b>SMExpr</b></td>
+<td>varchar2(10)</td></tr>
+<tr><td class="database">data</td>
+<td>
+<ul><li><b>marvin</b>: a structure in MRV format
+</li><li><b>text</b>: some text
+<ul>
+<li>multiple-choice, rank/ordering questions: an item to choose or rank/order 
+</li><li>complete-the-table questions: 
+<ul><li>
+<span class="database">serial_no</span> = 1: the number of rows
+</li><li>
+<span class="database">serial_no</span> = 2: the number of columns
+</li></ul>
+</li><li>
+orbital energy diagrams: the number of rows 
+(<span class="database">serial_no</span> = 1 only)
+</li><li>
+reaction coordinate diagrams:
+the number of rows
+and columns, tab-separated
+(<span class="database">serial_no</span> = 1 only) 
+</li></ul>
+</li><li><b>substn</b>: 
+<ul><li>
+Marvin questions: colon-separated list of numbers corresponding to R group
+classes from which ACE may choose a shortcut group to substitute 
+for an R<sup><i>n</i></sup> in Figure 1
+&rarr; <span class="database">r_group_class_v3.id</span>
+</li><li>numeric questions: colon-separated list of either numerical values
+or equal-separated words and numerical values
+from which ACE may choose to substitute 
+variables in the question statement and evaluators
+</li></ul>
+</li><li><b>synthOkSM</b>: an evaluator that assesses whether a 
+starting material is permissible; takes the form
+<i>evalCode</i>/<i>codedData</i>, where <i>evalCode</i> is the database match
+code for an evaluator, and <i>codedData</i> is the coded data for that
+evaluator, perhaps followed by a structure in MRV format
+</li><li><b>SMExpr</b>: postfix expression that encodes
+how to combine logically the evaluators that define 
+a permissible starting material; for example, "1:2:3:@:4:|3," meaning,
+"1 or (2 and 3) or 4;" must have largest <span class="database">serial_no</span>
+for this <span class="database">question_id</span>
+</li></ul></td>
+<td><span class="ACE">CLOB</span></td></tr>
+<tr><td class="database">name</td>
+<td>molecule name for short display (<span class="database">data_type</span> =
+<b>marvin</b> only)</td>
+<td>varchar2(100)</td></tr>
+<tr class="ACE"><td class="database">text_id<sup>3</sup></td>
+<td>serial number of <span class="database">data</span> 
+(if this datum is text) 
+or <span class="database">name</span> (if it is a molecule);
+has value only when <span class="database">question_id</span> &gt; 0;
+&rarr; <span class="database">translations_v2.phrase_id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">question_data_seq</td>
+<td>sequencer for <span class="database">data_id</span></td></tr>
+</table>

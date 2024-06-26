@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Embedded Textbooks</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Textbooks</h3>
+
+<p>An instructor may choose to write a textbook embedded into ACE. The 
+textbook consists of chapters, each of which contains any number of 
+pieces of content. A piece of content may be text, a Marvin 
+picture, an image, a movie, Jmol imput, or an ACE question for a student 
+to practice.  ACE allows the author to add, remove, reorder, or edit 
+the chapters and content.
+</p>
+
+<!--#include file="db/textbooks.html"-->
+<!--#include file="db/text_chaps.html"-->
+<!--#include file="db/text_content.html"-->
+
+<p>The author of an embedded textbook may choose to add coauthors to it.
+The author and the coauthors can all edit the textbook, but only
+one can do so at any one time.  If a coauthor of a textbook browses 
+the <a href="questions.shtml">question database</a> to add a practice 
+question to the textbook, he or she will see questions that were 
+locally authored or modified by the original author of the textbook, 
+not by himself or herself.  Students reading the textbook will also 
+see the questions as locally authored or modified by the original 
+textbook author, even if the original textbook author is not the
+instructor of their course.  
+</p>
+
+<!--#include file="db/text_coauthors.html"-->
+
+<p>The author of an embedded textbook may also choose to make that 
+textbook visible to other instructors.  If a second instructor then 
+decides to edit that textbook, ACE makes a copy of it and assigns it 
+to the second instructor.  Subsequently, any changes that the original 
+instructor makes to the original textbook will be invisible to the second
+instructor, and vice versa.  If the original author has incorporated
+any <a href="authoring.html">locally authored questions</a> (i.e., 
+question that are not part of the master database) into the textbook, 
+those questions will be inaccessible to the new author, and he or she 
+must replace or remove them.  
+</p>
+
+<p>An instructor may choose to associate a course with an embedded 
+textbook.  The textbook may be either one that he or she has written, 
+or one that another author has written and chosen to make visible 
+to all instructors.  The instructor chooses the book from the pulldown 
+menu on the <a href="courseMgt.shtml">course-editing page</a>. 
+When an instructor has associated a textbook with a course, a
+<span class="link">Textbook</span> tab appears when a user
+enters that course.  ACE does not record students' work
+on questions that have been incorporated into the textbook.
+</p>
+
+<!--#include file="db/cw_courses.html"-->
+
+</body>
+</html>

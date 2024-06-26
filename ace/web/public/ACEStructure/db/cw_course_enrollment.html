@@ -1,0 +1,22 @@
+<p align="center"><span class="database">cw_course_enrollment_v3</span>,
+students registered with ACE and enrolled in courses</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">course_id<sup>1,2</sup></td>
+<td>course &rarr; <span class="database">cw_courses_v3.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">student_id<sup>1,2</sup></td>
+<td>student &rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">isTA</td>
+<td>whether this student is a TA for this course; <b>Y</b> or <b>N</b></td>
+<td>char(1)</td></tr>
+<tr><td class="database">first_entry</td>
+<td>date and time of first entry into the course if it is an exam course</td>
+<td>varchar2(25)</td></tr>
+<tr><td class="database">serial_no</td>
+<td>serial number of this course for this student</td>
+<td>number(38)</td></tr>
+</table>
+
+

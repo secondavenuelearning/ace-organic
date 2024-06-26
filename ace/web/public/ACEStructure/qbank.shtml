@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Question Bank</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Question Bank</h3>
+
+<p>When an instructor presses the <span class="link">Question Bank</span>, 
+ACE opens <span class="filename">authortool/enterAuthortool.jsp</span>,
+which determines whether the instructor is a master or local author 
+(see below) and then delivers the instructor to 
+<span class="filename">authortool/questionsList.jsp</span>, the
+<a href="topics.shtml">question set display page</a>.</p>
+
+<p>Instructors are divided into master and local authors.  Any additions or
+changes to the database made by local authors are visible only to that
+instructor in all of her courses, and not to any other instructor.  
+(However, a <a href="courseMgt.shtml">coinstructor</a> of a course may 
+assign his or her work to the course's owner.)  
+The <a href="admin.shtml">administrator</a> must choose to grant 
+local or master authoring privileges to each instructor.  A master author
+may choose to act as a local author if he or she wants to write questions
+that are not visible to any other instructors.</p>
+
+<h3><a href="topics.shtml">Topics and question sets</a></h3>
+<h3><a href="questions.shtml">Questions</a></h3>
+</body>
+</html>

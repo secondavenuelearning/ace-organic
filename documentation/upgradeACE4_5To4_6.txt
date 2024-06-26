@@ -1,0 +1,10 @@
+
+-- RBG 4/2024 change separator for data above and below arrows in RXN figures from / to [tab]
+-- and change escaped / back to ordinary /
+
+update user_figures_v5 set rxn_data = REPLACE(rxn_data, '/', chr(9)) where fig_type = 'RXN';
+update user_figures_v5 set rxn_data = REPLACE(rxn_data, '&#47;', '/') where fig_type = 'RXN';
+update figures_v5 set rxn_data = REPLACE(rxn_data, '/', chr(9)) where fig_type = 'RXN';
+update figures_v5 set rxn_data = REPLACE(rxn_data, '&#47;', '/') where fig_type = 'RXN';
+
+

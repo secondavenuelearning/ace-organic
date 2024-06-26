@@ -1,0 +1,80 @@
+<p align="center"><span class="database">users_v4</span>, 
+students and instructors</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">user_id<sup>1</sup></td>
+<td>login ID; username</td>
+<td>varchar2(40)</td></tr>
+<tr><td class="database">password_hash</td>
+<td>digest of password; may be blank if LDAP is used to authenticate</td>
+<td>raw(150)</td></tr>
+<tr><td class="database">role<sup>3</sup></td>
+<td>administrator <b>A</b>, instructor <b>I</b>, or student <b>S</b></td>
+<td>char(1)</td></tr>
+<tr><td class="database">first_name</td>
+<td>given name</td>
+<td>CLOB</td></tr>
+<tr><td class="database">last_name</td>
+<td>family name</td>
+<td>CLOB</td></tr>
+<tr><td class="database">middle_name</td>
+<td>middle initial</td>
+<td>CLOB</td></tr>
+<tr><td class="database">institution_id<sup>2,3</sup></td>
+<td>ID number of institution 
+&rarr; <span class="database">institutions_v1.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">student_num</td>
+<td>student ID number assigned by the school</td>
+<td>CLOB</td></tr>
+<tr><td class="database">email</td>
+<td>email address</td>
+<td>CLOB</td></tr>
+<tr><td class="database">contact_address</td>
+<td>address (populated for instructors only)</td>
+<td>CLOB</td></tr>
+<tr><td class="database">phone</td>
+<td>voice telephone number (populated for instructors only)</td>
+<td>varchar2(20)</td></tr>
+<tr><td class="database">text_msg_number</td>
+<td>email address for receiving text messages on one's phone; e.g., 8598675309@txt.att.net</td>
+<td>CLOB</td></tr>
+<tr><td class="database">registration_date</td>
+<td>registration date (YYYY/MM/DD HH:MI:SS); earliest value is 2008/05/21 18:56:40</td>
+<td>varchar2(25)</td></tr>
+<tr><td class="database">last_login_date</td>
+<td>most recent login date (YYYY/MM/DD HH:MI:SS); earliest value is 2020/05/16 13:11:11</td>
+<td>varchar2(25)</td></tr>
+<tr><td class="database">payment_transaction_num</td>
+<td>payment transaction number from PayPal</td>
+<td>varchar2(100)</td></tr>
+<tr><td class="database">flags</td>
+<td>bit 0: enabled
+<br/>bit 1: master author
+<br/>bit 2: translator
+<br/>bit 3: may not change password (applied to exam login IDs only)
+<br/>bit 4: don't show calculated synthesis products
+<br/>bit 5: prefers MarvinSketch Java applet over MarvinJS (always 0 as of
+ACE 4.1)
+<br/>bit 6: prefers PNG graphics over SVG (some browsers don't render SVG)
+<br/>bit 7: prefers family name to come before given name
+<br/>bit 8: prefers date in day-month-year format
+</td>
+<td>number(3)</td></tr>
+<tr><td class="database">security_questions</td>
+<td>colon-separated indices of the two security questions that the 
+user has chosen to answer; blank if LDAP is used to authenticate</td>
+<td>varchar2(10)</td></tr>
+<tr><td class="database">security_answer1</td>
+<td>answer to the first security question chosen by the user</td>
+<td>CLOB</td></tr>
+<tr><td class="database">security_answer2</td>
+<td>answer to the second security question chosen by the user</td>
+<td>CLOB</td></tr>
+<tr><td class="database">sortkey</td>
+<td><span class="database">last_name</span>, 
+<span class="database">first_name</span>
+<span class="database">middle_name</span> converted to upper case
+and with accented letters replaced by unaccented ones</td>
+<td>varchar2(400)</td></tr>
+</table>

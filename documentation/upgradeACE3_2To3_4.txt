@@ -1,0 +1,1336 @@
+update evaluators_v3 set coded_data = coded_data || '/N' 
+	where match_type = 'MAP_PRP' and coded_data not like '%/%/%/%';
+update user_evaluators_v3 set coded_data = coded_data || '/N' 
+	where match_type = 'MAP_PRP' and coded_data not like '%/%/%/%';
+
+create table cw_users_v3 (
+	user_id varchar2(40) not null,
+	password_hash raw(150) not null,
+	role char(1) not null,
+	first_name CLOB,
+	last_name CLOB,
+	middle_name CLOB,
+	student_num varchar2(20),
+	email varchar2(100),
+	institution varchar2(3600),
+	contact_address CLOB,
+	phone varchar2(25),
+	registration_date varchar2(25),
+	flags number(3),
+	security_questions varchar2(10),
+	security_answer1 CLOB,
+	security_answer2 CLOB,
+	sortkey varchar2(400),
+	constraint P_USERS_V3 primary key (user_id));
+insert into cw_users_v3 (select
+	user_id,
+	password_hash,
+	role,
+	first_name,
+	last_name,
+	middle_name,
+	student_num,
+	email,
+	institution,
+	contact_address,
+	phone,
+	registration_date,
+	flags,
+	security_questions,
+	security_answer1,
+	security_answer2,
+	nls_upper(last_name || ', ' || first_name || ' ' || middle_name)
+	from cw_user_v2);
+create index cw_users_v3_idx on cw_users_v3 (role, institution, registration_date);
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#19(3|4|5|6|7);', 'A');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#198;', 'AE');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#199;', 'C');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#20(0|1|2|3);', 'E');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#20(4|5|6|7);', 'I');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#208;', 'Dz');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#209;', 'N');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#20(0|1|2|3|4);', 'O');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#(217|218|219|220);', 'U');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#(221|376);', 'Y');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#222;', 'Tz');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#338;', 'OE');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#352;', 'S');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#223;', 'SS');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#22(4|5|6|7|8|9);', 'A');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#230;', 'AE');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#231;', 'C');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#23(2|3|4|5);', 'E');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#23(6|7|8|9);', 'I');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#240;', 'Dz');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#241;', 'N');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#24(2|3|4|5|6|8);', 'O');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#(249|250|251|252);', 'U');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#25(3|5);', 'Y');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#254;', 'Tz');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#339;', 'OE');
+update cw_users_v3 set sortkey = regexp_replace(sortkey, '&#353;', 'S');
+
+drop table cw_users_v2;
+
+create table language_codes_v1 (
+	language varchar2(150) not null,
+	code varchar2(2),
+	constraint P_LANG_CODES primary key (language)
+	);
+insert into language_codes_v1 values ('Espa&#241;ol', 'es');
+insert into language_codes_v1 values ('Deutsch', 'de');
+insert into language_codes_v1 values ('&#1497;&#64285;&#1491;&#1497;&#1513;', 'yi');
+
+update evaluators_v3 set coded_data = coded_data || '/N=/0' 
+	where match_type = 'WT' and coded_data not like '%/%/%/%/%/%';
+update user_evaluators_v3 set coded_data = coded_data || '/N=/0' 
+	where match_type = 'WT' and coded_data not like '%/%/%/%/%/%';
+update evaluators_v3 set coded_data = coded_data || '/N/N=/0' 
+	where (match_type in ('CHARGE', 'GROUP') and coded_data not like '%/%/%/%/%')
+	or (match_type = 'ATOMS' and coded_data not like '%/%/%/%/%/%/%');
+update user_evaluators_v3 set coded_data = coded_data || '/N/N=/0' 
+	where (match_type in ('CHARGE', 'GROUP') and coded_data not like '%/%/%/%/%')
+	or (match_type = 'ATOMS' and coded_data not like '%/%/%/%/%/%/%');
+
+update question_data_v2 set data = data || '/N/N=/0' 
+	where data_type = 'synthOkSM' 
+	and (data like 'CHARGE/%' or data like 'ATOMS/%' or data like 'GROUP/%')
+	and dbms_lob.substr(data, 100, 1) not like '%/%/%/%/%/%';
+update user_question_data_v2 set data = data || '/N/N=/0' 
+	where data_type = 'synthOkSM' 
+	and (data like 'CHARGE/%' or data like 'ATOMS/%' or data like 'GROUP/%')
+	and dbms_lob.substr(data, 100, 1) not like '%/%/%/%/%/%';
+
+delete from responses_v5 where (hw_id, pb_id) in 
+	(select responses_v5.hw_id, responses_v5.pb_id 
+	from responses_v5, hwsets_v4 
+	where responses_v5.hw_id = hwsets_v4.hw_id 
+	and REGEXP_INSTR(hwsets_v4.qlist, '[@/;]' ||  responses_v5.pb_id || '([/;:]|$)') <= 0);
+
+create table hwsets_v5 as select * from hwsets_v4;
+alter table HWSETS_V5 
+	add constraint P_HWS5 primary key (HW_ID) 
+	add constraint F_HWS5_COURSE foreign key (COURSE_ID) references CW_COURSES_V3(ID);
+
+create table assignment_questions_v3 (
+	student_id varchar2(40) not null, 
+	hw_id number(38) not null, 
+	serial_no number(38) not null,
+    pb_id number(38) not null,
+	constraint P_ASSGT_QS3 primary key (student_id, hw_id, serial_no),
+	constraint F_ASSGT_QS3_USER foreign key (student_id) references cw_users_v3(user_id),
+	constraint F_ASSGT_QS3_ASSGT foreign key (hw_id) references hwsets_v5(hw_id));
+create index assignment_questions_v3_idx on assignment_questions_v3 (pb_id);
+
+INSERT INTO assignment_questions_v3 
+	SELECT user_id AS student_id, 
+		assignment_id AS hw_id, 
+		column_value AS serial_no, 
+		TO_NUMBER(REGEXP_SUBSTR(qlist, '[^:]+', 1, column_value)) AS pb_id 
+	FROM assignment_questions_v2, 
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= LENGTH(REGEXP_REPLACE(qlist, '[^:]')) + 1
+			) AS sys.OdciNumberList
+		) 
+	) WHERE assignment_id IN (SELECT hw_id FROM hwsets_v5) 
+	AND user_id IN (SELECT user_id FROM cw_users_v3);
+
+create table hwset_qs_v1 (
+	hw_id number(38) not null,
+	group_num number(38) not null,
+	group_pick number(38) not null,
+	group_bundle_size number(38) not null,
+	pb_num_in_group number(38) not null,
+	pb_id number(38) not null,
+	constraint P_HW_QS1 primary key (hw_id, group_num, pb_num_in_group),
+	constraint F_HW_QS1_ASSGT foreign key (hw_id) references hwsets_v5(hw_id));
+create index hwset_qs_v1_idx on hwset_qs_v1 (pb_id);
+
+create table hwset_dependencies_v1 (
+	hw_id number(38) not null,
+	dependent_pb_id number(38) not null,
+	independent_pb_id number(38) not null,
+	constraint P_HW_DEPS1 primary key (hw_id, dependent_pb_id),
+	constraint F_HW_DEPS1_ASSGT foreign key (hw_id) references hwsets_v5(hw_id));
+
+create table users_v4 (
+	user_id varchar2(40) not null,
+	password_hash raw(150) not null,
+	role char(1) not null,
+	first_name CLOB,
+	last_name CLOB,
+	middle_name CLOB,
+	student_num CLOB,
+	email CLOB,
+	institution CLOB,
+	contact_address CLOB,
+	phone varchar2(25),
+	registration_date varchar2(25),
+	flags number(3),
+	security_questions varchar2(10),
+	security_answer1 CLOB,
+	security_answer2 CLOB,
+	sortkey varchar2(400),
+	constraint P_USERS4 primary key (user_id));
+insert into users_v4 (select
+	user_id,
+	password_hash,
+	role,
+	first_name,
+	last_name,
+	middle_name,
+	student_num,
+	email,
+	institution,
+	contact_address,
+	phone,
+	registration_date,
+	flags,
+	security_questions,
+	security_answer1,
+	security_answer2,
+	sortkey
+	from cw_users_v3);
+
+create table institutions_v1 (
+	id number(38) not null,
+	name CLOB,
+	uniq_id_label CLOB,
+	constraint P_INSTNS1 primary key (id));
+insert into institutions_v1 (select rownum, name, 'student ID number' from (
+	select unique dbms_lob.substr(institution, length(institution), 1) as name from users_v4));
+select max(id) + 1 from institutions_v1;
+create sequence INSTITUTIONS_SEQ start with (*** result of previous query***);
+update institutions_v1 set uniq_id_label = 'UK ID' 
+	where dbms_lob.substr(name, length(name), 1) = 'University of Kentucky';
+alter table cw_courses_v3 drop column uniq_id_label;
+
+alter table users_v4 add institution_id number(38);
+update users_v4 set institution_id = (
+	select id from institutions_v1 where 
+	dbms_lob.substr(users_v4.institution, length(users_v4.institution), 1) =
+	dbms_lob.substr(name, length(name), 1));
+create index users_v4_idx on users_v4 (role, institution_id);
+alter table users_v4 
+	add constraint F_USERS4_INSTN_ID foreign key (institution_id) 
+	references institutions_v1(id); 
+alter table users_v4 drop column institution;
+alter table cw_courses_v3 add ace_text_id number(38);
+
+[*** run "Make new questions, dependencies tables" in admin tool ***]
+
+create table hwset_grading_params_v1 (
+	hw_id number(38) not null,
+	param_type char(1) not null,
+	limit_max_str varchar2(10) not null,
+	factor_str varchar2(10) not null,
+	limit_min number(12,2),
+	limit_max number(12,2),
+	factor number(5,2),
+	row_num number(38),
+	constraint P_HW_GRADES1 primary key (hw_id, param_type, limit_max_str),
+	constraint F_HW_GRADES1_ASSGT foreign key (hw_id) references hwsets_v5(hw_id));
+
+UPDATE hwsets_v5 
+	SET attempt_grading = REGEXP_REPLACE(attempt_grading, '(^|/)/', '\19999999999/')  
+	WHERE attempt_grading IS NOT null;
+
+INSERT INTO hwset_grading_params_v1 
+	SELECT hw_id, 
+		'A' AS param_type, 
+		REGEXP_SUBSTR(attempt_grading, '[^/]+', 1, column_value * 2 - 1) AS limit_max_str, 
+		REGEXP_SUBSTR(attempt_grading, '[^/]+', 1, column_value * 2) AS factor_str,
+		0 as limit_min,
+		0 as limit_max,
+		0 as factor, 
+		column_value as row_num
+	FROM hwsets_v5, 
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= (LENGTH(REGEXP_REPLACE(attempt_grading, '[^/]')) + 1) / 2
+			) AS sys.OdciNumberList
+		)
+	) WHERE attempt_grading IS NOT null;
+
+UPDATE hwsets_v5 
+	SET time_grading = REGEXP_REPLACE(time_grading, '(^|/)/', '\19999999999/')  
+	WHERE time_grading IS NOT null;
+
+INSERT INTO hwset_grading_params_v1 
+	SELECT hw_id AS hw_id, 
+		'T' AS param_type, 
+		REGEXP_SUBSTR(time_grading, '[^/]+', 1, column_value * 2 - 1) AS limit_max_str, 
+		REGEXP_SUBSTR(time_grading, '[^/]+', 1, column_value * 2) AS factor_str, 
+		0 as limit_min,
+		0 as limit_max,
+		0 as factor, 
+		column_value as row_num
+	FROM hwsets_v5, 
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= (LENGTH(REGEXP_REPLACE(time_grading, '[^/]')) + 1) / 2
+			) AS sys.OdciNumberList
+		)
+	) WHERE time_grading IS NOT null;
+
+INSERT INTO hwset_grading_params_v1 
+	SELECT hw_id, 
+		'Q' AS param_type, 
+		TO_CHAR(column_value) AS limit_max_str, 
+		REGEXP_SUBSTR(question_points, '[^/]+', 1, column_value) AS factor_str, 
+		0 as limit_min,
+		0 as limit_max,
+		0 as factor, 
+		column_value as row_num
+	FROM hwsets_v5, 
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= LENGTH(REGEXP_REPLACE(question_points, '[^/]')) + 1
+			) AS sys.OdciNumberList
+		)
+	) WHERE question_points IS NOT null;
+
+update hwset_grading_params_v1 set limit_max = to_number(limit_max_str);
+update hwset_grading_params_v1 set factor = to_number(factor_str);
+update hwset_grading_params_v1 op set limit_min = (
+	select limit_max from hwset_grading_params_v1 ip 
+	where op.hw_id = ip.hw_id 
+	and op.param_type = ip.param_type 
+	and op.row_num = ip.row_num + 1
+) where param_type != 'Q';
+update hwset_grading_params_v1 set limit_min = 0 where row_num = 1 and param_type != 'Q';
+update hwset_grading_params_v1 set limit_min = limit_max where param_type = 'Q';
+alter table hwset_grading_params_v1 drop column row_num;
+
+create table hwset_extensions_v1 (
+	hw_id number(38) not null,
+	student_id varchar2(40) not null,
+	extension_str varchar2(10) not null,
+	extension number(8,2),
+	serial_no number(38),
+	constraint P_HW_EXTS1 primary key (hw_id, student_id),
+	constraint F_HW_EXTS1_ASSGT foreign key (hw_id) references hwsets_v5(hw_id),
+	constraint F_HW_EXTS1_STUDENT foreign key (STUDENT_ID) references users_v4(USER_ID));
+
+UPDATE hwsets_v5 SET extensionees = '' 
+	WHERE DBMS_LOB.SUBSTR(extensionees, 4000, 1)  = 'null';
+
+UPDATE hwsets_v5 
+	SET extensionees = DBMS_LOB.SUBSTR(extensionees, LENGTH(extensionees) - 2, 2) 
+	WHERE extensionees IS NOT null;
+
+INSERT INTO hwset_extensions_v1 
+	SELECT hw_id, 
+		REGEXP_SUBSTR(extensionees, '[^/]+', 1, column_value * 2 - 1) AS student_id, 
+		REGEXP_SUBSTR(extensionees, '[^/]+', 1, column_value * 2) AS extension_str, 
+		0 as extension,
+		column_value AS serial_no 
+	FROM hwsets_v5, 
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= (LENGTH(REGEXP_REPLACE(extensionees, '[^/]')) + 1) / 2
+			) AS sys.OdciNumberList
+		)
+	) WHERE length(extensionees) > 0 
+	AND DBMS_LOB.SUBSTR(REGEXP_SUBSTR(extensionees, '[^/]+', 1, column_value * 2 - 1), 50, 1)  
+		IN (SELECT user_id FROM users_v4);
+update hwset_extensions_v1 set extension = to_number(extension_str);
+
+delete from hwset_extensions_v1 
+	where student_id not in (
+		select student_id from cw_course_enrollment_v3 
+		where course_id in (
+			select course_id from hwsets_v5 where hw_id = hwset_extensions_v1.hw_id
+		)
+	);
+
+create table hwset_rxn_condns_v1 (
+	hw_id number(38) not null,
+	rxn_cond_id number(38),
+	constraint P_HW_RXNCONDS1 primary key (hw_id, rxn_cond_id),
+	constraint F_HW_RXNCONDS1_ASSGT foreign key (hw_id) references hwsets_v5(hw_id),
+	constraint F_HW_RXNCONDS1_RXNCOND foreign key (rxn_cond_id) 
+			references reaction_conditions_v3(rxn_cond_id));
+
+INSERT INTO hwset_rxn_condns_v1 
+	SELECT hw_id, 
+		TO_NUMBER(REGEXP_SUBSTR(rxn_cond_id, '[^:]+', 1, column_value)) AS rxn_cond_id 
+	FROM hwsets_v5, 
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= LENGTH(REGEXP_REPLACE(rxn_cond_id, '[^:]')) + 1
+			) AS sys.OdciNumberList
+		)
+	) WHERE rxn_cond_id IS NOT null;
+
+alter table hwsets_v5 drop (
+	qlist, 
+	dependencies, 
+	question_points, 
+	attempt_grading, 
+	time_grading, 
+	extensionees,
+	rxn_cond_id);
+
+create table responses_v6 as 
+	(select
+	hw_id,
+	student_id,
+	pb_id,
+	tries,
+	grade,
+	response,
+	date_time,
+	status,
+	instructor_comment
+	from responses_v5);
+alter table responses_v6 
+	add constraint P_RESPONSES6 primary key (STUDENT_ID, HW_ID, PB_ID, TRIES) 
+	add constraint F_RESP6_ASSGT foreign key (HW_ID) references HWSETS_V5(HW_ID) 
+	add constraint F_RESP6_STUDENT foreign key (STUDENT_ID) references users_v4(USER_ID);
+create index responses_v6_idx on responses_v6 (status);
+
+create table response_rgroups_v1 (
+	hw_id number(38) not null,
+	student_id varchar2(50) not null,
+	pb_id number(38) not null,
+	r_group_num number(2) not null,
+	r_group varchar2(10),
+	constraint P_RESP_RGRPS1 primary key (hw_id, student_id, pb_id, r_group_num),
+	constraint F_RESP_RGRPS1_STUDENT foreign key (student_id) references users_v4(user_id),
+	constraint F_RESP_RGRPS1_ASSGT foreign key (hw_id) references hwsets_v5(hw_id));
+
+create table responses_temp (
+	hw_id number(38) not null,
+	student_id varchar2(50) not null,
+	pb_id number(38) not null,
+	r_groups CLOB);
+
+insert into responses_temp (
+	select hw_id, student_id, pb_id, r_groups from (
+		select hw_id, student_id, pb_id, r_groups, tries, row_number() over (
+			partition by hw_id, student_id, pb_id order by tries desc
+		) as rn from responses_v5 where r_groups is not null
+	) where rn = 1
+);
+
+INSERT INTO response_rgroups_v1 
+	SELECT hw_id, 
+		student_id, 
+		pb_id,
+		column_value AS r_group_num, 
+		REGEXP_SUBSTR(r_groups, '[^_]+', 1, column_value) AS r_group 
+	FROM responses_temp, 
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= LENGTH(REGEXP_REPLACE(r_groups, '[^_]'))
+			) AS sys.OdciNumberList
+		) 
+	) WHERE hw_id IN (SELECT hw_id FROM hwsets_v5) 
+	AND student_id IN (SELECT user_id FROM users_v4);
+
+drop table responses_temp;
+drop table responses_v5;
+
+create table r_group_class_v3 (
+	id number(38),
+	name varchar(100) not null,
+	member_num number(38),
+	member varchar2(10) not null,
+	constraint P_R_GRP_CLASS3 primary key (id, member_num));
+
+insert into r_group_class_v3 
+	select r_group_class_id AS id,
+		name,
+		column_value AS member_num,
+		REGEXP_SUBSTR(members, '[^,]+', 1, column_value) AS member 
+	FROM r_group_class_v2, 
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= LENGTH(REGEXP_REPLACE(members, '[^,]')) + 1
+			) AS sys.OdciNumberList
+		)
+	);
+
+alter table COINSTRUCTORS_V2 drop constraint F_COINSTR_INSTRUCTOR; 
+alter table COINSTRUCTORS_V2 
+	add constraint F_COINSTR2_INSTRUCTOR foreign key (INSTRUCTOR_ID) 
+	references users_v4(USER_ID); 
+alter table CW_COURSES_V3 drop constraint F_CRS_INSTRUCTOR; 
+alter table CW_COURSES_V3 
+	add constraint F_CRS3_INSTRUCTOR foreign key (INSTRUCTOR_ID) 
+	references users_v4(USER_ID); 
+alter table CW_COURSE_ENROLLMENT_V3 drop constraint F_ENROLL_STUDENT; 
+alter table CW_COURSE_ENROLLMENT_V3 
+	add constraint F_ENROLL3_STUDENT foreign key (STUDENT_ID) 
+	references users_v4(USER_ID); 
+alter table EXAM_STUDENTS_V2 drop constraint F_EXAM_USER; 
+alter table EXAM_STUDENTS_V2 
+	add constraint F_EXAM2_USER foreign key (USER_ID) 
+	references users_v4(USER_ID); 
+alter table LANGUAGES_V1 drop constraint F_LANG_USER; 
+alter table LANGUAGES_V1 
+	add constraint F_LANG1_USER foreign key (USER_ID) 
+	references users_v4(USER_ID); 
+alter table MODIFIED_HEADERS_V2 drop constraint F_MODHEADERS_USER; 
+alter table MODIFIED_HEADERS_V2 
+	add constraint F_MODHEADERS2_USER foreign key (USER_ID) 
+	references users_v4(USER_ID); 
+alter table PBSETS_V3 drop constraint F_QSETS_USER; 
+alter table PBSETS_V3 
+	add constraint F_QSETS3_USER foreign key (USER_ID) 
+	references users_v4(USER_ID); 
+alter table USER_EVALUATORS_V3 drop constraint F_USEREVALS_USER; 
+alter table USER_EVALUATORS_V3 
+	add constraint F_USEREVALS3_USER foreign key (USER_ID) 
+	references users_v4(USER_ID); 
+alter table USER_FIGURES_V5 drop constraint F_USERFIGS_USER; 
+alter table USER_FIGURES_V5 
+	add constraint F_USERFIGS5_USER foreign key (USER_ID) 
+	references users_v4(USER_ID); 
+alter table USER_QUESTIONS_V3 drop constraint F_USERQS_USER; 
+alter table USER_QUESTIONS_V3 
+	add constraint F_USERQS3_USER foreign key (USER_ID) 
+	references users_v4(USER_ID); 
+alter table USER_QUESTION_DATA_V2 drop constraint F_USERQDATA_USER; 
+alter table USER_QUESTION_DATA_V2 
+	add constraint F_USERQDATA2_USER foreign key (USER_ID) 
+	references users_v4(USER_ID); 
+
+alter table users_v4 modify user_id varchar2(50);
+alter table coinstructors_v2 modify instructor_id varchar2(50);
+alter table cw_courses_v3 modify instructor_id varchar2(50);
+alter table exam_students_v2 modify user_id varchar2(50);
+alter table languages_v1 modify user_id varchar2(50);
+alter table modified_headers_v2 modify user_id varchar2(50);
+alter table pbsets_v3 modify user_id varchar2(50);
+alter table user_questions_v3 modify user_id varchar2(50);
+alter table user_figures_v5 modify user_id varchar2(50);
+alter table user_question_data_v2 modify user_id varchar2(50);
+alter table user_evaluators_v3 modify user_id varchar2(50);
+alter table cw_course_enrollment_v3 modify student_id varchar2(50);
+alter table assignment_questions_v3 modify student_id varchar2(50);
+alter table hwset_extensions_v1 modify student_id varchar2(50);
+alter table responses_v6 modify student_id varchar2(50);
+alter table response_rgroups_v1 modify student_id varchar2(50);
+
+create table allowed_ips_v1 (
+	course_id number(38) not null,
+	address varchar2(32) not null,
+	constraint F_IPS1_COURSE foreign key (course_id) references cw_courses_v3(id));
+create index allowed_ips_v1_idx on allowed_ips_v1 (course_id);
+
+insert into allowed_ips_v1
+	select id AS course_id,
+		REGEXP_SUBSTR(allowed_ips, '[^,]+', 1, column_value) AS address
+	FROM cw_courses_v3,
+	TABLE(
+		CAST(
+			MULTISET(
+				SELECT LEVEL FROM dual 
+				CONNECT BY LEVEL <= LENGTH(REGEXP_REPLACE(allowed_ips, '[^,]')) + 1
+			) AS sys.OdciNumberList
+		)
+	)
+	WHERE allowed_ips is not null;
+alter table cw_courses_v3 drop column allowed_ips;
+
+update hwsets_v5 set date_due = 
+	to_char(to_date(date_due, 'MON DD, YYYY HH12:MI:SS AM'), 'YYYY/MM/DD HH24:MI:SS');
+update hwsets_v5 set date_created = 
+	to_char(to_date(date_created, 'MON DD, YYYY HH12:MI:SS AM'), 'YYYY/MM/DD HH24:MI:SS');
+update responses_v6 set date_time = 
+	to_char(to_date(date_time, 'YYYY/DD/MM HH24:MI:SS'), 'YYYY/MM/DD HH24:MI:SS') 
+	where date_time >= '2009/13';
+
+alter table responses_v6 add modified_grade number(8,4);
+update responses_v6 set modified_grade = grade
+	where hw_id not in (select hw_id from hwset_grading_params_v1);
+update responses_v6 set modified_grade = (
+	select s5.grade * s0.factor0 * s1.factor1 * s2.factor2 from (
+		select hw_id, 
+			limit_max, 
+			factor as factor0
+		from hwset_grading_params_v1 
+		where param_type = 'Q' 
+		union select hw_id, serial_no, 1 
+		from assignment_questions_v3 
+		where hw_id not in (
+			select hw_id 
+			from hwset_grading_params_v1 
+			where param_type = 'Q')
+	) s0, (
+		select hw_id, 
+			limit_min,
+			limit_max, 
+			factor as factor1 
+		from hwset_grading_params_v1 
+		where param_type = 'A' 
+		union select hw_id, 0, 9999999999, 1 from hwsets_v5 
+		where hw_id not in (
+			select hw_id 
+			from hwset_grading_params_v1 
+			where param_type = 'A')
+	) s1, (
+		select hw_id, 
+			limit_min, 
+			limit_max, 
+			factor as factor2 
+		from hwset_grading_params_v1 
+		where param_type = 'T' 
+		union select hw_id, -9999999999, 0, 1 from hwsets_v5 
+		where hw_id in (
+			select hw_id 
+			from hwset_grading_params_v1 
+			where param_type = 'T'
+		)
+		union select hw_id, -9999999999, 9999999999, 1 from hwsets_v5 
+		where hw_id not in (
+			select hw_id 
+			from hwset_grading_params_v1 
+			where param_type = 'T'
+		)
+	) s2, (
+		select hw_id, 
+			to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as date_due,
+			decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days 
+		from hwsets_v5 
+	) s3, (
+		select hw_id, student_id, extension 
+		from hwset_extensions_v1
+		union select hw_id, student_id, 0 from responses_v6 
+		where (hw_id, student_id) not in (
+			select hw_id, student_id from hwset_extensions_v1
+		)
+	) s4, ( 
+		select responses_v6.hw_id, 
+			responses_v6.student_id, 
+			responses_v6.pb_id, 
+			serial_no, 
+			tries, 
+			grade, 
+			to_date(date_time, 'YYYY/MM/DD HH24:MI:SS') as response_time
+		from responses_v6 
+		join assignment_questions_v3 
+		on responses_v6.hw_id = assignment_questions_v3.hw_id 
+		and responses_v6.student_id = assignment_questions_v3.student_id 
+		and responses_v6.pb_id = assignment_questions_v3.pb_id
+		where grade > 0
+		and responses_v6.hw_id in (select hw_id from hwset_grading_params_v1)
+	) s5
+	where s5.hw_id = s0.hw_id 
+	and s5.serial_no = s0.limit_max
+	and s5.hw_id = s1.hw_id 
+	and s5.tries > s1.limit_min
+	and s5.tries <= s1.limit_max
+	and s5.hw_id = s2.hw_id 
+	and s5.hw_id = s3.hw_id
+	and s5.hw_id = s4.hw_id
+	and s5.student_id = s4.student_id
+	and s5.response_time - s3.date_due - s4.extension * s3.in_days > s2.limit_min * s3.in_days
+	and s5.response_time - s3.date_due - s4.extension * s3.in_days <= s2.limit_max * s3.in_days 
+	and responses_v6.hw_id = s5.hw_id
+	and responses_v6.student_id = s5.student_id
+	and responses_v6.pb_id = s5.pb_id
+	and responses_v6.tries = s5.tries
+) 
+where grade > 0
+and hw_id in (select hw_id from hwset_grading_params_v1);
+
+CREATE OR REPLACE FUNCTION grade_factor(
+	hw_id_in responses_v6.hw_id%type, 
+	student_id_in responses_v6.student_id%type, 
+	pb_id_in responses_v6.pb_id%type,
+	tries_in responses_v6.tries%type,
+	date_time_in responses_v6.date_time%type) 
+RETURN number IS factor number;
+cursor c1 is 
+select s0.factor0 * s1.factor1 * s2.factor2 
+from (
+	select factor as factor0
+	from hwset_grading_params_v1
+	where param_type = 'A' and hw_id = hw_id_in
+	and limit_min < tries_in and tries_in <= limit_max
+	union all select 1 from dual 
+	where not exists (
+		select factor
+		from hwset_grading_params_v1
+		where param_type = 'A' and hw_id = hw_id_in
+		and limit_min < tries_in and tries_in <= limit_max
+	)
+) s0, (
+	select limit_min, limit_max, factor as factor1
+	from hwset_grading_params_v1 
+	where param_type = 'T' and hw_id = hw_id_in
+	union all select -9999999999, 0, 1 from dual 
+	where hw_id_in in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+	union all select -9999999999, 9999999999, 1 from dual 
+	where hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+) s1, (
+	select limit_max, factor as factor2
+	from hwset_grading_params_v1 
+	where param_type = 'Q' and hw_id = hw_id_in
+	union all select unique serial_no, 1 
+	from assignment_questions_v3 
+	where hw_id = hw_id_in and hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'Q'
+	)
+) s2, (
+	select to_date(date_time_in, 'YYYY/MM/DD HH24:MI:SS')
+		- to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as days_past_due, 
+	decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days 
+	from hwsets_v5 where hw_id = hw_id_in
+) s3, (
+	select student_id, extension 
+	from hwset_extensions_v1 
+	where hw_id = hw_id_in and student_id = student_id_in
+	union all select student_id_in, 0 from dual 
+	where student_id_in not in (
+		select student_id from hwset_extensions_v1
+		where hw_id = hw_id_in
+	)
+) s4, (
+	select serial_no 
+	from assignment_questions_v3 
+	where hw_id = hw_id_in
+	and student_id = student_id_in
+	and pb_id = pb_id_in
+) s5
+where s5.serial_no = s2.limit_max
+and s3.days_past_due - s4.extension * s3.in_days > s1.limit_min * s3.in_days
+and s3.days_past_due - s4.extension * s3.in_days <= s1.limit_max * s3.in_days;
+BEGIN
+	open c1;
+	fetch c1 into factor;
+	close c1;
+	return factor;
+END;
+/
+
+alter table coinstructors_v2 
+	rename constraint f_coinstr_course to f_coinstr2_course;
+alter table cw_course_enrollment_v3 
+	rename constraint f_enroll_course to f_enroll3_course;
+alter table cw_course_preenrollment_v3 
+	rename constraint f_preenroll_course to f_preenroll3_course;
+alter table evaluators_v3 rename constraint f_evals_q to f_evals3_q;
+alter table exam_students_v2 
+	rename constraint f_exam_course to f_exam2_course;
+alter table figures_v5 rename constraint f_fig_q to f_fig5_q;
+alter table modified_headers_v2 
+	rename constraint f_modheaders_set to f_modheaders2_set;
+alter table pbsets_v3 rename constraint f_qsets_chap to f_qsets3_chap;
+alter table questions_v3 rename constraint f_qs_set to f_qs3_set;
+alter table user_questions_v3 rename constraint f_userqs_set to f_userqs3_set;
+
+alter table chapters_v1 rename constraint p_chaps to p_chaps1;
+alter table coinstructors_v2 rename constraint p_coinstructors to p_coinstructors2;
+alter table cw_courses_v3 rename constraint p_courses to p_courses3;
+alter table cw_course_enrollment_v3 rename constraint p_enroll to p_enroll3;
+alter table cw_course_preenrollment_v3 
+	rename constraint p_course_preenroll to p_course_preenroll3;
+alter table evaluators_v3 rename constraint p_evals to p_evals3;
+alter table exam_students_v2 rename constraint p_exam_user to p_exam_user2;
+alter table figures_v5 rename constraint p_figs to p_figs5;
+alter table functional_groups_v2 rename constraint p_fnalgrps to p_fnalgrps2;
+alter table impossible_sms_v2 rename constraint p_impossiblesms to p_impossiblesms2; 
+alter table languages_v1 rename constraint p_language to p_language1;
+alter table modified_headers_v2 rename constraint p_modheaders to p_modheaders2;
+alter table pbsets_v3 rename constraint p_qsets to p_qsets3;
+alter table question_data_v2 rename constraint p_qdata to p_qdata2;
+alter table questions_v3 rename constraint p_qs to p_qs3;
+alter table unit_conversions_v1 rename constraint p_units to p_units1;
+alter table user_evaluators_v3 rename constraint p_userevals to p_userevals3;
+alter table user_figures_v5 rename constraint p_userfigs to p_userfigs5;
+alter table user_question_data_v2 rename constraint p_userqdata to p_userqdata2;
+alter table user_questions_v3 rename constraint p_userqs to p_userqs3;
+
+alter table responses_v6 add most_recent char(1);
+update responses_v6 set most_recent = 'N';
+update responses_v6 set most_recent = 'Y' where (student_id, hw_id, pb_id, tries) in (
+	select student_id, hw_id, pb_id, tries from (
+		select student_id, hw_id, pb_id, tries, row_number() over (
+			partition by student_id, hw_id, pb_id order by tries desc
+		) as rn from responses_v6
+	) where rn = 1
+);
+drop index responses_v6_idx;
+create index responses_v6_idx on responses_v6 (status, most_recent);
+
+create table forum_topics_v1 (
+	topic_id number(38) not null,
+	course_id number(38) not null,
+	creator_id varchar2(50) not null,
+	date_created varchar2(25),
+	title CLOB,
+	sticky char(1),
+	hw_id number(38),
+	pb_id number(38),
+	constraint P_FORUMTOPIC1 primary key (topic_id),
+	constraint F_FORUMTOPIC1_COURSE foreign key (course_id) references cw_courses_v3(id)
+	);
+create index forum_topics_v1_idx on forum_topics_v1 (course_id, creator_id, date_created);
+create sequence FORUM_TOPIC_SEQ start with 1;
+
+create table forum_posts_v1 (
+	post_id number(38) not null,
+	topic_id number(38) not null,
+	user_id varchar2(50) not null,
+	date_created varchar2(25),
+	date_edited varchar2(25),
+	text CLOB,
+	figure CLOB,
+	figure_type char(3),
+	constraint P_FORUMPOST1 primary key (post_id),
+	constraint F_FORUMPOST1_TOPIC foreign key (topic_id) references forum_topics_v1(topic_id) 
+	);
+create index forum_posts_v1_idx on forum_posts_v1 (topic_id, user_id, date_created, date_edited);
+create sequence FORUM_POST_SEQ start with 1;
+
+create table blocked_from_forums_v1 (
+	course_id number(38) not null,
+	user_id varchar2(50) not null,
+	constraint P_BLOCKED1 primary key (course_id, user_id),
+	constraint F_BLOCKED1_COURSE foreign key (course_id) references cw_courses_v3(id),
+	constraint F_BLOCKED1_USER foreign key (user_id) references USERS_V4(USER_ID) 
+	);
+
+alter table image_table1 add constraint P_IMGS1 primary key (pic_id);
+alter table user_image_table1 add constraint P_USERIMGS1 primary key (pic_id);
+
+delete from image_table1 where pic_id not in 
+	(select fig_id from figures_v5 where fig_type = 'IMG');
+delete from user_image_table1 where pic_id not in 
+	(select fig_id from user_figures_v5 where fig_type = 'IMG');
+
+select question_id from question_data_v2 where data_type = 'SMExpr' 
+	and length(regexp_replace(regexp_replace(data, '\d'), ':')) = 0;
+
+select question_id from user_question_data_v2 where data_type = 'SMExpr' 
+	and length(regexp_replace(regexp_replace(data, '\d'), ':')) = 0;
+
+[*** If either of the above queries gives results, then before you proceed,
+have an author go to each returned question in the ACE 3.3 or prior authoring 
+tool, edit the expression on how to combine the permissible starting material
+conditions, and save the question.  After the author does this, the queries 
+above should return no records. ***]
+
+create table question_data_v3 as select * from question_data_v2;
+alter table QUESTION_DATA_V3 
+	add constraint P_QDATA3 primary key (DATA_ID)
+	add constraint F_QDATA3_Q foreign key (QUESTION_ID) references QUESTIONS_V3(ID);
+create index question_data_v3_idx on question_data_v3 (question_id, text_id);
+
+create table user_question_data_v3 as select * from user_question_data_v2;
+alter table USER_QUESTION_DATA_V3 
+	add constraint P_USERQDATA3 primary key (DATA_ID)
+	add constraint F_USERQDATA3_USER foreign key (user_id) references users_v4(user_id);
+create index user_question_data_v3_idx on user_question_data_v3 (question_id);
+
+[*** run "Convert synthesis starting material combination expressions" in
+admin tool ***]
+
+[*** get menu_only_reagents_v1 table from UK; we ran,
+	create table menu_only_reagents_v1 (
+		definition varchar2(80),
+		name varchar2(80) not null,
+		constraint P_MENURGTS1 primary key (definition));
+and then entered the contents manually through the authoring tool ***]
+
+create table preenrollment_v4 (
+	course_id number(38) not null,
+	student_num CLOB,
+	student_name CLOB,
+	institution CLOB,
+	constraint F_PREENROLL4_COURSE foreign key (course_id) references cw_courses_v3(id));
+insert into preenrollment_v4 
+	(select 
+	course_id,
+	student_num,
+	student_name,
+	institution
+	from cw_course_preenrollment_v3);
+
+alter table preenrollment_v4 add institution_id number(38);
+update preenrollment_v4 set institution_id = (
+	select id from institutions_v1 where 
+	dbms_lob.substr(preenrollment_v4.institution, length(preenrollment_v4.institution), 1) =
+	dbms_lob.substr(name, length(name), 1));
+create index preenrollment_v4_idx on preenrollment_v4 (course_id, institution_id);
+alter table preenrollment_v4 
+	add constraint F_PREENRL4_INSTN_ID foreign key (institution_id) 
+	references institutions_v1(id); 
+alter table preenrollment_v4 drop column institution;
+alter table assignment_questions_v3 drop constraint F_ASSGT_QS3_USER;
+
+drop table cw_users_v3;
+drop table cw_course_preenrollment_v3;
+
+CREATE OR REPLACE FUNCTION grade_factor_with_q_num_v1(
+	hw_id_in responses_v6.hw_id%type,
+	student_id_in responses_v6.student_id%type,
+	pb_id_in responses_v6.pb_id%type,
+	tries_in responses_v6.tries%type,
+	date_time_in responses_v6.date_time%type,
+	q_num_in responses_v6.pb_id%type)
+RETURN number IS factor number;
+cursor c1 is
+select s0.factor0 * s1.factor1 * s2.factor2
+from (
+	select factor as factor0
+	from hwset_grading_params_v1
+	where param_type = 'A' and hw_id = hw_id_in
+	and limit_min < tries_in and tries_in <= limit_max
+	union all select 1 from dual where not exists (
+		select factor
+		from hwset_grading_params_v1
+		where param_type = 'A' and hw_id = hw_id_in
+		and limit_min < tries_in and tries_in <= limit_max
+	)
+) s0, (
+	select limit_min, limit_max, factor as factor1
+	from hwset_grading_params_v1
+	where param_type = 'T' and hw_id = hw_id_in
+	union all select -9999999999, 0, 1 from dual
+	where hw_id_in in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+	union all select -9999999999, 9999999999, 1 from dual
+	where hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+) s1, (
+	select factor as factor2
+	from hwset_grading_params_v1
+	where param_type = 'Q' and hw_id = hw_id_in 
+	and limit_max = q_num_in
+	union all select 1 from dual where not exists (
+		select factor
+		from hwset_grading_params_v1
+		where param_type = 'Q' and hw_id = hw_id_in 
+		and limit_max = q_num_in
+	)
+) s2, (
+	select to_date(date_time_in, 'YYYY/MM/DD HH24:MI:SS')
+		- to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as days_past_due,
+	decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days
+	from hwsets_v5 where hw_id = hw_id_in
+) s3, (
+	select student_id, extension
+	from hwset_extensions_v1
+	where hw_id = hw_id_in and student_id = student_id_in
+	union all select student_id_in, 0 from dual
+	where student_id_in not in (
+		select student_id from hwset_extensions_v1
+		where hw_id = hw_id_in
+	)
+) s4
+where s3.days_past_due - s4.extension * s3.in_days > s1.limit_min * s3.in_days
+and s3.days_past_due - s4.extension * s3.in_days <= s1.limit_max * s3.in_days;
+BEGIN
+	open c1;
+	fetch c1 into factor;
+	close c1;
+	return factor;
+END;
+/
+
+create table assigned_questions_v4 as select * from assignment_questions_v3;
+alter table assigned_questions_v4 
+	add constraint P_ASSGD_QS4 primary key (student_id, hw_id, serial_no)
+	add constraint F_ASSGD_QS4_USER foreign key (student_id) references users_v4(user_id)
+	add constraint F_ASSGD_QS4_ASSGT foreign key (hw_id) references hwsets_v5(hw_id);
+create index assigned_questions_v4_idx on assigned_questions_v4 (pb_id);
+drop table assignment_questions_v3;
+
+CREATE OR REPLACE FUNCTION grade_factor_v2(
+	hw_id_in responses_v6.hw_id%type, 
+	student_id_in responses_v6.student_id%type, 
+	pb_id_in responses_v6.pb_id%type,
+	tries_in responses_v6.tries%type,
+	date_time_in responses_v6.date_time%type) 
+RETURN number IS factor number;
+cursor c1 is 
+select s0.factor0 * s1.factor1 * s2.factor2 
+from (
+	select factor as factor0
+	from hwset_grading_params_v1
+	where param_type = 'A' and hw_id = hw_id_in
+	and limit_min < tries_in and tries_in <= limit_max
+	union all select 1 from dual 
+	where not exists (
+		select factor
+		from hwset_grading_params_v1
+		where param_type = 'A' and hw_id = hw_id_in
+		and limit_min < tries_in and tries_in <= limit_max
+	)
+) s0, (
+	select limit_min, limit_max, factor as factor1
+	from hwset_grading_params_v1 
+	where param_type = 'T' and hw_id = hw_id_in
+	union all select -9999999999, 0, 1 from dual 
+	where hw_id_in in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+	union all select -9999999999, 9999999999, 1 from dual 
+	where hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+) s1, (
+	select limit_max, factor as factor2
+	from hwset_grading_params_v1 
+	where param_type = 'Q' and hw_id = hw_id_in
+	union all select unique serial_no, 1 
+	from assigned_questions_v4 
+	where hw_id = hw_id_in and hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'Q'
+	)
+) s2, (
+	select to_date(date_time_in, 'YYYY/MM/DD HH24:MI:SS')
+			- to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as days_past_due, 
+		decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days 
+	from hwsets_v5 where hw_id = hw_id_in
+) s3, (
+	select student_id, extension 
+	from hwset_extensions_v1 
+	where hw_id = hw_id_in and student_id = student_id_in
+	union all select student_id_in, 0 from dual 
+	where student_id_in not in (
+		select student_id from hwset_extensions_v1
+		where hw_id = hw_id_in
+	)
+) s4, (
+	select serial_no from assigned_questions_v4 
+	where hw_id = hw_id_in and student_id = student_id_in
+	and pb_id = pb_id_in
+) s5
+where s5.serial_no = s2.limit_max
+and s3.days_past_due - s4.extension * s3.in_days > s1.limit_min * s3.in_days
+and s3.days_past_due - s4.extension * s3.in_days <= s1.limit_max * s3.in_days;
+BEGIN
+	open c1;
+	fetch c1 into factor;
+	close c1;
+	return factor;
+END;
+/
+
+create or replace function instructor_grade_factor_v1(
+	hw_id_in responses_v6.hw_id%type,
+	q_num_in responses_v6.pb_id%type,
+	tries_in responses_v6.tries%type,
+	date_time_in responses_v6.date_time%type)
+RETURN number IS factor number;
+cursor c1 is
+select s0.factor0 * s1.factor1 * s2.factor2 
+from (
+	select factor as factor0
+	from hwset_grading_params_v1
+	where param_type = 'A' and hw_id = hw_id_in
+	and limit_min < tries_in and limit_max >= tries_in
+	union all select 1 from dual 
+	where not exists (
+		select factor from hwset_grading_params_v1
+		where param_type = 'A' and hw_id = hw_id_in
+		and limit_min < tries_in and limit_max >= tries_in
+	)
+) s0, (
+	select limit_min, limit_max, factor as factor1
+	from hwset_grading_params_v1 
+	where param_type = 'T' and hw_id = hw_id_in
+	union all select -9999999999, 0, 1 from dual 
+	where hw_id_in in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+	union all select -9999999999, 9999999999, 1 from dual 
+	where hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+) s1, (
+	select factor as factor2
+	from hwset_grading_params_v1 
+	where param_type = 'Q' and hw_id = hw_id_in and limit_max = q_num_in
+	union all select 1 from dual 
+	where not exists (
+		select factor from hwset_grading_params_v1 
+		where param_type = 'Q' and hw_id = hw_id_in and limit_max = q_num_in
+	)
+) s2, (
+	select to_date(date_time_in, 'YYYY/MM/DD HH24:MI:SS') 
+			- to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as days_past_due, 
+		decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days 
+	from hwsets_v5 where hw_id = hw_id_in
+) s3
+where s3.days_past_due > s1.limit_min * s3.in_days
+and s3.days_past_due <= s1.limit_max * s3.in_days; 
+BEGIN
+	open c1;
+	fetch c1 into factor;
+	close c1;
+	return factor;
+END;
+/
+
+create or replace procedure recalc_1_student_grades_v1(
+	hw_id_in responses_v6.hw_id%type,
+	student_id_in responses_v6.student_id%type)
+is begin
+update responses_v6 set modified_grade =
+(select srch_result5.grade
+	* srch_result0.factor0
+	* srch_result1.factor1
+	* srch_result2.factor2
+from (
+	select limit_min, limit_max, factor as factor0
+	from hwset_grading_params_v1
+	where param_type = 'A' and hw_id = hw_id_in
+	union all select 0, 9999999999, 1 from dual
+	where hw_id_in not in (
+	select hw_id from hwset_grading_params_v1 where param_type = 'A'
+	)
+) srch_result0, (
+	select limit_min, limit_max, factor as factor1
+	from hwset_grading_params_v1
+	where param_type = 'T' and hw_id = hw_id_in
+	union all select -9999999999, 0, 1 from dual
+	where hw_id_in in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+	union all select -9999999999, 9999999999, 1 from dual
+	where hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+) srch_result1, (
+	select limit_max as serial_no, factor as factor2
+	from hwset_grading_params_v1
+	where param_type = 'Q' and hw_id = hw_id_in
+	union all select unique serial_no, 1
+	from assigned_questions_v4
+	where hw_id = hw_id_in and hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'Q'
+	)
+) srch_result2, (
+	select to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as date_due,
+		decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days
+	from hwsets_v5 where hw_id = hw_id_in
+) srch_result3, (
+	select extension from hwset_extensions_v1
+	where hw_id = hw_id_in and student_id = student_id_in
+	union all select 0 from dual
+	where not exists (
+		select extension from hwset_extensions_v1
+		where hw_id = hw_id_in and student_id = student_id_in
+	)
+) srch_result4, (
+	select responses_v6.pb_id,
+		serial_no,
+		tries,
+		grade,
+		to_date(date_time, 'YYYY/MM/DD HH24:MI:SS') as date_time
+	from responses_v6
+	join assigned_questions_v4
+	on responses_v6.hw_id = assigned_questions_v4.hw_id
+	and responses_v6.student_id = assigned_questions_v4.student_id
+	and responses_v6.pb_id = assigned_questions_v4.pb_id
+	where grade != 0
+	and responses_v6.hw_id = hw_id_in
+	and responses_v6.student_id = student_id_in
+) srch_result5
+where srch_result5.tries > srch_result0.limit_min
+and srch_result5.tries <= srch_result0.limit_max
+and srch_result5.date_time
+	- srch_result3.date_due
+	- srch_result4.extension * srch_result3.in_days
+	> srch_result1.limit_min * srch_result3.in_days
+and srch_result5.date_time
+	- srch_result3.date_due
+	- srch_result4.extension * srch_result3.in_days
+	<= srch_result1.limit_max * srch_result3.in_days
+and srch_result5.serial_no = srch_result2.serial_no
+and responses_v6.pb_id = srch_result5.pb_id
+and responses_v6.tries = srch_result5.tries
+)
+where hw_id = hw_id_in
+and grade != 0
+and responses_v6.student_id = student_id_in;
+end;
+/
+
+create or replace procedure recalculate_modified_grades_v1(
+	hw_id_in responses_v6.hw_id%type)
+is begin
+update responses_v6 set modified_grade =
+(select srch_result5.grade
+	* srch_result0.factor0
+	* srch_result1.factor1
+	* srch_result2.factor2
+from (
+	select limit_min, limit_max, factor as factor0
+	from hwset_grading_params_v1
+	where param_type = 'A' and hw_id = hw_id_in
+	union all select 0, 9999999999, 1 from dual
+	where hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'A'
+	)
+) srch_result0, (
+	select limit_min, limit_max, factor as factor1
+	from hwset_grading_params_v1
+	where param_type = 'T' and hw_id = hw_id_in
+	union all select -9999999999, 0, 1 from dual
+	where hw_id_in in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+	union all select -9999999999, 9999999999, 1 from dual
+	where hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'T'
+	)
+) srch_result1, (
+	select limit_max as serial_no, factor as factor2
+	from hwset_grading_params_v1
+	where param_type = 'Q' and hw_id = hw_id_in
+	union all select unique serial_no, 1
+	from assigned_questions_v4
+	where hw_id = hw_id_in and hw_id_in not in (
+		select hw_id from hwset_grading_params_v1 where param_type = 'Q'
+	)
+) srch_result2, (
+	select to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as date_due,
+		decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days
+	from hwsets_v5 where hw_id = hw_id_in
+) srch_result3, (
+	select student_id, extension
+	from hwset_extensions_v1 where hw_id = hw_id_in
+	union all select unique student_id, 0 from responses_v6
+	where hw_id = hw_id_in and student_id not in (
+		select student_id from hwset_extensions_v1 where hw_id = hw_id_in
+	)
+) srch_result4, (
+	select responses_v6.student_id,
+		responses_v6.pb_id,
+		serial_no,
+		tries,
+		grade,
+		to_date(date_time, 'YYYY/MM/DD HH24:MI:SS') as date_time
+	from responses_v6
+	join assigned_questions_v4
+	on responses_v6.hw_id = assigned_questions_v4.hw_id
+	and responses_v6.student_id = assigned_questions_v4.student_id
+	and responses_v6.pb_id = assigned_questions_v4.pb_id
+	where grade != 0
+	and responses_v6.hw_id = hw_id_in
+) srch_result5
+where srch_result5.tries > srch_result0.limit_min
+and srch_result5.tries <= srch_result0.limit_max
+and srch_result5.date_time
+	- srch_result3.date_due
+	- srch_result4.extension * srch_result3.in_days
+	> srch_result1.limit_min * srch_result3.in_days
+and srch_result5.date_time
+	- srch_result3.date_due
+	- srch_result4.extension * srch_result3.in_days
+	<= srch_result1.limit_max * srch_result3.in_days
+and srch_result5.serial_no = srch_result2.serial_no
+and srch_result5.student_id = srch_result4.student_id
+and responses_v6.student_id = srch_result5.student_id
+and responses_v6.pb_id = srch_result5.pb_id
+and responses_v6.tries = srch_result5.tries
+)
+where hw_id = hw_id_in
+and grade != 0;
+end;
+/
+
+update questions_v3 set probtype = probtype + power(2, 8) - power(2, 26) 
+	where id in (select id from questions_v3 
+		where decode(bitand(probtype, power(2, 26)), 0, 0, 1) = 1) 
+	and id not in (select id from questions_v3 
+		where decode(bitand(probtype, power(2, 8)), 0, 0, 1) = 1);
+
+create table textbooks_v1 (
+	id number(38) not null,
+	name CLOB,
+	user_id varchar2(50),
+	flags number(38),
+	lock_holder varchar2(50),
+	constraint p_texts1 primary key (id, user_id),
+	constraint f_texts1_user foreign key (user_id) references users_v4(user_id),
+	constraint f_texts1_lock foreign key (lock_holder) references users_v4(user_id));
+create index textbooks_v1_idx on textbooks_v1 (user_id, flags);
+create sequence textbooks_seq start with 1; 
+create table text_chaps_v1 (
+	id number(38) not null,
+	text_id number(38) not null,
+	serial_num number(38) not null,
+	name CLOB,
+	constraint p_textchaps1 primary key (id),
+	constraint f_textchaps1_text foreign key (text_id) references textbooks_v1(id));
+create index text_chaps_v1_idx on text_chaps_v1 (text_id);
+create sequence text_chaps_seq start with 1; 
+create table text_content_v1 (
+	id number(38) not null,
+	chap_id number(38) not null,
+	serial_num number(38) not null,
+	data_type varchar2(3) not null,
+	data CLOB,
+	caption CLOB,
+	extra_data CLOB,
+	constraint p_textcontent1 primary key (id),
+	constraint f_textcontent1_chap foreign key (chap_id) references text_chaps_v1(id));
+create index text_content_v1_idx on text_content_v1 (chap_id);
+create sequence text_content_seq start with 1; 
+create table text_coauthors_v1 (
+	book_id number(38) not null,
+	user_id varchar2(50) not null,
+	constraint p_coauths1 primary key (book_id, user_id),
+	constraint f_coauths1_book foreign key (book_id) references textbooks_v1(id),
+	constraint f_coauths1_user foreign key (user_id) references users_v4(user_id));
+
+alter table cw_courses_v3 add constraint f_crs3_text 
+	foreign key (ace_text_id) references textbooks_v1(id);
+
+update questions_v3 set statement_id = 0 where statement_id is null;
+update pbsets_v3 set header_id = 0 where header_id is null;
+update evaluators_v3 set feedback_id = 0 where feedback_id is null;
+update question_data_v3 set text_id = 0 where text_id is null;
+
+update evaluators_v3 set coded_data = coded_data || '/Y' where match_type = 'FORMULA';
+update user_evaluators_v3 set coded_data = coded_data || '/Y' where match_type = 'FORMULA';
+update question_data_v3 set data = data || '/Y' 
+	where data_type = 'synthOkSM' and data like 'FORM%';
+update user_question_data_v3 set data = data || '/Y' 
+	where data_type = 'synthOkSM' and data like 'FORM%';
+
+[*** If your school has a special name for its student ID numbers, like "UK ID",
+one of your instructors should log in, go to My Profile, and enter the name
+there. ***]
+
+alter table cw_courses_v3 add enable_date varchar2(25);
+update cw_courses_v3 
+	set enable_date = to_char(sysdate, 'YYYY/MM/DD HH24:MI:SS')
+	where bitand(flags, 1) = 1; 
+
+update evaluators_v3 set coded_data = coded_data || '/Y' 
+	where match_type = 'SYN_EQ' and length(coded_data) = 1;
+update user_evaluators_v3 set coded_data = coded_data || '/Y' 
+	where match_type = 'SYN_EQ' and length(coded_data) = 1;

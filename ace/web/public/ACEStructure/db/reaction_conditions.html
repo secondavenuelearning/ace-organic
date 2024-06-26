@@ -1,0 +1,24 @@
+<p align="center"><span class="database">reaction_conditions_v3</span>,
+reaction conditions</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">rxn_cond_id<sup>1</sup></td>
+<td>unique identifier for the condition</td>
+<td>number(38)</td></tr>
+<tr><td class="database">name</td>
+<td>English name of the condition (such as "H2, Pd/C")</td>
+<td>varchar2(200)</td></tr>
+<tr><td class="database">definition</td>
+<td>MRV reaction definition for JChem's 
+<a href="http://www.chemaxon.com/product/reactor.html" 
+target="window2">Reactor</a></td>
+<td>CLOB</td></tr>
+<tr><td class="database">class</td>
+<td>used to group conditions (such as "oxidation") (comma-separated list)</td>
+<td>varchar2(200)</td></tr>
+<tr><td class="database">threeComponent</td>
+<td>whether this is a three-component reaction (usually <b>N</b>)</td>
+<td>char(1)</td></tr>
+<tr><td class="database">reaction_conditions_seq</td>
+<td>sequencer for <span class="database">rxn_cond_id</span></td></tr>
+</table>

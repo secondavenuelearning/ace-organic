@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>ACE Upgrading JChem</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Upgrading JChem</h3>
+
+	<table>
+	<tr><th style="width:100px; text-align:left;">Key</th><th>Meaning</th></tr>
+	<tr>
+	<td style="width:100px;">$BASE</td>
+	<td><span class="filename">/home/aceorg/aceorg</span>
+	</td>
+	</tr><tr>
+	<td>$VERS</td>
+	<td>the current version of ACE, e.g., DEV-3.2.  
+	</td>
+	</tr><tr>
+	<td>$WEB</td>
+	<td><span class="filename">$BASE/$VERS/ace/web</span>
+	</td>
+	</tr>
+	</table>
+
+<ol>
+<li>Go to the <a href="https://www.chemaxon.com/download/jchem-suite/#jchem" 
+target="window2">JChem download site</a>, and download the platform-independent 
+version of JChem (zip file).
+</li><li>Unpack the JChem zip file into <span class="filename">$BASE</span>,
+and change the name of the parent folder <span class="filename">jchem</span>
+to include the version number.
+</li><li>Unzip the file <span class="filename">api-docs.zip</span> in the 
+newly downloaded JChem folder.
+</li><li><span style="color:#A0A0A0;">Go to the 
+<a href="https://www.chemaxon.com/download/marvin-suite/#mapplets" 
+target="window2">Marvin download site</a>, press the Marvin Beans tab, scroll 
+down to <b>Additional downloads</b>, and download the signed versions of jar 
+files for Marvin Beans. ACE requires these files for Java Web Start; if you
+are not using Java Web Start, you may omit this step and the subsequent one.</span>
+</li><li><span style="color:#A0A0A0;">Unpack the signed jar files into
+<span class="filename">$BASE/jchemxx.xx.xx/signedLib/</span>. (If you don't
+specify a directory when you unzip, the parent directory will be named
+<span class="filename">lib</span>. There is already a folder 
+<span class="filename">$BASE/jchemxx.xx.xx/lib/</span> which you must
+not disturb.)</span> 
+</li><li>Add the necessary <a href="pkgsSymlinks.html">symlinks</a> 
+by running the following Perl programs
+found in <span class="filename">$BASE/scripts</span>:
+
+<blockquote>
+<span class="code">configureJChem.pl DEV-3.1 jchem5.4.1</span>
+<br /><span class="code">setIdentity.pl DEV-3.1</span>
+</blockquote>
+
+</li><li>If necessary, regenerate the JChem database tables.
+</li><li>Recompile the source code.
+</li><li>Use the admin tool to clear the Reactor cache (i.e., 
+delete all rows in the JChem database table 
+<span class="database">reactor_results_v4</span>).
+</li></ol>
+
+<p>We store JChem licenses in 
+<span class="code">/home/tomcat9/.chemaxon/license.cxl</span>.
+</p>
+</body>
+</html>

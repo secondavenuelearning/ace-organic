@@ -1,0 +1,75 @@
+*** NOTE: Any line beginning with a single * is treated as a comment
+*** convert hyphen to en dash in various reaction names
+Diels-Alder	Diels&ndash;Alder
+Friedel-Crafts	Friedel&ndash;Crafts
+*** italicize letters, superscript digits in all whole occurrences of sp2 and sp3
+(\b)sp(2|3)(\b)	$1sp<sup>$2</sup>$3
+*** italicize letters, superscript digits in all whole occurrences of sp2d and sp3d
+(\b)sp(2|3)d(\b)	$1sp<sup>$2</sup>d$3
+*** italicize letters, superscript digits in all whole occurrences of dsp2 and dsp3
+(\b)dsp(2|3)(\b)	$1<i>dsp</i><sup>$2</sup>$3
+*** italicize letters, superscript digits in all whole occurrences of sp2d2, sp2d3, sp3d2, sp3d3
+(\b)sp(2|3)d(2|3)(\b)	$1sp<sup>$2</sup>d<sup>$3</sup>$4
+*** italicize letters in all whole occurrences of sp
+(\b)(?<!<i>)sp(\b)	$1<i>sp</i>$2
+*** italicize single letter in all occurrences of s|p|d|f orbital where single
+*** letter is preceded by a word boundary other than ' or a single digit 
+*** preceded by a word boundary
+(\b|\b\d)(?<!')(s|p|d|f)(\s)orbital	$1<i>$2</i>$3orbital
+*** format all whole occurrences of various chemical terms
+(\b)(P|p)(K|k)(a|b)(\b)	$1p<i>K</i><sub>$4</sub>$5
+(\b)(S|s)(N|n)(1|2)(\b)	$1S<sub>N</sub>$4$5
+(\b)(S|s)(R|r)(N|n)1(\b)	$1S<sub>RN</sub>1$5
+(\b)(S|s)(N|n)(A|a)(R|r)(\b)	$1S<sub>N</sub>Ar$6
+*** protect all whole occurrences of E1 and E2 (various cases) from subscripting of digits
+(\b)(E|e)(1|2)(\b)	$1E:::$3$4
+*** all whole occurrences of 13C
+(\b)13C(\b|\d)	$1<sup>13</sup>C$2
+*** superscript every group of digits preceded by R
+R(\d+)	R<sup>$1</sup>
+*** superscript every group of digits preceded by &eta;
+&eta;(\d+)	<i>&eta;</i><sup>$1</sup>
+*** subscript every group of digits preceded by ), ], a letter other than R
+([A-Za-z\)\]])(\d+)	$1<sub>$2</sub>
+*** every group of digits preceded by white space, (, or [, followed by ^, is superscripted
+(\s|\(|\[)(\^)(\d+)	$1<sup>$3</sup>
+^(\^)(\d+)	<sup>$2</sup>
+*** all instances of 1H NMR
+1H NMR	<sup>1</sup>H NMR
+*** every occurrence of + preceded by ^ (but not ^^) is superscripted
+([^\^])(\^)(\+)	$1<sup>$3</sup>
+^(\^)(\+)	<sup>$2</sup>
+*** every occurrence of - preceded by ^ (but not ^^) is superscripted, converted to en dash
+([^\^])(\^)(\-)	$1<sup>&minus;</sup>
+^(\^)(\-)	<sup>&minus;</sup>
+*** every occurrence of . preceded by ^ (but not ^^) is converted to middot
+([^\^])(\^)(\.)	$1&middot;
+^(\^)(\.)	&middot;
+*** every group of symbols preceded by ^^ is superscripted until word break;
+*** ^^-(digits) and ^^(digits)- are treated as special cases
+(\^\^)-(\d+)(\b)	<sup>&minus;$2</sup>$3
+(\^\^)(\d+)-	<sup>$2&minus;</sup>
+(\^\^)(\d+)(\b)	<sup>$2</sup>$3
+*** replace en dash followed by number with minus sign (nonbreaking)
+&#8211;(\d+)	&minus;$1
+*** ignore all other ^
+(\^\^)(\S+)	<sup>$2</sup>
+*** replace hyphen between elements or groups with en dash; not an exhaustive list
+(\^)	
+(H|D|T|B|C|N|O|F|Al|Si|P|S|Cl|As|Se|Br|Sn|I|Pb|Li|Na|K|Cs|Mg|Zn|Me|Et|Pr|Bu|Ph|Ar|Bn|Bz|Ms|Ts|Tf|Pd|Rh|Pt|Ir|Fe|Ru|Os|Ti|Cr|Mn|Ta|W|Ni|Cu)-(H|D|T|B|C|N|O|F|Al|Si|P|S|Cl|As|Se|Br|Sn|I|Pb|Li|Na|K|Cs|Mg|Zn|Me|Et|Pr|Bu|Ph|Ar|Bn|Bz|Ms|Ts|Tf|Pd|Rh|Pt|Ir|Fe|Ru|Os|Ti|Cr|Mn|Ta|W|Ni|Cu)	$1&ndash;$2
+(H|D|T|B|C|N|O|F|Al|Si|P|S|Cl|As|Se|Br|Sn|I|Pb|Li|Na|K|Cs|Mg|Zn|Me|Et|Pr|Bu|Ph|Ar|Bn|Bz|Ms|Ts|Tf|Pd|Rh|Pt|Ir|Fe|Ru|Os|Ti|Cr|Mn|Ta|W|Ni|Cu)\((\d+)\)-(H|D|T|B|C|N|O|F|Al|Si|P|S|Cl|As|Se|Br|Sn|I|Pb|Li|Na|K|Cs|Mg|Zn|Me|Et|Pr|Bu|Ph|Ar|Bn|Bz|Ms|Ts|Tf|Pd|Rh|Pt|Ir|Fe|Ru|Os|Ti|Cr|Mn|Ta|W|Ni|Cu)	$1($2)&ndash;$3
+*** convert (-) to (en dash)
+\(-\)	(&minus;)
+*** deprotect E1 and E2
+(\b)E:::(1|2)(\b)	$1E$2$3
+*** various specially defined terms 
+#heat	&Delta;
+#light	<i>h&nu;</i>
+#pi	&pi;
+#a	&alpha;
+#b	&beta;
+#sigma	&sigma;
+#gamma	&gamma;
+#delta	&delta;
+#Delta	&Delta;
+#triple	&#9776;

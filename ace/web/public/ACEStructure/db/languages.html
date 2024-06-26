@@ -1,0 +1,16 @@
+<p align="center"><span class="database">languages_v1</span>, 
+non-English languages associated with particular users</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">user_id<sup>1,2</sup></td>
+<td>a user who wants to use a language other than English 
+&rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">language<sup>1</sup></td>
+<td>name of the non-English language</td>
+<td>varchar2(150)</td></tr>
+<tr><td class="database">preference</td>
+<td>order in which this language should be selected</td>
+<td>number(4)</td></tr>
+</table>
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Adding Evaluator To ACE</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Adding a New Evaluator to ACE</h3>
+
+<p>Adding a new <a href="questions.shtml#evals">evaluator</a> to ACE 
+involves the following steps:</p>
+<ol>
+<li>Add a new constant and match code.
+	<ul><li>
+		<span class="filename">evals/evalConstants/EvalImplConstants.java</span>
+	</li></ul>
+
+</li><li>Choose name of <span class="filename">impl/X.java</span> file and
+	wording of evaluator for selector, 
+	and make evaluator available for the appropriate question type.
+	<ul><li>
+		<span class="filename">evals/EvalManager.java</span>
+	</li></ul>
+
+</li><li>Choose parameters that the evaluator will use.  (A parameter of
+	indefinite length, such as text, is best not stored as coded data,
+	but instead as if it were a molecule.)  Postpone writing 
+	<span class="filename">isResponseMatching()</span>.
+	<ul><li>
+		<span class="filename">evals/impl/.../X.java</span> 
+	</li></ul>
+
+</li><li>Write code for author to enter evaluator parameters.  Parameters of
+	indefinite length should be stored in 
+	<span class="filename">document.evaluatorForm.molstruct</span>.
+	Depending on the evaluator, it may be necessary to make the code ask
+	about the question type and retrieve some question data or a figure.
+	<ul><li>
+		<span class="filename">authortool/evaluators/loadEvaluatorXX.jsp</span>
+		</li><li>
+		<span class="filename">loadEvaluatorJava.jsp.h</span> (maybe)
+		</li><li>
+		<span class="filename">loadEvaluatorJS.jsp.h</span> (maybe)
+	</li></ul>
+
+</li><li>Write code to collect data from 
+	<span class="filename">loadEvaluator.jsp</span>.  Parameters of 
+	indefinite length should be stored in 
+	<span class="filename">input.molStruct</span>.
+	<ul><li>
+		<span class="filename">authortool/evaluators/saveEvaluator.jsp</span> 
+	</li></ul>
+
+</li><li>Write evaluation algorithm <span class="filename">isResponseMatching()</span>.
+	<ul><li>
+		<span class="filename">evals/impl/.../X.java</span> 
+	</li></ul>
+
+</li><li>Indicate whether the evaluator gives automatic feedback, calculates 
+	response-dependent grading, excludes R groups' properties from a response, 
+	uses synthesis starting materials, or requires an image.
+	<ul><li>
+		<span class="filename">evals/evalConstants/EvalConstants.java</span>
+	</li></ul>
+
+</li><li>Will the evaluator be used to evaluate permissible starting materials
+	in multistep synthesis questions?
+	<ul><li>
+		<span class="filename">authortool/qData/loadQData.jsp</span>
+		</li><li><span class="filename">synthesis/SynthStarterRules.java</span>
+		(maybe)
+	</li></ul>
+</li></ol>
+
+</body>
+</html>
+

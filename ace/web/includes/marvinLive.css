@@ -1,0 +1,122 @@
+@media only screen and (min-height: 1081px) {
+	main .structure .editor {
+		height: 925px;
+	}
+}
+
+@media only screen and (max-height: 1080px) {
+	main .structure .editor {
+		height: 925px;
+	}
+}
+
+@media only screen and (max-height: 1030px) {
+	main .structure .editor {
+		height: 875px;
+	}
+}
+
+@media only screen and (max-height: 980px) {
+	main .structure .editor {
+		height: 825px;
+	}
+}
+
+@media only screen and (max-height: 930px) {
+	main .structure .editor {
+		height: 775px;
+	}
+}
+
+@media only screen and (max-height: 880px) {
+	main .structure .editor {
+		height: 725px;
+	}
+}
+
+@media only screen and (max-height: 830px) {
+	main .structure .editor {
+		height: 675px;
+	}
+}
+
+@media only screen and (max-height: 780px) {
+	main .structure .editor {
+		height: 625px;
+	}
+}
+
+@media only screen and (max-height: 730px) {
+	main .structure .editor {
+		height: 575px;
+	}
+}
+
+@media only screen and (max-height: 680px) {
+	main .structure .editor {
+		height: 525px;
+	}
+}
+
+@media only screen and (max-height: 630px) {
+	main .structure .editor {
+		height: 475px;
+	}
+}
+
+@media only screen and (max-height: 580px) {
+	main .structure .editor {
+		height: 425px;
+	}
+}
+
+.services, .snapshots, .structure .toolbar, .structure .import, header .exporter {
+	display: none;
+}
+main .structure {
+	float: left;
+	clear: none;
+}
+main .comments {
+	float: left;
+	clear: none;
+}
+@media only screen and (max-width: 1240px) {
+  main {
+  	width: 100%;
+  	margin-right: 0;
+  }
+  main .structure {
+  	width: 70%;
+  	margin-right: 2%;
+  }
+  main .comments {
+  	width: 28%;
+  }
+}
+@media only screen and (min-width: 1240px) and (max-width: 1680px) {
+  main {
+  	width: 100%;
+  	margin-right: 0;
+  }
+  main .structure {
+  	width: 72%;
+  	margin-right: 2%;
+  }
+  main .comments {
+  	width: 26%;
+  }
+}
+@media only screen and (min-width: 1680px) and (max-width: 2560px) {
+  main {
+	width: 100%;
+  	margin-right: 0;
+  }
+  main .structure {
+  	width: 74%;
+  	margin-right: 2%;
+  }
+  main .comments {
+  	width: 24%;
+  }
+}

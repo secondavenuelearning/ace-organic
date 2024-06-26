@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Exams in ACE</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<meta charset="UTF-8">
+<style type="text/css">
+	li { /* extra space between list elements */
+		margin-top: 1em;
+	}
+</style>
+</head>
+<body style="overflow:auto">
+<h2 style="text-align:center;">Exams in ACE</h2>
+
+<p>We have introduced many features that make administering 
+exams with ACE easier and more secure.  This document describes how to use 
+ACE to administer exams.</p>
+
+<h4>Preparing the exam</h4>
+
+<ol><li><a href="authoring.html">Enter the exam questions</a> in the question bank.  
+
+</li><li>On the courses list page, press <span class="link">Add course</span> 
+to create a new course that students will use only for the exam.  
+Set the time that the students will be able to enter the course
+to the start time of the exam, and check the box that 
+indicates that the course will be used for exams.
+<ul>
+<li>You can choose to tell ACE to omit calculated products 
+from feedback to responses to synthesis questions.  
+(Incorrect responses to synthesis questions sometimes elicit 
+feedback that shows the products that ACE calculates from the
+reaction.  Students can use this feature to calculate the answers
+to "draw the products" questions on an exam.)  If you choose this
+option, then, after a student enters <i>this</i> course, he 
+or she will no longer see calculated products in the feedback to
+synthesis questions in <i>any</i> course.  
+</li><li>You may choose to restrict the IP addresses that students may use when 
+entering this course.  This restriction does not apply to the instructor or
+TAs.  You may enter each IP address individually as "a.b.c.d", you may enter an 
+entire domain in the form "a.b.c", you may use an IP address along with a subnet
+mask in the form "a.b.c.d/w.x.y.z", or you may use CIDR notation in the form
+"a.b.c.d/n".
+</li><li>You may choose to require a course password to enter the course.  This
+feature is useful if you decline to use random exam IDs (see below).  If you 
+choose this option, proctors should log students into the exam remotely without
+revealing the course password to the students so that students cannot
+log into one another's accounts and see each other's work on the exam.
+</li><li>If you are going to offer the exam at more than one time, you have two 
+options.
+<ul>
+<li>
+You can use this option if you are using exam IDs.
+After the first offering of the exam, go to the courses list page,
+press the <span class="link">Edit</span> button next to the exam course,
+and set the time to enter the course to be the start time of the next exam
+offering.
+Reenter the exam course, press the <span class="link">Assignments</span>
+tab, and press <span class="link">Edit exam features</span> (or, if there is
+only one assignment, press the <span class="link">Edit 2</span> button).
+Set the due date and time of the exam to the <i>start</i> time of the 
+next offering of the exam, and save. Then press 
+<span class="link">Edit exam features</span> again, and, in the box next to
+Unused exam students, enter the amount of time (in minutes) that the 
+students will have to take the exam.
+</li><li>
+Create a separate course for each exam offering.  
+(You may find it easiest simply to clone your first exam course 
+with the <img src="../images/duplicateButton.gif" alt="the clone icon"/> 
+button to the right of the first exam course's name on the courses list 
+page.  This button will copy the course information and the assignments of 
+the cloned course into the new course, but not the enrollment list. If you 
+are going to give the same exam each time, exercise this option after you 
+have assembled the assignments so that you do not have to reassemble them 
+or export and import them.)
+Incorporate the time of each exam into the name of each course.
+</ul>
+</ul>
+
+</li><li>Assemble the questions that you wrote into assignments, 
+flagging the assignments as exams.  
+<ul>
+<li>Set the due date and time for each assignment to the end time of
+the exam.  
+</li><li>Set question- and attempt-dependent grading parameters for each 
+assignment.  
+</li><li>You may choose to save all students' responses to the database,
+rather than only students' final responses.  If you exercise
+this option, you will be able to use the gradebook to look at all of a 
+student's responses to a question.
+</li><li>You may choose to delay grading for the assignment until after the
+exam is completed.  If you choose this option, students will receive only the
+feedback, "Your instructor will evaluate your response."
+</li></ul>
+
+</li><li>Under the 
+<span class="link">Enrollment</span> tab, select <span class="link">Create 
+exam IDs</span>.  Enter a number slightly greater than the number of students 
+who will be taking the exam.  
+(You can skip this step if  you choose to use a course password and proctors 
+will enter the password that allows students to enter the exam course.)
+</li>
+<li>Special situations:<ul>
+<li>If you are going to offer the exam at more than one time, create enough exam
+IDs in each course for the number of students who will be taking the exam at
+that time.</li>
+<li>If you are going to allow students to log themselves
+into the accounts, then choose the option to make the passwords 
+identical to the login IDs.
+Export the enrollment list to a spreadsheet and print the login IDs on
+slips of paper to distribute to students.</li>
+<li>If you or proctors are going to log students into their accounts 
+yourselves, choose 
+the option to make the passwords different from the login IDs. Copy and 
+save the login IDs and corresponding
+passwords; you will not have another opportunity to see the passwords, and 
+only the ACE administrator has the ability to change the passwords.  Assign 
+each login ID to a student.  </li>
+</ul>
+
+
+</li></ol>
+
+<h4>Starting the exam</h4>
+
+<ul>
+<li>If you are allowing students to log into ACE themselves, and you are
+using exam IDs:
+<ol>
+<li>Give one slip of paper bearing a random login ID to each student about 
+to take the exam.  Tell the students that the password is identical to the 
+login ID.  Some students will disregard instructions and use their regular login
+IDs or passwords.  When they call for help, explain that they have failed to follow
+instructions. <b>IMPORTANT:</b> Take care that you do not give two students the
+same exam ID, or unfunny hilarity will ensue.
+
+</li><li>Instruct students to press
+<span class="link">My profile</span> after they log in and change the student 
+name and student ID number associated with the random login ID to their own.  
+(They may change the password, as well.)  Some students will disregard these
+instructions as well.  
+
+</li><li>Instruct students to print
+and sign their names on their slips of paper and return them to you as they leave.   
+This step will allow you to identify students who did not enter their name and
+student ID number in <span class="link">My profile</span>.  The signature will 
+also help you identify ringers, if you suspect any.  
+
+</li></ol>
+</li>
+<li>If you or proctors are logging the students into ACE, and you are using exam IDs:
+
+<ol>
+<li>Take control of the students' desktops, and log them into the exam account.
+
+</li><li>Return desktop control to the students, and instruct them to press
+<span class="link">My profile</span> and change the student 
+name and student ID number associated with the random login ID to their own.  
+Some students will disregard these instructions.
+
+<ul><li>Students will not be able to change their passwords, so if they log out during the
+exam, you will have to log them back in again.
+</li></ul>
+</li>
+
+</ol>
+</li>
+<li>If you are not using exam IDs:
+
+<ol>
+<li>Allow students to log into their own accounts.</li>
+<li>Take control of the students' 
+desktops, and log them into the exam course.
+
+<ul><li>Students will not know the course password, so if they log out during the
+exam, you will have to log them back in again.
+</li></ul>
+</li>
+
+</ol>
+</li>
+<li>In any case: 
+<ol>
+<li>Remind students that they are responsible for submitting
+saved-but-unsubmitted responses before they leave the exam.  If a student has saved
+but not submitted a response to any assignment in the course, ACE provides a button
+on the assignment list page that allows the student to submit all such responses
+at one time.  <b>Note</b>: The button works even after the exam has ended.
+
+</li><li>When you are ready to begin the exam, press
+<span class="link">My courses</span>, press 
+<img src="../images/editButton.gif" alt="the edit icon"/> to the right of the exam
+course, check the box that enables the course, and save the change.  Students who
+have already logged into ACE will need to press <span class="link">Refresh</span>
+on the course list page (user home page) to see the exam course.
+
+</li></ol>
+</li></ul>
+
+<h4>During the exam</h4>
+
+<ol>
+
+<li>ACE includes on the questions list page and the question-solving page
+a clock that counts down to each student's exam end time, so you do not 
+need to announce how much time is left in the exam.  However, this clock
+may stop when the focus is taken away from the browser, then restart 
+when the focus returns to the browser, so it may indicate that the 
+student has more time than she actually has. The solution is to refresh the
+browser page after returning the focus to it.
+
+</li><li>If any student has technical trouble, you can grant that student an
+extension on all assignments without having to edit each assignment 
+individually.   Press <span class="link">Edit exam features</span> on the 
+assignments list page, click <span class="link">Extensions</span>, enter the
+length of the extension (in minutes) next to the name of the appropriate 
+student, and submit the change.  ACE will overwrite all extensions 
+on individual assignments with the information that you enter this way.  
+You can also use this button to change the due time of
+all exam assignments for the whole class.  A student's extension will 
+take effect after he or she returns to the assignments list page.  
+
+</li><li>If a student "wastes" an attempt because of a technical glitch, 
+you can reset the number of attempts.  Press the <span class="link">Grade
+Book</span> tab, click on the assignment number, click on the name of the 
+student, click <span class="link">alter</span> under the appropriate 
+question, change the number of
+attempts, and press <span class="link">Alter this record now</span>.
+
+</li></ol>
+
+<h4>After the exam</h4>
+
+<ol>
+<li>If you did not use a course password, 
+press <span class="link">My courses</span>, press 
+<img src="../images/editButton.gif" alt="the edit icon"/> to the 
+right of the exam course, and disable the course again.
+
+</li><li>If you chose to tell ACE to omit calculated products 
+from feedback to responses to synthesis questions, 
+press <span class="link">My courses</span>, press 
+<img src="../images/editButton.gif" alt="the edit icon"/> to the 
+right of the exam course, and uncheck the box next to "Hide 
+calculated synthesis products?"  When you save the changes,
+ACE will allow all students registered in this course to see
+the calculated synthesis products again.
+
+</li><li>Press the <span class="link">Grade Book</span> tab.
+If you see a student named ZZZRandomStudent who has submitted 
+responses to the exam, it means that a student who took the exam failed to 
+press <span class="link">My profile</span> and enter his or her 
+correct name and student ID number.  
+The first name of ZZZRandomStudent is the login ID of that student, so you can 
+find the student's name either by finding the slip of paper that you collected 
+after the exam that bears that random login ID, or from your list assigning
+login IDs to students.  
+The absence of the correct name and student ID number makes transferring the 
+student's work from the random login ID to the regular login ID a little 
+more cumbersome, but you can still do it.
+Nevertheless, you may want to login under the random login ID and change the 
+student's name and student ID number yourself, or you may want to email the 
+student and request that she do it herself.  
+
+</li><li>Click on the number of any assignment that shows
+<span style="color:gray;"><b>???</b></span> for ungraded questions.
+
+<ul>
+<li>If you chose to delay grading on the assignment, press the 
+<span class="link">Regrade all</span> button to grade all of the questions 
+in the assignment.  ACE will turn off the assignment's 
+"delay grading" flag when the regrading is complete so that students
+can see the feedback to their responses. You can regrade individual 
+questions by choosing the question number from the pulldown menu
+next to <span class="link">Regrade</span>.
+
+</li><li>If any questions remain that require you to grade them manually, 
+press <span class="link">Hide names</span> to make the students anonymous,   
+and click on a student ID number.  Click <span class="link">alter</span> under 
+a question that requires grading, read the response, and enter a grade between 
+0 and 1.  Enter a comment on the student's response if you wish, and press 
+<span class="link">Alter this record now</span>.  ACE will apply the question- 
+and attempt-dependent grading parameters for that assignment to the grade 
+that you enter.  Repeat for each student.  
+</li></ul>
+
+</li><li>You can comment on any student's response to a question.  In the 
+gradebook for the assignment containing the question, click on the student's 
+name, and click the <span class="link">alter</span> link under the appropriate
+question.  Enter your comment in the text box, and press
+<span class="link">Alter this record now</span>.  ACE will append your comment 
+to the response feedback on the student's problem-solving page and will also 
+display it if the student looks at his or her last response in the gradebook.
+
+</li><li>If you have used exam IDs, then, under the 
+<span class="link">Enrollment</span> tab, choose 
+<span class="link">Transfer exam 
+work</span>.  Choose the regular course in which the students are enrolled with
+their regular login IDs and passwords, and choose whether you want ACE to use 
+names, student ID numbers, or both to match enrollees 
+in the exam course to enrollees in the regular ACE course.  ACE will match as 
+many students as it can, and, if you approve of the matches, it 
+will then transfer the students' work from 
+their random login IDs to their regular login IDs.  If any random login 
+IDs remain unmatched, for example because of typographical errors, ACE will allow 
+you to match them up manually.  ACE will also ask your permission to delete any 
+unused random login IDs.  
+
+</li><li>Export the grades as a spreadsheet.
+
+</li><li>Press <span class="link">My courses</span>, press 
+<img src="../images/editButton.gif" alt="the edit icon"/> 
+to the right of the exam course, and enable the course again (or delete
+the course password).  Students will now 
+be able to log in with their usual login IDs and see their exam results.  
+
+</li></ol>
+
+<h4>Miscellaneous comments</h4>
+
+<ul>
+<li>If you have chosen to store <i>all</i> responses to exam questions in the 
+database, you can see a student's earlier 
+responses to a question in the detailed gradebook: simply press the 
+<span class="link">attempt</span> or <span class="link">alter</span> link and 
+choose a response number from the pulldown menu in the popup window.  Please 
+note that this method will not allow you to view responses that were saved 
+but not submitted.  If you want to view those responses as well, use the link
+discussed below.  </li>
+
+<li>On the assignments list page, links to two downloadable files follow each
+exam assignment.
+<ul><li>The first link is to a table of all student responses to each 
+question in the assignment.  The table lists the student name, 
+the number of the question in the assignment, the question ID number,
+the response number, the time of the response, the IP address of the computer 
+from which the response was entered, and the response string.  You may 
+use this file to look at students' responses to questions prior to their final 
+responses, including responses that they saved without submitting.  The 
+information may be useful for verifying student claims of a correct response 
+being marked wrong, for catching copiers, etc.  ACE makes this table available 
+to you regardless of whether you chose to save every response to the database.
+You may save the table and open it in a spreadsheet or word-processing program.
+(We do not recommend Microsoft Excel, as it starts new lines at return 
+characters in the response strings.)
+</li><li>The second link is to a table of all student entries 
+into the exam course, including student name, host and IP address, 
+and time of login.  You may use this file to verify that no 
+one logged into the exam from an unauthorized location.  
+</li></ul>
+</li></ul>
+
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+The files here need to be placed in the Marvin/JChem distribution.
+
+	BASE=[directory in which you place the JChem distribution]
+	JCHEM=[level of the JChem distribution, such as 5.3.6]
+	JBASE=$BASE/jchem$JCHEM
+
+If you are using the Marvin that comes with JChem, then 
+
+	MBASE=$JBASE/marvin
+
+If you are using a different Marvin (the most recent JChem has defective
+Marvin), then
+	
+	MARVIN=[level of the JChem distribution containing the Marvin you are using, such as 5.2.6]
+	MBASE=$BASE/jchem$MARVIN/marvin
+
+for all files ACE* 
+    symlink to them from $MBASE/chemaxon/marvin/templates/
+
+for all files configuration*
+    symlink to them from $MBASE/
+
+for evaluator.xml
+    symlink to it from $JBASE/config/
+
+These actions are performed by scripts/configureJChem.pl and
+scripts/configureMarvin.pl, for UKY use only.
+
+Prior to Marvin 5/JChem 5, evaluator.xml goes in /root/.chemaxon/ 
+where root is the owner of Tomcat (the same directory in which the 
+licenses.dat file is kept). 

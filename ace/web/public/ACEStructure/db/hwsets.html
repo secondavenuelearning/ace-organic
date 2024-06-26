@@ -1,0 +1,62 @@
+<p align="center"><span class="database">hwsets_v5</span>, assignment
+description</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">hw_id<sup>1</sup></td>
+<td>unique identifier of this assignment 
+</td>
+<td>number(38)</td></tr>
+<tr><td class="database">course_id<sup>2,3</sup></td>
+<td>course &rarr; <span class="database">cw_courses_v3.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">serial_no</td>
+<td>serial number of assignment in course</td>
+<td>number(38)</td></tr>
+<tr><td class="database">name</td>
+<td>assignment name</td>
+<td>CLOB</td></tr>
+<tr><td class="database">remarks</td>
+<td>comments about this assignment, displayed to students</td>
+<td>CLOB</td></tr>
+<tr><td class="database">date_created </td>
+<td>date and time that assignment was created</td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">date_due</td>
+<td>due date and time of assignment</td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">duration</td>
+<td>fixed duration of assignment after student first enters it, in minutes</td>
+<td>number(38)</td></tr>
+<tr><td class="database">tries</td>
+<td>how many tries students are allowed or,
+if assignment is a mastery assignment, <br/>the maximum number of tries
+allowed for mastery (&ndash;1 if no limit) </td>
+<td>number(38)</td></tr>
+<tr><td class="database">flags</td>
+<td>bit 0: visible to students
+<br/>bit 1: record work in gradebook after due date
+<br/>bit 2: this assignment is an exam
+<br/>bit 3: save all tries, not just the most recent one
+<br/>bit 4: delay grading and feedback until instructor prompts it
+<br/>bit 5: show question references (where available) before student answers
+them correctly
+<br/>bit 6: show question references (where available) after student answers
+them correctly
+<br/>bit 7: exclude assignment grade from course average
+<br/>bit 8: this assignment is a mastery assignment
+<br/>bit 9: this assignment has a fixed duration after student first enters it
+<br/>bit 10: this assignment is a timed exam
+<br/>bit 11: show a <b>Save without submitting</b> button on the
+question-solving page
+</td>
+<td>number(38)</td></tr>
+<tr><td class="database">max_extension_str</td>
+<td>maximum extension students may self-assign for this assignment</td>
+<td>varchar2(10)</td></tr>
+<tr><td class="database">depends_on<sup>2</sup></td>
+<td>assignment that must be mastered before this one
+can be worked &rarr; <span class="database">hwsets_v5.hw_id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">hwsets_seq</td>
+<td>sequencer for <span class="database">hw_id</span></td></tr>
+</table>

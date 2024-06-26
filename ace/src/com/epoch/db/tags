@@ -1,0 +1,1040 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADD	DBCommon.java	/^	protected static final String ADD = " ADD ";$/;"	f	class:DBCommon
+ALL	DBCommon.java	/^	protected static final char ALL = '*';$/;"	f	class:DBCommon
+ALLOWED_IPS	CourseRW.java	/^	private static final String ALLOWED_IPS = "allowed_ips_v1";$/;"	f	class:CourseRW	file:
+ALL_STUDENTS	ResponseRead.java	/^	private static final String ALL_STUDENTS = null;$/;"	f	class:ResponseRead	file:
+ALL_STUDENTS	ResponseWrite.java	/^	private static final String ALL_STUDENTS = null;$/;"	f	class:ResponseWrite	file:
+ALTER_TABLE	DataConversion.java	/^	private static final String ALTER_TABLE = "ALTER TABLE ";$/;"	f	class:DataConversion	file:
+AND	DBCommon.java	/^	protected static final String AND = " AND ";$/;"	f	class:DBCommon
+ANY_STUDENT	HWRead.java	/^	public static final String ANY_STUDENT = null;$/;"	f	class:HWRead
+ANY_STUDENT	UserRead.java	/^	private static final String ANY_STUDENT = null;$/;"	f	class:UserRead	file:
+AS	DBCommon.java	/^	protected static final String AS = " AS ";$/;"	f	class:DBCommon
+BATCH_FAILED_HWSET	DataConversion.java	/^	private static final String BATCH_FAILED_HWSET = "batch insert failed on assgt ";$/;"	f	class:DataConversion	file:
+BLOB	DBCommon.java	/^	protected static final String BLOB = "BLOB";$/;"	f	class:DBCommon
+BLOB_BEGIN	DBCommon.java	/^	protected static final long BLOB_BEGIN = 1L;$/;"	f	class:DBCommon
+CALL	DBCommon.java	/^	protected static final String CALL = "CALL ";$/;"	f	class:DBCommon
+CANONICALIZED_UNITS	CanonicalizedUnitRW.java	/^	private static final String CANONICALIZED_UNITS = "canonicalized_units_v1";$/;"	f	class:CanonicalizedUnitRW	file:
+CAPTIONS	DBTables.java	/^	String CAPTIONS = "captions_v1";$/;"	f	class:DBTables
+CLOB	DataConversion.java	/^	private static final String CLOB = "CLOB";$/;"	f	class:DataConversion	file:
+COMMA	DBCommon.java	/^	protected static final String COMMA = ", ";$/;"	f	class:DBCommon
+CanonicalizedUnitRW	CanonicalizedUnitRW.java	/^	private CanonicalizedUnitRW() { }$/;"	m	class:CanonicalizedUnitRW	file:
+CanonicalizedUnitRW	CanonicalizedUnitRW.java	/^public final class CanonicalizedUnitRW extends DBCommon $/;"	c
+CourseRW	CourseRW.java	/^	private CourseRW() { }$/;"	m	class:CourseRW	file:
+CourseRW	CourseRW.java	/^public final class CourseRW extends DBCommon {$/;"	c
+DBCommon	DBCommon.java	/^	public DBCommon() { $/;"	m	class:DBCommon
+DBCommon	DBCommon.java	/^public class DBCommon {$/;"	c
+DBLocalTables	DBLocalTables.java	/^	DBLocalTables() {$/;"	m	class:DBLocalTables
+DBLocalTables	DBLocalTables.java	/^public final class DBLocalTables extends DBTables {$/;"	c
+DBTables	DBTables.java	/^public class DBTables extends DBCommon {$/;"	c
+DEFAULT_FLAGS	ResponseWrite.java	/^	static final boolean[] DEFAULT_FLAGS = $/;"	f	class:ResponseWrite
+DELETE_FROM	DBCommon.java	/^	protected static final String DELETE_FROM = "DELETE" + FROM;$/;"	f	class:DBCommon
+DELETE_TRANSLATIONS_BY_IDS	TranslnWrite.java	/^	static String DELETE_TRANSLATIONS_BY_IDS() {$/;"	m	class:TranslnWrite
+DELETE_TRANSLATION_BY_ID	TranslnWrite.java	/^	static String DELETE_TRANSLATION_BY_ID() {$/;"	m	class:TranslnWrite
+DELETE_TRANSLNS	QSetRW.java	/^	public static final boolean DELETE_TRANSLNS = true;$/;"	f	class:QSetRW
+DESCENDING	DBCommon.java	/^	protected static final String DESCENDING = " DESC ";$/;"	f	class:DBCommon
+DONT_CARE_IF_STUDENT	HWRead.java	/^	public static final boolean DONT_CARE_IF_STUDENT = false;$/;"	f	class:HWRead
+DOT	DBCommon.java	/^	protected static final char DOT = '.';$/;"	f	class:DBCommon
+DUMMY_TABLE	DBCommon.java	/^	protected static final String DUMMY_TABLE = " dual ";$/;"	f	class:DBCommon
+DataConversion	DataConversion.java	/^	private DataConversion() {$/;"	m	class:DataConversion	file:
+DataConversion	DataConversion.java	/^public final class DataConversion extends DBCommon $/;"	c
+EDIT_MOST_RECENT	ResponseWrite.java	/^		public static final int EDIT_MOST_RECENT = 1;$/;"	f	class:ResponseWrite
+EMPTY	DBCommon.java	/^	protected static final String EMPTY = quotes("");$/;"	f	class:DBCommon
+EQUALS	DBCommon.java	/^	protected static final String EQUALS = " = ";$/;"	f	class:DBCommon
+EVALS	TranslnRead.java	/^	static final int EVALS = 2;$/;"	f	class:TranslnRead
+EVALUATORS	DBTables.java	/^	String EVALUATORS = "evaluators_v4";$/;"	f	class:DBTables
+EXISTS	DBCommon.java	/^	protected static final String EXISTS = " EXISTS ";$/;"	f	class:DBCommon
+EnrollmentRW	EnrollmentRW.java	/^	private EnrollmentRW() {$/;"	m	class:EnrollmentRW	file:
+EnrollmentRW	EnrollmentRW.java	/^public final class EnrollmentRW extends DBCommon {$/;"	c
+FIGURES	DBTables.java	/^	String FIGURES = "figures_v5";$/;"	f	class:DBTables
+FNAL_CATEG	FnalGroupDefRW.java	/^		private static final String FNAL_CATEG = "category";$/;"	f	class:FnalGroupDefRW	file:
+FNAL_DEF	FnalGroupDefRW.java	/^		private static final String FNAL_DEF = "definition"; \/\/ CLOB $/;"	f	class:FnalGroupDefRW	file:
+FNAL_GRPS	FnalGroupDefRW.java	/^	private static final String FNAL_GRPS = "functional_groups_v2";$/;"	f	class:FnalGroupDefRW	file:
+FNAL_GRPS_SEQ	FnalGroupDefRW.java	/^	private static final String FNAL_GRPS_SEQ = "functional_groups_seq";$/;"	f	class:FnalGroupDefRW	file:
+FNAL_ID	FnalGroupDefRW.java	/^		private static final String FNAL_ID = "group_id";$/;"	f	class:FnalGroupDefRW	file:
+FNAL_NAME	FnalGroupDefRW.java	/^		private static final String FNAL_NAME = "name";$/;"	f	class:FnalGroupDefRW	file:
+FNAL_SORT	FnalGroupDefRW.java	/^		private static final String FNAL_SORT = "sortkey";$/;"	f	class:FnalGroupDefRW	file:
+FOR_UPDATE	DBCommon.java	/^	protected static final String FOR_UPDATE = " FOR " + UPDATE;$/;"	f	class:DBCommon
+FROM	DBCommon.java	/^	protected static final String FROM = " FROM ";$/;"	f	class:DBCommon
+FULL_LOAD	HWRead.java	/^	public static final boolean FULL_LOAD = true;$/;"	f	class:HWRead
+FnalGroupDefRW	FnalGroupDefRW.java	/^	private FnalGroupDefRW() { }$/;"	m	class:FnalGroupDefRW	file:
+FnalGroupDefRW	FnalGroupDefRW.java	/^public final class FnalGroupDefRW extends DBCommon {$/;"	c
+ForumRW	ForumRW.java	/^	private ForumRW() { }$/;"	m	class:ForumRW	file:
+ForumRW	ForumRW.java	/^public final class ForumRW extends DBCommon {$/;"	c
+GET_CRS_ID_BY_CRS_INSTRUCTOR	CourseRW.java	/^	static String GET_CRS_ID_BY_CRS_INSTRUCTOR() {$/;"	m	class:CourseRW
+GET_CRS_INSTRUCTOR_BY_CRS_ID	CourseRW.java	/^	static String GET_CRS_INSTRUCTOR_BY_CRS_ID() {$/;"	m	class:CourseRW
+GET_EMAIL	UserRead.java	/^	private static final int GET_EMAIL = 1;$/;"	f	class:UserRead	file:
+GET_HWIDS_FOR_COURSES	HWRead.java	/^	static String GET_HWIDS_FOR_COURSES() {$/;"	m	class:HWRead
+GET_LAST_RESP	ResponseRead.java	/^	private static final boolean GET_LAST_RESP = true;$/;"	f	class:ResponseRead	file:
+GET_NUM_QS_SEEN_SQL	HWRead.java	/^	static String GET_NUM_QS_SEEN_SQL(int hwId, String srchResultName) {$/;"	m	class:HWRead
+GET_NUM_QS_SEEN_SQL	HWRead.java	/^	static String GET_NUM_QS_SEEN_SQL(int[] hwIds, String srchResultName) {$/;"	m	class:HWRead
+GET_STUDENTNUM	UserRead.java	/^	private static final int GET_STUDENTNUM = 0;$/;"	f	class:UserRead	file:
+GROUP_BY	DBCommon.java	/^	protected static final String GROUP_BY = " GROUP BY ";$/;"	f	class:DBCommon
+HAVING	DBCommon.java	/^	protected static final String HAVING = " HAVING ";$/;"	f	class:DBCommon
+HEADERS	TranslnRead.java	/^	static final int HEADERS = 0;$/;"	f	class:TranslnRead
+HWRead	HWRead.java	/^	private HWRead() { }$/;"	m	class:HWRead	file:
+HWRead	HWRead.java	/^public final class HWRead extends DBCommon $/;"	c
+HWWrite	HWWrite.java	/^	private HWWrite() { }$/;"	m	class:HWWrite	file:
+HWWrite	HWWrite.java	/^public final class HWWrite extends DBCommon implements AssgtConstants {$/;"	c
+IMAGES	DBTables.java	/^	String IMAGES = "images_v2";$/;"	f	class:DBTables
+IMG_DATA	DataConversion.java	/^	static final String IMG_DATA = "image"; \/\/ BLOB$/;"	f	class:DataConversion
+IMG_TYPE	DataConversion.java	/^	static final String IMG_TYPE = "extension";$/;"	f	class:DataConversion
+IN	DBCommon.java	/^	protected static final String IN = " IN ";$/;"	f	class:DBCommon
+INSERT_INTO	DBCommon.java	/^	protected static final String INSERT_INTO = "INSERT INTO ";$/;"	f	class:DBCommon
+IN_DAYS	ResponseWrite.java	/^	private static final String IN_DAYS = "in_days";$/;"	f	class:ResponseWrite	file:
+IPS_ADDRESS	CourseRW.java	/^		private static final String IPS_ADDRESS = "address"; $/;"	f	class:CourseRW	file:
+IPS_COURSE	CourseRW.java	/^		private static final String IPS_COURSE = "course_id";$/;"	f	class:CourseRW	file:
+IS_1	DBCommon.java	/^	protected static final String IS_1 = EQUALS + "1 ";$/;"	f	class:DBCommon
+IS_NOT_NULL	DBCommon.java	/^	protected static final String IS_NOT_NULL = " IS" + NOT + NULL;$/;"	f	class:DBCommon
+IS_NOT_ZERO	DBCommon.java	/^	protected static final String IS_NOT_ZERO = NOT_EQUALS + "0 ";$/;"	f	class:DBCommon
+IS_NULL	DBCommon.java	/^	protected static final String IS_NULL = " IS " + NULL;$/;"	f	class:DBCommon
+IS_POSITIVE	DBCommon.java	/^	protected static final String IS_POSITIVE = MORE_THAN + "0 ";$/;"	f	class:DBCommon
+IS_ZERO	DBCommon.java	/^	protected static final String IS_ZERO = EQUALS + "0 ";$/;"	f	class:DBCommon
+ImageRW	ImageRW.java	/^	ImageRW(Connection connxn) { $/;"	m	class:ImageRW
+ImageRW	ImageRW.java	/^	ImageRW(Connection connxn, String authId) { $/;"	m	class:ImageRW
+ImageRW	ImageRW.java	/^	ImageRW(Connection connxn, boolean isLocal) { $/;"	m	class:ImageRW
+ImageRW	ImageRW.java	/^	ImageRW(String authId) { $/;"	m	class:ImageRW
+ImageRW	ImageRW.java	/^public final class ImageRW extends DBCommon implements AuthorConstants {$/;"	c
+InstitutionRW	InstitutionRW.java	/^	private InstitutionRW() { }$/;"	m	class:InstitutionRW	file:
+InstitutionRW	InstitutionRW.java	/^public final class InstitutionRW extends DBCommon {$/;"	c
+JCHEM_PROPERTY_TABLE	ReactorResultsRW.java	/^	private static final String JCHEM_PROPERTY_TABLE =$/;"	f	class:ReactorResultsRW	file:
+JOIN	DBCommon.java	/^	protected static final String JOIN = " JOIN ";$/;"	f	class:DBCommon
+LANG	TranslnRead.java	/^	private static final String LANG = TRANSLATIONS + DOT + PHRASE_LANG;$/;"	f	class:TranslnRead	file:
+LESS_THAN	DBCommon.java	/^	protected static final String LESS_THAN = " < ";$/;"	f	class:DBCommon
+LIKE	DBCommon.java	/^	protected static final String LIKE = " LIKE ";$/;"	f	class:DBCommon
+LOAD_ALL_QS	HWRead.java	/^	public final static String LOAD_ALL_QS = null;$/;"	f	class:HWRead
+LOCAL	DBCommon.java	/^	protected static final boolean LOCAL = true;$/;"	f	class:DBCommon
+LOCAL_PREFIX	DBLocalTables.java	/^	public static final String LOCAL_PREFIX = "user_";$/;"	f	class:DBLocalTables
+MAX_ORACLE_IN	DBCommon.java	/^	private static final int MAX_ORACLE_IN = 900; $/;"	f	class:DBCommon	file:
+MAX_RETRIEVE_RESPONSES	ResponseLogger.java	/^	private static final int MAX_RETRIEVE_RESPONSES = 20;$/;"	f	class:ResponseLogger	file:
+MAX_SUMMARY	ResponseLogger.java	/^	private static final int MAX_SUMMARY = 1000;$/;"	f	class:ResponseLogger	file:
+MINUS	DBCommon.java	/^	protected static final String MINUS = " - ";$/;"	f	class:DBCommon
+MORE_THAN	DBCommon.java	/^	protected static final String MORE_THAN = " > ";$/;"	f	class:DBCommon
+MolCountTable	ResponseLogger.java	/^	public MolCountTable(int qId, String authorId) {$/;"	m	class:MolCountTable
+MolCountTable	ResponseLogger.java	/^class MolCountTable implements QuestionConstants, Serializable {$/;"	c
+N	DBCommon.java	/^	protected static final String N = quotes('N');$/;"	f	class:DBCommon
+NEWLINE_SUB	ResponseLogger.java	/^	private static final char NEWLINE_SUB = 12;$/;"	f	class:ResponseLogger	file:
+NOT	DBCommon.java	/^	protected static final String NOT = " NOT ";$/;"	f	class:DBCommon
+NOT_EQUALS	DBCommon.java	/^	protected static final String NOT_EQUALS = " != ";$/;"	f	class:DBCommon
+NOT_EXISTS	DBCommon.java	/^	protected static final String NOT_EXISTS = NOT + EXISTS;$/;"	f	class:DBCommon
+NOT_LESS_THAN	DBCommon.java	/^	protected static final String NOT_LESS_THAN = " >= ";$/;"	f	class:DBCommon
+NOT_MORE_THAN	DBCommon.java	/^	protected static final String NOT_MORE_THAN = " <= ";$/;"	f	class:DBCommon
+NO_DATE	UserRead.java	/^	private static final Date NO_DATE = null;$/;"	f	class:UserRead	file:
+NO_QNUM	ResponseWrite.java	/^	public static final int NO_QNUM = 0;$/;"	f	class:ResponseWrite
+NULL	DBCommon.java	/^	protected static final String NULL = "null";$/;"	f	class:DBCommon
+NULL_FOR_EXCEPTION	ResponseRead.java	/^	private static final boolean NULL_FOR_EXCEPTION = true;$/;"	f	class:ResponseRead	file:
+OLD_IMAGES	DBTables.java	/^	String OLD_IMAGES = "image_table1";$/;"	f	class:DBTables
+ON	DBCommon.java	/^	protected static final String ON = " ON ";$/;"	f	class:DBCommon
+OR	DBCommon.java	/^	protected static final String OR = " OR ";$/;"	f	class:DBCommon
+ORDER_BY	DBCommon.java	/^	protected static final String ORDER_BY = " ORDER BY ";$/;"	f	class:DBCommon
+OracleErrors	OracleErrors.java	/^	private OracleErrors() {$/;"	m	class:OracleErrors	file:
+OracleErrors	OracleErrors.java	/^final public class OracleErrors { $/;"	c
+PERC2	DataConversion.java	/^	private static final String PERC2 = quotes("%\/%");$/;"	f	class:DataConversion	file:
+PERC3	DataConversion.java	/^	private static final String PERC3 = quotes("%\/%\/%");$/;"	f	class:DataConversion	file:
+PERC4	DataConversion.java	/^	private static final String PERC4 = quotes("%\/%\/%\/%");$/;"	f	class:DataConversion	file:
+PERC5	DataConversion.java	/^	private static final String PERC5 = quotes("%\/%\/%\/%\/%");$/;"	f	class:DataConversion	file:
+PHRASEID	TranslnRead.java	/^	private static final String PHRASEID = TRANSLATIONS + DOT + PHRASE_ID;$/;"	f	class:TranslnRead	file:
+PLUS	DBCommon.java	/^	protected static final String PLUS = " + ";$/;"	f	class:DBCommon
+PRESERVE_SUBSTNS	ResponseWrite.java	/^		public static final int PRESERVE_SUBSTNS = 2;$/;"	f	class:ResponseWrite
+QDATA	TranslnRead.java	/^	static final int QDATA = 3;$/;"	f	class:TranslnRead
+QMARK	DBCommon.java	/^	protected static final char QMARK = '?';$/;"	f	class:DBCommon
+QSTMTS	TranslnRead.java	/^	static final int QSTMTS = 1;$/;"	f	class:TranslnRead
+QSetRW	QSetRW.java	/^	private QSetRW() { }$/;"	m	class:QSetRW	file:
+QSetRW	QSetRW.java	/^public final class QSetRW extends DBCommon $/;"	c
+QUESTIONDATA	DBTables.java	/^	String QUESTIONDATA = "question_data_v4";$/;"	f	class:DBTables
+QUESTIONS	DBTables.java	/^	String QUESTIONS = "questions_v3";$/;"	f	class:DBTables
+Q_AUTHOR	DBLocalTables.java	/^	public static final String Q_AUTHOR = "user_id";$/;"	f	class:DBLocalTables
+Q_AUTHOR	QuestionRead.java	/^	String Q_AUTHOR() 						{ return DBLocalTables.Q_AUTHOR; }$/;"	m	class:QuestionRead
+Q_AUTHOR	QuestionWrite.java	/^	private String Q_AUTHOR = null;$/;"	f	class:QuestionWrite	file:
+QuestionRW	QuestionRW.java	/^	private QuestionRW() {$/;"	m	class:QuestionRW	file:
+QuestionRW	QuestionRW.java	/^final public class QuestionRW extends DBCommon $/;"	c
+QuestionRead	QuestionRead.java	/^	QuestionRead() {$/;"	m	class:QuestionRead
+QuestionRead	QuestionRead.java	/^	QuestionRead(Connection connxn) {$/;"	m	class:QuestionRead
+QuestionRead	QuestionRead.java	/^	QuestionRead(String instrId) {$/;"	m	class:QuestionRead
+QuestionRead	QuestionRead.java	/^	QuestionRead(String instrId, boolean addHead) {$/;"	m	class:QuestionRead
+QuestionRead	QuestionRead.java	/^	QuestionRead(String instrId, boolean addHead, boolean full) {$/;"	m	class:QuestionRead
+QuestionRead	QuestionRead.java	/^	QuestionRead(String instrId, boolean addHead, boolean full, $/;"	m	class:QuestionRead
+QuestionRead	QuestionRead.java	/^	QuestionRead(boolean addHead) {$/;"	m	class:QuestionRead
+QuestionRead	QuestionRead.java	/^	QuestionRead(boolean addHead, boolean full) {$/;"	m	class:QuestionRead
+QuestionRead	QuestionRead.java	/^final class QuestionRead extends DBCommon $/;"	c
+QuestionWrite	QuestionWrite.java	/^	QuestionWrite(Connection connxn) { $/;"	m	class:QuestionWrite
+QuestionWrite	QuestionWrite.java	/^	QuestionWrite(Connection connxn, String authId) { $/;"	m	class:QuestionWrite
+QuestionWrite	QuestionWrite.java	/^	QuestionWrite(Question oneQ, String authId) { $/;"	m	class:QuestionWrite
+QuestionWrite	QuestionWrite.java	/^	QuestionWrite(Question oneQ, int qSetId, String authId) { $/;"	m	class:QuestionWrite
+QuestionWrite	QuestionWrite.java	/^	QuestionWrite(String authId) { $/;"	m	class:QuestionWrite
+QuestionWrite	QuestionWrite.java	/^final class QuestionWrite extends DBCommon $/;"	c
+REACTOR_RESULTS	ReactorResultsRW.java	/^	private static final String REACTOR_RESULTS = "reactor_results_v4";$/;"	f	class:ReactorResultsRW	file:
+REACT_CALCD_PRODS	ReactorResultsRW.java	/^		private static final String REACT_CALCD_PRODS = "calcd_products";$/;"	f	class:ReactorResultsRW	file:
+REACT_RXN_ID	ReactorResultsRW.java	/^		private static final String REACT_RXN_ID = "rxn_id";$/;"	f	class:ReactorResultsRW	file:
+REACT_SM_ID	ReactorResultsRW.java	/^		private static final String REACT_SM_ID = "cd_id";$/;"	f	class:ReactorResultsRW	file:
+REVERSE	ForumRW.java	/^	private static final boolean REVERSE = true;$/;"	f	class:ForumRW	file:
+REWRITE_RESP	ResponseWrite.java	/^		public static final int REWRITE_RESP = 0;$/;"	f	class:ResponseWrite
+RGRP_ID	RGroupCollectionRW.java	/^		private static final String RGRP_ID = "id";$/;"	f	class:RGroupCollectionRW	file:
+RGRP_MEMBER	RGroupCollectionRW.java	/^		private static final String RGRP_MEMBER = "member";$/;"	f	class:RGroupCollectionRW	file:
+RGRP_NAME	RGroupCollectionRW.java	/^		private static final String RGRP_NAME = "name";$/;"	f	class:RGroupCollectionRW	file:
+RGRP_NUM	RGroupCollectionRW.java	/^		private static final String RGRP_NUM = "member_num";$/;"	f	class:RGroupCollectionRW	file:
+RGroupCollectionRW	RGroupCollectionRW.java	/^	private RGroupCollectionRW() { }$/;"	m	class:RGroupCollectionRW	file:
+RGroupCollectionRW	RGroupCollectionRW.java	/^public final class RGroupCollectionRW extends DBCommon {$/;"	c
+ROW_NUM	DBCommon.java	/^	protected static final String ROW_NUM = " ROWNUM ";$/;"	f	class:DBCommon
+R_GROUP_CLASS	RGroupCollectionRW.java	/^	private static final String R_GROUP_CLASS = "r_group_class_v3";$/;"	f	class:RGroupCollectionRW	file:
+R_GROUP_CLASS_SEQ	RGroupCollectionRW.java	/^	private static final String R_GROUP_CLASS_SEQ = "r_group_class_seq";$/;"	f	class:RGroupCollectionRW	file:
+ReactorResultsRW	ReactorResultsRW.java	/^	private ReactorResultsRW() { }$/;"	m	class:ReactorResultsRW	file:
+ReactorResultsRW	ReactorResultsRW.java	/^public final class ReactorResultsRW extends DBCommon $/;"	c
+ResponseLogger	ResponseLogger.java	/^	private ResponseLogger() { }$/;"	m	class:ResponseLogger	file:
+ResponseLogger	ResponseLogger.java	/^public final class ResponseLogger extends DBCommon $/;"	c
+ResponseRead	ResponseRead.java	/^	private ResponseRead() { } $/;"	m	class:ResponseRead	file:
+ResponseRead	ResponseRead.java	/^public final class ResponseRead extends DBCommon $/;"	c
+ResponseWrite	ResponseWrite.java	/^	private ResponseWrite() { } $/;"	m	class:ResponseWrite	file:
+ResponseWrite	ResponseWrite.java	/^public final class ResponseWrite extends DBCommon $/;"	c
+SELECT	DBCommon.java	/^	protected static final String SELECT = "SELECT ";$/;"	f	class:DBCommon
+SELECT_ALL_LANGS	TranslnRead.java	/^	static String SELECT_ALL_LANGS() {$/;"	m	class:TranslnRead
+SELECT_UNIQUE	DBCommon.java	/^	protected static final String SELECT_UNIQUE = SELECT + "UNIQUE ";$/;"	f	class:DBCommon
+SET	DBCommon.java	/^	protected static final String SET = " SET ";$/;"	f	class:DBCommon
+SET_CRS_BKID_TO_0_WHERE_BKID	CourseRW.java	/^	static String SET_CRS_BKID_TO_0_WHERE_BKID() {$/;"	m	class:CourseRW
+SRCH_RESULT	DBCommon.java	/^	protected static final String SRCH_RESULT = "srch_result";$/;"	f	class:DBCommon
+SRCH_RESULT1	ForumRW.java	/^	private static final String SRCH_RESULT1 = SRCH_RESULT + '1';$/;"	f	class:ForumRW	file:
+SRCH_RESULT2	ForumRW.java	/^	private static final String SRCH_RESULT2 = SRCH_RESULT + '2';$/;"	f	class:ForumRW	file:
+SRCH_RESULT3	ForumRW.java	/^	private static final String SRCH_RESULT3 = SRCH_RESULT + '3';$/;"	f	class:ForumRW	file:
+SortIgnoreCase	SortIgnoreCase.java	/^	public SortIgnoreCase() {$/;"	m	class:SortIgnoreCase
+SortIgnoreCase	SortIgnoreCase.java	/^public class SortIgnoreCase implements Comparator<String>, Serializable {$/;"	c
+SynthDataRW	SynthDataRW.java	/^	private SynthDataRW() { }$/;"	m	class:SynthDataRW	file:
+SynthDataRW	SynthDataRW.java	/^public final class SynthDataRW extends DBCommon {$/;"	c
+TIMES	DBCommon.java	/^	protected static final String TIMES = " * ";$/;"	f	class:DBCommon
+TRANSLN	TranslnRead.java	/^	private static final String TRANSLN = TRANSLATIONS + DOT + PHRASE_TRANSLN;$/;"	f	class:TranslnRead	file:
+TRY_HARDER	UnitConvertRW.java	/^	private static final boolean TRY_HARDER = true;$/;"	f	class:UnitConvertRW	file:
+TextbookRW	TextbookRW.java	/^	TextbookRW(Textbook bk) {$/;"	m	class:TextbookRW
+TextbookRW	TextbookRW.java	/^public class TextbookRW extends DBCommon implements ContentConstants {$/;"	c
+TranslnRead	TranslnRead.java	/^	private TranslnRead() { }$/;"	m	class:TranslnRead	file:
+TranslnRead	TranslnRead.java	/^public final class TranslnRead extends DBCommon implements QuestionConstants {$/;"	c
+TranslnWrite	TranslnWrite.java	/^	private TranslnWrite() { }$/;"	m	class:TranslnWrite	file:
+TranslnWrite	TranslnWrite.java	/^public final class TranslnWrite extends DBCommon implements QuestionConstants {$/;"	c
+UNION	DBCommon.java	/^	protected static final String UNION = " UNION ";$/;"	f	class:DBCommon
+UNION_ALL	DBCommon.java	/^	protected static final String UNION_ALL = UNION + "ALL ";$/;"	f	class:DBCommon
+UNIQUECONSTRAINT_ERROR	OracleErrors.java	/^	public static final int UNIQUECONSTRAINT_ERROR = 1;$/;"	f	class:OracleErrors
+UNITE	DBCommon.java	/^	protected static final String UNITE = " || ";$/;"	f	class:DBCommon
+UNIT_AMP	CanonicalizedUnitRW.java	/^		private static final String UNIT_AMP = "ampere_power"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_CANDELA	CanonicalizedUnitRW.java	/^		private static final String UNIT_CANDELA = "candela_power"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_COEFF	CanonicalizedUnitRW.java	/^		private static final String UNIT_COEFF = "factor_coefficient"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_CONVERSIONS	UnitConvertRW.java	/^	private static final String UNIT_CONVERSIONS = "unit_conversions_v1";$/;"	f	class:UnitConvertRW	file:
+UNIT_DEGK	CanonicalizedUnitRW.java	/^		private static final String UNIT_DEGK = "kelvin_power"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_FACTOR	UnitConvertRW.java	/^		private static final String UNIT_FACTOR = "factor"; $/;"	f	class:UnitConvertRW	file:
+UNIT_FROM	UnitConvertRW.java	/^		private static final String UNIT_FROM = "unit_from";$/;"	f	class:UnitConvertRW	file:
+UNIT_GRAM	CanonicalizedUnitRW.java	/^		private static final String UNIT_GRAM = "gram_power"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_MEASURES	CanonicalizedUnitRW.java	/^		private static final String UNIT_MEASURES = "what_measures";$/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_METER	CanonicalizedUnitRW.java	/^		private static final String UNIT_METER = "meter_power"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_MOLE	CanonicalizedUnitRW.java	/^		private static final String UNIT_MOLE = "mole_power"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_NAME	CanonicalizedUnitRW.java	/^		private static final String UNIT_NAME = "unit_name";$/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_POWER	UnitConvertRW.java	/^		private static final String UNIT_POWER = "power"; $/;"	f	class:UnitConvertRW	file:
+UNIT_POWER10	CanonicalizedUnitRW.java	/^		private static final String UNIT_POWER10 = "factor_power10"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_SEC	CanonicalizedUnitRW.java	/^		private static final String UNIT_SEC = "second_power"; $/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_SYMBOL	CanonicalizedUnitRW.java	/^		private static final String UNIT_SYMBOL = "unit_symbol";$/;"	f	class:CanonicalizedUnitRW	file:
+UNIT_TO	UnitConvertRW.java	/^		private static final String UNIT_TO = "unit_to";$/;"	f	class:UnitConvertRW	file:
+UNSIZED	HWRead.java	/^	public static final int UNSIZED = -1;$/;"	f	class:HWRead
+UPDATE	DBCommon.java	/^	protected static final String UPDATE = "UPDATE ";$/;"	f	class:DBCommon
+UnitConvertRW	UnitConvertRW.java	/^	private UnitConvertRW() { }$/;"	m	class:UnitConvertRW	file:
+UnitConvertRW	UnitConvertRW.java	/^public final class UnitConvertRW extends DBCommon {$/;"	c
+UserRead	UserRead.java	/^	private UserRead() { }$/;"	m	class:UserRead	file:
+UserRead	UserRead.java	/^public final class UserRead extends DBCommon {$/;"	c
+UserWrite	UserWrite.java	/^	private UserWrite() { }$/;"	m	class:UserWrite	file:
+UserWrite	UserWrite.java	/^public final class UserWrite extends DBCommon {$/;"	c
+VERIFIED_ONLY	InstitutionRW.java	/^	private static final boolean VERIFIED_ONLY = true;$/;"	f	class:InstitutionRW	file:
+WHERE	DBCommon.java	/^	protected static final String WHERE = " WHERE ";$/;"	f	class:DBCommon
+Y	DBCommon.java	/^	protected static final String Y = quotes('Y');$/;"	f	class:DBCommon
+YEAR_OLD	ForumRW.java	/^	private static final boolean YEAR_OLD = true;$/;"	f	class:ForumRW	file:
+_CLOB	DataConversion.java	/^	private static final String _CLOB = '_' + CLOB;$/;"	f	class:DataConversion	file:
+abs	DBCommon.java	/^	protected static String abs(String item) { $/;"	m	class:DBCommon
+addAllowedRxnCondns	HWWrite.java	/^	private static void addAllowedRxnCondns(Connection con, $/;"	m	class:HWWrite	file:
+addBook	TextbookRW.java	/^	private List<String> addBook() throws DBException, SQLException {$/;"	m	class:TextbookRW	file:
+addCalcdProducts	ReactorResultsRW.java	/^	public synchronized static void addCalcdProducts(String molStr, int rxnId, $/;"	m	class:ReactorResultsRW
+addCalcdProductsTwoSteps	ReactorResultsRW.java	/^	private synchronized static void addCalcdProductsTwoSteps(String molStr, $/;"	m	class:ReactorResultsRW	file:
+addCoauthor	TextbookRW.java	/^	public static void addCoauthor(int bookId, String userId) $/;"	m	class:TextbookRW
+addCoinstructor	CourseRW.java	/^	public static void addCoinstructor(int courseId, String instructorId) $/;"	m	class:CourseRW
+addCount	ResponseLogger.java	/^	public void addCount(int respNum, int count)	{ $/;"	m	class:MolCountTable
+addCourse	CourseRW.java	/^	public static Course addCourse(String instructorId, Course course) $/;"	m	class:CourseRW
+addEnglish	TranslnWrite.java	/^	public static void addEnglish(String[] phrases) throws DBException {$/;"	m	class:TranslnWrite
+addEnglish	TranslnWrite.java	/^	static void addEnglish(Connection con, Map<Integer, String> phrases) $/;"	m	class:TranslnWrite
+addEqualsJoin	DBCommon.java	/^	protected static StringBuilder addEqualsJoin(Object... items) {$/;"	m	class:DBCommon
+addExamStudents	UserWrite.java	/^	public static void addExamStudents(User[] students, int courseId)$/;"	m	class:UserWrite
+addExtensions	HWWrite.java	/^	private static void addExtensions(Connection con, Assgt assgt) $/;"	m	class:HWWrite	file:
+addGradingParams	HWWrite.java	/^	private static int addGradingParams(PreparedStatement stmt, $/;"	m	class:HWWrite	file:
+addGradingParams	HWWrite.java	/^	private static void addGradingParams(Connection con, Assgt assgt) $/;"	m	class:HWWrite	file:
+addHW	HWWrite.java	/^	private static void addHW(Connection con, Assgt assgt) $/;"	m	class:HWWrite	file:
+addHW	HWWrite.java	/^	public static void addHW(Assgt assgt) throws DBException {$/;"	m	class:HWWrite
+addHWQs	HWWrite.java	/^	private static void addHWQs(Connection con, Assgt assgt) $/;"	m	class:HWWrite	file:
+addHWs	HWWrite.java	/^	public static void addHWs(Assgt[] assgts) throws DBException {$/;"	m	class:HWWrite
+addHeader	QuestionRead.java	/^	private boolean addHeader = ADD_HEADER;$/;"	f	class:QuestionRead	file:
+addImage	ForumRW.java	/^	private static int addImage(Connection con, int postId, $/;"	m	class:ForumRW	file:
+addImage	ImageRW.java	/^	void addImage(int imageId, String currentLocation, String newLocation) $/;"	m	class:ImageRW
+addImage	ImageRW.java	/^	void addImage(int imageId, String newLocation) throws SQLException {$/;"	m	class:ImageRW
+addInstitution	InstitutionRW.java	/^	static void addInstitution(Connection con, Institution instn) $/;"	m	class:InstitutionRW
+addLanguage	UserWrite.java	/^	public static void addLanguage(String userId, String language)$/;"	m	class:UserWrite
+addLocalHeader	QSetRW.java	/^	public static void addLocalHeader(String authorId, int qSetId,$/;"	m	class:QSetRW
+addNewCapsandLabels	QuestionWrite.java	/^	private void addNewCapsandLabels(PreparedStatement pstmt, $/;"	m	class:QuestionWrite	file:
+addNewFigure	QuestionWrite.java	/^	private void addNewFigure(PreparedStatement stmt, Figure figure) $/;"	m	class:QuestionWrite	file:
+addNewFigure	QuestionWrite.java	/^	private void addNewFigure(PreparedStatement stmt, Figure figure,$/;"	m	class:QuestionWrite	file:
+addNewQDatum	QuestionWrite.java	/^	private void addNewQDatum(PreparedStatement pstmt, QDatum qDatum) $/;"	m	class:QuestionWrite	file:
+addPost	ForumRW.java	/^	public static void addPost(ForumPost post) throws DBException {$/;"	m	class:ForumRW
+addQSet	QSetRW.java	/^	public static int addQSet(int topicId, QSetDescr qSet) throws DBException {$/;"	m	class:QSetRW
+addQSet	QSetRW.java	/^	public static int addQSet(int topicId, QSetDescr qSet,$/;"	m	class:QSetRW
+addQuestion	QuestionRW.java	/^	public static Question addQuestion(Question question, int qSetId) $/;"	m	class:QuestionRW
+addQuestion	QuestionRW.java	/^	public static Question addQuestion(Question question, int qSetId, $/;"	m	class:QuestionRW
+addQuestion	QuestionWrite.java	/^	Question addQuestion() throws DBException {$/;"	m	class:QuestionWrite
+addQuestion	QuestionWrite.java	/^	Question addQuestion(boolean preserveId) throws DBException {$/;"	m	class:QuestionWrite
+addResponse	ResponseLogger.java	/^	public void addResponse(String response) {$/;"	m	class:MolCountTable
+addResponse	ResponseLogger.java	/^	public void addResponse(String response, int ct) {$/;"	m	class:MolCountTable
+addResult	ResponseWrite.java	/^	private static void addResult(Connection con, String studentId, $/;"	m	class:ResponseWrite	file:
+addResult	ResponseWrite.java	/^	public static void addResult(String studentId, int hwId, int qNum, $/;"	m	class:ResponseWrite
+addToDatabase	TranslnWrite.java	/^	private static void addToDatabase(Connection con, $/;"	m	class:TranslnWrite	file:
+addTopic	ForumRW.java	/^	public static void addTopic(ForumTopic topic) throws DBException {$/;"	m	class:ForumRW
+addTopic	QSetRW.java	/^	public static int addTopic(Topic topic) throws DBException {$/;"	m	class:QSetRW
+addUser	UserWrite.java	/^	public static void addUser(User user) throws DBException,$/;"	m	class:UserWrite
+addUsers	UserWrite.java	/^	private static void addUsers(Connection con, User[] users) $/;"	m	class:UserWrite	file:
+alwaysPrint	DBCommon.java	/^	protected static void alwaysPrint(Object... msg) {$/;"	m	class:DBCommon
+alwaysPrintMRV	DBCommon.java	/^	protected static void alwaysPrintMRV(Object... msg) {$/;"	m	class:DBCommon
+appendHeader	QuestionRead.java	/^	static String appendHeader(String header, String qStmt) {$/;"	m	class:QuestionRead
+appendTo	DBCommon.java	/^	protected static void appendTo(StringBuilder bld, Object... items) {$/;"	m	class:DBCommon
+areAssignedAsRandom	QuestionRW.java	/^	public static boolean[] areAssignedAsRandom(List<Integer> qIds, String authorId) $/;"	m	class:QuestionRW
+ascii	DataConversion.java	/^	private static StringBuilder ascii(StringBuilder bld) {$/;"	m	class:DataConversion	file:
+assignHeaderTranslations	TranslnWrite.java	/^	public static void assignHeaderTranslations(int qSetId,$/;"	m	class:TranslnWrite
+assignQTranslations	TranslnWrite.java	/^	public static void assignQTranslations(Question newQ, QTranslns translns) $/;"	m	class:TranslnWrite
+assignmentViewed	HWRead.java	/^	private static boolean assignmentViewed(Connection con, int hwId)$/;"	m	class:HWRead	file:
+assignmentViewed	HWRead.java	/^	public static boolean assignmentViewed(int hwId)$/;"	m	class:HWRead
+authorId	QuestionWrite.java	/^	private String authorId = MASTER_AUTHOR;$/;"	f	class:QuestionWrite	file:
+authorId	ResponseLogger.java	/^	private final String authorId;$/;"	f	class:MolCountTable	file:
+bitand	DBCommon.java	/^	protected static StringBuilder bitand(String item, int mask) { $/;"	m	class:DBCommon
+bitand	DBCommon.java	/^	protected static StringBuilder bitand(String item, long mask) { $/;"	m	class:DBCommon
+blockUsers	ForumRW.java	/^	public static void blockUsers(int courseId, List<String> accessIds,$/;"	m	class:ForumRW
+book	TextbookRW.java	/^	final private Textbook book;$/;"	f	class:TextbookRW	file:
+braces	DBCommon.java	/^	protected static String braces(String item) { $/;"	m	class:DBCommon
+braces	DBCommon.java	/^	protected static StringBuilder braces(StringBuilder item) { $/;"	m	class:DBCommon
+calculateModifiedGrade	ResponseWrite.java	/^	public static void calculateModifiedGrade(int hwId, int qId, $/;"	m	class:ResponseWrite
+changeTAWatching	ForumRW.java	/^	static void changeTAWatching(Connection con, int courseId, $/;"	m	class:ForumRW
+changedQ	QuestionWrite.java	/^	private Question changedQ;$/;"	f	class:QuestionWrite	file:
+cleanUpImages	QuestionWrite.java	/^	private List<String> cleanUpImages(List<Integer> keepFigIds,$/;"	m	class:QuestionWrite	file:
+clobContains	DBCommon.java	/^	protected static StringBuilder clobContains(String field, $/;"	m	class:DBCommon
+clobContains	DBCommon.java	/^	protected static StringBuilder clobContains(String field, String regExp) { $/;"	m	class:DBCommon
+clobEquals	DBCommon.java	/^	protected static StringBuilder clobEquals(String field, String str) { $/;"	m	class:DBCommon
+clobToString	DBCommon.java	/^	protected static StringBuilder clobToString(String field) {$/;"	m	class:DBCommon
+clobToString	DBCommon.java	/^	protected static StringBuilder clobToString(StringBuilder field) {$/;"	m	class:DBCommon
+clobToStringAs	DBCommon.java	/^	protected static StringBuilder clobToStringAs(String field) {$/;"	m	class:DBCommon
+clobToUpper	DBCommon.java	/^	protected static StringBuilder clobToUpper(String field) {$/;"	m	class:DBCommon
+closeConHandler	ReactorResultsRW.java	/^	private static void closeConHandler(ConnectionHandler conHandler) {$/;"	m	class:ReactorResultsRW	file:
+closeConnection	DBCommon.java	/^	protected static void closeConnection(Connection con) {$/;"	m	class:DBCommon
+closeConnection	DBCommon.java	/^	protected static void closeConnection(Connection con, $/;"	m	class:DBCommon
+com.epoch.db	CanonicalizedUnitRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	CourseRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	DBCommon.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	DBLocalTables.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	DBTables.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	DataConversion.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	EnrollmentRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	FnalGroupDefRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	ForumRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	HWRead.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	HWWrite.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	ImageRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	InstitutionRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	OracleErrors.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	QSetRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	QuestionRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	QuestionRead.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	QuestionWrite.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	RGroupCollectionRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	ReactorResultsRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	ResponseLogger.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	ResponseRead.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	ResponseWrite.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	SortIgnoreCase.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	SynthDataRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	TextbookRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	TranslnRead.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	TranslnWrite.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	UnitConvertRW.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	UserRead.java	/^package com.epoch.db;$/;"	p
+com.epoch.db	UserWrite.java	/^package com.epoch.db;$/;"	p
+compare	SortIgnoreCase.java	/^	public int compare(String s1, String s2) {$/;"	m	class:SortIgnoreCase
+con	ImageRW.java	/^	final private Connection con;$/;"	f	class:ImageRW	file:
+con	QuestionRead.java	/^	private Connection con;$/;"	f	class:QuestionRead	file:
+con	QuestionWrite.java	/^	private Connection con;$/;"	f	class:QuestionWrite	file:
+con	TextbookRW.java	/^	private Connection con = null;$/;"	f	class:TextbookRW	file:
+convert1H2H	DataConversion.java	/^	public static void convert1H2H() throws DBException {$/;"	m	class:DataConversion
+convertClickHereCoordsToXML	DataConversion.java	/^	public static void convertClickHereCoordsToXML() throws DBException {$/;"	m	class:DataConversion
+convertHWQs	DataConversion.java	/^	public static void convertHWQs() {$/;"	m	class:DataConversion
+convertLewisFormat	DataConversion.java	/^	public static void convertLewisFormat() throws DBException {$/;"	m	class:DataConversion
+convertSynthSMExprs	DataConversion.java	/^	public static void convertSynthSMExprs() throws DBException {$/;"	m	class:DataConversion
+convertSynthesisFormat	DataConversion.java	/^	public static void convertSynthesisFormat() throws DBException {$/;"	m	class:DataConversion
+convertTextCont	DataConversion.java	/^	public static void convertTextCont() throws DBException {$/;"	m	class:DataConversion
+copyImageFile	ImageRW.java	/^	static void copyImageFile(String currentLocation, String newLocation) $/;"	m	class:ImageRW
+count	DBCommon.java	/^	protected static String count() { $/;"	m	class:DBCommon
+count	DBCommon.java	/^	protected static String count(String item) { $/;"	m	class:DBCommon
+counts	ResponseLogger.java	/^	private List<Integer> counts;$/;"	f	class:MolCountTable	file:
+cullToNotInDatabase	TranslnWrite.java	/^	private static void cullToNotInDatabase(Connection con, $/;"	m	class:TranslnWrite	file:
+dateToString	DBCommon.java	/^	protected static String dateToString(Date date) { $/;"	m	class:DBCommon
+dateToString	DBCommon.java	/^	protected static String dateToString(Date date, TimeZone tz) { $/;"	m	class:DBCommon
+debugPrint	CanonicalizedUnitRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:CanonicalizedUnitRW	file:
+debugPrint	CourseRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:CourseRW	file:
+debugPrint	DBCommon.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:DBCommon	file:
+debugPrint	DataConversion.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:DataConversion	file:
+debugPrint	EnrollmentRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:EnrollmentRW	file:
+debugPrint	FnalGroupDefRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:FnalGroupDefRW	file:
+debugPrint	ForumRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:ForumRW	file:
+debugPrint	HWRead.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:HWRead	file:
+debugPrint	HWWrite.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:HWWrite	file:
+debugPrint	ImageRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:ImageRW	file:
+debugPrint	InstitutionRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:InstitutionRW	file:
+debugPrint	QSetRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:QSetRW	file:
+debugPrint	QuestionRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:QuestionRW	file:
+debugPrint	QuestionRead.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:QuestionRead	file:
+debugPrint	QuestionWrite.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:QuestionWrite	file:
+debugPrint	RGroupCollectionRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:RGroupCollectionRW	file:
+debugPrint	ReactorResultsRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:ReactorResultsRW	file:
+debugPrint	ResponseLogger.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:MolCountTable	file:
+debugPrint	ResponseLogger.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:ResponseLogger	file:
+debugPrint	ResponseRead.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:ResponseRead	file:
+debugPrint	ResponseWrite.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:ResponseWrite	file:
+debugPrint	SynthDataRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:SynthDataRW	file:
+debugPrint	TextbookRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:TextbookRW	file:
+debugPrint	TranslnRead.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:TranslnRead	file:
+debugPrint	TranslnWrite.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:TranslnWrite	file:
+debugPrint	UnitConvertRW.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:UnitConvertRW	file:
+debugPrint	UserRead.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:UserRead	file:
+debugPrint	UserWrite.java	/^	private static void debugPrint(Object... msg) {$/;"	m	class:UserWrite	file:
+decode	DBCommon.java	/^	protected static StringBuilder decode(StringBuilder expr, double mayEqual,$/;"	m	class:DBCommon
+decompressIfLewis	DBCommon.java	/^	protected static String decompressIfLewis(String molStr) {$/;"	m	class:DBCommon
+deleteAllCalcdProducts	ReactorResultsRW.java	/^	public static void deleteAllCalcdProducts() throws DBException {$/;"	m	class:ReactorResultsRW
+deleteAllTopics	ForumRW.java	/^	public static void deleteAllTopics(int courseId) throws DBException {$/;"	m	class:ForumRW
+deleteAllTopics	ForumRW.java	/^	public static void deleteAllTopics(int[] courseIds) throws DBException {$/;"	m	class:ForumRW
+deleteAllTopics	ForumRW.java	/^	static List<String> deleteAllTopics(Connection con, StringBuilder courseIds) $/;"	m	class:ForumRW
+deleteAllowedRxnCondns	HWWrite.java	/^	private static void deleteAllowedRxnCondns(Connection con, int id) $/;"	m	class:HWWrite	file:
+deleteBook	TextbookRW.java	/^	public static void deleteBook(int bookId) throws DBException {$/;"	m	class:TextbookRW
+deleteBooks	TextbookRW.java	/^	public static void deleteBooks(String instructorId) throws DBException {$/;"	m	class:TextbookRW
+deleteBooks	TextbookRW.java	/^	static void deleteBooks(Connection con, String instructorId) $/;"	m	class:TextbookRW
+deleteCalcdProducts	ReactorResultsRW.java	/^	public static synchronized void deleteCalcdProducts(int rxnId, $/;"	m	class:ReactorResultsRW
+deleteCalcdProducts	ReactorResultsRW.java	/^	static void deleteCalcdProducts(Connection con, int rxnId) $/;"	m	class:ReactorResultsRW
+deleteCapsAndLabelsOtherThan	QuestionWrite.java	/^	private void deleteCapsAndLabelsOtherThan(List<Integer> keepUniqueIds) $/;"	m	class:QuestionWrite	file:
+deleteEnglish	TranslnWrite.java	/^	public static void deleteEnglish(String phrase) throws DBException {$/;"	m	class:TranslnWrite
+deleteEnglish	TranslnWrite.java	/^	public static void deleteEnglish(int phraseId) throws DBException {$/;"	m	class:TranslnWrite
+deleteExtensions	HWWrite.java	/^	private static void deleteExtensions(Connection con, int id) $/;"	m	class:HWWrite	file:
+deleteGradingParams	HWWrite.java	/^	private static void deleteGradingParams(Connection con, int id) $/;"	m	class:HWWrite	file:
+deleteGradingParams	HWWrite.java	/^	private static void deleteGradingParams(Connection con, int id,$/;"	m	class:HWWrite	file:
+deleteHWQs	HWWrite.java	/^	private static void deleteHWQs(Connection con, int id) $/;"	m	class:HWWrite	file:
+deleteHWSet	HWWrite.java	/^	public static void deleteHWSet(int id) throws DBException {$/;"	m	class:HWWrite
+deleteHWSets	HWWrite.java	/^	static void deleteHWSets(Connection con, StringBuilder ids) $/;"	m	class:HWWrite
+deleteImageFromDisk	ImageRW.java	/^	public static void deleteImageFromDisk(String fullName) {$/;"	m	class:ImageRW
+deleteImages	ImageRW.java	/^	List<String> deleteImages(StringBuilder whereBld) throws SQLException {$/;"	m	class:ImageRW
+deleteImagesFromDisk	ImageRW.java	/^	public static void deleteImagesFromDisk(List<String> fullNames) {$/;"	m	class:ImageRW
+deleteImagesFromDisk	ImageRW.java	/^	void deleteImagesFromDisk(final String startName) {$/;"	m	class:ImageRW
+deleteOtherThan	QuestionWrite.java	/^	private List<String> deleteOtherThan(String table, $/;"	m	class:QuestionWrite	file:
+deletePhraseIdsNotOf	QuestionWrite.java	/^	private void deletePhraseIdsNotOf(String table, List<Integer> keepUniqueIds)$/;"	m	class:QuestionWrite	file:
+deletePost	ForumRW.java	/^	public static void deletePost(int postId) throws DBException {$/;"	m	class:ForumRW
+deletePostImages	ForumRW.java	/^	private static List<String> deletePostImages(Connection con, $/;"	m	class:ForumRW	file:
+deletePosts	ForumRW.java	/^	private static List<String> deletePosts(Connection con, $/;"	m	class:ForumRW	file:
+deletePosts	ForumRW.java	/^	public static void deletePosts(int[] postIds) throws DBException {$/;"	m	class:ForumRW
+deleteQSet	QSetRW.java	/^	public static void deleteQSet(int qSetId) throws DBException {$/;"	m	class:QSetRW
+deleteQuestion	QuestionRW.java	/^	public static void deleteQuestion(int qId) throws DBException {$/;"	m	class:QuestionRW
+deleteQuestion	QuestionRW.java	/^	public static void deleteQuestion(int qId, String authorId)$/;"	m	class:QuestionRW
+deleteQuestion	QuestionWrite.java	/^	void deleteQuestion(int qId) throws DBException {$/;"	m	class:QuestionWrite
+deleteQuestions	QuestionRW.java	/^	static void deleteQuestions(Connection con, String authorIds) $/;"	m	class:QuestionRW
+deleteResult	ResponseWrite.java	/^	public static void deleteResult(String studentId, int hwId, int qId) $/;"	m	class:ResponseWrite
+deleteResults	ResponseWrite.java	/^	private static void deleteResults(Connection con, int hwId, $/;"	m	class:ResponseWrite	file:
+deleteResults	ResponseWrite.java	/^	static void deleteResults(Connection con, int hwId, List<Integer> qIds) $/;"	m	class:ResponseWrite
+deleteResults	ResponseWrite.java	/^	static void deleteResults(Connection con, int hwId, int[] qIds,$/;"	m	class:ResponseWrite
+deleteTopic	ForumRW.java	/^	public static void deleteTopic(int topicId) throws DBException {$/;"	m	class:ForumRW
+deleteTopicLinks	ForumRW.java	/^	static void deleteTopicLinks(Connection con, StringBuilder ids) $/;"	m	class:ForumRW
+deleteTopicLinks	ForumRW.java	/^	static void deleteTopicLinks(Connection con, int hwId, $/;"	m	class:ForumRW
+deleteTopics	ForumRW.java	/^	public static void deleteTopics(int[] topicIds) throws DBException {$/;"	m	class:ForumRW
+deleteYearOldImages	ForumRW.java	/^	public static int deleteYearOldImages() throws DBException {$/;"	m	class:ForumRW
+disenrollRegistered	EnrollmentRW.java	/^	public static void disenrollRegistered(int courseId, String[] userIds)$/;"	m	class:EnrollmentRW
+disenrollUnregistered	EnrollmentRW.java	/^	public static void disenrollUnregistered(int courseId, String[] studentNums)$/;"	m	class:EnrollmentRW
+doGetResponses	ResponseLogger.java	/^	private static StoredResponse[] doGetResponses(StringBuilder filePrefix,$/;"	m	class:ResponseLogger	file:
+doLog	ResponseLogger.java	/^	private static void doLog(File logfile, String lineData)$/;"	m	class:ResponseLogger	file:
+doLog	ResponseLogger.java	/^	private static void doLog(String fullpath, String lineData)$/;"	m	class:ResponseLogger	file:
+dropAndRename	DataConversion.java	/^	private static void dropAndRename(String table, String field) $/;"	m	class:DataConversion	file:
+editPost	ForumRW.java	/^	public static void editPost(ForumPost post) throws DBException {$/;"	m	class:ForumRW
+empty	DBCommon.java	/^	protected static String empty(String item) { $/;"	m	class:DBCommon
+enroll	EnrollmentRW.java	/^	public static List<EnrollmentData> enroll(int courseId,$/;"	m	class:EnrollmentRW
+enrollInCourse	EnrollmentRW.java	/^	public static void enrollInCourse(String userId, int courseId)$/;"	m	class:EnrollmentRW
+enrollInCourse	EnrollmentRW.java	/^	public static void enrollInCourse(String[] userIds, int courseId)$/;"	m	class:EnrollmentRW
+enrollInQualified	EnrollmentRW.java	/^	public static void enrollInQualified(User student) throws DBException {$/;"	m	class:EnrollmentRW
+equalsJoin	DBCommon.java	/^	protected static StringBuilder equalsJoin(List<Object> items) {$/;"	m	class:DBCommon
+equalsJoin	DBCommon.java	/^	protected static StringBuilder equalsJoin(Object... items) {$/;"	m	class:DBCommon
+escapeMetachars	DBCommon.java	/^	private static StringBuilder escapeMetachars(String str) {$/;"	m	class:DBCommon	file:
+extractImage	DataConversion.java	/^	private static String extractImage(Connection con, boolean isLocal, $/;"	m	class:DataConversion	file:
+figTypeHasImage	QuestionWrite.java	/^	private StringBuilder figTypeHasImage() {$/;"	m	class:QuestionWrite	file:
+fn	DBCommon.java	/^	protected static String fn(String fn, String item) { $/;"	m	class:DBCommon
+fn	DBCommon.java	/^	protected static String fn(String fn, char item) { $/;"	m	class:DBCommon
+fn	DBCommon.java	/^	protected static String fn(String fn, int item) { $/;"	m	class:DBCommon
+fn	DBCommon.java	/^	protected static String fn(String fn, long item) { $/;"	m	class:DBCommon
+fn	DBCommon.java	/^	protected static StringBuilder fn(String fn, StringBuilder bld) { $/;"	m	class:DBCommon
+fullLoad	QuestionRead.java	/^	private boolean fullLoad = FULL_LOAD;$/;"	f	class:QuestionRead	file:
+getAbsFigsDirBld	ImageRW.java	/^	StringBuilder getAbsFigsDirBld() {$/;"	m	class:ImageRW
+getAbsFigsDirBld	ImageRW.java	/^	static StringBuilder getAbsFigsDirBld(boolean isLocal) {$/;"	m	class:ImageRW
+getAllAuthorNames	TextbookRW.java	/^	public static String[] getAllAuthorNames(int bookId) throws DBException {$/;"	m	class:TextbookRW
+getAllBadSMs	SynthDataRW.java	/^	public static String[][] getAllBadSMs() throws DBException {$/;"	m	class:SynthDataRW
+getAllBooks	CourseRW.java	/^	public static String[] getAllBooks() {$/;"	m	class:CourseRW
+getAllCounts	ResponseLogger.java	/^	public int[] getAllCounts() {$/;"	m	class:MolCountTable
+getAllFeedbackTranslns	TranslnRead.java	/^			getAllFeedbackTranslns(int qId) throws DBException {$/;"	m	class:TranslnRead
+getAllGroups	FnalGroupDefRW.java	/^	public static FnalGroupDef[] getAllGroups() throws DBException {$/;"	m	class:FnalGroupDefRW
+getAllGroupsData	FnalGroupDefRW.java	/^	public static List<String> getAllGroupsData(int type)$/;"	m	class:FnalGroupDefRW
+getAllHeaderTranslns	TranslnRead.java	/^	public static TranslnsMap getAllHeaderTranslns(int qSetId) $/;"	m	class:TranslnRead
+getAllImageIds	ImageRW.java	/^	StringBuilder getAllImageIds() {$/;"	m	class:ImageRW
+getAllInstitutions	InstitutionRW.java	/^	public static Institution[] getAllInstitutions() throws DBException {$/;"	m	class:InstitutionRW
+getAllLanguages	UserRead.java	/^	public static String[] getAllLanguages() {$/;"	m	class:UserRead
+getAllMenuOnlyRgts	SynthDataRW.java	/^	public static String[][] getAllMenuOnlyRgts() throws DBException {$/;"	m	class:SynthDataRW
+getAllNonstudents	UserRead.java	/^	public static List<User> getAllNonstudents() throws DBException {$/;"	m	class:UserRead
+getAllPhrases	TranslnRead.java	/^	public static String[] getAllPhrases(String language) throws DBException {$/;"	m	class:TranslnRead
+getAllPhrases	TranslnRead.java	/^	public static String[] getAllPhrases(String[] phrases,$/;"	m	class:TranslnRead
+getAllQDataTranslns	TranslnRead.java	/^			getAllQDataTranslns(int qId) throws DBException {$/;"	m	class:TranslnRead
+getAllQStmtTranslns	TranslnRead.java	/^	public static TranslnsMap getAllQStmtTranslns(int qId) $/;"	m	class:TranslnRead
+getAllQuestionIds	QuestionRW.java	/^	public static String getAllQuestionIds(int qSetId) {$/;"	m	class:QuestionRW
+getAllRGroupCollectionDefsKeyedById	RGroupCollectionRW.java	/^			getAllRGroupCollectionDefsKeyedById() throws DBException {$/;"	m	class:RGroupCollectionRW
+getAllRGroupCollectionIds	RGroupCollectionRW.java	/^	public static int[] getAllRGroupCollectionIds() throws DBException {$/;"	m	class:RGroupCollectionRW
+getAllRGroupCollectionNames	RGroupCollectionRW.java	/^	public static String[] getAllRGroupCollectionNames() throws DBException {$/;"	m	class:RGroupCollectionRW
+getAllRGroupCollectionNamesKeyedById	RGroupCollectionRW.java	/^			getAllRGroupCollectionNamesKeyedById() throws DBException {$/;"	m	class:RGroupCollectionRW
+getAllReactionDefsKeyedById	SynthDataRW.java	/^	private static Map<Integer, String> getAllReactionDefsKeyedById($/;"	m	class:SynthDataRW	file:
+getAllReactionDefsKeyedById	SynthDataRW.java	/^	public static Map<Integer, String> getAllReactionDefsKeyedById() $/;"	m	class:SynthDataRW
+getAllReactionIds	SynthDataRW.java	/^	private static int[] getAllReactionIds(Connection con) throws DBException {$/;"	m	class:SynthDataRW	file:
+getAllReactionIds	SynthDataRW.java	/^	public static int[] getAllReactionIds() throws DBException {$/;"	m	class:SynthDataRW
+getAllReactionNamesKeyedById	SynthDataRW.java	/^	private static Map<Integer, String> getAllReactionNamesKeyedById($/;"	m	class:SynthDataRW	file:
+getAllReactionNamesKeyedById	SynthDataRW.java	/^	public static Map<Integer, String> getAllReactionNamesKeyedById() $/;"	m	class:SynthDataRW
+getAllReactionsData	SynthDataRW.java	/^	private static String[] getAllReactionsData(Connection con, int type) $/;"	m	class:SynthDataRW	file:
+getAllReactionsData	SynthDataRW.java	/^	public static String[] getAllReactionsData(int type) throws DBException {$/;"	m	class:SynthDataRW
+getAllRegdStudents	UserRead.java	/^	private static List<EnrollmentData> getAllRegdStudents(int instnId,$/;"	m	class:UserRead	file:
+getAllRegdStudents	UserRead.java	/^	public static List<EnrollmentData> getAllRegdStudents(int instnId,$/;"	m	class:UserRead
+getAllStudentsOneQ	ResponseRead.java	/^	public static Map<String, EvalResult[]> getAllStudentsOneQ(int hwId, $/;"	m	class:ResponseRead
+getAllTranslations	DataConversion.java	/^	public static Map<Integer, String> getAllTranslations(String language) $/;"	m	class:DataConversion
+getAllUnitConversions	UnitConvertRW.java	/^	private static String[][] getAllUnitConversions(Connection con) $/;"	m	class:UnitConvertRW	file:
+getAllUnitConversions	UnitConvertRW.java	/^	public static String[][] getAllUnitConversions() throws DBException {$/;"	m	class:UnitConvertRW
+getAllUnitProperties	CanonicalizedUnitRW.java	/^	public static String[] getAllUnitProperties() throws DBException {$/;"	m	class:CanonicalizedUnitRW
+getAllUnits	CanonicalizedUnitRW.java	/^	public static CanonicalizedUnit[] getAllUnits() throws DBException {$/;"	m	class:CanonicalizedUnitRW
+getAllowedIPAddresses	CourseRW.java	/^	private static Map<Integer, String[]> getAllowedIPAddresses($/;"	m	class:CourseRW	file:
+getAllowedIPAddresses	CourseRW.java	/^	public static Map<Integer, String[]> getAllowedIPAddresses($/;"	m	class:CourseRW
+getAllowedIPAddresses	CourseRW.java	/^	public static String[] getAllowedIPAddresses(int courseId) $/;"	m	class:CourseRW
+getAntitable	DBLocalTables.java	/^	static String getAntitable(String table) {$/;"	m	class:DBLocalTables
+getAssgtEntryDate	HWRead.java	/^	private static Date getAssgtEntryDate(Connection con, int hwId,$/;"	m	class:HWRead	file:
+getAssgtEntryDate	HWRead.java	/^	public static Date getAssgtEntryDate(int hwId, String userId) $/;"	m	class:HWRead
+getAssgtQGroups	HWRead.java	/^			getAssgtQGroups(Connection con, List<Integer> hwIds) $/;"	m	class:HWRead	file:
+getAssgtQGroups	HWRead.java	/^	private static List<AssgtQGroup> getAssgtQGroups(Connection con, int hwId) $/;"	m	class:HWRead	file:
+getAssgtsMastered	ResponseRead.java	/^	public static Map<String, boolean[]> getAssgtsMastered(int[] hwIds, $/;"	m	class:ResponseRead
+getAssignedQIds	HWRead.java	/^	private static int[] getAssignedQIds(Connection con, int hwId,$/;"	m	class:HWRead	file:
+getAssignedQIds	HWRead.java	/^	public static int[] getAssignedQIds(int hwId, String userId) $/;"	m	class:HWRead
+getAssignedStudents	HWWrite.java	/^	private static List<String> getAssignedStudents(Connection con, $/;"	m	class:HWWrite	file:
+getAuthorIdByQId	QuestionRW.java	/^	public static String getAuthorIdByQId(int qId) {$/;"	m	class:QuestionRW
+getAuthorIdByQSetId	QSetRW.java	/^	public static String getAuthorIdByQSetId(int qSetId) {$/;"	m	class:QSetRW
+getBestTranslation	TranslnRead.java	/^	private static String getBestTranslation(List<String[]> translations,$/;"	m	class:TranslnRead	file:
+getBook	TextbookRW.java	/^	public static Textbook getBook(int bookId) $/;"	m	class:TextbookRW
+getBookChapters	QSetRW.java	/^	public static List<String> getBookChapters(String book)$/;"	m	class:QSetRW
+getBookChapters	QSetRW.java	/^	public static List<String> getBookChapters(String book,$/;"	m	class:QSetRW
+getBooks	TextbookRW.java	/^	private static Textbook[] getBooks(StringBuilder whereBld) $/;"	m	class:TextbookRW	file:
+getBooks	TextbookRW.java	/^	public static Textbook[] getBooks(String instructorId, boolean others) $/;"	m	class:TextbookRW
+getBuilder	DBCommon.java	/^	protected static StringBuilder getBuilder(Object... items) {$/;"	m	class:DBCommon
+getCalcdProducts	ReactorResultsRW.java	/^	private static String[] getCalcdProducts(ConnectionHandler conHandler, $/;"	m	class:ReactorResultsRW	file:
+getCalcdProducts	ReactorResultsRW.java	/^	public static String[] getCalcdProducts(String molStr, int rxnId) $/;"	m	class:ReactorResultsRW
+getCoauthors	TextbookRW.java	/^	public static User[] getCoauthors(int bookId) throws DBException {$/;"	m	class:TextbookRW
+getCode	TranslnRead.java	/^	public static String getCode(String language) {$/;"	m	class:TranslnRead
+getCoinstructedCrsAndCoauthoredBkOwners	CourseRW.java	/^	public static User[] getCoinstructedCrsAndCoauthoredBkOwners($/;"	m	class:CourseRW
+getCoinstructors	CourseRW.java	/^	public static User[] getCoinstructors(int courseId) throws DBException {$/;"	m	class:CourseRW
+getCompoundIds	ReactorResultsRW.java	/^	private static int[] getCompoundIds(ConnectionHandler conHandler, $/;"	m	class:ReactorResultsRW	file:
+getConHandler	ReactorResultsRW.java	/^	private static ConnectionHandler getConHandler() throws SQLException {$/;"	m	class:ReactorResultsRW	file:
+getConHandler	ReactorResultsRW.java	/^	private static ConnectionHandler getConHandler(Connection con) $/;"	m	class:ReactorResultsRW	file:
+getConvertibleEvalText	QuestionRW.java	/^	public static Map<String, String> getConvertibleEvalText($/;"	m	class:QuestionRW
+getConvertibleFeedback	QuestionRW.java	/^	public static Map<String, String> getConvertibleFeedback($/;"	m	class:QuestionRW
+getConvertibleHeaders	QSetRW.java	/^	public static Map<String, String> getConvertibleHeaders(boolean local) $/;"	m	class:QSetRW
+getConvertibleQData	QuestionRW.java	/^	public static Map<String, String> getConvertibleQData(boolean local) $/;"	m	class:QuestionRW
+getConvertibleStatements	QuestionRW.java	/^	public static Map<String, String> getConvertibleStatements($/;"	m	class:QuestionRW
+getCount	ResponseLogger.java	/^	public int getCount(int respNum) { $/;"	m	class:MolCountTable
+getCourseData	CourseRW.java	/^	private static Course getCourseData(ResultSet rs) $/;"	m	class:CourseRW	file:
+getCourseInfo	CourseRW.java	/^	private static Course getCourseInfo(Connection con, int courseId) $/;"	m	class:CourseRW	file:
+getCourseInfo	CourseRW.java	/^	public static Course getCourseInfo(int courseId) throws DBException {$/;"	m	class:CourseRW
+getCoursesCreated	CourseRW.java	/^	public static List<Course> getCoursesCreated(String instructorId) $/;"	m	class:CourseRW
+getCoursesEnrolled	CourseRW.java	/^	public static List<Course> getCoursesEnrolled(String studentId) $/;"	m	class:CourseRW
+getCrossCourseReport	ResponseRead.java	/^	public static CrossCourseReport getCrossCourseReport(String[] studentIds, $/;"	m	class:ResponseRead
+getDateCreated	UserRead.java	/^	public static Date getDateCreated(String userId) throws DBException {$/;"	m	class:UserRead
+getDeleteBooksQryBlds	TextbookRW.java	/^	private static StringBuilder[] getDeleteBooksQryBlds(String instructorIds) {$/;"	m	class:TextbookRW	file:
+getDueDateAndIsExamSQL	ResponseWrite.java	/^	private static StringBuilder getDueDateAndIsExamSQL(int hwId) {$/;"	m	class:ResponseWrite	file:
+getEnrolledStudent	EnrollmentRW.java	/^	public static List<EnrollmentData> getEnrolledStudent(String studentId) $/;"	m	class:EnrollmentRW
+getEnrolledStudentNums	EnrollmentRW.java	/^	public static List<String> getEnrolledStudentNums(int courseId) $/;"	m	class:EnrollmentRW
+getEnrolledStudentNums	EnrollmentRW.java	/^	public static List<String> getEnrolledStudentNums(int courseId,$/;"	m	class:EnrollmentRW
+getEnrolledStudents	EnrollmentRW.java	/^	private static List<EnrollmentData> getEnrolledStudents($/;"	m	class:EnrollmentRW	file:
+getEnrolledStudents	EnrollmentRW.java	/^	private static List<EnrollmentData> getEnrolledStudents(Connection con,$/;"	m	class:EnrollmentRW	file:
+getEnrolledStudents	EnrollmentRW.java	/^	public static List<EnrollmentData> getEnrolledStudents($/;"	m	class:EnrollmentRW
+getEnrolledStudents	EnrollmentRW.java	/^	public static List<EnrollmentData> getEnrolledStudents(int courseId, $/;"	m	class:EnrollmentRW
+getEnrolledStudents	EnrollmentRW.java	/^	public static List<EnrollmentData> getEnrolledStudents(int courseId,$/;"	m	class:EnrollmentRW
+getEnrolledStudents	EnrollmentRW.java	/^	static List<EnrollmentData> getEnrolledStudents(Connection con,$/;"	m	class:EnrollmentRW
+getEnrolledUserIds	EnrollmentRW.java	/^	static List<String> getEnrolledUserIds(int courseId) throws DBException {$/;"	m	class:EnrollmentRW
+getEnrolledUserTextMessageEmails	EnrollmentRW.java	/^	public static String[] getEnrolledUserTextMessageEmails(int courseId) $/;"	m	class:EnrollmentRW
+getEnrollmentData	EnrollmentRW.java	/^	private static EnrollmentData getEnrollmentData(ResultSet rs) $/;"	m	class:EnrollmentRW	file:
+getEnrollmentData	EnrollmentRW.java	/^	private static EnrollmentData getEnrollmentData(ResultSet rs, $/;"	m	class:EnrollmentRW	file:
+getEnrollmentData	UserRead.java	/^	private static EnrollmentData getEnrollmentData(ResultSet rs)$/;"	m	class:UserRead	file:
+getEvaluators	QuestionRead.java	/^	private boolean getEvaluators() throws DBException {$/;"	m	class:QuestionRead	file:
+getExamIds	UserRead.java	/^	public static String[] getExamIds(int courseId, boolean unused)$/;"	m	class:UserRead
+getExtension	ImageRW.java	/^	String getExtension(int imageId) throws SQLException {$/;"	m	class:ImageRW
+getExtensionSQL	ResponseWrite.java	/^	private static StringBuilder getExtensionSQL(int hwId, $/;"	m	class:ResponseWrite	file:
+getExtensions	HWRead.java	/^			getExtensions(Connection con, List<Integer> hwIds) $/;"	m	class:HWRead	file:
+getExtensions	HWRead.java	/^	static Map<String, String> getExtensions(Connection con, int hwId) $/;"	m	class:HWRead
+getFeedbacks	TranslnRead.java	/^	public static void getFeedbacks(List<Integer> qIds,$/;"	m	class:TranslnRead
+getFields	QuestionWrite.java	/^	private List<String> getFields(String table) {$/;"	m	class:QuestionWrite	file:
+getFileName	QuestionWrite.java	/^	private String getFileName(Figure figure) {$/;"	m	class:QuestionWrite	file:
+getFirstEntry	EnrollmentRW.java	/^	public static Date getFirstEntry(int courseId, String studentId) {$/;"	m	class:EnrollmentRW
+getFnalGroupDef	FnalGroupDefRW.java	/^	public static FnalGroupDef getFnalGroupDef(String name)$/;"	m	class:FnalGroupDefRW
+getFnalGroupDef	FnalGroupDefRW.java	/^	public static FnalGroupDef getFnalGroupDef(int groupId)$/;"	m	class:FnalGroupDefRW
+getFnalGroupFromDb	FnalGroupDefRW.java	/^	private static FnalGroupDef getFnalGroupFromDb(StringBuilder chooser)$/;"	m	class:FnalGroupDefRW	file:
+getHW	HWRead.java	/^	private static void getHW(Connection con, Assgt assgt) $/;"	m	class:HWRead	file:
+getHW	HWRead.java	/^	public static Assgt getHW(int hwId) throws DBException {$/;"	m	class:HWRead
+getHW	HWRead.java	/^	public static void getHW(Assgt assgt) $/;"	m	class:HWRead
+getHWIds	HWRead.java	/^	public static List<Integer> getHWIds() throws DBException {$/;"	m	class:HWRead
+getHWIds	ResponseRead.java	/^	private static StringBuilder getHWIds(int courseId) {$/;"	m	class:ResponseRead	file:
+getHWIdsSavedUnsubmitted	ResponseRead.java	/^	public static List<Integer> getHWIdsSavedUnsubmitted($/;"	m	class:ResponseRead
+getHWInstructor	HWRead.java	/^	static String getHWInstructor(Connection con, int hwId) $/;"	m	class:HWRead
+getHWs	HWRead.java	/^	private static List<Assgt> getHWs(Connection con, $/;"	m	class:HWRead	file:
+getHWs	HWRead.java	/^	public static Assgt[] getHWs(int[] hwIds) throws DBException {$/;"	m	class:HWRead
+getHWs	HWRead.java	/^	public static List<Assgt> getHWs(int courseId) throws DBException {$/;"	m	class:HWRead
+getHWs	HWRead.java	/^	static List<Assgt> getHWs(StringBuilder whereBld) throws DBException {$/;"	m	class:HWRead
+getHeader	TranslnRead.java	/^	public static String getHeader(int qSetId, String language) $/;"	m	class:TranslnRead
+getHeaders	QuestionRead.java	/^	private void getHeaders() throws DBException {$/;"	m	class:QuestionRead	file:
+getHumanGradingRequired	ResponseRead.java	/^	public static Map<Integer, ArrayList<String>> getHumanGradingRequired($/;"	m	class:ResponseRead
+getIfLocalSQLBld	QuestionRW.java	/^	private static StringBuilder getIfLocalSQLBld(QuestionRead qReader, $/;"	m	class:QuestionRW	file:
+getImageBlob	DataConversion.java	/^	private static Blob getImageBlob(Connection con, DBTables tables, $/;"	m	class:DataConversion	file:
+getImageExtension	TextbookRW.java	/^	public static String getImageExtension(int imgId) throws DBException {$/;"	m	class:TextbookRW
+getInstitution	InstitutionRW.java	/^	public static Institution getInstitution(String name) throws DBException {$/;"	m	class:InstitutionRW
+getInstitution	InstitutionRW.java	/^	public static Institution getInstitution(int id) throws DBException {$/;"	m	class:InstitutionRW
+getInstitutions	InstitutionRW.java	/^	private static Institution[] getInstitutions(boolean verifiedOnly) $/;"	m	class:InstitutionRW	file:
+getIntBunches	DBCommon.java	/^	protected static List<String> getIntBunches(List<Integer> items) {$/;"	m	class:DBCommon
+getIntBunches	DBCommon.java	/^	protected static List<String> getIntBunches(int[] items) {$/;"	m	class:DBCommon
+getIntBunchesPriv	DBCommon.java	/^	private static List<String> getIntBunchesPriv(List<Integer> items) {$/;"	m	class:DBCommon	file:
+getInventory	QuestionRW.java	/^	public static String[][] getInventory() {$/;"	m	class:QuestionRW
+getLanguages	UserRead.java	/^	public static String[] getLanguages(String userId) {$/;"	m	class:UserRead
+getLanguages	UserRead.java	/^	static String[] getLanguages(Connection con, String userId) {$/;"	m	class:UserRead
+getLatestPost	ForumRW.java	/^	public static ForumPost getLatestPost(int topicId) throws DBException {$/;"	m	class:ForumRW
+getLightQuestion	QuestionRW.java	/^	public static Question getLightQuestion(int qId, String instructorId) $/;"	m	class:QuestionRW
+getLimitsSQL	ResponseWrite.java	/^	private static StringBuilder getLimitsSQL(int hwId, int paramType) {$/;"	m	class:ResponseWrite	file:
+getLockedBooks	TextbookRW.java	/^	public static Textbook[] getLockedBooks(String instructorId) $/;"	m	class:TextbookRW
+getMarvinLivePort	CourseRW.java	/^	public static int getMarvinLivePort(int crsId) throws DBException {$/;"	m	class:CourseRW
+getModGradeSQL	ResponseWrite.java	/^	private static StringBuilder getModGradeSQL(int hwId, String studentId, $/;"	m	class:ResponseWrite	file:
+getModifiedGrade	ResponseRead.java	/^	static void getModifiedGrade(Connection con, int hwId, String studentId, $/;"	m	class:ResponseRead
+getModifiedGrades	ResponseRead.java	/^	static void getModifiedGrades(Connection con, int hwId, $/;"	m	class:ResponseRead
+getModifiedVersion	ResponseLogger.java	/^	private static String getModifiedVersion(int qType, long qFlags,$/;"	m	class:ResponseLogger	file:
+getMultirowInsertSQL	HWWrite.java	/^	private static String getMultirowInsertSQL(String table, $/;"	m	class:HWWrite	file:
+getName	ReactorResultsRW.java	/^	private static String getName(Connection con, int rxnId) $/;"	m	class:ReactorResultsRW	file:
+getName	ReactorResultsRW.java	/^	private static String getName(ConnectionHandler conHandler, int rxnId) $/;"	m	class:ReactorResultsRW	file:
+getNewImageId	ImageRW.java	/^	int getNewImageId() {$/;"	m	class:ImageRW
+getNoncoauthors	TextbookRW.java	/^	public static User[] getNoncoauthors(int instnId, int bookId) $/;"	m	class:TextbookRW
+getNoncoinstructors	CourseRW.java	/^	public static User[] getNoncoinstructors(int instnId, int crsId) $/;"	m	class:CourseRW
+getNumInstitutions	EnrollmentRW.java	/^	private static int getNumInstitutions(StringBuilder coursesBld) $/;"	m	class:EnrollmentRW	file:
+getNumInstitutions	EnrollmentRW.java	/^	public static int getNumInstitutions(List<Integer> courseIds) $/;"	m	class:EnrollmentRW
+getNumInstitutions	EnrollmentRW.java	/^	public static int getNumInstitutions(String instructorId) $/;"	m	class:EnrollmentRW
+getNumPostImages	ForumRW.java	/^	private static int getNumPostImages(Connection con) throws SQLException {$/;"	m	class:ForumRW	file:
+getNumPostImages	ForumRW.java	/^	private static int getNumPostImages(Connection con, boolean yearOld) $/;"	m	class:ForumRW	file:
+getNumPostImages	ForumRW.java	/^	public static int getNumPostImages() throws DBException {$/;"	m	class:ForumRW
+getNumQsInQSet	QSetRW.java	/^	public static int getNumQsInQSet(int qSetId, String authorId) {$/;"	m	class:QSetRW
+getNumTopics	ForumRW.java	/^	public static int getNumTopics(int courseId) throws DBException {$/;"	m	class:ForumRW
+getNumYearOldPostImages	ForumRW.java	/^	private static int getNumYearOldPostImages(Connection con) $/;"	m	class:ForumRW	file:
+getNumYearOldPostImages	ForumRW.java	/^	public static int getNumYearOldPostImages() throws DBException {$/;"	m	class:ForumRW
+getObsoleteInstructors	UserRead.java	/^	public static Map<String, String[][]> getObsoleteInstructors(int responseAge) $/;"	m	class:UserRead
+getObsoleteStudents	UserRead.java	/^	public static Map<String, String[][]> getObsoleteStudents(int responseAge, $/;"	m	class:UserRead
+getOneHWNullModGrades	ResponseRead.java	/^	static Map<String, EvalResult[]> getOneHWNullModGrades(Connection con, $/;"	m	class:ResponseRead
+getOneHWResults	ResponseRead.java	/^	private static Map<String, EvalResult[]> getOneHWResults($/;"	m	class:ResponseRead	file:
+getOneHWResults	ResponseRead.java	/^	public static Map<String, EvalResult[]> getOneHWResults(int hwId,$/;"	m	class:ResponseRead
+getOneUserData	UserRead.java	/^	private static User getOneUserData(ResultSet rs, boolean getDetails)$/;"	m	class:UserRead	file:
+getOneYearAgo	ForumRW.java	/^	private static String getOneYearAgo() {$/;"	m	class:ForumRW	file:
+getOrderSql	QuestionRW.java	/^	private static String getOrderSql(boolean byRemarks, boolean isLocal) {$/;"	m	class:QuestionRW	file:
+getOwnersOfCoauthoredBooksSQL	CourseRW.java	/^	private static StringBuilder getOwnersOfCoauthoredBooksSQL(String instructorId) {$/;"	m	class:CourseRW	file:
+getOwnersOfCoauthoredBooksSQL	TextbookRW.java	/^	static StringBuilder getOwnersOfCoauthoredBooksSQL(String instructorId) {$/;"	m	class:TextbookRW
+getPhraseId	TranslnRead.java	/^	public static Integer getPhraseId(String phrase) {$/;"	m	class:TranslnRead
+getPoolConnection	DBCommon.java	/^	protected static Connection getPoolConnection() throws SQLException {$/;"	m	class:DBCommon
+getPost	ForumRW.java	/^	public static ForumPost getPost(int postId) throws DBException {$/;"	m	class:ForumRW
+getPostImageFileName	ForumRW.java	/^	private static String getPostImageFileName(int postId, int figId, $/;"	m	class:ForumRW	file:
+getPosts	ForumRW.java	/^	private static ForumPost[] getPosts(Connection con, StringBuilder postBld) $/;"	m	class:ForumRW	file:
+getPosts	ForumRW.java	/^	private static ForumPost[] getPosts(Connection con, StringBuilder postBld, $/;"	m	class:ForumRW	file:
+getPosts	ForumRW.java	/^	private static ForumPost[] getPosts(StringBuilder postBld) $/;"	m	class:ForumRW	file:
+getPosts	ForumRW.java	/^	private static ForumPost[] getPosts(StringBuilder postBld, $/;"	m	class:ForumRW	file:
+getPosts	ForumRW.java	/^	public static ForumPost[] getPosts(int topicId) throws DBException {$/;"	m	class:ForumRW
+getPosts	ForumRW.java	/^	public static ForumPost[] getPosts(int topicId, int[] range) $/;"	m	class:ForumRW
+getPosts	ForumRW.java	/^	public static ForumPost[] getPosts(int[] postIds) throws DBException {$/;"	m	class:ForumRW
+getPosts	ForumRW.java	/^	public static Map<ForumTopic, ArrayList<ForumPost>> getPosts($/;"	m	class:ForumRW
+getPreenrollmentData	EnrollmentRW.java	/^	private static EnrollmentData getPreenrollmentData(ResultSet rs)$/;"	m	class:EnrollmentRW	file:
+getPreparedStmt	QuestionWrite.java	/^	private PreparedStatement getPreparedStmt(String table) throws SQLException {$/;"	m	class:QuestionWrite	file:
+getProcessDataBld	ResponseLogger.java	/^	private static StringBuilder getProcessDataBld() {$/;"	m	class:ResponseLogger	file:
+getQData	TranslnRead.java	/^	public static void getQData(List<Integer> qIds, String[][] qdTexts, $/;"	m	class:TranslnRead
+getQFromMap	QuestionRead.java	/^	private Question getQFromMap(int qId) 	{ return qMap.get(Integer.valueOf(qId)); }$/;"	m	class:QuestionRead	file:
+getQMap	QuestionRead.java	/^	Map<Integer, Question> getQMap() 		{ return qMap; }$/;"	m	class:QuestionRead
+getQSetDescr	QSetRW.java	/^	public static QSetDescr getQSetDescr(Connection con,$/;"	m	class:QSetRW
+getQSetDescr	QSetRW.java	/^	public static QSetDescr getQSetDescr(int qSetId) throws DBException {$/;"	m	class:QSetRW
+getQSetDescr	QSetRW.java	/^	public static QSetDescr getQSetDescr(int qSetId,$/;"	m	class:QSetRW
+getQSetIDbyQId	QSetRW.java	/^	public static int getQSetIDbyQId(int qId) {$/;"	m	class:QSetRW
+getQuestion	QuestionRW.java	/^	public static Question getQuestion(int qId, String instructorId) $/;"	m	class:QuestionRW
+getQuestion	QuestionRW.java	/^	public static Question getQuestion(int qId, String instructorId,$/;"	m	class:QuestionRW
+getQuestion	QuestionRW.java	/^	public static Question getQuestion(int qId, boolean addHeader)$/;"	m	class:QuestionRW
+getQuestion	QuestionRead.java	/^	Question getQuestion(int qId) throws DBException {$/;"	m	class:QuestionRead
+getQuestionFlags	QuestionRW.java	/^	public static long getQuestionFlags(int qId, String authorId) {$/;"	m	class:QuestionRW
+getQuestionFlags	QuestionRW.java	/^	public static long[] getQuestionFlags(int[] qIds, String authorId) {$/;"	m	class:QuestionRW
+getQuestionStatements	TranslnRead.java	/^	public static String[] getQuestionStatements(List<Integer> qIds,$/;"	m	class:TranslnRead
+getQuestionType	QuestionRW.java	/^	public static int getQuestionType(int qId, String authorId) {$/;"	m	class:QuestionRW
+getQuestions	HWRead.java	/^	public static Question[] getQuestions(int hwId, String userId)$/;"	m	class:HWRead
+getQuestions	HWRead.java	/^	public static Question[] getQuestions(int hwId, String userId,$/;"	m	class:HWRead
+getQuestions	QuestionRW.java	/^	public static List<Question> getQuestions(String book, String chapter) $/;"	m	class:QuestionRW
+getQuestions	QuestionRW.java	/^	public static List<Question> getQuestions(String book, String chapter, $/;"	m	class:QuestionRW
+getQuestions	QuestionRW.java	/^	public static List<Question> getQuestions(int qSetId) $/;"	m	class:QuestionRW
+getQuestions	QuestionRW.java	/^	public static List<Question> getQuestions(int qSetId, $/;"	m	class:QuestionRW
+getQuestions	QuestionRead.java	/^	List<Question> getQuestions(Connection connxn, String orderBy) $/;"	m	class:QuestionRead
+getQuestions	QuestionRead.java	/^	List<Question> getQuestions(String orderBy) throws DBException {$/;"	m	class:QuestionRead
+getQuestionsByKeywords	QuestionRW.java	/^	public static List<Question> getQuestionsByKeywords(String keywords) $/;"	m	class:QuestionRW
+getQuestionsByKeywords	QuestionRW.java	/^	public static List<Question> getQuestionsByKeywords(String keywords, $/;"	m	class:QuestionRW
+getQuestionsMap	QuestionRW.java	/^	static Map<Integer, Question> getQuestionsMap(Connection con, $/;"	m	class:QuestionRW
+getRGroupCollection	RGroupCollectionRW.java	/^	public static RGroupCollection getRGroupCollection(int rGroupColId) $/;"	m	class:RGroupCollectionRW
+getRGroups	RGroupCollectionRW.java	/^	public static String[] getRGroups(String[] rGroupCollIds) $/;"	m	class:RGroupCollectionRW
+getRespWithCount	ResponseLogger.java	/^	public String getRespWithCount(int count) {$/;"	m	class:MolCountTable
+getResponse	ResponseLogger.java	/^	public String getResponse(int respNum) { $/;"	m	class:MolCountTable
+getResponseSQL	ResponseWrite.java	/^	private static StringBuilder getResponseSQL(int hwId, $/;"	m	class:ResponseWrite	file:
+getResponses	ResponseLogger.java	/^	public static StoredResponse[] getResponses(int qId, String authorId,$/;"	m	class:ResponseLogger
+getResponses	ResponseLogger.java	/^	public static StoredResponse[] getResponses(int qId, int qType, long qFlags)$/;"	m	class:ResponseLogger
+getResult	ResponseRead.java	/^	public static EvalResult getResult(String studentId, int hwId, int qId) $/;"	m	class:ResponseRead
+getResults	ResponseRead.java	/^	public static EvalResult[] getResults(String studentId, int hwId, int qId) $/;"	m	class:ResponseRead
+getResults	ResponseRead.java	/^	public static Map<Integer, EvalResult> getResults(String studentId, $/;"	m	class:ResponseRead
+getResults	ResponseRead.java	/^	static EvalResult[] getResults(Connection con, String studentId, $/;"	m	class:ResponseRead
+getRxnCondition	SynthDataRW.java	/^	private static RxnCondition getRxnCondition(Connection con, $/;"	m	class:SynthDataRW	file:
+getRxnCondition	SynthDataRW.java	/^	public static RxnCondition getRxnCondition(int rxnId) $/;"	m	class:SynthDataRW
+getRxnConditionName	SynthDataRW.java	/^	static String getRxnConditionName(Connection con, int rxnId) {$/;"	m	class:SynthDataRW
+getSameStudentData	UserRead.java	/^	private static String[] getSameStudentData(Connection con, String data,$/;"	m	class:UserRead	file:
+getSameStudentEmails	UserRead.java	/^	static String[] getSameStudentEmails(Connection con, String email, $/;"	m	class:UserRead
+getSameStudentNums	UserRead.java	/^	static String[] getSameStudentNums(Connection con, String studentNum, $/;"	m	class:UserRead
+getSecurityAnswers	UserRead.java	/^	public static String[] getSecurityAnswers(String userId) {$/;"	m	class:UserRead
+getSelectedStudents	UserRead.java	/^	public static List<User> getSelectedStudents(String selector)$/;"	m	class:UserRead
+getSingletonData	QuestionRead.java	/^	private List<Question> getSingletonData(String orderBy) $/;"	m	class:QuestionRead	file:
+getStickyTopicIds	ForumRW.java	/^	private static List<Integer> getStickyTopicIds(Connection con, $/;"	m	class:ForumRW	file:
+getStmtIdOfIdenticalQStatements	QuestionWrite.java	/^	private int getStmtIdOfIdenticalQStatements(int qId, String statement) {$/;"	m	class:QuestionWrite	file:
+getStoredSubstns	ResponseRead.java	/^	private static Map<Integer, String[]> getStoredSubstns(Connection con, $/;"	m	class:ResponseRead	file:
+getStoredSubstns	ResponseRead.java	/^	private static Map<String, String[]> getStoredSubstns(Connection con, $/;"	m	class:ResponseRead	file:
+getStoredSubstns	ResponseRead.java	/^	public static Map<Integer, String[]> getStoredSubstns(int hwId,$/;"	m	class:ResponseRead
+getStoredSubstns	ResponseRead.java	/^	public static Map<String, String[]> getStoredSubstns(int hwId, int qId,$/;"	m	class:ResponseRead
+getStoredSubstns	ResponseRead.java	/^	public static String[] getStoredSubstns(int hwId, String studentId, $/;"	m	class:ResponseRead
+getStrBunches	DBCommon.java	/^	protected static List<String> getStrBunches(List<String> items) {$/;"	m	class:DBCommon
+getStrBunches	DBCommon.java	/^	protected static List<String> getStrBunches(String[] items) {$/;"	m	class:DBCommon
+getStrBunchesPriv	DBCommon.java	/^	private static List<String> getStrBunchesPriv(List<String> items) {$/;"	m	class:DBCommon	file:
+getStringBuilders	TextbookRW.java	/^	private static StringBuilder[] getStringBuilders(int numQryBlds) {$/;"	m	class:TextbookRW	file:
+getSubmitTimeSQL	ResponseWrite.java	/^	private static StringBuilder getSubmitTimeSQL(int hwId) {$/;"	m	class:ResponseWrite	file:
+getSumExtensions	HWRead.java	/^	public static double getSumExtensions(String studentId, int courseId) $/;"	m	class:HWRead
+getTAForCourseIds	EnrollmentRW.java	/^	public static List<Integer> getTAForCourseIds(String userId)$/;"	m	class:EnrollmentRW
+getTables	DBCommon.java	/^	protected static DBTables getTables(boolean local) {$/;"	m	class:DBCommon
+getTopic	ForumRW.java	/^	public static ForumTopic getTopic(int topicId) throws DBException {$/;"	m	class:ForumRW
+getTopicAuthors	ForumRW.java	/^	public static User[] getTopicAuthors(int topicId) throws DBException {$/;"	m	class:ForumRW
+getTopicIdByQId	QSetRW.java	/^	public static int getTopicIdByQId(int qId) {$/;"	m	class:QSetRW
+getTopicIdByQSetId	QSetRW.java	/^	public static int getTopicIdByQSetId(int qSetId) {$/;"	m	class:QSetRW
+getTopicIds	ForumRW.java	/^	private static List<Integer> getTopicIds(Connection con, $/;"	m	class:ForumRW	file:
+getTopicLinks	ForumRW.java	/^	public static Map<Integer, Integer> getTopicLinks(int hwId) $/;"	m	class:ForumRW
+getTopicNameById	QSetRW.java	/^	public static String getTopicNameById(int topicId) {$/;"	m	class:QSetRW
+getTopicOfPost	ForumRW.java	/^	public static ForumTopic getTopicOfPost(int postId) throws DBException {$/;"	m	class:ForumRW
+getTopics	ForumRW.java	/^	private static ForumTopic[] getTopics(String topicsQry) throws DBException {$/;"	m	class:ForumRW	file:
+getTopics	ForumRW.java	/^	private static ForumTopic[] getTopics(StringBuilder whereBld) $/;"	m	class:ForumRW	file:
+getTopics	ForumRW.java	/^	public static ForumTopic[] getTopics(List<Integer> topicIds) $/;"	m	class:ForumRW
+getTopics	ForumRW.java	/^	public static ForumTopic[] getTopics(int courseId, int[] range) $/;"	m	class:ForumRW
+getTopics	QSetRW.java	/^	private static List<Topic> getTopics(Connection con,$/;"	m	class:QSetRW	file:
+getTopics	QSetRW.java	/^	public static List<Topic> getTopics() throws DBException {$/;"	m	class:QSetRW
+getTopics	QSetRW.java	/^	public static List<Topic> getTopics(String instructorId)$/;"	m	class:QSetRW
+getTopicsOfPosts	ForumRW.java	/^	public static ForumTopic[] getTopicsOfPosts(int[] postIds) $/;"	m	class:ForumRW
+getTotalGrades	ResponseRead.java	/^	public static Map<String, double[]> getTotalGrades(int[] hwIds, $/;"	m	class:ResponseRead
+getTranslatedParts	TranslnRead.java	/^	static void getTranslatedParts(Statement stmt, List<Integer> phraseIds,$/;"	m	class:TranslnRead
+getTriesSQL	ResponseWrite.java	/^	private static StringBuilder getTriesSQL(int hwId) {$/;"	m	class:ResponseWrite	file:
+getUnitByName	CanonicalizedUnitRW.java	/^	public static CanonicalizedUnit getUnitByName(String name) $/;"	m	class:CanonicalizedUnitRW
+getUnitConversion	UnitConvertRW.java	/^	private static double[] getUnitConversion(Connection con, $/;"	m	class:UnitConvertRW	file:
+getUnitConversion	UnitConvertRW.java	/^	public static double[] getUnitConversion(String unitFrom,$/;"	m	class:UnitConvertRW
+getUnits	CanonicalizedUnitRW.java	/^	public static CanonicalizedUnit[] getUnits(String symbol) $/;"	m	class:CanonicalizedUnitRW
+getUnits	CanonicalizedUnitRW.java	/^	public static CanonicalizedUnit[] getUnits(StringBuilder whereBld) $/;"	m	class:CanonicalizedUnitRW
+getUnits	CanonicalizedUnitRW.java	/^	public static CanonicalizedUnit[] getUnits(String[] properties) $/;"	m	class:CanonicalizedUnitRW
+getUser	UserRead.java	/^	public static User getUser(String userId) throws DBException {$/;"	m	class:UserRead
+getUsers	UserRead.java	/^	public static User[] getUsers(String[] userIds) throws DBException {$/;"	m	class:UserRead
+getUsers	UserRead.java	/^	static List<User> getUsers(StringBuilder whereBld, boolean getDetails) $/;"	m	class:UserRead
+getVerifiedInstitutions	InstitutionRW.java	/^	public static Institution[] getVerifiedInstitutions() throws DBException {$/;"	m	class:InstitutionRW
+getWatched	ForumRW.java	/^	public static void getWatched(String studentId, ForumTopic[] topics) $/;"	m	class:ForumRW
+getWatcherTextMessageEmails	ForumRW.java	/^	public static String[] getWatcherTextMessageEmails(int topicId,$/;"	m	class:ForumRW
+greatest	DBCommon.java	/^	protected static String greatest(String item) { $/;"	m	class:DBCommon
+greatest	DBCommon.java	/^	protected static StringBuilder greatest(StringBuilder bld) { $/;"	m	class:DBCommon
+hasMastered	ResponseRead.java	/^	public static boolean hasMastered(String studentId, int hwId) $/;"	m	class:ResponseRead
+haveResponses	ResponseRead.java	/^	public static boolean haveResponses(int hwId, List<Integer> qIds) $/;"	m	class:ResponseRead
+headers	QuestionRead.java	/^	final private Map<Integer, String> headers = new HashMap<Integer, String>();$/;"	f	class:QuestionRead	file:
+ifLocalAndQAuthorIs	QuestionWrite.java	/^	private final StringBuilder ifLocalAndQAuthorIs = new StringBuilder();$/;"	f	class:QuestionWrite	file:
+ignoreDiacritics	DBCommon.java	/^	protected static StringBuilder ignoreDiacritics(String item) { $/;"	m	class:DBCommon
+ignoreDiacritics	DBCommon.java	/^	protected static StringBuilder ignoreDiacritics(StringBuilder item) { $/;"	m	class:DBCommon
+incrementCount	ResponseLogger.java	/^	public void incrementCount(int respNum) { $/;"	m	class:MolCountTable
+indexOfMol	ResponseLogger.java	/^	public int indexOfMol(String newResponse, int qType, long qFlags) {$/;"	m	class:MolCountTable
+initiate	QuestionWrite.java	/^	private void initiate(String authId) {$/;"	m	class:QuestionWrite	file:
+insertWhereNotAlready	DBCommon.java	/^	protected static StringBuilder insertWhereNotAlready(String table,$/;"	m	class:DBCommon
+instructorId	QuestionRead.java	/^	private String instructorId = MASTER_AUTHOR;$/;"	f	class:QuestionRead	file:
+isBlocked	ForumRW.java	/^	public static boolean isBlocked(int courseId, String studentId) $/;"	m	class:ForumRW
+isEmpty	DBCommon.java	/^	protected static boolean isEmpty(Object[] arr) {$/;"	m	class:DBCommon
+isEmpty	DBCommon.java	/^	protected static boolean isEmpty(String str) {$/;"	m	class:DBCommon
+isEmpty	DBCommon.java	/^	protected static boolean isEmpty(byte[] arr) {$/;"	m	class:DBCommon
+isEmpty	DBCommon.java	/^	protected static boolean isEmpty(int[] arr) {$/;"	m	class:DBCommon
+isExamStudent	UserRead.java	/^	public static boolean isExamStudent(String userId) throws DBException {$/;"	m	class:UserRead
+isExamStudent	UserRead.java	/^	static boolean isExamStudent(Connection con, String userId)$/;"	m	class:UserRead
+isLocal	QuestionRead.java	/^	boolean isLocal() 						{ return instructorId != MASTER_AUTHOR; }$/;"	m	class:QuestionRead
+isRegdACEUser	UserRead.java	/^	public static boolean isRegdACEUser(String userId, String email, $/;"	m	class:UserRead
+isUsed	ImageRW.java	/^	static boolean isUsed(Connection con, String imgFile) throws SQLException {$/;"	m	class:ImageRW
+join	DBCommon.java	/^	private static StringBuilder join(char[] items) {$/;"	m	class:DBCommon	file:
+join	DBCommon.java	/^	private static StringBuilder join(char[] items, String separator) {$/;"	m	class:DBCommon	file:
+join	DBCommon.java	/^	protected static <L> String join(List<L> items) {$/;"	m	class:DBCommon
+join	DBCommon.java	/^	protected static <L> String join(List<L> items, String separator) {$/;"	m	class:DBCommon
+join	DBCommon.java	/^	protected static StringBuilder join(Object[] items) {$/;"	m	class:DBCommon
+join	DBCommon.java	/^	protected static StringBuilder join(Object[] items, String separator) {$/;"	m	class:DBCommon
+join	DBCommon.java	/^	protected static StringBuilder join(int[] items) {$/;"	m	class:DBCommon
+join	DBCommon.java	/^	protected static StringBuilder join(int[] items, String separator) {$/;"	m	class:DBCommon
+joinAll	DBCommon.java	/^	protected static StringBuilder joinAll(Object... items) {$/;"	m	class:DBCommon
+length	DBCommon.java	/^	protected static String length(String item) { $/;"	m	class:DBCommon
+length	DBCommon.java	/^	protected static StringBuilder length(StringBuilder item) { $/;"	m	class:DBCommon
+letSeeSynthCalcdProds	EnrollmentRW.java	/^	public static void letSeeSynthCalcdProds(int courseId) throws DBException {$/;"	m	class:EnrollmentRW
+listBooks	QSetRW.java	/^	public static List<String> listBooks() throws DBException {$/;"	m	class:QSetRW
+listChapters	QSetRW.java	/^	public static List<String> listChapters(String book) throws DBException {$/;"	m	class:QSetRW
+listQuestions	QSetRW.java	/^	public static List<Integer> listQuestions(String book, String chapter)$/;"	m	class:QSetRW
+lobToString	DataConversion.java	/^	private static String lobToString(ResultSet rs, String field) {$/;"	m	class:DataConversion	file:
+local	DBTables.java	/^	boolean local = false;$/;"	f	class:DBTables
+logExamEntry	ResponseLogger.java	/^	public static void logExamEntry(int examId, String studentName,$/;"	m	class:ResponseLogger
+logExamResponse	ResponseLogger.java	/^	public static void logExamResponse(int examId, int qNum,$/;"	m	class:ResponseLogger
+logResponse	ResponseLogger.java	/^	public static void logResponse(int qId, int qType, long qFlags, $/;"	m	class:ResponseLogger
+logResponse	ResponseLogger.java	/^	public static void logResponse(int qId, int qType, long qFlags, String response)$/;"	m	class:ResponseLogger
+loginExists	UserRead.java	/^	public static boolean loginExists(String userId) throws DBException {$/;"	m	class:UserRead
+loginExists	UserRead.java	/^	static boolean loginExists(Connection con, String userId)$/;"	m	class:UserRead
+makeGroup	FnalGroupDefRW.java	/^	private static FnalGroupDef makeGroup(ResultSet rs) throws SQLException {$/;"	m	class:FnalGroupDefRW	file:
+makeImageFileName	TextbookRW.java	/^	private static boolean makeImageFileName(Connection con, Textbook book, $/;"	m	class:TextbookRW	file:
+makeNewHWQsTable	DataConversion.java	/^	public static void makeNewHWQsTable() throws DBException {$/;"	m	class:DataConversion
+makeNewQDependenciesTable	DataConversion.java	/^	public static void makeNewQDependenciesTable() throws DBException {$/;"	m	class:DataConversion
+makeTableFriendly	ResponseLogger.java	/^	private static String makeTableFriendly(String resp) {$/;"	m	class:ResponseLogger	file:
+max	DBCommon.java	/^	protected static String max(String item) { $/;"	m	class:DBCommon
+max	DBCommon.java	/^	protected static String max(char item) { $/;"	m	class:DBCommon
+max	DBCommon.java	/^	protected static StringBuilder max(StringBuilder bld) { $/;"	m	class:DBCommon
+maySeeSynthCalcdProds	UserRead.java	/^	public static boolean maySeeSynthCalcdProds(String userId) $/;"	m	class:UserRead
+min	DBCommon.java	/^	protected static String min(String item) { $/;"	m	class:DBCommon
+min	DBCommon.java	/^	protected static StringBuilder min(StringBuilder bld) { $/;"	m	class:DBCommon
+modifyItem	TranslnRead.java	/^	private static void modifyItem(List<String[]> translations,$/;"	m	class:TranslnRead	file:
+modifyTAs	EnrollmentRW.java	/^	public static void modifyTAs(int courseId, List<String> userIds,$/;"	m	class:EnrollmentRW
+moveQtoNewQset	QuestionRW.java	/^	public static void moveQtoNewQset(int[] qIds, int qSetId, boolean qIsLocal) $/;"	m	class:QuestionRW
+nextSequence	DBCommon.java	/^	protected static int nextSequence(Connection con, String sequencer) {$/;"	m	class:DBCommon
+orderByClob	DBCommon.java	/^	protected static StringBuilder orderByClob(String field) { $/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static <L> StringBuilder parens(List<L> items) {$/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static <L> StringBuilder parens(Set<L> items) {$/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static String parens(String item) { $/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static String parens(char item) { $/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static String parens(int item) { $/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static StringBuilder parens(Collection<Object> items) {$/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static StringBuilder parens(Object[] items) {$/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static StringBuilder parens(StringBuilder item) { $/;"	m	class:DBCommon
+parens	DBCommon.java	/^	protected static StringBuilder parens(int[] items) {$/;"	m	class:DBCommon
+parensBuild	DBCommon.java	/^	protected static StringBuilder parensBuild(Object... items) {$/;"	m	class:DBCommon
+parensJoin	DBCommon.java	/^	protected static StringBuilder parensJoin(Object... items) {$/;"	m	class:DBCommon
+parensJoinQuotes	DBCommon.java	/^	protected static StringBuilder parensJoinQuotes(Object... items) {$/;"	m	class:DBCommon
+parensQuotes	DBCommon.java	/^	protected static StringBuilder parensQuotes(List<String> items) {$/;"	m	class:DBCommon
+parensQuotes	DBCommon.java	/^	protected static StringBuilder parensQuotes(Object[] items) {$/;"	m	class:DBCommon
+percent	DBCommon.java	/^	protected static String percent(String item) { $/;"	m	class:DBCommon
+percent	DBCommon.java	/^	protected static String percent(int item) { $/;"	m	class:DBCommon
+percent	DBCommon.java	/^	protected static StringBuilder percent(StringBuilder item) { $/;"	m	class:DBCommon
+populateEvalResult	ResponseRead.java	/^	private static EvalResult populateEvalResult(ResultSet rs) { $/;"	m	class:ResponseRead	file:
+populateEvalResult	ResponseRead.java	/^	private static EvalResult populateEvalResult(ResultSet rs,$/;"	m	class:ResponseRead	file:
+postjoin	DBCommon.java	/^	protected static StringBuilder postjoin(Object... items) {$/;"	m	class:DBCommon
+prejoin	DBCommon.java	/^	protected static StringBuilder prejoin(Object... items) {$/;"	m	class:DBCommon
+prepareStatements	TextbookRW.java	/^	private void prepareStatements(StringBuilder[] qryBlds, String[] qrys, $/;"	m	class:TextbookRW	file:
+processSingletonData	QuestionWrite.java	/^	private void processSingletonData(int qId, int setId) throws SQLException {$/;"	m	class:QuestionWrite	file:
+putEvalText	QuestionRW.java	/^	public static void putEvalText(String key, String text, boolean local)$/;"	m	class:QuestionRW
+putFeedback	QuestionRW.java	/^	public static void putFeedback(String key, String feedback, boolean local)$/;"	m	class:QuestionRW
+putHeader	QSetRW.java	/^	public static void putHeader(String key, String header) throws DBException {$/;"	m	class:QSetRW
+putOne	DataConversion.java	/^	public static void putOne(int phraseId, String xlatn, String language)$/;"	m	class:DataConversion
+putQData	QuestionRW.java	/^	public static void putQData(String qDataId, String qData, boolean local)$/;"	m	class:QuestionRW
+putStatement	QuestionRW.java	/^	public static void putStatement(String qId, String statement, boolean local)$/;"	m	class:QuestionRW
+qId	ResponseLogger.java	/^	private final int qId;$/;"	f	class:MolCountTable	file:
+qIdSelector	QuestionRead.java	/^	private String qIdSelector;$/;"	f	class:QuestionRead	file:
+qMap	QuestionRead.java	/^	final private Map<Integer, Question> qMap = $/;"	f	class:QuestionRead	file:
+question	QuestionWrite.java	/^	private Question question;$/;"	f	class:QuestionWrite	file:
+quotes	DBCommon.java	/^	protected static String quotes(String item) { $/;"	m	class:DBCommon
+quotes	DBCommon.java	/^	protected static String quotes(char item) { $/;"	m	class:DBCommon
+quotes	DBCommon.java	/^	protected static String quotes(int item) { $/;"	m	class:DBCommon
+quotes	DBCommon.java	/^	protected static StringBuilder quotes(StringBuilder item) { $/;"	m	class:DBCommon
+recalculateModifiedGrades	ResponseWrite.java	/^	private static void recalculateModifiedGrades(Connection con, int hwId, $/;"	m	class:ResponseWrite	file:
+recalculateModifiedGrades	ResponseWrite.java	/^	static void recalculateModifiedGrades(Connection con, int hwId) $/;"	m	class:ResponseWrite
+recalculateModifiedGrades	ResponseWrite.java	/^	static void recalculateModifiedGrades(Connection con, int hwId,$/;"	m	class:ResponseWrite
+reduceExtension	HWWrite.java	/^	private static StringBuilder reduceExtension(String timeStr) {$/;"	m	class:HWWrite	file:
+reduceExtension	HWWrite.java	/^	private static StringBuilder reduceExtension(double time) {$/;"	m	class:HWWrite	file:
+reduceExtensions	HWWrite.java	/^	private static void reduceExtensions(Connection con, Assgt assgt, $/;"	m	class:HWWrite	file:
+refreshDueData	HWRead.java	/^	public static void refreshDueData(Assgt assgt) throws DBException {$/;"	m	class:HWRead
+regexp_instr	DBCommon.java	/^	protected static StringBuilder regexp_instr(String field, $/;"	m	class:DBCommon
+regexp_instr	DBCommon.java	/^	protected static StringBuilder regexp_instr(String field, String regExp) { $/;"	m	class:DBCommon
+regexp_replace	DBCommon.java	/^	protected static String regexp_replace(String field, String regExp, $/;"	m	class:DBCommon
+regexp_replace	DBCommon.java	/^	protected static StringBuilder regexp_replace(String field, $/;"	m	class:DBCommon
+regexp_replace	DBCommon.java	/^	protected static StringBuilder regexp_replace(StringBuilder field, $/;"	m	class:DBCommon
+regexp_substr	DBCommon.java	/^	protected static StringBuilder regexp_substr(String field, String regExp, $/;"	m	class:DBCommon
+removeCoauthor	TextbookRW.java	/^	public static void removeCoauthor(int bookId, String userId) $/;"	m	class:TextbookRW
+removeCoinstructor	CourseRW.java	/^	public static void removeCoinstructor(int courseId, String instructorId)$/;"	m	class:CourseRW
+removeCourse	CourseRW.java	/^	public static void removeCourse(int courseId) throws DBException {$/;"	m	class:CourseRW
+removeCourses	CourseRW.java	/^	public static void removeCourses(int[] courseIds) throws DBException {$/;"	m	class:CourseRW
+removeCourses	CourseRW.java	/^	static void removeCourses(Connection con, StringBuilder courseIds) $/;"	m	class:CourseRW
+removeDependenciesOn	HWWrite.java	/^	private static void removeDependenciesOn(Connection con, StringBuilder ids) $/;"	m	class:HWWrite	file:
+removeDependenciesOn	HWWrite.java	/^	private static void removeDependenciesOn(Connection con, int id) $/;"	m	class:HWWrite	file:
+removeDependenciesOn	HWWrite.java	/^	public static void removeDependenciesOn(int id) throws DBException {$/;"	m	class:HWWrite
+removeLanguage	UserWrite.java	/^	public static void removeLanguage(String userId, int removePosn)$/;"	m	class:UserWrite
+removeLocalHeader	QSetRW.java	/^	public static void removeLocalHeader(String authorId, int qSetId)$/;"	m	class:QSetRW
+removeNewlines	ResponseLogger.java	/^	private static String removeNewlines(String str) {$/;"	m	class:ResponseLogger	file:
+removeResponse	ResponseLogger.java	/^	public void removeResponse(int respNum) {$/;"	m	class:MolCountTable
+removeUnit	CanonicalizedUnitRW.java	/^	public static void removeUnit(String unitSymbol, String unitName) $/;"	m	class:CanonicalizedUnitRW
+removeUnitConversion	UnitConvertRW.java	/^	private static void removeUnitConversion(Connection con, $/;"	m	class:UnitConvertRW	file:
+removeUnitConversion	UnitConvertRW.java	/^	public static void removeUnitConversion(String unitFrom,$/;"	m	class:UnitConvertRW
+removeUser	UserWrite.java	/^	public static void removeUser(String userId) throws DBException {$/;"	m	class:UserWrite
+removeUsers	UserWrite.java	/^	public static void removeUsers(String[] userIds) throws DBException {$/;"	m	class:UserWrite
+renameImageFile	ImageRW.java	/^	static void renameImageFile(String currentLocation, String newLocation) $/;"	m	class:ImageRW
+renameImageFiles	ImageRW.java	/^	static void renameImageFiles(Connection con, List<String[]> renameImages) $/;"	m	class:ImageRW
+renumberMoved	QuestionWrite.java	/^	private void renumberMoved(String table, Map<Integer, Integer> movedIds)$/;"	m	class:QuestionWrite	file:
+reorderHWs	HWWrite.java	/^	public static void reorderHWs(List<Assgt> assgts) $/;"	m	class:HWWrite
+reorderQSets	QSetRW.java	/^	public static void reorderQSets(Topic topic) throws DBException {$/;"	m	class:QSetRW
+replace	DataConversion.java	/^	private static String replace(String field, String srchStr, $/;"	m	class:DataConversion	file:
+responses	ResponseLogger.java	/^	private List<String> responses;$/;"	f	class:MolCountTable	file:
+restoreNewlines	ResponseLogger.java	/^	private static String restoreNewlines(String str) {$/;"	m	class:ResponseLogger	file:
+rewriteAssignedQuestions	HWWrite.java	/^	private static void rewriteAssignedQuestions(Connection con, int hwId,$/;"	m	class:HWWrite	file:
+rewriteAssignedQuestions	HWWrite.java	/^	public static void rewriteAssignedQuestions(String studentId, int hwId, $/;"	m	class:HWWrite
+rollbackConnection	DBCommon.java	/^	protected static void rollbackConnection(Connection con) {$/;"	m	class:DBCommon
+runUpdates	TextbookRW.java	/^	private static void runUpdates(Connection con, String SELF, $/;"	m	class:TextbookRW	file:
+runUpdates	TextbookRW.java	/^	private static void runUpdates(String SELF, StringBuilder[] qryBlds) $/;"	m	class:TextbookRW	file:
+saveBadSM	SynthDataRW.java	/^	public static void saveBadSM(String[] badSM, String oldName) $/;"	m	class:SynthDataRW
+saveFnalGroupDef	FnalGroupDefRW.java	/^	public static void saveFnalGroupDef(FnalGroupDef fnalGrpDef)$/;"	m	class:FnalGroupDefRW
+saveMenuOnlyRgt	SynthDataRW.java	/^	public static void saveMenuOnlyRgt(String[] menuOnlyRgt, String oldName) $/;"	m	class:SynthDataRW
+serialVersionUID	ResponseLogger.java	/^	private static final long serialVersionUID = 591166858765853377L;$/;"	f	class:MolCountTable	file:
+serialVersionUID	SortIgnoreCase.java	/^	static final long serialVersionUID = 42L;$/;"	f	class:SortIgnoreCase
+setAllStudentsToWatchStickyTopic	ForumRW.java	/^	private static void setAllStudentsToWatchStickyTopic(Connection con, $/;"	m	class:ForumRW	file:
+setAllowedIPAddresses	CourseRW.java	/^	public static void setAllowedIPAddresses(int courseId, $/;"	m	class:CourseRW
+setAllowedRxnCondns	HWRead.java	/^	private static void setAllowedRxnCondns(Connection con, $/;"	m	class:HWRead	file:
+setAssgtDependency	HWWrite.java	/^	public static void setAssgtDependency(int dependentHWId, $/;"	m	class:HWWrite
+setAssgtEntryDate	HWWrite.java	/^	private static void setAssgtEntryDate(Connection con, int hwId,$/;"	m	class:HWWrite	file:
+setAssgtEntryDate	HWWrite.java	/^	public static void setAssgtEntryDate(int hwId, String userId, $/;"	m	class:HWWrite
+setAssgtQGroups	HWRead.java	/^	private static void setAssgtQGroups(Connection con, List<Assgt> assgts,$/;"	m	class:HWRead	file:
+setBook	TextbookRW.java	/^	private List<String> setBook() throws DBException, SQLException {$/;"	m	class:TextbookRW	file:
+setCaptions	QuestionRead.java	/^	private void setCaptions(List<Integer> captionQIds) $/;"	m	class:QuestionRead	file:
+setCount	ResponseLogger.java	/^	public void setCount(int respNum, int count) { $/;"	m	class:MolCountTable
+setCourse	CourseRW.java	/^	public static void setCourse(Course course) throws DBException {$/;"	m	class:CourseRW
+setCoursePassword	CourseRW.java	/^	public static void setCoursePassword(Course course) throws DBException {$/;"	m	class:CourseRW
+setCourseSerialNos	CourseRW.java	/^	public static void setCourseSerialNos(List<Course> courses, $/;"	m	class:CourseRW
+setCourseSerialNos	EnrollmentRW.java	/^	public static void setCourseSerialNos(List<Course> courses, $/;"	m	class:EnrollmentRW
+setExtension	HWWrite.java	/^	public static void setExtension(String studentId, int courseId, int hwId, $/;"	m	class:HWWrite
+setExtensions	HWRead.java	/^	private static void setExtensions(Connection con, List<Assgt> assgts,$/;"	m	class:HWRead	file:
+setFeedbacks	TranslnWrite.java	/^	public static void setFeedbacks(String[] qId_MajorIds,$/;"	m	class:TranslnWrite
+setFigures	QuestionRead.java	/^	private void setFigures() throws DBException {$/;"	m	class:QuestionRead	file:
+setFirstEntry	EnrollmentRW.java	/^	public static void setFirstEntry(int courseId, String studentId) $/;"	m	class:EnrollmentRW
+setFlags	CourseRW.java	/^	public static void setFlags(Course[] courses) throws DBException {$/;"	m	class:CourseRW
+setFlags	HWWrite.java	/^	public static void setFlags(Assgt assgt) throws DBException {$/;"	m	class:HWWrite
+setGradingParams	HWRead.java	/^	private static void setGradingParams(Connection con, $/;"	m	class:HWRead	file:
+setHW	HWWrite.java	/^	public static void setHW(Assgt assgt, boolean editorPage1) throws DBException {$/;"	m	class:HWWrite
+setHWMerger	HWWrite.java	/^	public static void setHWMerger(Assgt mergedAssgt, int[] otherAssgtIds) $/;"	m	class:HWWrite
+setHWPage1	HWWrite.java	/^	private static void setHWPage1(Connection con, Assgt newAssgt) $/;"	m	class:HWWrite	file:
+setHWPage2	HWWrite.java	/^	private static void setHWPage2(Connection con, Assgt assgt) $/;"	m	class:HWWrite	file:
+setHeader	TranslnWrite.java	/^	public static void setHeader(int qSetId, String translation,$/;"	m	class:TranslnWrite
+setId	QuestionWrite.java	/^	private int setId;$/;"	f	class:QuestionWrite	file:
+setInstitutionStudentNumLabel	InstitutionRW.java	/^	static void setInstitutionStudentNumLabel(Connection con,$/;"	m	class:InstitutionRW
+setLanguageOrder	UserWrite.java	/^	private static void setLanguageOrder(Connection con, String userId,$/;"	m	class:UserWrite	file:
+setLanguageOrder	UserWrite.java	/^	public static void setLanguageOrder(String userId, int[] newOrder)$/;"	m	class:UserWrite
+setLockHolder	TextbookRW.java	/^	public static void setLockHolder(int bookId, String userId) $/;"	m	class:TextbookRW
+setMarvinLivePort	CourseRW.java	/^	public static void setMarvinLivePort(int crsId, int port) $/;"	m	class:CourseRW
+setMayNotSeeSynthCalcdProds	UserWrite.java	/^	public static void setMayNotSeeSynthCalcdProds(String userId) $/;"	m	class:UserWrite
+setPassword	UserWrite.java	/^	private static void setPassword(Connection con, User user) throws SQLException {$/;"	m	class:UserWrite	file:
+setPassword	UserWrite.java	/^	public static void setPassword(User user) throws DBException {$/;"	m	class:UserWrite
+setPhrases	TranslnWrite.java	/^	public static void setPhrases(List<String[]> phrasesTranslns,$/;"	m	class:TranslnWrite
+setPtsPerQ	HWWrite.java	/^	private static void setPtsPerQ(Connection con, Assgt newAssgt) $/;"	m	class:HWWrite	file:
+setQData	QuestionRead.java	/^	private void setQData() throws DBException {$/;"	m	class:QuestionRead	file:
+setQData	TranslnWrite.java	/^	public static void setQData(String[] qIds_SerialNos,$/;"	m	class:TranslnWrite
+setQDependencies	HWWrite.java	/^	private static void setQDependencies(Connection con, Assgt newAssgt) $/;"	m	class:HWWrite	file:
+setQIdSelector	QuestionRead.java	/^	void setQIdSelector(String selector) 	{ qIdSelector = selector; }$/;"	m	class:QuestionRead
+setQMap	QuestionRead.java	/^	private void setQMap(List<Question> qList) {$/;"	m	class:QuestionRead	file:
+setQSerialNos	QuestionRW.java	/^	public static void setQSerialNos(int[] qIds, String authorId) $/;"	m	class:QuestionRW
+setQSerialNos	QuestionWrite.java	/^	void setQSerialNos(int[] qIds) throws DBException {$/;"	m	class:QuestionWrite
+setQSetDescr	QSetRW.java	/^	public static void setQSetDescr(QSetDescr qSet)$/;"	m	class:QSetRW
+setQSetDescr	QSetRW.java	/^	public static void setQSetDescr(QSetDescr qSet,$/;"	m	class:QSetRW
+setQuestion	QuestionRW.java	/^	public static Question setQuestion(Question question) throws DBException {$/;"	m	class:QuestionRW
+setQuestion	QuestionRW.java	/^	public static Question setQuestion(Question question, String authorId) $/;"	m	class:QuestionRW
+setQuestion	QuestionWrite.java	/^	Question setQuestion() throws DBException {$/;"	m	class:QuestionWrite
+setQuestionStatements	TranslnWrite.java	/^	public static void setQuestionStatements(int[] qIds, $/;"	m	class:TranslnWrite
+setRGroupCollection	RGroupCollectionRW.java	/^	public static void setRGroupCollection(RGroupCollection rGroupCol) $/;"	m	class:RGroupCollectionRW
+setRegradedResults	ResponseWrite.java	/^	public static Map<String, EvalResult> setRegradedResults(int hwId, $/;"	m	class:ResponseWrite
+setResult	ResponseWrite.java	/^	private static void setResult(Connection con, String studentId, int hwId, $/;"	m	class:ResponseWrite	file:
+setResult	ResponseWrite.java	/^	public static void setResult(String studentId, int hwId, int qNum, $/;"	m	class:ResponseWrite
+setResult	ResponseWrite.java	/^	public static void setResult(String studentId, int hwId, int qNum, int qId,$/;"	m	class:ResponseWrite
+setRxnCondition	SynthDataRW.java	/^	private static void setRxnCondition(Connection con,$/;"	m	class:SynthDataRW	file:
+setRxnCondition	SynthDataRW.java	/^	public static void setRxnCondition(RxnCondition rxnCondn) $/;"	m	class:SynthDataRW
+setSameHeaderPhraseIds	TranslnWrite.java	/^	private static void setSameHeaderPhraseIds(Connection con, $/;"	m	class:TranslnWrite	file:
+setSecurityAnswers	UserWrite.java	/^	public static void setSecurityAnswers(String userId, $/;"	m	class:UserWrite
+setStudentToWatchStickyTopics	ForumRW.java	/^	static void setStudentToWatchStickyTopics(Connection con, $/;"	m	class:ForumRW
+setStudentsToWatchStickyTopics	ForumRW.java	/^	private static void setStudentsToWatchStickyTopics(Connection con, $/;"	m	class:ForumRW	file:
+setStudentsToWatchStickyTopics	ForumRW.java	/^	static void setStudentsToWatchStickyTopics(Connection con, $/;"	m	class:ForumRW
+setTables	QuestionRead.java	/^	private void setTables() 				{ tables = getTables(isLocal()); }$/;"	m	class:QuestionRead	file:
+setToMaster	QuestionRead.java	/^	void setToMaster() { $/;"	m	class:QuestionRead
+setTopic	ForumRW.java	/^	public static void setTopic(int topicId, String title, boolean stickiness)$/;"	m	class:ForumRW
+setTopic	QSetRW.java	/^	public static void setTopic(int topicId, Topic topic) throws DBException {$/;"	m	class:QSetRW
+setTranslations	TranslnWrite.java	/^	private static void setTranslations(Connection con, $/;"	m	class:TranslnWrite	file:
+setUnit	CanonicalizedUnitRW.java	/^	public static boolean setUnit(CanonicalizedUnit unit) {$/;"	m	class:CanonicalizedUnitRW
+setUnitConversion	UnitConvertRW.java	/^	private static void setUnitConversion(Connection con, $/;"	m	class:UnitConvertRW	file:
+setUnitConversion	UnitConvertRW.java	/^	public static void setUnitConversion(String unitFrom, $/;"	m	class:UnitConvertRW
+setUser	UserWrite.java	/^	public static void setUser(User user) throws DBException,$/;"	m	class:UserWrite
+setUserFlags	UserWrite.java	/^	public static void setUserFlags(User user) throws DBException {$/;"	m	class:UserWrite
+setWatched	ForumRW.java	/^	public static void setWatched(String userId, int topicId, boolean watch) $/;"	m	class:ForumRW
+showMolCountTable	ResponseLogger.java	/^	public void showMolCountTable() {$/;"	m	class:MolCountTable
+size	ResponseLogger.java	/^	public int size() { $/;"	m	class:MolCountTable
+slash	DataConversion.java	/^	private static String slash(String str) {$/;"	m	class:DataConversion	file:
+slash	DataConversion.java	/^	private static String slash(int num) {$/;"	m	class:DataConversion	file:
+splitCaptions	DataConversion.java	/^	public static void splitCaptions() throws DBException {$/;"	m	class:DataConversion
+sqlIgnoreCase	QuestionRW.java	/^	private static String sqlIgnoreCase(String str) {$/;"	m	class:QuestionRW	file:
+statusIsEOrH	ResponseRead.java	/^	private static StringBuilder statusIsEOrH() {$/;"	m	class:ResponseRead	file:
+storeAssignedQuestions	HWWrite.java	/^	private static void storeAssignedQuestions(Connection con, int hwId,$/;"	m	class:HWWrite	file:
+storeAssignedQuestions	HWWrite.java	/^	static void storeAssignedQuestions(Connection con, int hwId, $/;"	m	class:HWWrite
+storeSubstns	ResponseWrite.java	/^	public static void storeSubstns(int hwId, String studentId, int qId,$/;"	m	class:ResponseWrite
+storeTranslations	TranslnWrite.java	/^	private static void storeTranslations(Connection con, int phraseId,$/;"	m	class:TranslnWrite	file:
+stringIntoBlob	DataConversion.java	/^	private static void stringIntoBlob(Connection con, String query, $/;"	m	class:DataConversion	file:
+studentNumExists	UserRead.java	/^	public static boolean studentNumExists(String studentNum,$/;"	m	class:UserRead
+sum	DBCommon.java	/^	protected static String sum(String item) { $/;"	m	class:DBCommon
+sum	DBCommon.java	/^	protected static String sum(char item) { $/;"	m	class:DBCommon
+sum	DBCommon.java	/^	protected static StringBuilder sum(StringBuilder bld) { $/;"	m	class:DBCommon
+table	TranslnRead.java	/^	private static final DBTables table = new DBTables();$/;"	f	class:TranslnRead	file:
+table	TranslnWrite.java	/^	private static final DBTables table = new DBTables();$/;"	f	class:TranslnWrite	file:
+tables	ImageRW.java	/^	final private DBTables tables;$/;"	f	class:ImageRW	file:
+tables	QuestionRead.java	/^	DBTables tables() 						{ return tables; }$/;"	m	class:QuestionRead
+tables	QuestionRead.java	/^	private DBTables tables;$/;"	f	class:QuestionRead	file:
+tables	QuestionWrite.java	/^	private DBTables tables;$/;"	f	class:QuestionWrite	file:
+toDate	DBCommon.java	/^	protected static Date toDate(String dateStr) { $/;"	m	class:DBCommon
+toDate	DBCommon.java	/^	protected static StringBuilder toDate(String dateStr, String dateFormat) { $/;"	m	class:DBCommon
+toNumber	DBCommon.java	/^	protected static String toNumber(String item) { $/;"	m	class:DBCommon
+toNumber	DBCommon.java	/^	protected static StringBuilder toNumber(StringBuilder item) { $/;"	m	class:DBCommon
+toString	DBCommon.java	/^	protected static String toString(Object... items) {$/;"	m	class:DBCommon
+toUpper	DBCommon.java	/^	protected static String toUpper(String item) { $/;"	m	class:DBCommon
+toUpper	DBCommon.java	/^	protected static StringBuilder toUpper(StringBuilder bld) { $/;"	m	class:DBCommon
+toValidSQL	DBCommon.java	/^	private static Object[] toValidSQL(Object[] strs) {$/;"	m	class:DBCommon	file:
+toValidSQL	DBCommon.java	/^	protected static String toValidSQL(String s) {$/;"	m	class:DBCommon
+toValidSQL	DBCommon.java	/^	protected static StringBuilder toValidSQL(StringBuilder s) {$/;"	m	class:DBCommon
+toVarChar	DBCommon.java	/^	protected static String toVarChar(String item) { $/;"	m	class:DBCommon
+toVarChar	DBCommon.java	/^	protected static StringBuilder toVarChar(StringBuilder item) { $/;"	m	class:DBCommon
+transferWork	EnrollmentRW.java	/^	public static void transferWork(int courseId, List<String[]> students,$/;"	m	class:EnrollmentRW
+translate	DBCommon.java	/^	protected static String translate(String field, String origChars, $/;"	m	class:DBCommon
+translate	DBCommon.java	/^	protected static String translate(String field, char origChar, $/;"	m	class:DBCommon
+translate	DBCommon.java	/^	protected static StringBuilder translate(StringBuilder field, $/;"	m	class:DBCommon
+translate	TranslnRead.java	/^	public static void translate(String[] phrases, String[] userLangs)$/;"	m	class:TranslnRead
+trim	DBCommon.java	/^	protected static String trim(String item) { $/;"	m	class:DBCommon
+trim	DBCommon.java	/^	protected static StringBuilder trim(String field, int leftTrim, $/;"	m	class:DBCommon
+trim	DBCommon.java	/^	protected static StringBuilder trim(StringBuilder bld) { $/;"	m	class:DBCommon
+trimNullToEmpty	DBCommon.java	/^	protected static String trimNullToEmpty(String str) {$/;"	m	class:DBCommon
+tryUpdate	DBCommon.java	/^	protected static void tryUpdate(Connection con, String doThis)$/;"	m	class:DBCommon
+tryUpdate	DBCommon.java	/^	protected static void tryUpdate(Connection con, String qry, $/;"	m	class:DBCommon
+tryUpdate	DBCommon.java	/^	protected static void tryUpdate(Connection con, String qry, byte[] data) $/;"	m	class:DBCommon
+unicodeToCERs	DBCommon.java	/^	protected static String unicodeToCERs(String s) {$/;"	m	class:DBCommon
+unwatchTopics	ForumRW.java	/^	private static void unwatchTopics(Connection con, int courseId, $/;"	m	class:ForumRW	file:
+unwatchTopics	ForumRW.java	/^	static void unwatchTopics(Connection con, int courseId, $/;"	m	class:ForumRW
+updateCodedData	DataConversion.java	/^	public static void updateCodedData() throws DBException {$/;"	m	class:DataConversion
+updateResult	ResponseWrite.java	/^	private static void updateResult(Connection con, String studentId, int hwId, $/;"	m	class:ResponseWrite	file:
+userLangs	QuestionRead.java	/^	private String[] userLangs = (AppConfig.notEnglish $/;"	f	class:QuestionRead	file:
+values	DBCommon.java	/^	protected static String values(List<String> items) { $/;"	m	class:DBCommon
+values	DBCommon.java	/^	protected static String values(String bld) { $/;"	m	class:DBCommon
+values	DBCommon.java	/^	protected static StringBuilder values(Object[] items) { $/;"	m	class:DBCommon
+values	DBCommon.java	/^	protected static StringBuilder values(StringBuilder bld) { $/;"	m	class:DBCommon
+values	DBCommon.java	/^	protected static StringBuilder values(char[] items) { $/;"	m	class:DBCommon
+valuesJoin	DBCommon.java	/^	protected static StringBuilder valuesJoin(Object... items) {$/;"	m	class:DBCommon
+writeBLOBsAsCLOBs	DataConversion.java	/^	private static String writeBLOBsAsCLOBs(Connection con, String table, $/;"	m	class:DataConversion	file:
+writeBLOBsAsCLOBs	DataConversion.java	/^	private static String writeBLOBsAsCLOBs(String table, String[] fields) $/;"	m	class:DataConversion	file:
+writeBLOBsAsCLOBs	DataConversion.java	/^	public static String writeBLOBsAsCLOBs() {$/;"	m	class:DataConversion
+writeBook	TextbookRW.java	/^	private void writeBook() throws DBException {$/;"	m	class:TextbookRW	file:
+writeBook	TextbookRW.java	/^	public static void writeBook(Textbook bk) throws DBException {$/;"	m	class:TextbookRW
+writeContent	TextbookRW.java	/^	private void writeContent(PreparedStatement stmt, TextContent content, $/;"	m	class:TextbookRW	file:
+writeEvaluatorRecs	QuestionWrite.java	/^	private void writeEvaluatorRecs(PreparedStatement pstmt, Evaluator eval) $/;"	m	class:QuestionWrite	file:
+writeImageFiles	DataConversion.java	/^	public static void writeImageFiles() throws DBException {$/;"	m	class:DataConversion

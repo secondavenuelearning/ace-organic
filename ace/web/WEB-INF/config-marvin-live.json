@@ -1,0 +1,9 @@
+{
+	"converterService": "https://epoch.uky.edu/webservices/",
+	"servicesDirectory": "/home/aceorg/aceorg/jchemWebservices14.10.13.0/",
+	"port": 0,
+	"deleteUnusedRooms": "30d",
+	"license": "/usr/share/tomcat6/.chemaxon/license.cxl",
+	"secret_key": "perhapsnot",
+	"authentication": {}
+}

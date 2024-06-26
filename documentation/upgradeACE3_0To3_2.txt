@@ -1,0 +1,597 @@
+-- update from 3.0 to 3.1 starts here.
+
+-- RBG 1/2011 implementing reordering of Qs; need to set current values of
+-- serial numbers back to 0 so that default ordering is by qId
+
+update problems_v2 set sequence_id = 0;
+update user_problems_v2 set sequence_id = 0;
+
+-- RBG 1/2011 fix previously inconsequential data inconsistencies
+
+update cw_user_v2 set enabled = 'Y' where enabled = 'N' and role = 'S';
+update bb_users set translator = 'N' where translator != 'Y' or translator is null;
+update hwsets_v3 set rxn_cond_id = null where rxn_cond_id = 'null';
+
+-- RBG 1/2011 moving bb_users data and cw_users_v2.enabled into new flags field in cw_users_v2
+
+alter table cw_user_v2 add flags number(3);
+update cw_user_v2 set flags = 0 where enabled = 'N' and 
+	(user_id in (select user_id from bb_users where master_access = 'N' and translator = 'N') 
+	or user_id not in (select user_id from bb_users));
+update cw_user_v2 set flags = 1 where enabled = 'Y' and 
+	(user_id in (select user_id from bb_users where master_access = 'N' and translator = 'N') 
+	or user_id not in (select user_id from bb_users));
+update cw_user_v2 set flags = 2 where enabled = 'N' and user_id in 
+	(select user_id from bb_users where master_access = 'Y' and translator = 'N');
+update cw_user_v2 set flags = 3 where enabled = 'Y' and user_id in 
+	(select user_id from bb_users where master_access = 'Y' and translator = 'N');
+update cw_user_v2 set flags = 4 where enabled = 'N' and user_id in 
+	(select user_id from bb_users where master_access = 'N' and translator = 'Y');
+update cw_user_v2 set flags = 5 where enabled = 'Y' and user_id in 
+	(select user_id from bb_users where master_access = 'N' and translator = 'Y');
+update cw_user_v2 set flags = 6 where enabled = 'N' and user_id in 
+	(select user_id from bb_users where master_access = 'Y' and translator = 'Y');
+update cw_user_v2 set flags = 7 where enabled = 'Y' and user_id in 
+	(select user_id from bb_users where master_access = 'Y' and translator = 'Y');
+
+-- RBG 3/2011 database cleanup of deleted instructors and orphaned images
+
+delete from languages_v1 where user_id not in (select user_id from cw_user_v2);
+delete from image_table1 where pic_id not in 
+	(select ref_id from references_v4 where ref_type = 'IMG');
+delete from user_image_table1 where pic_id in 
+	(select ref_id from user_references_v4 where ref_type = 'IMG' 
+		and user_id not in (select user_id from cw_user_v2));
+delete from user_references_v4 where user_id not in (select user_id from cw_user_v2);
+delete from user_question_data where user_id not in (select user_id from cw_user_v2);
+delete from user_answers_v2 where user_id not in (select user_id from cw_user_v2);
+delete from user_problems_v2 where user_id not in (select user_id from cw_user_v2);
+delete from modified_headers_v1 where user_id not in (select user_id from cw_user_v2);
+delete from pbsets_v2 where user_id is not null and user_id not in (select user_id from cw_user_v2);
+delete from assignment_questions_v1 where assignment_id not in (select hw_id from hwsets_v3);
+delete from responses_v4 where hw_id not in (select hw_id from hwsets_v3);
+
+-- RBG 2/2011 moving varchar2s to CLOBS in cases where an artificial limit 
+-- on length makes no sense; 
+-- also dropping redundant field hwsets_v4.instructor_id,
+-- adding default number-of-decimals flag (value 1) to cw_courses_v2.flags.
+-- Will shortly convert BLOBs in evaluators_v3, user_evaluators_v3, figures_v5, 
+-- and user_figures_v5 to CLOBs 
+
+create table cw_courses_v3 (
+	id number(38),
+	instructor_id varchar2(40),
+	name CLOB,
+	description CLOB,
+	homepage CLOB,
+	notes CLOB,
+	book varchar2(30),
+	time_zone CLOB,
+	uniq_id_label varchar2(50),
+	flags number(38),
+	allowed_ips CLOB,
+	password_hash raw(150),
+	constraint P_COURSES3 primary key (id),
+	constraint F_CRS3_INSTRUCTOR foreign key (instructor_id) references cw_user_v2(user_id));
+insert into cw_courses_v3 
+	(select id, 
+	instructor_id, 
+	name, 
+	description, 
+	homepage, 
+	notes, 
+	book, 
+	TO_LOB(time_zone), 
+	uniq_id_label, 
+	flags + 64, 
+	allowed_ips,
+	''
+	from cw_courses_v2);
+
+create table cw_course_enrollment_v3 (
+	course_id number(38) not null,
+	student_id varchar2(40) not null,
+	isTA char(1),
+	constraint P_ENROLL3 primary key (course_id, student_id),
+	constraint F_ENROLL3_COURSE foreign key (course_id) references cw_courses_v3(id),
+	constraint F_ENROLL3_STUDENT foreign key (student_id) references cw_user_v2(user_id));
+insert into cw_course_enrollment_v3
+	(select 
+	course_id,
+	student_id,
+	isTA
+	from cw_course_enrollment_v2);
+
+create table cw_course_preenrollment_v3 (
+	course_id number(38) not null,
+	student_num varchar2(20) not null,
+	student_name varchar2(80),
+	institution varchar2(200),
+	constraint P_COURSE_PREENROLL3 primary key (course_id, student_num, institution), 
+	constraint F_PREENROLL3_COURSE foreign key (course_id) references cw_courses_v3(id));
+insert into cw_course_preenrollment_v3
+	(select 
+	course_id,
+	student_num,
+	student_name,
+	'University of Kentucky'
+	from cw_course_preenrollment_v2);
+
+create table exam_students_v2 (
+	user_id varchar2(40) not null, 
+	course_id number(38),
+	created varchar2(25),
+	constraint P_EXAM_USER2 primary key (user_id),
+	constraint F_EXAM2_USER foreign key (user_id) references cw_user_v2(user_id),
+	constraint F_EXAM2_COURSE foreign key (course_id) references cw_courses_v3(id));
+insert into exam_students_v2 
+	(select
+	user_id,
+	course_id,
+	created
+	from exam_students_v1);
+
+create table pbsets_v3 (
+	id number(38), 
+	chap_id number(38) not null, 
+	name varchar2(200) not null, 
+	author varchar2(100), 
+	header CLOB, 
+	remarks CLOB, 
+	user_id varchar2(20), 
+	header_id number(38),
+	constraint P_QSETS3 primary key (id),
+	constraint F_QSETS3_CHAP foreign key (chap_id) references chapters_v1(id),
+	constraint F_QSETS3_USER foreign key (user_id) references cw_user_v2(user_id));
+insert into pbsets_v3 
+	(select
+	id, 
+	chap_id, 
+	name, 
+	author, 
+	header, 
+	remarks, 
+	user_id, 
+	header_id
+	from pbsets_v2);
+
+create table modified_headers_v2 (
+	user_id varchar2(40), 
+	pbset_id number(38), 
+	header CLOB,
+	constraint P_MODHEADERS2 primary key (user_id, pbset_id),
+	constraint F_MODHEADERS2_USER foreign key (user_id) references cw_user_v2(user_id),
+	constraint F_MODHEADERS2_SET foreign key (pbset_id) references pbsets_v3(id));
+insert into modified_headers_v2 
+	(select 
+	user_id, 
+	pbset_id, 
+	header
+	from modified_headers_v1);
+
+create table questions_v3 (
+	id number(38),
+	set_id number(38) not null,
+	serial_no number(38),
+	statement CLOB,
+	book varchar2(50),
+	chapter varchar2(50),
+	remarks CLOB,
+	probtype number(38),
+	keywords CLOB,
+	statement_id number(38),
+	created varchar2(25),
+	last_modified varchar2(25),
+	constraint P_QS3 primary key (id),
+	constraint F_QS3_SET foreign key (set_id) references pbsets_v3(id));
+insert into questions_v3 
+	(select
+	id,
+	set_id,
+	sequence_id,
+	statement,
+	book,
+	chapter,
+	remarks,
+	probtype,
+	keywords,
+	statement_id,
+	to_char(sysdate, 'YYYY/MM/DD HH24:MI:SS'),
+	to_char(sysdate, 'YYYY/MM/DD HH24:MI:SS')
+	from problems_v2);
+
+create table user_questions_v3 (
+	user_id varchar2(20),
+	id number(38),
+	set_id number(38) not null,
+	serial_no number(38),
+	statement CLOB,
+	book varchar2(50),
+	chapter varchar2(50),
+	remarks CLOB,
+	probtype number(38),
+	keywords CLOB,
+	created varchar2(25),
+	last_modified varchar2(25),
+	constraint P_USERQS3 primary key (user_id, id),
+	constraint F_USERQS3_USER foreign key (user_id) references cw_user_v2(user_id),
+	constraint F_USERQS3_SET foreign key (set_id) references pbsets_v3(id));
+insert into user_questions_v3 (select 
+	user_id, 
+	id, 
+	set_id, 
+	sequence_id, 
+	statement, 
+	book, 
+	chapter, 
+	remarks, 
+	probtype, 
+	keywords,
+	to_char(sysdate, 'YYYY/MM/DD HH24:MI:SS'),
+	to_char(sysdate, 'YYYY/MM/DD HH24:MI:SS')
+	from (select 
+		user_id, 
+		id, 
+		set_id, 
+		sequence_id, 
+		statement, 
+		book, 
+		chapter, 
+		remarks, 
+		probtype, 
+		keywords, 
+		row_number() over (partition by user_id, id order by user_id, id) rn 
+		from user_problems_v2) 
+	where rn = 1);
+
+create table figures_v5 (
+	pb_id number(38) not null,
+	serial_no number(38),
+	fig_type char(3),
+	fig_id number(38) not null,
+	rxn_data CLOB,
+	mol_structure BLOB,
+	constraint P_FIGS5 primary key (pb_id, serial_no),
+	constraint F_FIGS5_Q foreign key (pb_id) references questions_v3(id));
+insert into figures_v5 (select
+	pb_id,
+	id,
+	ref_type,
+	ref_id,
+	rxn_data,
+	mol_structure
+	from references_v4);
+
+create table user_figures_v5 (
+	user_id varchar2(20),
+	pb_id number(38) not null,
+	serial_no number(38),
+	fig_type char(3),
+	fig_id number(38) not null,
+	rxn_data CLOB,
+	mol_structure BLOB,
+	constraint P_USERFIGS5 primary key (user_id, pb_id, serial_no),
+	constraint F_USERFIGS5_USER foreign key (user_id) references cw_user_v2(user_id));
+insert into user_figures_v5 (select 
+	user_id,
+	pb_id,
+	id,
+	ref_type,
+	ref_id,
+	rxn_data,
+	mol_structure from (select 
+		user_id,
+		pb_id,
+		id,
+		ref_type,
+		ref_id,
+		rxn_data,
+		mol_structure,
+		row_number() over (partition by user_id, pb_id, id order by user_id, pb_id, id) rn 
+		from user_references_v4) 
+	where rn = 1);
+
+create table evaluators_v3 (
+	pb_id number(38),
+	major_id number(38),
+	minor_id number(38),
+	subexp varchar2(100),
+	match_type varchar2(10),
+	feedback CLOB,
+	grade number(3,2),
+	coded_data varchar2(200),
+	mol_name CLOB,
+	mol_structure BLOB,
+	feedback_id number(38),
+	constraint P_EVALS3 primary key (pb_id, major_id, minor_id),
+	constraint F_EVALS3_Q foreign key (pb_id) references questions_v3(id));
+insert into evaluators_v3 (select
+	pb_id,
+	major_id,
+	minor_id,
+	subexp,
+	match_type,
+	feedback,
+	grade,
+	coded_data,
+	mol_name,
+	mol_structure,
+	feedback_id
+	from answers_v2);
+
+create table user_evaluators_v3 (
+	user_id varchar2(20),
+	pb_id number(38),
+	major_id number(38),
+	minor_id number(38),
+	subexp varchar2(100),
+	match_type varchar2(10),
+	feedback CLOB,
+	grade number(3,2),
+	coded_data varchar2(200),
+	mol_name CLOB,
+	mol_structure BLOB,
+	constraint P_USEREVALS3 primary key (user_id, pb_id, major_id, minor_id),
+	constraint F_USEREVALS3_USER foreign key (user_id) references cw_user_v2(user_id));
+insert into user_evaluators_v3 (select 
+	user_id,
+	pb_id,
+	major_id,
+	minor_id,
+	subexp,
+	match_type,
+	feedback,
+	grade,
+	coded_data,
+	mol_name,
+	mol_structure from (select 
+		user_id,
+		pb_id,
+		major_id,
+		minor_id,
+		subexp,
+		match_type,
+		feedback,
+		grade,
+		coded_data,
+		mol_name,
+		mol_structure,
+		row_number() over 
+			(partition by user_id, pb_id, major_id, minor_id 
+			order by user_id, pb_id, major_id, minor_id) rn 
+		from user_answers_v2) 
+	where rn = 1);
+
+create table functional_groups_v2 (
+	group_id number(38),
+	name varchar2(80),
+	definition CLOB,
+	category varchar2(40),
+	sortkey varchar2(100),
+	constraint P_FNALGRPS2 primary key (group_id));
+insert into functional_groups_v2 (select
+	group_id,
+	name,
+	definition,
+	category,
+	sortkey
+	from functional_groups_v1);
+
+create table r_group_class_v2 (
+	r_group_class_id number(38),
+	name varchar(100),
+	members CLOB,
+	constraint P_R_GRP_CLASS2 primary key (r_group_class_id));
+insert into r_group_class_v2 (select
+	r_group_class_id,
+	name,
+	members
+	from r_group_class_v1);
+
+create table impossible_SMs_v2 (
+	name varchar2(80) not null,
+	definition CLOB,
+	sortkey varchar2(100) not null,
+	constraint P_IMPOSSIBLESMS2 primary key (name));
+insert into impossible_SMs_v2 (select
+	name,
+	definition,
+	sortkey
+	from impossible_SMs_v1);
+
+create table hwsets_v4 (
+	hw_id number(38),
+	course_id number(38),
+	serial_no number(38),
+	name CLOB,
+	remarks CLOB,
+	date_created varchar2(50),
+	date_due varchar2(50),
+	tries number(38),
+	question_points CLOB, 
+	attempt_grading CLOB,
+	time_grading CLOB,
+	dependencies CLOB,
+	extensionees CLOB,
+	flags number(38),
+	rxn_cond_id CLOB,
+	qlist CLOB,
+	constraint P_HWS4 primary key (hw_id),
+	constraint F_HWS4_COURSE foreign key (course_id) references cw_courses_v3(id));
+insert into hwsets_v4
+	(select
+	hw_id,
+	course_id,
+	serial_no,
+	name,
+	remarks,
+	date_created,
+	date_due,
+	tries,
+	EMPTY_CLOB(),
+	attempt_grading,
+	time_grading,
+	EMPTY_CLOB(),
+	extensionees,
+	flags,
+	rxn_cond_id,
+	qlist
+	from hwsets_v3);
+
+create table assignment_questions_v2 (
+	user_id varchar2(40) not null, 
+	assignment_id number(38) not null, 
+	qlist CLOB, 
+	constraint P_ASSGT_QS2 primary key (user_id, assignment_id),
+	constraint F_ASSGT_QS2_USER foreign key (user_id) references cw_user_v2(user_id),
+	constraint F_ASSGT2_QS_ASSGT foreign key (assignment_id) references hwsets_v4(hw_id));
+insert into assignment_questions_v2 
+	(select 
+	user_id, 
+	assignment_id, 
+	qlist 
+	from assignment_questions_v1);
+
+create table responses_v5 (
+	hw_id number(38) not null,
+	student_id varchar2(50) not null,
+	pb_id number(38) not null,
+	tries number(38) not null,
+	grade number(3,2),
+	response CLOB,
+	r_groups CLOB,
+	date_time varchar2(25),
+	status char(1),
+	instructor_comment CLOB,
+	constraint P_RESPONSES5 primary key (hw_id, student_id, pb_id, tries),
+	constraint F_RESP5_STUDENT foreign key (student_id) references cw_user_v2(user_id),
+	constraint F_RESP5_ASSGT foreign key (hw_id) references hwsets_v4(hw_id));
+insert into responses_v5 
+	(select
+	hw_id,
+	student_id,
+	pb_id,
+	tries,
+	grade,
+	response,
+	r_groups,
+	date_time,
+	status,
+	instructor_comment
+	from responses_v4);
+
+-- RBG 2/2011 create new tables in preparation for moving BLOBs to CLOBs; 
+-- newly created tables evaluators_v3, user_evaluators_v3, figures_v5, 
+-- and user_figures_v5 will also have BLOBs converted
+
+create table question_data_v2 as select * from question_data;
+alter table QUESTION_DATA_V2 
+	add constraint P_QDATA2 primary key (DATA_ID)
+	add constraint F_QDATA2_q foreign key (QUESTION_ID) references QUESTIONS_V3(ID);
+create table user_question_data_v2 as select * from user_question_data;
+alter table USER_QUESTION_DATA_V2 
+	add constraint P_USERQDATA2 primary key (DATA_ID)
+	add constraint F_USERQDATA2_USER foreign key (user_id) references cw_user_v2(user_id);
+create table reaction_conditions_v3 as select * from reaction_conditions_v2;
+alter table REACTION_CONDITIONS_v3 add constraint P_RXNCONDS3 primary key (RXN_COND_ID);
+create table translations_v2 as select * from translations_v1;
+
+-- RBG 2/2011 convert BLOBs to CLOBs everywhere except images,
+-- update match codes and coded data in archaic formats in evaluator tables
+
+--- [*** run "Move BLOB data to CLOBs" in admin tool ***]
+--- [*** run "Convert synthesis format" in admin tool ***]
+
+-- RBG 3/2011 convert obsolete figure type MEC to MOL
+
+update figures_v5 set fig_type = 'MOL' where fig_type = 'MEC';
+update user_figures_v5 set fig_type = 'MOL' where fig_type = 'MEC';
+
+-- add primary and foreign keys where they are missing
+
+create table coinstructors_v2 (
+	course_id number(38) not null,
+	instructor_id varchar2(40) not null, 
+	constraint P_COINSTRUCTORS2 primary key (course_id, instructor_id),
+	constraint F_COINSTR2_COURSE foreign key (course_id) references cw_courses_v3(id),
+	constraint F_COINSTR2_INSTRUCTOR foreign key (instructor_id) references cw_user_v2(user_id)
+);
+insert into coinstructors_v2 (select
+	course_id,
+	instructor_id
+	from coinstructors_v1);
+
+alter table CW_USER_V2 add constraint P_USERS2 primary key (USER_ID);
+alter table LANGUAGES_V1 
+	add constraint P_LANGUAGE1 primary key (USER_ID, LANGUAGE) 
+	add constraint F_LANG1_USER foreign key (user_id) references cw_user_v2(user_id);
+alter table UNIT_CONVERSIONS_V1 add constraint P_UNITS1 primary key (UNIT_FROM, UNIT_TO);
+alter table CHAPTERS_V1 add constraint P_CHAPS1 primary key (ID);
+
+-- add indices for fields that are not primary keys but that we search on
+-- (but cannot make index on LOB)
+
+create index cw_user_v2_idx on cw_user_v2 (role, institution);
+create index cw_courses_v3_idx on cw_courses_v3 (instructor_id);
+create index pbsets_v3_idx on pbsets_v3 (chap_id, user_id, header_id);
+create index questions_v3_idx on questions_v3 (set_id, statement_id);
+create index user_questions_v3_idx on user_questions_v3 (set_id);
+create index question_data_v2_idx on question_data_v2 (question_id, text_id);
+create index user_question_data_v2_idx on user_question_data_v2 (question_id);
+create index evaluators_v3_idx on evaluators_v3 (feedback_id);
+create index hwsets_v4_idx on hwsets_v4 (course_id);
+create index responses_v5_idx on responses_v5 (status);
+
+-- remove redundant fields and tables; 
+-- do not execute until UKY-3.0 is upgraded!
+
+alter table cw_user_v2 drop column enabled; 
+drop table bb_users;
+drop table cw_courses_v2;
+drop table cw_course_enrollment_v2;
+drop table cw_course_preenrollment_v2;
+drop table question_data;
+drop table user_question_data;
+drop table reaction_conditions_v2;
+drop table translations_v1;
+drop table pbsets_v2;
+drop table modified_headers_v1;
+drop table problems_v2;
+drop table user_problems_v2;
+drop table references_v4;
+drop table user_references_v4;
+drop table answers_v2;
+drop table user_answers_v2;
+drop table functional_groups_v1;
+drop table r_group_class_v1;
+drop table impossible_SMs_v1;
+drop table hwsets_v3;
+drop table assignment_questions_v1;
+drop table responses_v4;
+drop table coinstructors_v1;
+drop table exam_students_v1;
+
+-- RBG 5/2011 switch from MOL to MRV format for Lewis structures
+
+--- [*** run "Convert Lewis structure format" in admin tool;
+--- however, previous versions of ACE will not be able to read 
+--- the Lewis structures in their new MRV format ***]
+
+-- RBG 9/2011 add security questions to cw_user
+
+alter table cw_user_v2 add 
+	(security_questions varchar2(10),
+	security_answer1 CLOB, 
+	security_answer2 CLOB);
+
+-- RBG 9/2011 update coded data of question data that use CYCLES evaluators
+
+update question_data_v2 set data = regexp_replace(data, 'CYCLES/', 'CYCLES/N/') || '/N=/0' 
+	where data_type = 'synthOkSM' and data like 'CYCLES/%'
+	and dbms_lob.substr(data, 100, 1) not like '%/%/%/%/%/%';
+update user_question_data_v2 set data = regexp_replace(data, 'CYCLES/', 'CYCLES/N/') || '/N=/0' 
+	where data_type = 'synthOkSM' and data like 'CYCLES/%'
+	and dbms_lob.substr(data, 100, 1) not like '%/%/%/%/%/%';
+
+-- ACE 3.2 ends here ---
+

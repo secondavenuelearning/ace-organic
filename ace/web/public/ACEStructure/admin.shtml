@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Administration Tool</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Administration Tool</h3>
+
+<p>The administrator verifies instructors' 
+identities, a step that is necessary before an instructor can create courses,
+etc.  The administrator must also actively grant an instructor 
+permission to author as either a local or a master author.  ACE stores 
+the permission in <span class="database">users_v4.flags</span>.</p>
+
+<!--#include file="db/users_v4.html"-->
+
+<p>The administrator also has the ability to edit user profiles, to delete
+users, and to impersonate other instructors or students.  
+The administrator is able to force ACE to reload the 
+<a href="overallStruct.shtml">systemwide constants</a> (functional group 
+definitions, formatting rules, etc.) that it
+loads from files upon start-up.</p>
+
+<p>The administrator may confer 
+<a href="intlizn.shtml">translator</a> privileges on
+selected instructors.  </p>
+
+<p>An ACE administrator can post a system notice that appears on 
+users' home pages after they log in.  The administrator should log in as 
+the owner of the <span class="coursename">Tutorials</span> course, enter
+that course, and enter the system notice as the course notes.  </p>
+
+</body>
+</html>

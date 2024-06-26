@@ -1,0 +1,103 @@
+<!-- included by mechRulesTable.shtml -->
+<table class="nonDbTable">
+<tr><th>Mechanism rule</th>
+<th style="width:20%">Parameter</th>
+<th>Automatic feedback?</th></tr>
+<tr><td colspan='3'><i><u>General chemical rules</u></i></td></tr>
+<tr><td style="vertical-align:middle;">No S<sub>N</sub>2 at <i>sp</i>- or <i>sp</i><sup>2</sup>-hybridized atom.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No ionization of <i>sp</i>- or <i>sp</i><sup>2</sup>-hybridized 
+atom.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No 1&deg; carbocations.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">Violation of p<i>K</i><sub>a</sub> rule 
+[(best base's conjugate acid p<i>K</i><sub>a</sub> 
+&ndash; best acid p<i>K</i><sub>a</sub>) &le; 8].</td>
+<td style="vertical-align:middle;"> <span class="codedDatum">flags</span>
+bits 0&ndash;1 = "do not consider first step", "do not
+consider last step"</td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No even-electron pericyclic reactions.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No four-atom pericyclic reactions.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">Cationic shifts must be 1,2-shifts.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No zwitterions.</td>
+<td style="vertical-align:middle;">
+<span class="codedDatum">flags</span> 
+bit 2 = "consider only positive atoms bearing H"
+</td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No multiply charged atoms.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No multiply charged molecules.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No charged molecules of same sign reacting with one another.</td>
+<td style="vertical-align:middle;"> 
+<span class="codedDatum">flags</span> bit 3 = "allow proton transfers"</td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No X&ndash;H bond acts as a nucleophile.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No four-membered transition states for H<sup>+</sup> transfer.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No termolecular steps.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No dyotropic rearrangements (A&ndash;B&ndash;C&ndash;D &rarr;
+D&ndash;B&ndash;C&ndash;A).</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No &sigma;-bond metatheses or dyotropic rearrangements.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td colspan="3"></td></tr>
+<tr><td colspan='3'><i><u>Reaction-condition-specific rules</u></i></td></tr>
+<tr><td style="vertical-align:middle;">No radicals under polar conditions.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No acids under these basic conditions should 
+have p<i>K</i><sub>a</sub>&nbsp;&lt;&nbsp;<i>n</i>. (The response may show
+the acids explicitly or may produce them in a mechanistic step but 
+omit them from the drawing.)</td>
+<td style="vertical-align:middle;"><span class="codedDatum">pKvalue</span></td>
+<td style="text-align:center;">yes</td></tr>
+<tr><td style="vertical-align:middle;">No bases under these acidic conditions should
+have p<i>K</i><sub>b</sub>&nbsp;&gt;&nbsp;<i>n</i> (conjugate acids whose
+p<i>K</i><sub>a</sub>&nbsp;&gt;&nbsp;<i>n</i>). (The response may show 
+the bases explicitly or may produce them in a mechanistic step but 
+omit them from the drawing.)</td>
+<td style="vertical-align:middle;"><span class="codedDatum">pKvalue</span></td>
+<td style="text-align:center;">yes</td></tr>
+<tr><td style="vertical-align:middle;">No S<sub>N</sub>2 under acidic conditions.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No carbocations under basic conditions.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td colspan="3"></td></tr>
+<tr><td colspan='3'><i><u>Mechanism-drawing conventions</u></i></td></tr>
+<tr><td style="vertical-align:middle;">No atom should receive and supply electrons simultaneously.</td>
+<td style="vertical-align:middle;"></td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">No resonance arrow where there should be one.</td>
+<td style="vertical-align:middle;"> 
+<span class="codedDatum">flags</span> bit 0 = "do not consider first step"</td>
+<td style="text-align:center;">no</td></tr>
+<tr><td style="vertical-align:middle;">Resonance arrow where there shouldn't be one.</td>
+<td style="vertical-align:middle;"> 
+<span class="codedDatum">flags</span> bit 0 = "do not consider first step"</td>
+<td style="text-align:center;">no</td></tr>
+</table>
+

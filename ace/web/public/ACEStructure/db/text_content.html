@@ -1,0 +1,38 @@
+<p align="center"><span class="database">text_content_v1</span>, 
+content of embedded ACE textbooks</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">id<sup>1</sup></td>
+<td>ID number</td>
+<td>number(38)</td></tr>
+<tr><td class="database">chap_id<sup>2,3</sup></td>
+<td>ID number of the chapter of this content &rarr;
+<span class="database">text_chaps_v1.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">serial_num</td>
+<td>position of this content in the chapter</td>
+<td>number(38)</td></tr>
+<tr><td class="database">data_type</td>
+<td>the type of content: <b>TXT</b>, <b>MRV</b>, 
+<b>ACE</b>, <b>IMG</b>, <b>JML</b>, or <b>MOV</b></td>
+<td>varchar2(3)</td></tr>
+<tr><td class="database">data</td>
+<td>
+<span class="database">data_type</span> = <b>ACE</b>: question ID number &rarr; 
+<span class="database">(user_)questions_v3.id</span>
+<br/>
+<span class="database">data_type</span> = <b>IMG</b>: image ID number &rarr; 
+<span class="database">user_images_v2.pic_id</span>
+<br/>
+<span class="database">data_type</span> = other: the content
+</td>
+<td>CLOB</td></tr>
+<tr><td class="database">caption</td>
+<td>caption of the content</td>
+<td>CLOB</td></tr>
+<tr><td class="database">extra_data</td>
+<td>additional data, such as Marvin display options</td>
+<td>CLOB</td></tr>
+<tr><td class="database">text_content_seq</td>
+<td>sequencer for <span class="database">id</span></td></tr>
+</table>

@@ -1,0 +1,38 @@
+<p align="center"><span class="database">hwset_qs_v2</span>, 
+assignment content</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">hw_id<sup>1,2</sup></td>
+<td>unique assignment ID &rarr; <span class="database">hwsets_v5.hw_id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">group_num<sup>1</sup></td>
+<td>serial number of a group of questions within the assignment</td>
+<td>number(38)</td></tr>
+<tr><td class="database">group_pick</td>
+<td>number of question bundles to choose from this group</td>
+<td>number(38)</td></tr>
+<tr><td class="database">group_bundle_size</td>
+<td>number of questions in each bundle in this group</td>
+<td>number(38)</td></tr>
+<tr><td class="database">pb_num_in_group<sup>1</sup></td>
+<td>serial number of the question within its group</td>
+<td>number(38)</td></tr>
+<tr><td class="database">pb_id</td>
+<td>question ID number &rarr; 
+<span class="database">questions_v3.id</span> or
+<span class="database">user_questions_v3.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">points</td>
+<td>number of points that the question is worth
+</td>
+<td>number(5,2)</td></tr>
+<tr><td class="database">points_str</td>
+<td>string value of the points</td>
+<td>varchar2(10)</td></tr>
+<tr><td class="database">depends_on_pb_id</td>
+<td>ID number of question that must be answered before this 
+one can be displayed &rarr; 
+<span class="database">questions_v3.id</span> or
+<span class="database">user_questions_v3.id</span></td>
+<td>number(38)</td></tr>
+</table>

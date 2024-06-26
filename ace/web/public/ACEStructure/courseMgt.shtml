@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Course Management</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Course Management</h3>
+<p>The page that users see when they log in is the user home page, 
+<span class="filename">userHome.jsp</span>.  From this page, an 
+instructor can create, modify, or delete ACE courses.  This
+page may also display a system notice that ACE retrieves from the course notes 
+of the <span class="coursename">Tutorials</span> course.</p>
+
+<!--#include file="db/cw_courses.html"-->
+
+<p>An instructor may designate one or more instructors 
+(at the same institution or elsewhere) as coinstructors for a particular course.
+A coinstructor has all the privileges of the owner of the course.  (An
+instructor may also assign <a href="#TA">TAs</a>, who have many
+fewer privileges than coinstructors, to a course.)  However,
+when a coinstructor <a href="assgnts.shtml">assembles an assignment</a>, the 
+coinstructor sees the <i>course owner's</i> new questions and modifications to 
+existing questions, not the coinstructor's own.  If a coinstructor wishes to 
+<a href="qbank.shtml">author questions</a> for the course's students to use, the 
+coinstructor must explicitly assign any authoring he or she does to the course 
+owner.</p>
+
+<!--#include file="db/coinstructors.html"-->
+
+<p>The instructor uses functions in the
+<span class="link">Enrollment</span> tab to enroll students in the course.  
+Instructors can choose to
+enroll individual students who have already registered with ACE, or they can
+upload a list of students and their ID numbers.  In the latter case, ACE matches
+student ID numbers provided by the instructor with those provided by students as
+they registered with ACE; when it finds a match, it enrolls the student in the
+course.  It continues to look for matches as new students register.  </p>
+
+<!--#include file="db/preenrollment.html"-->
+
+<p>ACE stores the enrollment information
+in <span class="database">cw_course_enrollment_v3</span>.  
+ACE automatically enrolls students in a <span class="coursename">Tutorials</span>
+course that the ACE designers created to make the tutorials readily available.
+</p>
+
+<!--#include file="db/cw_course_enrollment.html"-->
+
+<p>When users enter a course by clicking on its name, they arrive at the course
+home page, <span class="filename">course/courseHome.jsp</span>.  Students
+see three or four tabs at this point: <span class="link">Course Home</span>, 
+<a href="assgnts.shtml" class="link">Assignments</a>,
+<a href="gradebook.shtml" class="link">Grades</a>, and perhaps
+<a href="forums.shtml" class="link">Forum</a>.  Instructors also see 
+an <span class="link">Enrollment</span> tab.
+Instructors can modify the notes that appear to the student.  
+If the instructor is <span class="username">ace-master</span>, and the course is
+the <span class="coursename">Tutorials</span> course, the notes become a System
+Notice that ACE displays to all users on the user home page.  </p>
+
+<a name="TA"/>
+<p>The <span class="link">Enrollment</span> tab, 
+<span class="filename">enroll/listEnrollment.jsp</span>, shows a list of 
+students who have enrolled in the course and their student IDs (if required by 
+the instructor) and email addresses.  An instructor can choose to remove a 
+student from the course or block a student from the course's discussion
+forum.  In addition, an instructor may 
+promote an enrolled student to the role of TA (teaching assistant) of that
+course or demote a TA to the role of regular student.  ACE omits TAs from the 
+course gradebook, and it does not save to the database a TA's work on 
+<a href="solve.shtml">assignments</a> in courses for which that student 
+is a TA.  ACE displays the course enrollment list 
+and the course <a href="gradebook.shtml">gradebook</a> to TAs, 
+but TAs may not alter a student's grades or do a forced regrade of a question
+without the instructor's permission (set in the Course editing page),
+and TAs may never
+disenroll students from a course, promote other students to TA,   
+or gain access to the <a href="qbank.shtml">question bank</a>. 
+ACE stores whether a student is a TA in the <span class="database">isTA</span>
+field in <span class="database">cw_course_enrollment_v3</span>, so a student 
+may be a TA in some courses but not others.</p>
+
+<a name="exams"/>
+<h4>Administering Exams</h4>
+
+<p>ACE has several features that make it easier
+for instructors to administer <a href="exams.html">exams</a> within ACE.  
+Under the <span class="link">Enrollment</span> tab, an instructor can create 
+a set of 
+random login IDs, one for each student who will be taking the exam.  
+ACE records the random login IDs in 
+<span class="database">exam_students_v2</span> and 
+<span class="database">users_v4</span> and enrolls them in the current 
+course.  The instructor then assigns each random login ID to a student about 
+to take the exam.  
+Students have no way of knowing the random login IDs of other students.  </p>
+
+<!--#include file="db/exam_students.html"-->
+
+<p>After the <a href="exams.html">exam</a>, 
+under the <span class="link">Enrollment</span> tab, 
+the instructor can transfer the students' work from 
+the random login IDs to the students' regular login IDs.  ACE changes the
+random login IDs to their regular ones in the  
+students' enrollment records and in the records of their responses to all
+questions in the assignment. </p>
+
+<p>Additionally, an instructor may restrict access to an exam course 
+to computers operating from certain IP addresses.  The instructor sets the
+allowable IP addresses on the course editing page.
+</p>
+
+<!--#include file="db/allowed_ips.html"-->
+
+<p>Additionally, an instructor may set a password for a course. The
+instructor sets the password on the course editing page.</p>
+
+<p>In order to prevent unscrupulous instructors 
+from distributing random login IDs to students so the students can avoid 
+purchasing access keys, the random login IDs become unusable after two weeks.  
+However, the instructor is still able to see the work of the students who used 
+those IDs.</p>
+
+</body>
+</html>

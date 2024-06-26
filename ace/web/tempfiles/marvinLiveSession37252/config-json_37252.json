@@ -1,0 +1,14 @@
+{
+"converterService": "http://epoch.uky.edu/webservices/",
+"servicesDirectory": "/home/aceorg/aceorg/jchemWebservices/",
+"port": 37252,
+"license": "/home/aceorg/aceorg/DEV-4.2/ace/web/nosession/license.cxl",
+"themeOverrides": "/home/aceorg/aceorg/DEV-4.2/ace/web/includes/marvinLive.css",
+"secret_key": "perhapsnot",
+"marvinjs": { 
+	"displaySettings": { 
+		"toolbars": "reporting" 
+	} 
+},
+"deleteUnusedRooms": "30d"
+}

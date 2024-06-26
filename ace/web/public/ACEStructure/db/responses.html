@@ -1,0 +1,64 @@
+<p align="center"><span class="database">responses_v6</span>, student response
+to a question</p>
+<table class="dbTable" summary="">
+<tr><td class="database">hw_id<sup>1,2</sup></td>
+<td>assignment number 
+&rarr; <span class="database">hwsets_v5.hw_id</span></td>
+<td>number(38)</td>
+</tr>
+<tr><td class="database">student_id<sup>1,2</sup></td>
+<td>student's username 
+&rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td>
+</tr>
+<tr><td class="database">pb_id<sup>1</sup></td>
+<td>unique question ID number 
+&rarr; <span class="database">questions_v3.id</span>
+or <span class="database">user_questions_v3.id</span></td>
+<td>number(38)</td>
+</tr>
+<tr><td class="database">tries<sup>1</sup></td>
+<td>number of times the student has responded 
+to this question</td>
+<td>number(38)</td>
+</tr>
+<tr><td class="database">status<sup>3</sup></td>
+<td>whether response is initialized, saved, evaluated, or requires human
+grading; <b>I</b>, <b>S</b>, <b>E</b>, or <b>H</b></td>
+<td>char(1)</td>
+</tr>
+<tr><td class="database">most_recent<sup>3</sup></td>
+<td>whether this response is this student's most recent response to this 
+assignment and question; <b>Y</b> or <b>N</b>
+<br />not strictly necessary, but greatly speeds up
+retrieval of results</td>
+<td>char(1)</td>
+</tr>
+<tr><td class="database">grade<sup>3</sup></td>
+<td>0.0 to 1.0 inclusive</td>
+<td>number(3,2)</td>
+</tr>
+<tr><td class="database">modified_grade<sup>3</sup></td>
+<td>grade as modified by <a href="gradebook.shtml">grading parameters</a> 
+for this assignment</td>
+<td>number(8,4)</td>
+</tr>
+<tr><td class="database">response</td>
+<td>student response</td>
+<td>CLOB</td>
+</tr>
+<tr><td class="database">date_time</td>
+<td>date and time of student's response (YYYY/MM/DD HH:MI:SS); earliest value is 2015/01/22 12:57:18</td>
+<td>varchar2(25)</td>
+</tr>
+<tr><td class="database">instructor_comment</td>
+<td>comment by instructor on student's response</td>
+<td>CLOB</td>
+</tr>
+<tr><td class="database">ip_address</td>
+<td>IP address from which student submitted response</td>
+<td>varchar2(16)</td>
+</tr>
+</table>
+
+

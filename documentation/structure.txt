@@ -1,0 +1,11 @@
+This file is obsolete.  The information that used to be here is now in
+
+http://epoch.chem.uky.edu:9080/epoch-plugin/public/ACEStructure/allDbTables.shtml
+docs
+giBBon
+Direct link: ../epoch-plugin/web/public/ACEStructure/allDbTables.shtml
+
+warning! When you add a table, modify (as oracle)
+/home/oracle/cronjob/backup.sh
+to include the new table in the daily dump.
+

@@ -1,0 +1,23 @@
+<p align="center"><span class="database">preenrollment_v4</span>,
+students not registered with ACE who have been enrolled in courses 
+by instructors
+</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">course_id<sup>2,3</sup></td>
+<td>course &rarr; <span class="database">cw_courses_v3.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">institution_id<sup>2,3</sup></td>
+<td>ID number of institution 
+&rarr; <span class="database">institutions_v1.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">student_num</td>
+<td>student ID number; used to identify a student 
+(&rarr; <span class="database">users_v4.student_num</span>) 
+newly registered with ACE 
+</td>
+<td>CLOB</td></tr>
+<tr><td class="database">student_name</td>
+<td>name</td>
+<td>CLOB</td></tr>
+</table>

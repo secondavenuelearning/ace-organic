@@ -1,0 +1,491 @@
+-584916429	***1*** point
+-1734177145	***1*** remaining for mastery
+-1765196952	***2*** remaining for mastery
+-1523694599	A &sigma;-bond metathesis, in which the groups attached to two atoms swap places in a single step, does not occur in this reaction.
+-1803170189	A ACE n&#227;o pode salvar a tarefa, porque ela est&#225; vazia.
+-1853790221	A hyphen indicates that a student has not attempted an assignment; the symbol &radic; indicates that you have commented on a student's response (click on the student's name to alter it);; the symbol ??? indicates that a student has responded to a question, but the response requires your evaluation.
+-281492396	A Java bug prevented ACE from submitting your response. Please copy the source code of your response and send it to your instructor along with the assignment and question number. You might try changing the appearance of your response somewhat, for example, by changing the location of some atoms or molecules on the canvas.
+-2075111809	A Java bug required ACE to submit your response twice. Please copy the source code of your response and send it to your instructor along with the assignment and question number.
+-989239479	A linear mechanism may not have electron-flow arrows in its last step.
+-396746805	A mastery assignment requires that a student answer correctly every question in an assignment before ACE considers the assignment to be mastered. If a student submits the correct response within the number of attempts specified by the instructor, then the student has mastered the question. If a student fails to master a question, the student is permitted to continue to work on it (with no limit on the number of tries), or the student can press the Solve related button to reinstantiate the question. So that ACE can reinstantiate a question, a mastery assignment may contain only randomized questions and R-group questions. When ACE reinstantiates an R group question, it sets the student's assigned R groups to new values; when it reinstantiates a randomized question, ACE assigns a new question at random from the appropriate question group.
+-33366233	A wedge bond begins at atom ***1***, but this atom is not stereogenic. Choose View &rarr; Misc &rarr; Atom Numbers to view the atom numbers.
+-1591120679	A wedge bond begins at atom ***1***, but this atom, like most atoms with fewer than four bonds, is not stereogenic. Choose View &rarr; Misc &rarr; Atom Numbers to view the atom numbers.
+-1174747302	ACE cannot interpret your reaction coordinate diagram.
+-2000611651	ACE cannot save the assignment because it is empty.
+-71775199	ACE could not acquire your response to this question. Please submit a response that is not empty.
+-907426051	ACE could not delete the post because there are more recent posts in the same topic.
+-756136637	ACE does not have any security questions on file for ***username***. If you use your ***linkBlue*** username and password to log into ACE, you will need to contact your Information Technology help line for help. Otherwise, ask the ACE administrator to change your password.
+-1946393818	ACE does not have any security questions on file for ***username***. If you use your ***linkBlue*** username and password to log into ACE, you will need to contact your Information Technology help line for help. Otherwise, ask your instructor to change your password.
+-476728844	ACE does not have any security questions on file for ***username***. You will have to ask your instructor to change your password.
+-25632139	ACE has excluded from the totals the grades shown in gray.
+-1694829432	ACE has highlighted one or more atoms in your response that have an invalid valence. If ACE has highlighted a shortcut group, you may need to expand the group to see the atoms with the invalid valences.
+-1688050256	ACE is regrading the students' responses. This action may take a while, so please be patient. A new message will appear when this action is complete.
+-218712838	ACE online textbook
+-648644051	ACE Online Textbooks
+-1433333257	ACE will display this question after you have answered question ***1*** correctly.
+-1798748553	ACE will display this question and allow the student to solve it only after he or she has answered question ***1*** correctly.
+-34186201	ACE will display vectors on this image. Click the image to see them.
+-1438754791	ACE will irreversibly delete all responses to questions that you have removed from the assignment after you save your changes.
+-1214226260	Activating Java in your browser can lead to certain security risks if you use this browser to visit other, malicious Web sites. On the other hand, the Java version of the structure-drawing program is richer in features than the JavaScript version.
+-912547458	Add a post
+-1742929789	Add a post to:
+-958111600	Add statement
+-1075116397	after question answered
+-321562596	Alas, ACE found no results that met those criteria.
+-1024819549	All details
+-1530395658	All multipliers in the attempt-dependent grading parameters must be numbers between 0 and 1.
+-1720103312	All multipliers in the time-dependent grading parameters must be numbers between 0 and 1.
+-661484202	All resonance arrows must originate from a rectangle and point to a rectangle.
+-961105174	All students in the list must have chosen ***your institution*** as their institution when they registered with ACE.
+-1306358830	Allow saving without submitting?
+-1414557169	always
+-804000301	An error occurred while authenticating your username and password. Please try to register again, and contact the administrator if you get this error repeatedly.
+-1655140874	An error occurred, and ACE could not evaluate your response. Please report the following error to the programmers:
+-1591819571	An odd number of electrons is being added to or removed from the highlighted bond, leading to products that have at least one "bond" with an odd number of electrons.
+-91843507	Anonymous
+-346662645	Any self-granted extension up to semester maximum
+-526880311	Ask your instructor to retrieve your username for you. If you are an instructor, ask the ACE administrator.
+-1659497622	Assignment name, maximum tries, questions and their dependencies, permissible reaction conditions for synthesis questions
+-2123973774	At least one atom, ***C of CH4***, is outside any rectangle. All atoms should be within rectangles.
+-300967858	At least one atom, ***C***, is inside two rectangles. The rectangles should not overlap.
+-2029457029	At least two wedge bonds begin at atom ***1***, but either this atom is not stereogenic, or ACE cannot determine its configuration from the way you have drawn the wedge bonds. Choose View &rarr; Misc &rarr; Atom Numbers to view the atom numbers.
+-1822260132	At least two wedge bonds begin at atom ***1***, but either this atom is not stereogenic, or ACE cannot determine its configuration from the way you have drawn the wedge bonds. To view the atom numbers, press the View Settings button, (the gear symbol to the right of the H&plusmn; button on the northern toolbar), check the Index atoms box, and press Ok.
+-1205866607	Atom ***C(1)*** cannot be identified as axial or equatorial. (To see the atom numbers, users should press the <b>View settings</b> button in the northern toolbar (its icon is a gear), select <b>Index atoms</b>, and press OK.)
+-1510056908	Back to chapters list
+-67485040	Back to topics
+-531875709	Because it is the first step in a cyclic mechanism, the highlighted step should contain a compound that is produced by <i>both</i> of the preceding steps.
+-1443416541	Before proceeding, please be sure that MarvinSketch loads below. If it does not load, please make sure you pass step 3 of the browser checkup. If your browser asks now or later whether it should block the loading of potentially unsafe components, click "No".
+-553913571	Before you start to use ACE, do the browser check-up.  The link is underneath where you log in.
+-168584167	Block/unblock from forum
+-670884557	(Bonds of order 0.5, 1.5, and 2.5 are indicated by <b>&middot;&middot;&middot;&middot;&middot;</b>, <u><b>&middot;&middot;&middot;&middot;&middot;</b></u>, and &ndash;=&ndash;=&ndash;, respectively.)
+-1819983765	Browser Checkup
+-1807347883	browser checkup
+-1506196075	Cationic shifts are almost never other than 1,2-shifts.  Longer-range cationic shifts are best drawn as a series of 1,2-shifts.
+-629367894	Change all to
+-272515474	Change or remove course password?
+-2013377790	Changing the grade of an earlier attempt will cause ACE to erase the records of all subsequent attempts so that the attempt whose grade you are changing becomes the most recent attempt. Are you sure you want to proceed?
+-688506352	Chapter ***1***
+-700791417	Check the box if the current browser doesn't display the H2O molecule:
+-1663819174	Choose reaction conditions
+-2017705626	Chrome
+-731508014	Clear all
+-1202229417	Clear last
+-1911411792	Click near a mark to select it.
+-1585992006	Click near a shape to select it.
+-1816678803	Click near a vector to select it; <br/>click and hold near the vector's midpoint to move the vector, <br/>shift-click and hold to copy; <br/>click and hold the endpoint of a vector to move the endpoint.
+-1377556571	Close chat room
+-1260174358	Column ***1*** of your diagram contains an incorrect number of maxima or minima.
+-432980945	Column ***1*** of your response contains an orbital or group of orbitals of the wrong type.
+-1212893603	Column ***1*** of your response contains the right number of orbitals of each type, but it contains an orbital or group of orbitals containing an incorrect number of electrons.
+-75693984	Column ***1*** of your response contains the right types of orbitals, but it contains an incorrect number of orbitals in a group of the correct type.
+-1821824344	Complete the table
+-342074240	Confirm course password
+-1581691183	Constants
+-1584436754	contains a response that was saved but not submitted for evaluation
+-2106261	Copy
+-710851087	Copy your new password, or write it down! You can change it after you log in again: press My Profile.
+-39331036	Course Forum
+-1892589704	[currently using linkBlue]
+-1125628396	Date registered
+-587038355	days remaining
+-591733248	dd-mm-yyyy
+-959377912	Delay grading?
+-1263809872	Delete selected
+-1196990185	Deleting this forum post is an irreversible act.  Are you sure you wish to continue?
+-1397962444	Deleting this forum topic is an irreversible act.  Are you sure you wish to continue?
+-1967515960	Depends on
+-1018005310	Disable a course to change its position in the list. Make sure no students are using the course before you move it.
+-985745414	disabled indefinitely
+-506003270	disabled until
+-66215116	Done.
+-763788060	Draw new
+-1473729526	Due date and time, grading options, extensions
+-1927368268	Duration
+-2124506501	Dyotropic rearrangements, in which atoms or groups attached to neighboring atoms switch places in a single, concerted step, are extremely unlikely to occur.
+-488461742	Each atom that is colored red has too many electrons in its outer shell.
+-592667964	Each atom that is colored red is electron-deficient. In the best answer, each red atom would not be electron-deficient.
+-1503438516	Each highlighted electron-flow arrow originates at an X&ndash;Y bond and points directly to a third atom Z not in that bond. The meaning of such an arrow is ambiguous. If you want to make a new bond between one of the bond atoms (say, X) and Z, the electron-flow arrow originating at the X&ndash;Y bond must point to <i>between</i> X and Z. If X and Z are very close to one another, you may need to move them apart.
+-521006331	Each highlighted stage contains an electron-flow arrow that originates at an X&ndash;Y bond and points directly to a third atom Z not in that bond. The meaning of such an arrow is ambiguous. If you want to make a new bond between one of the bond atoms (say, X) and Z, the electron-flow arrow originating at the X&ndash;Y bond must point to <i>between</i> X and Z. If X and Z are very close to one another, you may need to move them apart.
+-1572168800	Each question is worth ***2*** points.
+-1263321163	Edit a post
+-1526557096	Edit a post of:
+-1460056842	Edit course password
+-1821967431	Edit topic
+-1374635260	Elimination reactions do not occur by the E2 mechanism under acidic conditions.
+-1147430490	Email ***Robert Grossman*** at ***robert.grossman@uky.edu*** to request full instructor privileges.
+-307955964	Email address to use to send text messages to your phone
+-1907057415	Enable discussion forum?
+-2080120488	Energy
+-97646912	Enter a title for the topic:
+-318331875	Enter a username
+-1393809958	Enter a word fragment, word, phrase, simple boolean expression, or regular expression for which to search the question keywords and statements:
+-430805301	Enter a word fragment, word, phrase, simple boolean expression, or regular expression:
+-2096660249	Enter an element symbol.
+-63501416	Enter course password
+-1357667857	(Enter or paste the notes here. Do not exceed 2000 characters. You can use the HTML tags: &lt;b>, &lt;u>, &lt;i>, &lt;br>, and &lt;p> for formatting. Hyperlinks (&lt;a href="http://...">&lt;a>) are also allowed, as are character entity references such as ***&amp;deg;*** for a ***&deg;*** sign.  Please do not use any other HTML tags.)
+-1650253393	(Enter or paste the notes here. You can use the HTML tags: &lt;b>, &lt;u>, &lt;i>, &lt;br>, and &lt;p> for formatting. Hyperlinks (&lt;a href="http://...">&lt;a>) are also allowed, as are character entity references such as ***&amp;deg;*** for a ***&deg;*** sign.  Please do not use any other HTML tags.)
+-2001928704	Enter Practice Mode
+-126974476	Enter your linkBlue ID username
+-1234973629	Enter your linkBlue username
+-1168564079	Enter your post here:
+-276130491	Enter your username
+-1368822102	Entry barred indefinitely
+-1905340608	Equation ***2*** does not follow logically from equation ***1***.
+-1628013509	Every question has a point value of ***1***.
+-1920523448	Every question is worth ***4*** points.
+-1849662893	Every question was worth ***4*** points.
+-1816508940	Exclude assignment from course totals?
+-1126176289	Export all detailed grades
+-953853069	Export to spreadsheet
+-267764092	Extensions for individual students
+-118951632	Firefox or Chrome
+-68387023	First posted
+-219077344	First, determine whether the Java Virtual Machine has been installed on your computer:
+-2132288811	For each student, ACE will randomly select ***2*** group(s) of ***3*** question(s) from the following ***12*** questions grouped into ***4*** contiguous groups.
+-1328147826	For each student, ACE will randomly select ***2*** question(s) from the following ***12*** questions.
+-68066561	Forum
+-681984601	Forum search
+-436405936	Forum topic
+-419059980	Get results
+-1945557767	Go to <i>Safari</i> &rarr; <i>Preferences</i>.
+-311771249	Go to <i>Tools</i> &rarr; <i>Internet Options</i>.
+-1685476977	Go to Chrome &rarr; Clear Browsing Data....
+-806040392	Go to Firefox &rarr; Preferences... &rarr; Privacy &amp; Security &rarr; Clear Data....
+-1528809117	Go to forum topic
+-1537245990	Go to Safari &rarr; Clear History....
+-649765832	Google Chrome does not support Java. Do not use Chrome with ACE Organic if you prefer to use Java applets.
+-2135716111	Grades are adjusted as they are displayed in the gradebook only.
+-165351083	Graphics
+-430173931	Hide calculated synthesis products?
+-1176220474	I prefer dates in the format day-month-year instead of month-day-year.
+-125384894	I prefer my family name to come before my given name.
+-1462421412	If a question depends on another, ACE will display the dependent question only if the student has answered the independent question correctly.
+-514226806	If a student has submitted his or her last response more than ***1*** and not more than ***2*** day(s) past the due date and time, ACE has multiplied the grade by ***0.8***.
+-517013247	If a student has submitted his or her last response more than ***1*** and not more than ***2*** day(s) past the due date and time, ACE will multiply the grade by ***0.8***.
+-1024301223	If a student has submitted his or her last response more than ***1*** and not more than ***2*** minute(s) past the due time, ACE has multiplied the grade by ***0.8***.
+-1991403964	If a student has submitted his or her last response more than ***1*** and not more than ***2*** minute(s) past the due time, ACE will multiply the grade by ***0.8***.
+-1291097566	If a student has submitted his or her last response more than ***1*** day(s) past the due date and time, ACE has multiplied the grade by ***0.8***.
+-1511904919	If a student has submitted his or her last response more than ***1*** day(s) past the due date and time, ACE will multiply the grade by ***0.8***.
+-550293311	If a student has submitted his or her last response more than ***1*** minute(s) past the due time, ACE has multiplied the grade by ***0.8***.
+-67031892	If a student has submitted his or her last response more than ***1*** minute(s) past the due time, ACE will multiply the grade by ***0.8***.
+-284769743	If it is not, choose Show in Finder, right- or control-click on the file, and choose Open with &rarr; Java Web Start. Unfortunately, you will always need to take these steps when you want to launch MarvinView.
+-812702501	If it is, choose it, and MarvinView should launch automatically in the future.
+-1787842542	If MarvinSketch&trade; does not load properly
+-93624350	If the number of attempts is from ***4*** to ***6***, ACE has multiplied the grade by ***0.8***.
+-1750371415	If the number of attempts is from ***4*** to ***6***, ACE will multiply the grade by ***0.8***.
+-1860924597	If the number of days submitted past due is greater than ***4*** and less than or equal to ***6***, multiply the grade by ***0.8***.
+-1629685263	If the Submit button does not appear
+-1458858495	If this box is checked, ACE will allow students to save their work on a question without submitting it for grading until they are ready. This option is useful when the assignment uses attempt-dependent grading.
+-695092805	If this box is checked, ACE will exclude the grades on this assignment from the course grade totals.
+-644091864	If this box is checked, ACE will grade students' responses and provide feedback only after you press the Regrade button in the gradebook.
+-1411594788	If this box is checked, ACE will log every response to disk in a format that you can view in your browser.
+-1346073850	If this box is checked, and you have chosen an email program on this computer, then an email message to your instructor should appear. If one does not appear, you will need to notify your instructor yourself.
+-1271104994	If this box is checked, extensions and time past due will be measured in minutes, not days, and ACE will check due dates and times <i>every time</i> a student submits a response, rather than just when it displays the assignment list page.
+-1720888975	If this box is checked, new responses will not overwrite previous responses in the database, and you will be able to see previous responses in the gradebook.
+-102096518	If you are not entering a regular expression, and your search term contains any of the characters ***metacharacters***, you must precede each instance of the character with a backslash ***\***.
+-175285160	If you are using any browser other than Chrome, MarvinView should launch in a new window, although it may initially be hidden behind another one.
+-1830592327	If you are using Chrome, the browser will download a file with the extension jnlp. In the downloads box at the bottom of the browser, choose Keep. From the file's pulldown menu in the downloads box, see if the option <i>Always open files of this type</i> is available to you.
+-516128459	If you change the grade of this response, ACE will erase the records of all attempts more recent than this one, and this response will become the most recent one.
+-452679420	If you check this box, then, after a student enters <i>this</i> course, ACE will not show him or her calculated products in the feedback to synthesis questions in <i>any</i> course.
+-1371452686	If you choose "Other" from the pulldown menu, you must enter an institution name.
+-515209968	If you choose "Other"from the pulldown menu, you must enter an institution name.
+-435076614	If you continue, ACE will recalculate all of this student's grades in this assignment.
+-1789017162	If you continue, ACE will recalculate the grade of this student on this question in this assignment.
+-612201686	If you continue, ACE will recalculate the grades of all students who attempted this question in this assignment.
+-537446794	If you delete these courses, you will irretrievably delete all assignments and grades associated with them as well. Do you still wish to continue?
+-1923241623	If you do not know your username, ask your instructor to retrieve it for you. If you are an instructor, ask the ACE administrator.
+-1102770865	If you do not see two pictures of water below, your browser does not support PNG or SVG graphics. You may be able to find a browser plug-in that supports them; otherwise, switch to a different browser.
+-2027733402	If you have already done the tutorials, please redo them. The Java and Javascript structure-drawing programs are not identical.
+-191348203	If you have not done so, please email ***John Doe*** for full instructor status.  Include your name and email address so that ***John*** can confirm your identity.
+-785670738	If you want to keep the same question dependencies, you will need to alter them as well.
+-767755565	If you will usually use a mobile device to access ACE, leave this box unchecked.
+-2143935888	If, however, your browser does not pass some of the tests, and you have tried all of the steps provided, make sure that any firewall software you are running isn't causing the problem.  Try adjusting the security level or shutting security off completely.
+-762261908	In a chain mechanism, the initiator should not undergo a reaction in the propagation part of the mechanism, nor should any intermediate or product containing atoms that come from the initiator.
+-1349710355	Institution's primary language of instruction
+-827740610	Internet Explorer
+-1631024924	Invalid course ID number.
+-355811702	invalid login. have you registered?
+-1463352529	Invalid login. Have you registered?'"
+-1827506307	Invalid login. Have you registered?'A=0
+-2099835914	Invert
+-2023569100	Is mastery assignment
+-483283825	Is this assignment a timed exam?
+-573547549	It is considered bad practice to transfer a proton via a four-membered transition state.  Better to protonate the basic atom with a H^+ different from the one obtained by deprotonation of the acidic atom.
+-68672504	Java Web Start
+-1118562995	Join chat room
+-3314326	last
+-1968314725	Log every response to disk?
+-872112649	Looking for more questions?
+-1264102341	Make sticky
+-864092268	Make unsticky
+-314152061	Maximum allowed tries to demonstrate mastery
+-1280827463	Maximum number of tries for mastery
+-1331050233	Maximum self-granted extension
+-1190846823	Maximum total extensions students may self-assign (instructors may override):
+-1907794885	Mechanistic steps that involve three or more separate molecules coming together to react are exceedingly rare.  Try rewriting your mechanism so that it involves only pairs of molecules reacting in each step.
+-74232856	Merge
+-269879206	More electrons are being removed from the highlighted bonds than there are electrons in them, leading to products that have at least one "bond" with a negative number of electrons.
+-1190429849	Multistep synthesis
+-141993583	Name for "Student ID number"
+-285280231	Name of "student ID number"
+-104712844	never
+-1383679808	New post
+-1647449016	New search
+-51907953	New topic
+-1408129582	Next student
+-296055142	No acids in this mechanism that takes place under basic conditions should have pKa < .
+-1392922712	No atom in this mechanism should have a total charge of &plusmn;2 or greater.
+-1363968463	No atom should simultaneously receive and supply unshared electrons.
+-295062077	No bases in this mechanism that takes place under acidic conditions should have conjugate acids whose pKa > .
+-410008092	No carbocations (except iminium ions) should be generated under basic reaction conditions.
+-1072521375	No command received by the login servlet
+-1111575789	No command received by the login servlet.
+-1222522232	No command received by the login servlet.'"
+-1977205882	No command received by the login servlet.'A=0
+-1448918274	No compound in this mechanism should have a total charge of &plusmn;2 or greater.
+-285943555	No details
+-1492895031	No image available.
+-1883137958	No intermediate in this mechanism should be a zwitterion.
+-1587416779	No radicals should form in this polar mechanism.
+-657448903	No reactions chosen.
+-1682227294	No step should contain an acid and a base that satisfy the condition, the pKa of the conjugate acid of the base minus the pKa of the acid < 8 (the pKa rule).
+-1377807079	No such topic.
+-3387192	none
+-1955822743	Notify
+-1993186903	Number of digits past decimal point to display in gradebook:
+-2049507551	Number of posts
+-2049114014	Offending Compounds
+-1188633678	One of your question point values is not a positive number.
+-161122707	Open chat room
+-1231428331	Open in new window
+-1775699496	Open MarvinView
+-1310997911	or ***10*** minutes past first entry
+-1090082955	Or add none to use reaction conditions already stored in the response.
+-2053542637	or check to bar entry indefinitely:
+-405837006	(or other)
+-1586442561	Paste a synthesis copied with chosen reaction conditions here:
+-703627553	Pericyclic reactions (other than electrocyclic reactions) must not involve an even number of pairs of electrons.
+-1790102099	Pericyclic reactions (other than electrocyclic reactions) must not involve four atoms.
+-866852290	Please choose just one option.
+-1554616811	Please click somewhere on the figure.
+-545133597	Please do not submit any blank equations.
+-524312014	Please do not submit any blank statements.
+-85192066	Please do not submit any statements that contain unknown words (those struck through and in red).
+-1831617131	Please draw a single, organic product.
+-1089024104	Please draw at least one arrow on the figure by clicking on it in two different places.
+-2064313114	Please enter a nonnegative number for the maximum length of extensions students may self-assign.
+-1055400059	Please enter a number for the maximum extension a student may self-grant for this assignment.
+-653835286	Please enter a password.
+-1088114586	Please enter a positive integer for the duration of the timed assignment.
+-11148546	Please enter a search term.  (Enter . to match anything.)
+-1833049967	Please enter a statement before adding another line.
+-1322089468	Please enter a title for this forum topic.
+-1099490310	Please enter an institution name if you choose [Autre institution] from the menu.
+-762553495	Please enter an institution name if you choose [Other institution] from the menu.
+-2005804333	Please enter an institution name if you choose [Outra institui&#231;&#227;o] from the menu.
+-1584635731	Please enter an integer in the first textbox.
+-660028917	Please enter only positive integers for the numbers of attempts.
+-1188568306	Please enter only the textbook author's surname; omit the title of the textbook.
+-251963811	Please enter some text for your post.
+-795965212	Please enter your response in the text box.
+-192605076	Please select one or more courses.
+-819639456	Please select one or more students.
+-106845584	point
+-982754077	points
+-1898886909	Points
+-1581979558	points per question
+-1931458597	Post anonymously?
+-1575224002	Practice another
+-913554947	Practice question ***1***.***1***
+-1234196097	Preserve assigned R groups?
+-1488927601	Preserve assigned substitutions (R groups, variable values?
+-2049157627	Press Ctrl+C (Command-C for Macs), then Enter or OK.
+-1244660226	Press My Profile to switch between the Java and JavaScript versions of this structure-drawing applet.
+-1666641404	Press the applet's Select button to see which atoms have been selected.
+-1102297264	Press the button in the southern toolbar whose icon is a burst of four brown arrows, and draw away in the new window that pops up! Whatever you draw in the new window will appear automatically in the original window (but not vice versa). You may leave the new window open when you submit, or not, as you wish.
+-378431022	Press the button to launch MarvinView:
+-1654146931	Press the last button in the southern toolbar, and draw away in the new window that pops up! Whatever you draw in the new window will appear automatically in the original window (but not vice versa). You may leave the new window open when you submit, or not, as you wish.
+-473198576	Previous posts:
+-296302130	Previous student
+-207374695	Printable
+-126916809	question ***1***
+-785607023	Question ***1*** is worth ***4*** point.
+-1415983878	Question ***1*** is worth ***4*** points.
+-1614272866	Question ***1*** was worth ***4*** point.
+-1497150891	Question ***1*** was worth ***4*** points.
+-472551491	Question authors can enter literature references in the question-authoring tool.
+-1731156820	Question-dependent grading
+-1862376190	Random group
+-1215699739	Regrade all
+-1215687142	Regrade now
+-1051190465	Relevant table cells have ***this background color***.
+-1863919082	Reload the page. PC: press CTRL-R or F5; Mac: press COMMAND-R or F5.
+-1434230190	Remember to uncheck this box after the exam is over to allow students to see calculated synthesis products again.
+-1131750241	Remove last statement
+-1701779817	Remove selected
+-1368239393	Require password to enter course?
+-738893067	Reset figure
+-1416140471	Reset your password
+-745725377	Responses to questions containing the term(s):
+-1676472147	Reveal or delete hidden courses
+-2063884674	Right- or control-click on the MarvinView window to see some of the options. For example, choose Structure &rarr; Add &rarr; Explicit H atoms, then Structure &rarr; Clean 3D &rarr; Clean in 3D, and then click-hold-drag to rotate the structure in 3D.
+-1361341631	Run the ***browser checkup*** before you use a new computer with ACE.
+-120331124	Run the browser checkup (the link is on the login page, below where you enter the password) before you use a new computer with ACE.
+-897997559	Safari or Chrome
+-74156266	Save and notify all
+-1822469688	Search
+-1179227269	Search posts
+-1583289416	See acceptable words
+-1824578365	Select all:
+-918647823	Select existing
+-1605146685	Select the <i>Security</i> section.
+-606711318	Select the courses you would like to see again or delete.
+-139018539	Select the courses:
+-841542831	Select the students:
+-349516474	Self-granted Extensions
+-711347605	Set all questions to
+-1856960649	Should the passwords be the same as the login IDs?
+-1217324525	Show literature references to students (where available)?
+-1020410854	show time remaining
+-1623719226	SN2 substitution does not occur at an sp- or sp2-hybridized atom.
+-788766422	Solve related
+-385506506	Some details
+-286548883	Someone has already registered with the username you selected. Please select a different one.
+-142039395	Sorry, ACE cannot evaluate responses to free body diagram questions at this time.
+-1340217529	Sorry, your responses don't match those ACE has on record.
+-2131632430	Start a new topic
+-1975943534	Start forum topic
+-362000882	Start over
+-1808392695	Sticky
+-1704668745	student ID number
+-1608991558	Student reports
+-1748838897	Students from ***institution*** registered with ACE within the past ***1*** year
+-73794918	Submit unsubmitted
+-1759605449	Substitution reactions at C rarely occur by the SN2 mechanism under acidic conditions.
+-315730723	suggested
+-989127572	synthesis
+-1541097015	System notice
+-1304182838	Tarefa salva.
+-1291210704	Test LiveConnect
+-1637312885	The ***student number*** you entered is already associated with an ACE account of a student at ***your institution***. <p>If you have registered with ACE before, and you want to change the information you added when you registered previously, log in to ACE and press the <b>Edit Profile</b> button. (If you don't remember your login or password, contact your instructor and ask him or her to retrieve it.) </p><p>If you have not registered with ACE before, invent a student number and let your instructor know it.  He or she will enroll you manually in the course.<p>
+-1339930256	The bond between a leaving group and an sp- or sp2-hybridized atom does not spontaneously ionize.
+-949977098	The calculated formal charge of each atom in red (valence electrons of the element minus the number of bonds minus the number of unshared electrons) does not match the formal charge you have indicated for that atom.
+-687893402	The CH3^+ ion and primary carbocations that are not stabilized by resonance with a heteroatom or a #pi bond are too high in energy to be proposed as intermediates.
+-513816217	The electron-flow arrows in the highlighted step do not lead to any of the products drawn in the subsequent step. ACE has colored an electron flow arrow that is pointing to an incipient bond and highlighted the atoms that are being connected by that incipient bond. Check to make sure that the electron-flow arrow is pointing where you intend to point it.
+-1674609274	The electron-flow arrows in the highlighted step do not lead to any of the products drawn in the subsequent step. ACE has colored electron-flow arrows that are pointing to incipient bonds. Check to make sure that the electron-flow arrows are pointing where you intend to point them.
+-1458414543	The electron-flow arrows in the highlighted step do not lead to any of the products drawn in the subsequent step. ACE has noticed an electron flow arrow that is pointing to an incipient bond and highlighted the atoms that are being connected by that incipient bond. Check to make sure that the electron-flow arrow is pointing where you intend to point it.
+-493587344	The electron-flow arrows in the highlighted step do not lead to any of the products drawn in the subsequent step. ACE has noticed electron-flow arrows that are pointing to incipient bonds. Check to make sure that the electron-flow arrows are pointing where you intend to point them.
+-731114486	The electron-flow arrows in the highlighted step lead to an atom that has a negative number of valence electrons.
+-1811676226	The expression:***1***is not an equation.
+-803275155	The highlighted stage contains ***coproducts*** whose structures you have omitted, but the compounds are present nonetheless, and these compounds cannot be generated under the given reaction conditions.
+-123496841	The highlighted stage contains a compound that you have gone to the trouble of making, but is a permissible starting material.
+-1389054567	The highlighted stage contains a two-electron electron-flow arrow that illegally points from one atom to another atom to which it is already bonded.
+-1179221710	The highlighted step contains ***one or more compounds*** that are neither products of the electron-flow arrows in the previous step nor acceptable starting materials.
+-1538494444	The highlighted step contains ***one or more compounds*** that are neither products of the electron-flow arrows in the previous step nor acceptable starting materials. ACE has colored an electron flow arrow that is pointing to an incipient bond and highlighted the atoms that are being connected by that incipient bond. Check to make sure that the electron-flow arrow is pointing where you intend to point it.
+-593896118	The highlighted step contains ***one or more compounds*** that are neither products of the electron-flow arrows in the previous step nor acceptable starting materials. ACE has noticed an electron flow arrow that is pointing to an incipient bond and highlighted the atoms that are being connected by that incipient bond. Check to make sure that the electron-flow arrow is pointing where you intend to point it.
+-1112255563	The highlighted step contains ***one or more compounds*** that are neither products of the electron-flow arrows in the previous step nor acceptable starting materials. ACE has noticed electron-flow arrows that are pointing to incipient bonds. Check to make sure that the electron-flow arrows are pointing where you intend to point them.
+-635324127	The highlighted step contains ***one or more compounds*** that are not acceptable starting materials.
+-1577929052	The highlighted step has no electron-flow arrows.
+-1280374224	The number of orbital-containing energy levels in column ***1*** of your diagram is incorrect.
+-1529261218	The passwords you entered don\'t match.
+-1795885499	The reaction of the highlighted stage produces a compound found in the subsequent stage, but it also produces its enantiomer (which you have not shown), so the reaction is not enantioselective, as it is supposed to be.
+-994369733	The relative heights of one or more maxima or minima in your diagram are incorrect.
+-158481410	The relative heights of one or more orbitals in your diagram are incorrect.
+-2122055934	The removal of electrons from the highlighted atom leads to products that have an atom with a negative number of valence electrons.
+-2047012318	The student earned ***100***% of the points of all assignments.
+-745121941	The student earned ***100***% of the points of the assignments that the student attempted.
+-31503336	The student's due date on this assignment is ***Dec. 31, 1876***.
+-950380934	The sum of the number of electrons in columns 1 and 3 should equal the number of electrons in column 2.
+-1594804513	The target compound of your synthesis does not match the requested target compound.
+-456107454	The total number of valence electrons shown in your structure (twice the number of bonds plus the number of unshared electrons) does not equal the number calculated from the formula and charge.
+-1427364787	The username must not be "admin".
+-199270370	The username must not contain the character "@". If you entered your email address, delete the @ character and everything following it.
+-1119622223	The value you assign to each question must be a positive number.
+-1371231605	There are currently no registered students.
+-1004930811	There are no assignments in this course.
+-381069276	There is an incorrect number of maxima or minima in column ***1*** of your diagram.
+-1992340413	There is no such element.  Please try again.
+-161067296	therefore
+-2128737678	This forum has no topics.
+-561660597	This function is useful if you have had to amend the correct answer to a question after students have already started working on the assignment. ACE will provide a list of students whose grades have changed.
+-1762054984	This question is not yet available.
+-149319310	This question is worth ***4*** point.
+-333933499	This question is worth ***4*** points.
+-1270528001	Time since entry:
+-1202031464	timed exam
+-2078680399	To convert your drawing back into 2D mode, either click on "3D" in the lower left corner of the applet, or choose Structure &rarr; Clean 2D &rarr; Clean in 2D. Then you can redraw your wedge bonds.
+-662241747	To convert your drawing back into 2D mode, press the Clean 2D button in the northern toolbar. Then you can redraw your wedge bonds.
+-569196919	To create a course, press <b>Add Course</b>.
+-808919007	To determine whether the Java Virtual Machine has been installed on your computer:
+-1996374982	Toggle question grading
+-1804717288	Too many electrons are being shared with the highlighted atom, leading to products that have an atom with a total electron count more than the maximum.
+-645165853	Too many electrons are being shared with the highlighted atoms, leading to products that have atoms with a total electron count more than the maximum.
+-1517466899	Topic title:
+-1633376176	Total for ***1***
+-1459143617	Translated by
+-269451420	Two compounds that are both positively or both negatively charged should not react with one another.
+-20123474	Type in or browse to the file containing the exported assignments.
+-771733562	United States of America
+-45125877	Unselect
+-1758945084	Use Java drawing program instead of JavaScript one?
+-62006527	Use PNG graphics instead of SVG?
+-2028937031	Use that site to make sure the Java Virtual Machine is running on your computer.  If the test fails, the site gives detailed instructions on how to go about downloading and installing the proper software.
+-452910482	Use the ***Enrollment*** tab to block a student from this forum.
+-1356396417	Use this feature to assign a particular number of points to each question. Grades are adjusted as they are displayed in the gradebook only.
+-1811364510	Use this feature to reduce the students' grades on this assignment as the number of days since the due date increases.
+-2012963372	Use this feature to reduce the students' grades on this assignment as the number of minutes since the due date increases.
+-111972348	valid
+-82420049	Value
+-1530397211	Verify that <i>Allow sites to set cookies</i> is checked.
+-1427215505	Wait at least two minutes before declaring it hung. The system sometimes pauses for a couple of minutes to clean out garbage, and it won't do anything else while it is cleaning house. ACE may require a particularly long time to evaluate responses to mechanism questions. You might also try reloading the page. PC: press CTRL-R or F5; Mac: press COMMAND-R or F5.
+-609796209	Watched?
+-851643737	What is the name of your elementary school?
+-1611203360	What is the name of your favorite author?
+-1700473240	What is the name of your favorite band or musician?
+-1046332556	What is the name of your favorite pet?
+-407625967	What is the name of your favorite teacher?
+-616352750	What is the name of your favorite vacation spot?
+-1756474666	What is your mother's maiden name?
+-1963138087	When an atom acts as a nucleophile, it normally uses the electrons in a lone pair, a #pi bond, or a #sigma bond to a metal to make the new bond, not those in a #sigma bond to H.  If the atom must use the electrons in the #sigma bond to H, deprotonate the atom first to give it a lone pair that it can use subsequently.
+-1655998790	When students may enter course:
+-1234784545	Where did you experience your first kiss?
+-1298645674	Write book
+-1518313880	Write the name of the language as speakers of that language refer to it (e.g., fran&ccedil;ais, not French.) If the language uses the Roman alphabet, capitalize it as it would appear in the middle of a sentence in that language (e.g., espa&ntilde;ol, but Deutsch).
+-928921977	You did not assign a point value to at least one question; its point value will be 1.
+-1986005023	You did not assign a point value to the questions; they will each be worth 1.
+-1396042942	You earned ***100***% of the points of all assignments, not counting excluded ones.
+-988883659	You earned ***100***% of the points of all assignments.
+-1061062267	You earned ***100***% of the points of the assignments that you attempted, not counting excluded assignments.
+-842890747	You earned ***100***% of the points of the assignments that you attempted.
+-914458223	You have drawn a mechanism with a linear topology. This mechanism involves radicals, so it is much more likely to proceed by a chain mechanism. In a chain mechanism, the boxes must be connected by arrows in a circle, although there may be a short linear sequence of boxes that leads to one box in the circle.
+-360132634	You have not created any courses.
+-1076572586	You have not mastered the concepts required to answer this question within the requisite number of attempts.
+-438838010	You have saved a response for question ***5*** without submitting it for evaluation. Remember to submit it later, or you will not receive credit.
+-2083601469	You have saved at least one response without submitting it for evaluation. Remember to submit it later, or you will not receive credit.
+-615423926	You have successfully registered.
+-2146706100	You may copy the following code, paste it into the Lewis JS clipboard, and import it into Lewis JS's drawing window, if you wish. The pasted code must begin with one blank line.
+-163933489	You may modify the TA status of students only if they are already registered with ACE.
+-141588732	You may need to refresh the page before Marvin Live appears.
+-1195371062	You may occasionally wish to run the MarvinView applet so you can manipulate figures (rotate them in 3D, calculate stereochemical configurations, etc.). ACE will deliver the applet to you via the Java Web Start technology.
+-1334888424	You may start over on a related question so that you can demonstrate mastery.
+-282710478	You must answer both security questions.
+-1279013322	You must enter a first (given) name.
+-1692314998	You must enter a first name.
+-1081004419	You must enter a last name (surname, family name).
+-429771986	You must enter a valid email id.
+-1927798438	You must enter a valid student ID number.
+-1242824434	You must select at least one item to export.
+-707858434	You must select at least one student whose forum access should be changed.
+-446581041	You must select at least two items to merge.
+-902547624	You probably meant to add a shortcut group such as Ph or Et to your structure, but you added an atom alias instead. (Aliases and shortcut groups look alike, but ACE cannot interpret aliases properly.) To replace the alias with a shortcut group, press the Abbreviated Groups button (the first button on the southern toolbar; the icon is a pair of brackets with a book), type the name of the shortcut group, press OK to close the dialog box, and then click on the alias.
+-615142516	Your diagram contains the correct number of minima and maxima, and they are connected properly, but column ***1*** of your diagram contains incorrectly labeled maxima or minima.
+-154869170	Your identity has not yet been verified.
+-986770986	Your instructor regraded your response to question ***1*** in assignment ***1***, and your grade changed.
+-1203973334	Your languages in order of priority (you may change the position of or remove any language except English and your institution's primary language):
+-581877534	Your languages in order of priority (you may remove any language except English and your institution's primary language):
+-200518826	Your languages in order of priority (you may reorder or remove any language except English and your institution's primary language):
+-667074340	Your mechanism has an insufficient number of steps. Don't try to execute too many mechanistic steps at once.
+-822415240	Your mechanism has two last stages. A mechanism can end only at one place.
+-1372660858	Your response is correct (***modified to*** ***2.0*** points)
+-660119328	Your response is partially correct (you earned ***50***%, ***modified to*** ***2.0*** points)
+-1130997273	Your synthesis has too many steps. There is a more efficient route.

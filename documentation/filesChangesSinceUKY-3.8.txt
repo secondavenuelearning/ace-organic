@@ -1,0 +1,15 @@
+Making background images unselectable
+authortool/evaluators/loadEvaluatorPhysics.jsp 
+authortool/evaluators/loadEvaluatorGeneric.jsp 
+authortool/figures/loadFigure.jsp 
+gradebook/showMol.jsp 
+gradebook/resetConfirm.jsp 
+homework/answerHTML.jsp.h
+homework/imageLarge.jsp 
+reports/showMol.jsp 
+
+Fixing Reset Figure button; if selection is omitted in fillBlank questions
+homework/answerJS.jsp.h
+
+Fixing coloring of typed words if they are not in a library.
+js/wordCheck.js

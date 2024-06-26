@@ -1,0 +1,38 @@
+<p align="center"><span class="database">pbsets_v3</span>, set of questions
+within a topic </p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">id<sup>1</sup></td>
+<td>unique identifier of this question set (negative means locally authored)</td>
+<td>number(38)</td></tr>
+<tr><td class="database">chap_id<sup>2,3</sup></td>
+<td>unique ID of topic in which this set resides
+&rarr; <span class="database">chapters_v1.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">serial_no</td>
+<td>serial number of this question set within its topic; may be null, is always
+null for locally authored question sets</td>
+<td>number(38)</td></tr>
+<tr><td class="database">name</td>
+<td>name of the question set</td>
+<td>varchar2(200)</td></tr>
+<tr><td class="database">author</td>
+<td>who wrote the questions (usually not used)</td>
+<td>varchar2(100)</td></tr>
+<tr><td class="database">header</td>
+<td>question statement applying to all questions in the set</td>
+<td>CLOB</td></tr>
+<tr><td class="database">remarks</td>
+<td>comments, such as "Prob 1-3: RBG"</td>
+<td>CLOB</td></tr>
+<tr><td class="database">user_id<sup>2,3</sup></td>
+<td>instructor (if locally created) 
+&rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">header_id<sup>3</sup></td>
+<td>serial number of <span class="database">header</span> 
+&rarr; <span class="database">translations_v2.phrase_id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">pbsets_seq</td>
+<td>sequencer for <span class="database">id</span></td></tr>
+</table>

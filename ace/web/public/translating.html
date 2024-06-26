@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Translations in ACE</title>
+<link rel="stylesheet" href="ACEStructure/styles.css" type="text/css" />
+</head>
+<body style="overflow:auto;">
+<h2 style="text-align:center;">Translating ACE into languages other than English</h2>
+
+<p>ACE has the capability of storing translations of its content
+in a variety of languages, and displaying that content to its users
+in whatever language they prefer.
+
+<h3>Choosing a language</h3>
+
+<p>All users who want to use ACE must register with the system once. 
+When an instructor registers with ACE, she is given a list of 
+institutions from which to choose. If her institution is not listed,
+she may choose "Other" and enter its name. She then has the
+opportunity to choose her institution's primary language of instruction
+from ACE's menu of languages or to type the name of a new language. 
+ACE will then assign that language 
+automatically to all students who register from that institution.
+(Of course, much more work is required before ACE can translate the 
+content into that language.) 
+</p>
+
+<p>At any time, students or instructors may choose a 
+language that they prefer over English 
+by pressing <span class="link">My Profile</span>. A user may also
+choose more than one language and indicate an order of preference,
+and a user may also choose to delete a language.
+However, if ACE assigns a language to a student because that language
+is the primary language of instruction at the student's institution,
+then the student may not delete that language from her list of
+languages.
+</p>
+
+<h3>Displaying content in a language other than English</h3>
+
+<p>Throughout the program (except in the Question Bank),
+whenever ACE displays text to the user, it searches its database for
+translations of that text into the user's preferred languages. If it finds
+translations in more than one of the user's preferred languages, it chooses the 
+translation in the most-preferred language. If it fails to find a translation 
+in any of the user's preferred languages, it displays the text in English.  </p>
+
+
+<h3>Entering translations</h3>
+
+<p>The ACE administrator may confer translator privileges 
+on selected instructors.  These instructors then have the authority to enter or 
+modify translations in their chosen languages.
+</p>
+
+<p>Translators should feel free to use any characters that their language 
+requires. Translators may also use character entity references, such as 
+&amp;delta; and &amp;rarr; for the &delta; and &rarr; characters. The
+textbox will display &amp;delta; or &amp;rarr;, but users will see 
+&delta; or &rarr;. (However, if a translator enters a character entity
+reference in numerical format, such as &amp;#8594;, then when ACE 
+redisplays the translation in a textbox, it will display not the 
+character entity reference 
+&amp;#8594;, but the character &#8594; to which it refers.)
+</p>
+
+<p>ACE automatically formats chemical formulas and common 
+chemical expressions.  For example, if an author enters 
+CH3CO2^- or sp3-hybridized,
+ACE automatically formats them to 
+CH<sub>3</sub>CO<sub>2</sub><sup>&minus;</sup> 
+and <i>sp</i><sup>3</sup>-hybridized.
+(Please see ACE's 
+<a href="toDisplay.jsp">toDisplay() 
+tester</a> for more information on how ACE formats text.) 
+However, translators may choose to use HTML formatting tags such as
+&lt;b&gt;&lt;/b&gt; or &lt;sup&gt;&lt;/sup&gt; to format text as well.
+</p>
+
+<p>ACE divides into two groups the phrases that it translates:
+question sets (question statements, evaluator feedback, 
+etc.), and general phrases
+(instructions, button labels, alerts, 
+automatically generated feedback, etc.). </p>
+
+<h3>Entering translations of general phrases</h3>
+
+<p>An authorized translator who presses the
+<span class="link">Question Bank</span> button to enter the
+question bank will see a 
+<span class="link">Translate General</span> button.  The translator presses 
+this button to enter translations of ca. 1300 phrases hardwired into ACE. 
+Many of these phrases are similar, and many are very short (one word or
+even an abbreviation), so the translator can expect to be able to translate
+about 100 phrases per hour. </p>
+
+<p>Many general phrases have a variable part; for example, "(you earned 
+<i>x</i>)".  Rather than storing a separate translation for every possible 
+number in this phrase, ACE stores a single example phrase that contains a
+placeholder demarcated by ***, e.g., "(you earned ***0.5***)". ACE will
+replace the demarcated part with the appropriate value when it displays
+the phrase to the user. It is important that, when so instructed, the 
+translator leave the
+placeholder inside the *** symbols <i>unchanged</i> in the translated 
+phrase, so that ACE knows where it should insert the variable content.
+</p>
+
+<p>Translators should take special care to end their translation with
+a period when a phrase ends with a period, and not to do so when it 
+does not.
+</p>
+
+<p>Even after a translator enters translations for all of the general
+phrases, students may still occasionally encounter untranslated phrases.
+The reason is that ACE only adds a phrase to the database of translatable 
+phrases when it first displays it to a user. At that time, it will add
+the phrase to its database of translatable phrases, but of course
+a translator won't yet have entered a translation for that phrase. For 
+this reason, a translator should occasionally check the general phrases 
+list to see if ACE has added to it any new phrases that need translating.
+</p>
+
+<h3>Entering translations of question sets</h3>
+
+<p>If, after pressing the <span class="link">Question Bank</span> 
+button, the translator chooses a topic and then a question set, the
+<span class="link">Translate General</span> button will change to 
+<span class="link">Translate Set</span>.  The translator presses this
+button to enter translations of the questions
+in the chosen question set. 
+</p>
+
+<p>A question set has up to four kinds of content that need to 
+be translated: the common question statement, each question's 
+statement, the feedback for each evaluator of each question, and
+any question data that the question may need to display (such as
+options in a multiple-choice question or molecule names in a 
+ranking question). A particular question set may lack
+a common question statement, and a particular question
+may have a blank statement or no queston data.
+</p>
+
+<p>When a translator first enters the question 
+set translation tool, ACE displays only the common question
+statement (if there is one) of the question set and the statements 
+of each individual question in the set.
+If the translator clicks 
+<span class="link">Common question statement</span>,
+a textbox will appear in which the translator should enter 
+the translation. If the translator clicks on the 
+<span class="link">Edit</span> icon next
+to an individual question, ACE will display that question's statement,
+question data (if any), and evaluator feedbacks, along with 
+textboxes for the translation of each. Clicking on the
+<span class="link">Edit</span> icon again will return
+that question to its original contracted display state, but ACE will 
+not lose any translations that the translator entered into the
+textboxes.  With each evaluator,
+ACE also displays in green the condition under which a response
+triggers that particular feedback;  
+the translator should <i>not</i> translate this text.
+</p>
+
+<p>When a translator saves a translation of a particular phrases,
+ACE looks to see if that phrase is repeated anywhere else in the
+content, and, if it is, it assigns the translation to those other
+instances of the phrase as well. This feature saves the translator
+from having to repeatedly enter the same translation. As a result,
+a translator should save her work often. </p>
+
+<p>If a translator wishes to alter a translation, the translator 
+should simply alter it and save the altered version. If a translator
+wishes to delete a translation without replacing it with another one,
+the translator must enter ***ERASE*** in the textbox. ACE will ignore 
+a blank textbox.
+</p>
+
+<h3>Authoring and translations</h3>
+
+<p>ACE divides its content into <i>master-authored</i> 
+and <i>locally authored</i> content. The ACE administrators have granted 
+master-author status to a handful of instructors. When these instructors 
+write content, their work
+becomes visible to all users, and when they make changes to existing
+content, those changes propagate out to all users as well. Most instructors,
+however, are local authors. When a local author writes a new question,
+only that instructor (and her students) can see the new question. Moreover,
+if a local author modifies a master-authored question, ACE makes a copy
+of the master-authored question and assigns it to the local author, so that
+the local author is actually making changes to a locally authored question,
+and, again, only that instructor (and her students) can see the changes. 
+</p>
+
+<p>The question set translation tool displays <i>only</i> the 
+master-authored questions in a question set. A translator using this 
+page will not see
+any locally authored content, even if it is content that the translator 
+has authored herself. If an instructor with only local-author privileges 
+wants his students to see the content that he has authored in a language 
+other than English, he must write his content in
+that language, and it will appear to students only in that language.
+</p>
+
+<p>Having said that, suppose that an instructor modifies an existing 
+master-authored question
+by adding a single new evaluator. If a translator has already translated
+the question statement or the feedback of the other evaluators in the
+question, then those translations will continue to appear to the 
+instructor's students; and, if
+a translator later translates the question statement or the feedback in 
+the original master-authored question, that translation will apply as well
+to phrases that have remained unchanged in the locally-authored question.
+On the other hand, if the instructor has modified a question statement 
+or an evaluator's feedback, his students will always see exactly what
+he has written, whether it is in English or another language.
+</p>
+
+<p>A master author may occasionally modify existing content. If she
+modifies a question statement, evaluator, or question
+datum of an existing question and then saves the question, ACE deletes all 
+translations associated with the modified item, preserving translations of those
+question parts that remain unmodified. However, if she moves evaluators or 
+question data within a list, ACE preserves the translations associated with
+them.  </p>
+
+<p>If a master author duplicates an existing question, ACE will copy all 
+translations associated with the original question and associate them with the
+new question. However, editing the question statement, evaluators, or question
+data will cause ACE to delete the translations associated with those items. </p>
+
+</body>
+</html>

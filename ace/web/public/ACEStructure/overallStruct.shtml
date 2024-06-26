@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ACE Overall Structure</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<h3>Overall Structure of ACE</h3>
+
+<p>ACE has three layers of data and data structures: database, Java, and JSP.
+</p>
+
+<p>ACE makes extensive use of the methods in 
+<a href="http://www.chemaxon.com/jchem" target="window2">JChem</a>, 
+a cheminformatics package written by <a href="http://www.chemaxon.com"
+target="window2">ChemAxon</a>.  Always check the 
+<a href="http://www.chemaxon.com/jchem/doc/api/" target="window2">JChem API</a>
+before you write a method that calculates a molecular property to see if
+ChemAxon has already written it for you.  
+The <a target="window2" href="API/index.html">ACE API</a> links to JChem's.</p>
+
+<p>ACE stores in files several values or sets of values that need to be retrieved 
+only once and that do not change over time.
+The programmers store the values (or the locations of the filenames in which the 
+values are stored) in the configuration file 
+<span class="filename">WEB-INF/epoch.properties</span>. 
+Upon startup, ACE uses the classes <span class="classname">LoginServlet</span> 
+and <span class="classname">GroupLoader</span> 
+to read the file and load its values into a single instance 
+of a dedicated class, whence ACE can easily retrieve the values when it needs
+them.  </p>
+
+<table class="nonDbTable" summary="">
+<tr><th>File</th><th>Information</th><th>Loaded by</th>
+<th>Stored in</th><th>Stored as</th></tr>
+<tr>
+<td class="filename">WEB-INF/<br/>epoch.properties</td> 
+<td>Webmaster email, tutorial course ID number,
+temp, response logging, and sort directories</td>
+<td><span class="classname">LoginServlet</span> 
+and <span class="classname">GroupLoader</span></td> 
+<td class="classname">AppConfig</td>
+<td class="classname">Strings</td>
+</tr>
+
+<tr>
+<td class="filename">WEB-INF/<br/>smsvars.properties</td> 
+<td>various SMS values, including master author's SMS ID</td>
+<td class="classname">LoginServlet</td> 
+<td class="classname">AppConfig</td>
+<td class="classname">Strings</td>
+</tr>
+
+<tr>
+<td class="filename">WEB-INF/<br/>normalize_config.xml</td> 
+<td>Standardizer transformation definitions</td>
+<td class="classname">GroupLoader</td> 
+<td class="classname">AppConfig</td>
+<td class="classname">Standardizer</td>
+</tr>
+
+<tr>
+<td class="filename">WEB-INF/<br/>displayRules.txt</td> 
+<td>regular expressions and substitution strings for formatting text, listed
+in the order in which ACE should apply them</td>
+<td><span class="classname">LoginServlet</span></td>
+<td><span class="classname">DisplayRules</span></td>
+<td class="classname">ArrayList&lt;String[&nbsp;]&gt;</td> 
+</tr>
+
+<tr>
+<td class="filename">WEB-INF/<br/>defaultEditions.txt</td> 
+<td>default edition numbers of Bruice and Wade</td>
+<td class="classname">GroupLoader</td>
+<td class="classname">TextChapters</td>
+<td><span class="classname">Hashtable&lt;String, String&gt;</span> 
+keyed by author name</td>
+</tr>
+
+<tr>
+<td class="filename">WEB-INF/<br/>textChapterNames.txt</td> 
+<td>names of each chapter in each edition of Bruice and Wade in the 
+order of their appearance</td>
+<td class="classname">GroupLoader</td> 
+<td class="classname">TextChapters</td>
+<td><span class="classname">Hashtable&lt;String, ArrayList&lt;String&gt;&gt;</span> 
+keyed by author name and edition number</td>
+</tr>
+
+<tr>
+<td class="filename">nosession/<br/>marvin/ACE.abbrevgroups</td> 
+<td>names and SMILES definitions of shortcut groups (Et, Ph, etc.) 
+understood by Marvin</td>
+<td class="classname">GroupLoader</td> 
+<td class="classname">RGroupDefs</td>
+<td><span class="classname">Hashtable&lt;String, String[&nbsp;]&gt;</span> 
+keyed by shortcut group abbreviation</td>
+</tr>
+</table>
+
+<p>ACE stores functional groups and their definitions in their own 
+database table.  </p>
+
+<!--#include file="db/functional_groups.html"-->
+
+<p>We store in <span class="filename">marvin-extra</span> several files that 
+JChem and Marvin need.  A README file located in the same directory describes 
+where to place these files. </p>
+
+</body>
+</html>
+

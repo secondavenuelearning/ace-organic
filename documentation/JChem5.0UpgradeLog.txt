@@ -1,0 +1,162 @@
+/mechanisms/MechSubStructSearch.java:
+searchObject.setOption(SearchConstants.OPTION_CHARGE_MATCHING, 
+	SearchConstants.CHARGE_MATCHING_EXACT);
+Changed to:
+searchOptions.setChargeMatching(SearchConstants.CHARGE_MATCHING_EXACT);
+
+searchObject.setOption(SearchConstants.OPTION_ISOTOPE_MATCHING, 
+	SearchConstants.ISOTOPE_MATCHING_EXACT);
+Changed to:
+searchOptions.setChargeMatching(SearchConstants.ISOTOPE_MATCHING_EXACT);
+
+searchObject.setOption(SearchConstants.OPTION_RADICAL_MATCHING, 
+	SearchConstants.RADICAL_MATCHING_EXACT);
+Changed to:
+searchOptions.setChargeMatching(SearchConstants.RADICAL_MATCHING_EXACT);
+Followed by:
+searchObject.setSearchOptions(searchOptions);
+
+/mechanisms/MechUtil.java:
+chemaxon.marvin.util.MolExportException;
+Changed to:
+chemaxon.marvin.io.MolExportException;
+
+/synthesis/SynthSolver.java:
+search.setOption(SearchConstants.OPTION_STEREO_MODEL,
+	SearchConstants.STEREO_MODEL_GLOBAL); // JChem 3.2.2
+search.setOption(SearchConstants.OPTION_CHARGE_MATCHING,
+	SearchConstants.CHARGE_MATCHING_EXACT);
+search.setOption(SearchConstants.OPTION_ISOTOPE_MATCHING,
+	SearchConstants.ISOTOPE_MATCHING_EXACT);
+search.setOption(SearchConstants.OPTION_RADICAL_MATCHING,
+	SearchConstants.RADICAL_MATCHING_EXACT);
+search.setOption(SearchConstants.OPTION_VAGUE_BOND,
+	SearchConstants.VAGUE_BOND_OFF);
+Changed to:
+MolSearchOptions searchOpt = new MolSearchOptions();
+searchOpt.setStereoModel(SearchConstants.STEREO_MODEL_GLOBAL);
+searchOpt.setChargeMatching(SearchConstants.CHARGE_MATCHING_EXACT);
+searchOpt.setIsotopeMatching(SearchConstants.ISOTOPE_MATCHING_EXACT);
+searchOpt.setRadicalMatching(SearchConstants.RADICAL_MATCHING_EXACT);
+searchOpt.setVagueBondLevel(SearchConstants.VAGUE_BOND_OFF);
+Followed By:
+search.setSearchOptions(searchOpt);
+
+/synthesis/SynthUtil.java:
+chemaxon.marvin.util.MolExportException;
+Changed to:
+chemaxon.marvin.io.MolExportException;
+
+/chem/MolFunctions.java:
+s1.setOption(SearchConstants.OPTION_STEREO_MODEL,
+	SearchConstants.STEREO_MODEL_GLOBAL);
+s1.setOption(SearchConstants.OPTION_VAGUE_BOND,
+	SearchConstants.VAGUE_BOND_OFF);
+s1.setOption(SearchConstants.OPTION_CHARGE_MATCHING,
+	SearchConstants.CHARGE_MATCHING_EXACT);
+s1.setOption(SearchConstants.OPTION_ISOTOPE_MATCHING,
+	SearchConstants.ISOTOPE_MATCHING_EXACT);
+s1.setOption(SearchConstants.OPTION_RADICAL_MATCHING,
+	SearchConstants.RADICAL_MATCHING_EXACT);
+Changed to:
+MolSearchOptions s1Opts = new MolSearchOptions();
+s1Opts.setStereoModel(SearchConstants.STEREO_MODEL_GLOBAL);
+s1Opts.setVagueBondLevel(SearchConstants.VAGUE_BOND_OFF);
+s1Opts.setChargeMatching(SearchConstants.CHARGE_MATCHING_EXACT);
+s1Opts.setIsotopeMatching(SearchConstants.ISOTOPE_MATCHING_EXACT);
+s1Opts.setRadicalMatching(SearchConstants.RADICAL_MATCHING_EXACT);
+Followed by:
+s1.setSearchOptions(s1Opts);
+mySearch.setOption(SearchConstants.OPTION_STEREO_MODEL,
+	SearchConstants.STEREO_MODEL_GLOBAL);
+mySearch.setOption(SearchConstants.OPTION_CHARGE_MATCHING,
+	SearchConstants.CHARGE_MATCHING_EXACT);
+mySearch.setOption(SearchConstants.OPTION_ISOTOPE_MATCHING,
+	SearchConstants.ISOTOPE_MATCHING_EXACT);
+mySearch.setOption(SearchConstants.OPTION_RADICAL_MATCHING,
+	SearchConstants.RADICAL_MATCHING_EXACT);
+mySearch.setOption(SearchConstants.OPTION_VAGUE_BOND,
+	SearchConstants.VAGUE_BOND_OFF);
+Changed to:
+MolSearchOptions mySearchOpts = new MolSearchOptions();
+mySearchOpts.setStereoModel(SearchConstants.STEREO_MODEL_GLOBAL);
+mySearchOpts.setChargeMatching(SearchConstants.CHARGE_MATCHING_EXACT);
+mySearchOpts.setIsotopeMatching(SearchConstants.ISOTOPE_MATCHING_EXACT);
+mySearchOpts.setRadicalMatching(SearchConstants.RADICAL_MATCHING_EXACT);
+mySearchOpts.setVagueBondLevel(SearchConstants.VAGUE_BOND_OFF);
+Followed by:
+mySearch.setSearchOptions(mySearchOpts);
+
+s.setOption(SearchConstants.OPTION_CHARGE_MATCHING,
+	SearchConstants.CHARGE_MATCHING_EXACT);
+s.setOption(SearchConstants.OPTION_ISOTOPE_MATCHING,
+	SearchConstants.ISOTOPE_MATCHING_EXACT);
+s.setOption(SearchConstants.OPTION_RADICAL_MATCHING,
+	SearchConstants.RADICAL_MATCHING_EXACT);
+s.setOption(SearchConstants.OPTION_VAGUE_BOND,
+	SearchConstants.VAGUE_BOND_OFF);
+Changed to:
+MolSearchOptions sOpts = new MolSearchOptions();
+sOpts.setChargeMatching(SearchConstants.CHARGE_MATCHING_EXACT);
+sOpts.setIsotopeMatching(SearchConstants.ISOTOPE_MATCHING_EXACT);
+sOpts.setRadicalMatching(SearchConstants.RADICAL_MATCHING_EXACT);
+sOpts.setVagueBondLevel(SearchConstants.VAGUE_BOND_OFF);
+Followed by:
+s.setSearchOptions(sOpts);
+
+/evals/impl/FnalGroup.java:
+search.setOption(SearchConstants.OPTION_CHARGE_MATCHING,
+	SearchConstants.CHARGE_MATCHING_EXACT);
+search.setOption(SearchConstants.OPTION_ISOTOPE_MATCHING,
+	SearchConstants.ISOTOPE_MATCHING_EXACT);
+search.setOption(SearchConstants.OPTION_RADICAL_MATCHING,
+	SearchConstants.RADICAL_MATCHING_EXACT);
+search.setOption(SearchConstants.OPTION_VAGUE_BOND,
+	SearchConstants.VAGUE_BOND_OFF);
+Changed to:
+MolSearchOptions searchOpt = new MolSearchOptions();
+searchOpt.setChargeMatching(SearchConstants.CHARGE_MATCHING_EXACT);
+searchOpt.setIsotopeMatching(SearchConstants.ISOTOPE_MATCHING_EXACT);
+searchOpt.setRadicalMatching(SearchConstants.RADICAL_MATCHING_EXACT);
+searchOpt.setVagueBondLevel(SearchConstants.VAGUE_BOND_OFF);
+Followed By:
+search.setSearchOptions(searchOpt);
+
+/evals/impl/Contains.java:
+ourSearch.setOption(SearchConstants.OPTION_CHARGE_MATCHING,
+	SearchConstants.CHARGE_MATCHING_IGNORE);
+ourSearch.setOption(SearchConstants.OPTION_ISOTOPE_MATCHING,
+	SearchConstants.ISOTOPE_MATCHING_IGNORE);
+ourSearch.setOption(SearchConstants.OPTION_RADICAL_MATCHING,
+	SearchConstants.RADICAL_MATCHING_IGNORE);
+ourSearch.setOption(SearchConstants.OPTION_VAGUE_BOND,
+	SearchConstants.VAGUE_BOND_OFF);
+Changed to:
+MolSearchOptions ourSearchOpt = new MolSearchOptions();
+ourSearchOpts.setChargeMatching(SearchConstants.CHARGE_MATCHING_IGNORE);
+ourSearchOpts.setIsotopeMatching(SearchConstants.ISOTOPE_MATCHING_IGNORE);
+ourSearchOpts.setRadicalMatching(SearchConstants.RADICAL_MATCHING_IGNORE);
+ourSearchOpts.setVagueBondLevel(SearchConstants.VAGUE_BOND_OFF);
+Followed By:
+ourSearch.setSearchOptions(ourSearchOpts);
+
+/mechanisms/Mechansim.java:
+chemaxon.marvin.util.MolExportException;
+Changed to:
+chemaxon.marvin.io.MolExportException;
+
+/mechanisms/MechStage.java:
+chemaxon.marvin.util.MolExportException;
+Changed to:
+chemaxon.marvin.io.MolExportException;
+
+/synthesis/Synthesis.java:
+chemaxon.marvin.util.MolExportException;
+Changed to:
+chemaxon.marvin.io.MolExportException;
+
+/synthesis/SynthStage.java:
+chemaxon.marvin.util.MolExportException;
+Changed to:
+chemaxon.marvin.io.MolExportException;
+

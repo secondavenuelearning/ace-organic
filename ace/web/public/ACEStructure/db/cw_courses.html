@@ -1,0 +1,60 @@
+<p align="center"><span class="database">cw_courses_v3</span>, an ACE course</p>
+<table class="dbTable" summary="">
+<tr><th>Field</th><th>Description</th><th>Type</th></tr>
+<tr><td class="database">id<sup>1</sup></td>
+<td>unique identifier for this course</td>
+<td>number(38)</td></tr>
+<tr><td class="database">instructor_id<sup>2,3</sup></td>
+<td>instructor &rarr; <span class="database">users_v4.user_id</span></td>
+<td>varchar2(50)</td></tr>
+<tr><td class="database">name</td>
+<td>name of course</td>
+<td>CLOB</td></tr>
+<tr><td class="database">description</td>
+<td>description</td>
+<td>CLOB</td></tr>
+<tr><td class="database">enable_date</td>
+<td>date and time students may enter the course (YYYY/MM/DD HH:MI:SS)</td>
+<td>varchar2(25)</td></tr>
+<tr><td class="database">homepage</td>
+<td>URL</td>
+<td>CLOB</td></tr>
+<tr><td class="database">notes</td>
+<td>course notes</td>
+<td>CLOB</td></tr>
+<tr><td class="database">book</td>
+<td>traditional textbook used by the course, e.g., Bruice</td>
+<td>varchar2(30)</td></tr>
+<tr><td class="database">ace_text_id<sup>2</sup></td>
+<td>ID number of the ACE textbook used by the course, or 0 if none is used
+&rarr; <span class="database">textbooks_v1.id</span></td>
+<td>number(38)</td></tr>
+<tr><td class="database">time_zone</td>
+<td>e.g., America/Kentucky/Louisville</td>
+<td>CLOB</td></tr>
+<tr><td class="database">flags</td>
+<td>bit 2: hide
+<br/>bit 3: is exam course
+<br/>bit 4: TAs may alter grades
+<br/>bits 6 &amp; 7: number of decimal digits to display in gradebook
+(0&ndash;2)
+<br/>bit 8: enable discussion forum
+<br/>bit 9: don't show calculated synthetic products
+</td>
+<td>number(38)</td></tr>
+<tr><td class="database">password_hash</td>
+<td>digest of password</td>
+<td>raw(150)</td></tr>
+<tr><td class="database">serial_no</td>
+<td>serial number of this course for the course owner</td>
+<td>number(38)</td></tr>
+<tr><td class="database">max_extensions_str</td>
+<td>string value of the maximum extensions of all assignments in course (can be
+overridden by course instructor)</td>
+<td>varchar2(10)</td></tr>
+<tr><td class="database">marvin_live_port</td>
+<td>server port used by the Marvin Live chat rooms associated with this course</td>
+<td>number(38)</td></tr>
+<tr><td class="database">cw_courses_seq</td>
+<td>sequencer for <span class="database">id</span></td></tr>
+</table>
