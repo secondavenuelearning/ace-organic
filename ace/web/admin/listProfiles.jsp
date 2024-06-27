@@ -375,22 +375,9 @@
 		margin-right:auto; border-style:none; border-collapse:collapse;"
 		summary="">
 	<tr>
-	<td style="padding:0px; text-align:left margin-right:auto;">
-		<table>
-		<tr><td>
-		Find students whose surnames begin with:&nbsp;
-		</td><td>
-		<input name="query" type="text" 
-				value="<%= Utils.toValidTextbox(searchStr) %>" size="20"/>
-		</td><td>
-		<%= makeButton("Search", "setSearchString();") %>
-		</td><td>
-		</tr>
-		</table>
-	</td>
-	<td class="boldtext" style="text-align:right; padding-left:10px; width:auto;">
+	<td class="boldtext" style="text-align:left; padding-right:10px; width:auto;">
 		<select name="taskSelector" onchange="doAdminTask();">
-			<option value="0">Or choose a task...</option>
+			<option value="0">Choose a task...</option>
 			<option value="12">Send emails to selected users</option> 
 			<option value="14">Edit the selected user</option> 
 			<option value="15">Impersonate the selected user</option> 
@@ -409,6 +396,19 @@
 			<option value="2">Change the default language</option>
 			<option value="9">Set an institution's payment grace period</option>
 		</select>
+	</td>
+	<td style="padding:0px; text-align:right margin-right:auto;">
+		<table>
+		<tr><td style="width:100%; text-align:right;">
+		or find students whose surnames begin with:&nbsp;
+		</td><td>
+		<input name="query" type="text" 
+				value="<%= Utils.toValidTextbox(searchStr) %>" size="20"/>
+		</td><td>
+		<%= makeButton("Search", "setSearchString();") %>
+		</td><td>
+		</tr>
+		</table>
 	</td>
 	</tr>
 </table>
