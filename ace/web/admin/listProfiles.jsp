@@ -77,6 +77,7 @@
 
 	function doAdminTask() {
 		var val = parseInt(document.searchform.taskSelector.value);
+		document.searchform.taskSelector.selectedIndex = 0;
 		switch (val) {
 			case 1: managePermissions(); break;
 			case 2: changeDefaultLanguage(); break;
