@@ -65,48 +65,48 @@ ACE toDisplay() tester
 		<P><table class="whiteTable" style="width:60%;">
 			<tr><th class="regtext" style="width:40%;">Method</th>
 				<th class="regtext">Returns</th></tr>
-			<tr><td class="regtext" >[none]</td>
-				<td class="regtext" >
+			<tr><td class="regtext">[none]</td>
+				<td class="regtext">
 					<%= enteredString %></td></tr>
-			<tr><td class="regtext" >toDisplay()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toDisplay()</td>
+				<td class="regtext">
 					<%= toDisp %></td></tr>
-			<tr><td class="regtext" >toDisplay() with R groups</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toDisplay() with R groups</td>
+				<td class="regtext">
 					<%= Utils.toDisplay(enteredString, 
 							Utils.SUPERSCRIPT_RGROUP_NUMS) %></td></tr>
-			<tr><td class="regtext" >chopDisplayStr(toDisplay(), 25)</td>
-				<td class="regtext" >
+			<tr><td class="regtext">chopDisplayStr(toDisplay(), 25)</td>
+				<td class="regtext">
 					<%= Utils.chopDisplayStr(toDisp, 25) %></td></tr>
-			<tr><td class="regtext" >toPopupMenuDisplay()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toPopupMenuDisplay()</td>
+				<td class="regtext">
 					<select>
 					<option><%= Utils.toPopupMenuDisplay(enteredString) %>
 					</option>
 					</select></td></tr>
-			<tr><td class="regtext" >toValidJS()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toValidJS()</td>
+				<td class="regtext">
 					<%= Utils.toValidHTML(Utils.toValidJS(enteredString)) %></td></tr>
-			<tr><td class="regtext" >toValidFileName()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toValidFileName()</td>
+				<td class="regtext">
 					<%= Utils.toValidHTML(Utils.toValidFileName(enteredString)) %></td></tr>
-			<tr><td class="regtext" >toValidXML()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toValidXML()</td>
+				<td class="regtext">
 					<%= Utils.toValidHTML(XMLUtils.toValidXML(enteredString)) %></td></tr>
-			<tr><td class="regtext" >toValidTextbox()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toValidTextbox()</td>
+				<td class="regtext">
 					<%= Utils.toValidHTML(Utils.toValidTextbox(enteredString)) %></td></tr>
-			<tr><td class="regtext" >toValidHTML()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toValidHTML()</td>
+				<td class="regtext">
 					<%= Utils.toValidHTML(Utils.toValidHTML(enteredString)) %></td></tr>
-			<tr><td class="regtext" >toValidHTMLAttributeValue()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">toValidHTMLAttributeValue()</td>
+				<td class="regtext">
 					<%= Utils.toValidHTMLAttributeValue(Utils.toValidHTMLAttributeValue(enteredString)) %></td></tr>
-			<tr><td class="regtext" >makeSortName()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">makeSortName()</td>
+				<td class="regtext">
 					<%= Utils.toValidHTML(Utils.makeSortName(enteredString)) %></td></tr>
-			<tr><td class="regtext" >hashCode()</td>
-				<td class="regtext" >
+			<tr><td class="regtext">hashCode()</td>
+				<td class="regtext">
 					<%= enteredString.hashCode() %></td></tr>
 		</table>
 		<P>Try again, if you like.
@@ -131,7 +131,7 @@ ACE toDisplay() tester
 	&nbsp;
 </td></tr>
 
-<tr><td class="regtext" >
+<tr><td class="regtext">
 <table class="regtext" align=center style="vertical-align:middle;">
 <tr><th colspan=3><b>The Rules</b></th></tr>
 <tr style="padding-top:5px; height:20px; vertical-align:middle;">
@@ -252,7 +252,7 @@ R groups; otherwise, it becomes
 on the submitted string with these values for x and y in this order:
 </td>
 </tr>
-<tr><td class="regtext" >
+<tr><td class="regtext">
 <br/>
 <table class="regtext" align=center style="vertical-align:middle; width:400px;">
 <tr>
@@ -274,7 +274,7 @@ on the submitted string with these values for x and y in this order:
 </td>
 </tr>
 <tr>
-<td align="left" class="regtext" >
+<td align="left" class="regtext">
 <br/><br/><a href="welcome.html">Back</a> to public ACE pages.
 </td>
 </tr>

@@ -84,7 +84,7 @@
 								? "the ACE administrator"
 								: "your instructor",
 							" to change your password."), 
-						 "new String[] {userId}) %>');
+						 new String[] {userId}) %>');
 			<% } // if UK %>
 			cancel();
 		</script>

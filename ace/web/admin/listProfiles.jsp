@@ -96,6 +96,7 @@
 			case 15: impersonateSelectedUser(); break;
 			case 16: deleteSelectedUser(); break;
 			case 17: changeInstitutionPrimaryLanguage(); break;
+			case 18: verifyInstructors(); break;
 			default: ;
 		} // switch
 	} // doAdminTask()
@@ -136,19 +137,17 @@
 		var role = roles[userNum - 1];
 		// alert('userNum = ' + userNum + ', role = ' + role);
 		if (!isEmpty(userNum)) {
-			if (role !== '<%= User.STUDENT %>') {
-				if (confirm('Warning: ACE will record any work you do '
-						+ 'while impersonating this person as if they did '
-						+ 'it themselves.  Are you sure you want to '
-						+ 'continue?')) {
-					alert('Be careful!');
-					hideCell('qBank');
-				} else return;
-				if (role !== '<%= User.ADMINISTRATOR %>') {
-					showCell('myCourses');
-				}
-				self.location.href = 'setImpersonatedUser.jsp?userNum=' + userNum;
-			} // if role
+			if (confirm('Warning: ACE will record any work you do '
+					+ 'while impersonating this person as if they did '
+					+ 'it themselves.  Are you sure you want to '
+					+ 'continue?')) {
+				alert('Be careful!');
+				hideCell('qBank');
+			} else return;
+			if (role !== '<%= User.ADMINISTRATOR %>') {
+				showCell('myCourses');
+			}
+			self.location.href = 'setImpersonatedUser.jsp?userNum=' + userNum;
 		} // if there's a userNum
 	} // impersonateSelectedUser()
 
@@ -240,6 +239,10 @@
 		self.location.href = 'managePermissions.jsp';
 	}
 
+	function verifyInstructors() {
+		self.location.href = 'verifyInstructors.jsp';
+	}
+
 	function setGracePeriod() {
 		self.location.href = 'setPaymentGracePeriod.jsp';
 	}
@@ -298,10 +301,9 @@
 <% } %>
 <th>Institution</th>
 <th>Role<sup>1</sup></th>
-<th>Login</th>
+<th>Username</th>
 <th>Registration date</th>
 <th>Most recent login date</th>
-<th>Email address</th>
 </tr>
 <% for (int userNum = 1; userNum <= users.length; userNum++) { 
 	final User oneUser = users[userNum - 1];
@@ -328,28 +330,23 @@
 					value="<%= Utils.toValidHTMLAttributeValue(
 						nameFamilyLast.replaceAll(",", "")) %> <<%= email %>>" />
 		</td>
-		<td style="width:200px;"><%= nameFamily1st %></td>
+		<td style="width:200px;">	
+			<a href="javascript:sendEmail(<%= userNum %>);"> <%= nameFamily1st %> </a>
+		</td>
 		<% if (userRole == User.STUDENT) { %>
 			<td style="width:100px;"><%= studentNum %></td>
 		<% } else if (haveSearch) { %>
 			<td></td>
 		<% } %>
-		<td style="width:200px;"><%= 
-				oneUser.getInstitutionName()
-					.replaceAll("University of the", "U.")
-					.replaceAll("University of", "U.")
-					.replaceAll("University", "U.") %></td>
+		<td style="width:300px;"><%= oneUser.getShortInstitutionName() %></td>
 		<td style="width:30px; text-align:center;"><%= 
 			userRole == User.INSTRUCTOR && !oneUser.isEnabled() 
 					? Utils.toString('[', User.INSTRUCTOR, ']') 
 					: userRole
 		%></td>
-		<td style="width:100px;"><%= userId %></td>
-		<td style="width:150px;"><%= DateUtils.getStringDate(regDate) %></td>
-		<td style="width:150px;"><%= DateUtils.getStringDate(lastLoginDate) %></td>
-		<td style="width:150px;">
-			<a href="javascript:sendEmail(<%= userNum %>);"> <%= email %> </a>
-		</td>
+		<td style="width:100px;">&nbsp;&nbsp;<%= userId %></td>
+		<td style="width:150px;">&nbsp;&nbsp;<%= DateUtils.getStringDate(regDate) %></td>
+		<td style="width:150px;">&nbsp;&nbsp;<%= DateUtils.getStringDate(lastLoginDate) %></td>
 	</tr>
 <% } // for each user %> 
 
@@ -382,6 +379,7 @@
 			<option value="14">Edit the selected user</option> 
 			<option value="15">Impersonate the selected user</option> 
 			<option value="16">Delete the selected user</option> 
+			<option value="18">Verify newly registered instructors</option> 
 			<option value="1">Manage author and translator permissions</option>
 			<option value="3">Reload values in WEB-INF files</option>
 			<option value="6">Export question inventory</option>
@@ -400,7 +398,7 @@
 	<td style="padding:0px; text-align:right margin-right:auto;">
 		<table>
 		<tr><td style="width:100%; text-align:right;">
-		or find students whose surnames begin with:&nbsp;
+		or search for students whose surnames begin with:&nbsp;
 		</td><td>
 		<input name="query" type="text" 
 				value="<%= Utils.toValidTextbox(searchStr) %>" size="20"/>

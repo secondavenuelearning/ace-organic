@@ -49,21 +49,48 @@ public final class UserRead extends DBCommon {
 
 /* ***************** User read methods *****************/
 
-	/** Gets all instructors and administrators.  Called by AdminSession.
+	/** Gets all instructors and administrators. Called by AdminSession.
 	 * @return	list of instructors and administrators
 	 * @throws	DBException	if there's a problem reading the database
 	 */
 	public static List<User> getAllNonstudents() throws DBException {
-		return getAllNonstudents(!INSTN_TOO);
+		final String whereSql = toString(
+				WHERE + USER_ROLE + NOT_EQUALS, quotes(STUDENT));
+		return getAllNonstudents(whereSql, !INSTN_TOO);
 	} // getAllNonstudents()
 
-	/** Gets all instructors and administrators.  Called by AdminSession.
+	/** Gets all instructors and administrators. Called by AdminSession.
 	 * @param	instnToo	when true, sort by role, school, name; otherwise,
 	 * sort by role, name
 	 * @return	list of instructors and administrators
 	 * @throws	DBException	if there's a problem reading the database
 	 */
 	public static List<User> getAllNonstudents(boolean instnToo) 
+			throws DBException {
+		final String whereSql = toString(
+				WHERE + USER_ROLE + NOT_EQUALS, quotes(STUDENT));
+		return getAllNonstudents(whereSql, instnToo);
+	} // getAllNonstudents(boolean)
+
+	/** Gets all unverified instructors.
+	 * @return	list of unverified instructors
+	 * @throws	DBException	if there's a problem reading the database
+	 */
+	public static List<User> getAllUnverifiedInstructors() throws DBException {
+		final String whereSql = toString(
+				WHERE + USER_ROLE + EQUALS, quotes(INSTRUCTOR),
+				AND, bitand(USER_FLAGS, 1), IS_ZERO);
+		return getAllNonstudents(whereSql, INSTN_TOO);
+	} // getAllUnverifiedInstructors()
+
+	/** Gets list of instructors and administrators. Called by AdminSession.
+	 * @param	whereSql	how to select the users
+	 * @param	instnToo	when true, sort by role, school, name; otherwise,
+	 * sort by role, name
+	 * @return	list of instructors and administrators
+	 * @throws	DBException	if there's a problem reading the database
+	 */
+	public static List<User> getAllNonstudents(String whereSql, boolean instnToo) 
 			throws DBException {
 		final String SELF = "UserRead.getAllNonstudents: ";
 		final List<User> users = new ArrayList<User>();
@@ -87,8 +114,8 @@ public final class UserRead extends DBCommon {
 					INSTN_STUDENTNUMLABEL,
 					USER_STUDENTNUM),
 				FROM + USERS + JOIN + INSTITUTIONS
-					+ ON + USER_SCHOOLID + EQUALS + INSTN_ID
-				+ WHERE + USER_ROLE + NOT_EQUALS, quotes(STUDENT),
+					+ ON + USER_SCHOOLID + EQUALS + INSTN_ID,
+				whereSql,
 				ORDER_BY, instnToo
 					? joinAll(
 						USER_ROLE,
@@ -118,7 +145,7 @@ public final class UserRead extends DBCommon {
 			closeConnection(con, stmt, rs);
 		}
 		return users;
-	} // getAllNonstudents(boolean)
+	} // getAllNonstudents(String, boolean)
 
 	/** Utility for retrieving data from an Oracle search.
 	 * @param	rs	result of Oracle search
