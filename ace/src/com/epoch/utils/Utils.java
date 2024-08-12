@@ -2313,6 +2313,12 @@ public final class Utils implements FormatConstants {
 		return parts[parts.length - 1];
 	} // stripFilePath(String)
 
+	public static String shortUni(String instnName) {
+		return instnName.replaceAll("University of the", "U.")
+					.replaceAll("University of", "U.")
+					.replaceAll("University", "U.");
+	} // shortUni(String)
+
 	/** Disables external instantiation. */
 	private Utils() { }
 

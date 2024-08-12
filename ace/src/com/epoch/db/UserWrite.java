@@ -521,9 +521,34 @@ public final class UserWrite extends DBCommon {
 			e.printStackTrace();
 			throw new DBException(e.getMessage());
 		} finally {
-			closeConnection(con, null, null);
+			closeConnection(con);
 		} // try
 	} // setUserFlags(User)
+
+	/** Verifies the instructors with the given IDs.
+	 * @param	userIds	IDs of the instructors to be verified
+	 * @throws	DBException	if there's a problem writing to the database
+	 */
+	public static void verifyInstructors(String[] userIds) throws DBException {
+		final String SELF = "UserWrite.verifyInstructors: ";
+		final String qry = toString( 
+				UPDATE + USERS 
+				+ SET + USER_FLAGS + EQUALS, bitor(USER_FLAGS, 1),
+				WHERE + USER_ID + IN, parensQMarks(userIds));
+		final SQLWithQMarks sql_vals = new SQLWithQMarks(qry);
+		sql_vals.addValuesArray(userIds);
+		debugPrint(SELF, sql_vals);
+		Connection con = null;
+		try {
+			con = getPoolConnection();
+			tryUpdate(con, sql_vals);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DBException(e.getMessage());
+		} finally {
+			closeConnection(con);
+		} // try
+	} // verifyInstructors(String[])
 
 	/** For all users who have the same institution and student ID number as 
 	 * the given student, sets their flags so they cannot see calculated synthesis
@@ -562,7 +587,7 @@ public final class UserWrite extends DBCommon {
 			e.printStackTrace();
 			throw new DBException(e.getMessage());
 		} finally {
-			closeConnection(con, null, null);
+			closeConnection(con);
 		} // try
 	} // setMayNotSeeSynthCalcdProds(String)
 

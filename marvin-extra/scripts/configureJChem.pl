@@ -11,7 +11,7 @@ use File::Path;
 # constants
 my $base = '/home/aceorg/aceorg';
 my $tomcat = 'tomcat9';
-my $debug = 1;
+my $debug = 0;
 
 # move to known place
 chdir $base or die("cannot change to $base/\n");
@@ -39,13 +39,13 @@ system($command) unless $debug;
 $command = "lndir $base/jchem$who/lib/ $base/$who/ace/web/WEB-INF/lib/";
 print "$command\n";
 system($command) unless $debug;
-$jchem =~ /(\d+\.\d+)$/;
-my $major = $1 // 'unknown'; # major jchem number
-
--d "/home/$tomcat" or die("There is no $tomcat");
-my $tomcatMajor = "/home/tomcat9/.chemaxon/$major";
-mkdir $tomcatMajor unless $debug;
-fixSymlink("$extras/evaluator.xml", "$tomcatMajor/evaluator.xml");
+my $tomcat = "/home/tomcat9/.chemaxon";
+mkdir $tomcat unless $debug;
+fixSymlink("$extras/evaluator.xml", "$tomcat/evaluator.xml");
+$jchem =~ /jchem([0-9\.]+)$/;
+$tomcat .= "/$1";
+mkdir $tomcat unless $debug;
+fixSymlink("$extras/evaluator.xml", "$tomcat/evaluator.xml");
 
 
 # Marvin -- no longer used, so no longer configured
@@ -72,11 +72,12 @@ sub fixSymlink {
 	}
 	# print "file $new should point to $dest\n";
 	if (-l $new ) {
-		if (readlink($new) eq $dest) {
+		my $current = readlink($new);
+		if ($current eq $dest) {
 			print "$new : good symlink already exists\n";
 			return;
 		} else {
-			print "$new : bad symlink exists; should be $old\n";
+			print "$new : bad symlink exists to $current; should be to $dest\n";
 			return if $debug;
 			if (unlink($new) != 1) {
 				print "WARNING could not unlink $new\n";
@@ -86,7 +87,8 @@ sub fixSymlink {
 		print "$new: regular file already exists\n";
 		return;
 	}
-	print "linking $dest $new\n";
+	print "linking $dest <- $new\n";
 	return if $debug;
-	symlink $dest, $new;
+	my $success = symlink $dest, $new;
+	print "linking failed!\n" unless $success;
 } # fixSymlink

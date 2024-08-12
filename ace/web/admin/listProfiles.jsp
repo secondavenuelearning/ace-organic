@@ -96,6 +96,7 @@
 			case 15: impersonateSelectedUser(); break;
 			case 16: deleteSelectedUser(); break;
 			case 17: changeInstitutionPrimaryLanguage(); break;
+			case 18: verifyInstructors(); break;
 			default: ;
 		} // switch
 	} // doAdminTask()
@@ -238,6 +239,10 @@
 		self.location.href = 'managePermissions.jsp';
 	}
 
+	function verifyInstructors() {
+		self.location.href = 'verifyInstructors.jsp';
+	}
+
 	function setGracePeriod() {
 		self.location.href = 'setPaymentGracePeriod.jsp';
 	}
@@ -334,10 +339,7 @@
 			<td></td>
 		<% } %>
 		<td style="width:300px;"><%= 
-				oneUser.getInstitutionName()
-					.replaceAll("University of the", "U.")
-					.replaceAll("University of", "U.")
-					.replaceAll("University", "U.") %></td>
+		<td style="width:300px;"><%= oneUser.getShortInstitutionName() %></td>
 		<td style="width:30px; text-align:center;"><%= 
 			userRole == User.INSTRUCTOR && !oneUser.isEnabled() 
 					? Utils.toString('[', User.INSTRUCTOR, ']') 
@@ -378,6 +380,7 @@
 			<option value="14">Edit the selected user</option> 
 			<option value="15">Impersonate the selected user</option> 
 			<option value="16">Delete the selected user</option> 
+			<option value="18">Verify newly registered instructors</option> 
 			<option value="1">Manage author and translator permissions</option>
 			<option value="3">Reload values in WEB-INF files</option>
 			<option value="6">Export question inventory</option>

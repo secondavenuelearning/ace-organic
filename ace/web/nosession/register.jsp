@@ -240,7 +240,7 @@
 						+ '<span style="color:red;">*<\/span>'
 					+ '<\/td><\/tr><\/table>');
 			setInnerHTML('notAtDefaultInstitution', bld.toString());
-		} else {
+		} else { // at default institution
 			setInnerHTML('usernameLabel',
 					'<%= tempUser.translateJS(Utils.toString("Enter your ",
 						AppConfig.defaultUsernameLabel, " username")) %>:');
@@ -450,8 +450,8 @@
 					<span class="boldtext" style="color:red;">
 					<%= tempUser.translate("Attention") %></span>:
 					<%= tempUser.translate("Do <i>not</i> reregister with ACE if you "
-							+ "have already registered.  If you have forgotten your login "
-							+ "ID or password, contact your instructor.  If you wish to "
+							+ "have already registered.  If you have forgotten your "
+							+ "username or password, contact your instructor.  If you wish to "
 							+ "change your password, student ID number, or email address, "
 							+ "log in and press the <b>My Profile</b> button.") %>
 				</td></tr>

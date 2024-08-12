@@ -1221,22 +1221,42 @@ public class DBCommon {
 	} // toUpper(StringBuilder)
 
 	/** Subjects a string and mask to bitand().
-	 * @param	item	string to be enclosed
-	 * @param	mask	the mask
-	 * @return	StringBuilder with the string and mask enclosed in bitand()
+	 * @param	item	field with numerical value to be subjected to bitwise and
+	 * @param	mask	a mask
+	 * @return	StringBuilder with the field name and mask enclosed in bitand()
 	 */
 	protected static StringBuilder bitand(String item, int mask) { 
 		return fn("BITAND", joinAll(item, mask));
 	} // bitand(String, int)
 
 	/** Subjects a string and mask to bitand().
-	 * @param	item	string to be enclosed
-	 * @param	mask	the mask
-	 * @return	StringBuilder with the string and mask enclosed in bitand()
+	 * @param	item	field with numerical value to be subjected to bitwise and
+	 * @param	mask	a mask
+	 * @return	StringBuilder with the field name and mask enclosed in bitand()
 	 */
 	protected static StringBuilder bitand(String item, long mask) { 
 		return fn("BITAND", joinAll(item, mask));
 	} // bitand(String, long)
+
+	/** Subjects a string and mask to an expression equaling bitor().
+	 * @param	item	field with numerical value to be subjected to bitwise and
+	 * @param	mask	a mask
+	 * @return	StringBuilder with the field name and mask enclosed in the
+	 * mathematical equivalent of bitor()
+	 */
+	protected static String bitor(String item, int mask) { 
+		return toString(item, PLUS, mask, MINUS, fn("BITAND", joinAll(item, mask)));
+	} // bitor(String, int)
+
+	/** Subjects a string and mask to an expression equaling bitor().
+	 * @param	item	field with numerical value to be subjected to bitwise and
+	 * @param	mask	a mask
+	 * @return	StringBuilder with the field name and mask enclosed in the
+	 * mathematical equivalent of bitor()
+	 */
+	protected static String bitor(String item, long mask) { 
+		return toString(item, PLUS, mask, MINUS, fn("BITAND", joinAll(item, mask)));
+	} // bitor(String, long)
 
 	/** Subjects a string and mask to decode().
 	 * @param	expr	expression whose value is calculated

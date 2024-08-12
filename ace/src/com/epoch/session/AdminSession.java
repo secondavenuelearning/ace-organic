@@ -81,6 +81,19 @@ public class AdminSession extends InstructorSession {
 		return (instructors.toArray(new User[instructors.size()]));
    	} // getAllInstructors()
 
+	/** Gets all unverified instructors.
+	 * @return	array of unverified instructors
+	 * @throws	DBException	if there's a problem reading the database
+	 */
+	public static User[] getAllUnverifiedInstructors() throws DBException {
+		final String SELF = "AdminSession.getAllUnverifiedInstructors: ";
+		final List<User> unverified = UserRead.getAllUnverifiedInstructors();
+		final int numUnverified = unverified.size();
+		debugPrint(SELF + "returning ", numUnverified,
+				" unverified instructor(s).");
+		return unverified.toArray(new User[numUnverified]);
+	} // getAllUnverifiedInstructors()
+
 	/** Resets the list of all users sorted by role, name. 
 	 * @throws	DBException	if the database can't be read
 	 */
@@ -182,6 +195,14 @@ public class AdminSession extends InstructorSession {
 		UserWrite.setUser(user);
 		allUsers.set(userNum - 1, user);
 	} // setUser(int, User)
+
+	/** Verifies the instructors with the given IDs.
+	 * @param	userIds	IDs of the users who should be enabled
+	 * @throws	DBException	if there's a problem writing to the database
+	 */
+	public void verifyInstructors(String[] userIds) throws DBException {
+		UserWrite.verifyInstructors(userIds);
+	} // verifyInstructors(String[]) 
 
 	/** Gets languages preferred by users in order of preference and
 	 * stores them in the User objects.
