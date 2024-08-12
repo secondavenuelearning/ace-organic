@@ -25,7 +25,10 @@
 	final boolean isDefaultInstn = 
 			"true".equals(request.getParameter("isDefaultInstn"));
 	final String userId = request.getParameter("userid").trim();
-	final User user = new User(userId, isDefaultInstn
+	final String userIdToCERs = Utils.inputToCERs(userId);
+	/*/ System.out.println("saveNewUser.jsp: userId = " + userId
+			+ ", toCERS = " + userIdToCERs); /**/
+	final User user = new User(userIdToCERs, isDefaultInstn
 			? new byte[0] : Base64Coder.decode(pwd));
 	final String instnName = request.getParameter("institution");
 	final String studentNumLabel = request.getParameter("studentNumLabel");

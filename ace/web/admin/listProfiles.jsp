@@ -136,19 +136,17 @@
 		var role = roles[userNum - 1];
 		// alert('userNum = ' + userNum + ', role = ' + role);
 		if (!isEmpty(userNum)) {
-			if (role !== '<%= User.STUDENT %>') {
-				if (confirm('Warning: ACE will record any work you do '
-						+ 'while impersonating this person as if they did '
-						+ 'it themselves.  Are you sure you want to '
-						+ 'continue?')) {
-					alert('Be careful!');
-					hideCell('qBank');
-				} else return;
-				if (role !== '<%= User.ADMINISTRATOR %>') {
-					showCell('myCourses');
-				}
-				self.location.href = 'setImpersonatedUser.jsp?userNum=' + userNum;
-			} // if role
+			if (confirm('Warning: ACE will record any work you do '
+					+ 'while impersonating this person as if they did '
+					+ 'it themselves.  Are you sure you want to '
+					+ 'continue?')) {
+				alert('Be careful!');
+				hideCell('qBank');
+			} else return;
+			if (role !== '<%= User.ADMINISTRATOR %>') {
+				showCell('myCourses');
+			}
+			self.location.href = 'setImpersonatedUser.jsp?userNum=' + userNum;
 		} // if there's a userNum
 	} // impersonateSelectedUser()
 
@@ -298,10 +296,9 @@
 <% } %>
 <th>Institution</th>
 <th>Role<sup>1</sup></th>
-<th>Login</th>
+<th>Username</th>
 <th>Registration date</th>
 <th>Most recent login date</th>
-<th>Email address</th>
 </tr>
 <% for (int userNum = 1; userNum <= users.length; userNum++) { 
 	final User oneUser = users[userNum - 1];
@@ -328,13 +325,15 @@
 					value="<%= Utils.toValidHTMLAttributeValue(
 						nameFamilyLast.replaceAll(",", "")) %> <<%= email %>>" />
 		</td>
-		<td style="width:200px;"><%= nameFamily1st %></td>
+		<td style="width:200px;">	
+			<a href="javascript:sendEmail(<%= userNum %>);"> <%= nameFamily1st %> </a>
+		</td>
 		<% if (userRole == User.STUDENT) { %>
 			<td style="width:100px;"><%= studentNum %></td>
 		<% } else if (haveSearch) { %>
 			<td></td>
 		<% } %>
-		<td style="width:200px;"><%= 
+		<td style="width:300px;"><%= 
 				oneUser.getInstitutionName()
 					.replaceAll("University of the", "U.")
 					.replaceAll("University of", "U.")
@@ -344,12 +343,9 @@
 					? Utils.toString('[', User.INSTRUCTOR, ']') 
 					: userRole
 		%></td>
-		<td style="width:100px;"><%= userId %></td>
-		<td style="width:150px;"><%= DateUtils.getStringDate(regDate) %></td>
-		<td style="width:150px;"><%= DateUtils.getStringDate(lastLoginDate) %></td>
-		<td style="width:150px;">
-			<a href="javascript:sendEmail(<%= userNum %>);"> <%= email %> </a>
-		</td>
+		<td style="width:100px;">&nbsp;&nbsp;<%= userId %></td>
+		<td style="width:150px;">&nbsp;&nbsp;<%= DateUtils.getStringDate(regDate) %></td>
+		<td style="width:150px;">&nbsp;&nbsp;<%= DateUtils.getStringDate(lastLoginDate) %></td>
 	</tr>
 <% } // for each user %> 
 
@@ -400,7 +396,7 @@
 	<td style="padding:0px; text-align:right margin-right:auto;">
 		<table>
 		<tr><td style="width:100%; text-align:right;">
-		or find students whose surnames begin with:&nbsp;
+		or search for students whose surnames begin with:&nbsp;
 		</td><td>
 		<input name="query" type="text" 
 				value="<%= Utils.toValidTextbox(searchStr) %>" size="20"/>

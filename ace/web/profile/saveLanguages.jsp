@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <%@ page language="java" %>
-<%@ page errorPage="/errorlangss/errorHandler.jsp" %>
+<%@ page errorPage="/errormsgs/errorHandler.jsp" %>
 <%@ page import="
 	com.epoch.utils.Utils,
 	java.util.Arrays"
@@ -31,8 +32,6 @@
 	final String newLanguageRaw = request.getParameter("newLanguage");
 	final String newLanguage = Utils.inputToCERs(newLanguageRaw);
 	if (!Utils.isEmptyOrWhitespace(newLanguage)) {
-		Utils.alwaysPrint("saveLanguages.jsp: newLanguageRaw = ", newLanguageRaw,
-				", newLanguage = ", newLanguage);
 		editUser.addLanguage(newLanguage.trim());
 	}
 
@@ -43,12 +42,14 @@
 
 	final String[] editUserLangs = editUser.getLanguages();
 	String langsStr = Arrays.toString(editUserLangs);
-	if (editUserLangs.length > 0) langsStr = Utils.endsChop(langsStr, 1, 1);
+	if (!Utils.isEmpty(editUserLangs)) {
+		langsStr = Utils.endsChop(langsStr, 1, 1);
+	}
 
 	final String goBack = request.getParameter("goBack");
 
 %>
-<?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
@@ -59,23 +60,26 @@
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<script src="<%= pathToRoot %>js/jslib.js" type="text/javascript"></script>
-</head>
-<body class="light" style="background-color:white;">
+
 	<script type="text/javascript">
-		// <!-- >
+	// <!-- >
+	function finishIt() {
 		var out =
-		<% if (editUserLangs.length > 1) { %>
+		<% if (Utils.isEmpty(editUserLangs)) { %>
+			'Your only language now is English.';
+		<% } else if (editUserLangs.length > 1) { %>
 			'<%= editUser.translateJS("Your languages are now ***French, Spanish***, "
 					+ "and English, in that order.", langsStr) %>';
-		<% } else if (editUserLangs.length == 1) { %>
+		<% } else { %>
 			'<%= editUser.translateJS("Your languages are now ***Spanish*** "
 					+ "and English, in that order.", langsStr) %>';
-		<% } else { %>
-			'Your only language now is English.';
 		<% } %>
 		toAlert(out);
 		self.location.href = '<%= goBack %>';
-		// -->
+	} // finishIt
+	// -->
 	</script>
+</head>
+<body onload="finishIt();">
 </body>
 </html>

@@ -228,7 +228,7 @@
 							onchange="changeInstitution(true);">
 						<% for (final Institution institution : institutions) { 
 							final String instnName = institution.getName(); %>
-							<option value="<%= institution.getId() %>"
+							<option value="<%= institution.getId() %>">
 							<%= instnName %></option>
 						<% } // for each institution %>
 						<% if (!isStudent) { %>

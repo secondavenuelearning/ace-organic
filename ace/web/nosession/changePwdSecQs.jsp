@@ -18,7 +18,7 @@
 	}
 	tempUser.setLanguage(chosenLang);
 
-	final String userId = request.getParameter("username");
+	final String userId = Utils.inputToCERs(request.getParameter("username"));
 	final String institutionId = request.getParameter("institutionId");
 	final String ukId = request.getParameter("ukId");
 	final boolean isUK = institutionId.equals(ukId);
@@ -84,7 +84,7 @@
 								? "the ACE administrator"
 								: "your instructor",
 							" to change your password."), 
-						 "new String[] {userId}) %>');
+						 new String[] {userId}) %>');
 			<% } // if UK %>
 			cancel();
 		</script>

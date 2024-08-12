@@ -91,6 +91,7 @@
 	function goBackAgain() {
 		var addr = 'editProfile.jsp?goBack='
 				+ encodeURIComponent('<%= goBack %>');
+		addr = addr.replaceAll('%3F', '&');
 		if (<%= editIndex != null %>) { 
 			addr += '&editindex=<%= editIndex %>';
 		}

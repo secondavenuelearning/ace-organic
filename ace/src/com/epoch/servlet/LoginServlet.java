@@ -178,7 +178,8 @@ public class LoginServlet extends HttpServlet implements UserConstants {
 				debugPrint(SELF + "userId = ", userId, ", userIdToCERs = ",
 						userIdToCERs, ", Utils.inputToCERs(userId) = ",
 						Utils.inputToCERs(userId));
-				User user = UserRead.getUser(userIdToCERs);
+				userId = userIdToCERs;
+				User user = UserRead.getUser(userId);
 				if (user == null) {
 					response.sendRedirect(Utils.toString("login.jsp?language=",
 							Utils.toValidURI(chosenLang), "&errmsg=", 
@@ -251,6 +252,8 @@ public class LoginServlet extends HttpServlet implements UserConstants {
 					newsession.setAttribute(USERSESSION, sess);
 					if (!sess.isEnrolled(AppConfig.tutorialId)) {
 						try {
+							debugPrint(SELF + "enrolling ", userId,
+									" in tutorials course");
 							EnrollmentRW.enrollInCourse(userId, 
 									AppConfig.tutorialId);
 							sess.refreshCourses();

@@ -204,14 +204,16 @@
 					<tr>
 					<td class="boldtext" style="color:red;">
 				 		<%= tempUser.translate(
-									"If your username contains any "
+								"If your username contains any "
 									+ "non-ASCII characters such as letters "
 									+ "with accents or characters from "
 									+ "non-Roman writing systems such as "
 									+ "Arabic or Chinese, please visit "
-									+ "<a href=\"nosession/findNonAsciiUserId.jsp\">"
-									+ "this page</a>.")
-						%>
+									+ "***this page***.",
+								new String[] { Utils.toString(
+									"<a href=\"nosession/findNonAsciiUserId.jsp;\">",
+									tempUser.translate("this page"), 
+									"</a>") }) %>
 					</td>
 					</tr>
 				</table>
