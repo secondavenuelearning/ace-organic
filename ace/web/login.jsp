@@ -296,10 +296,10 @@
 						text-align:center;">
 					<%= tempUser.translate("Forgot ***username*** or ***password***?",
 						new String[] {
-							"<a href=\"javascript:resetUsername();\">"
-								+ tempUser.translate("username") + "</a>",
-							"<a href=\"javascript:resetPwd();\">"
-								+ tempUser.translate("password") + "</a>"
+							Utils.toString("<a href=\"javascript:resetUsername();\">",
+								tempUser.translate("username"), "</a>"),
+							Utils.toString("<a href=\"javascript:resetPwd();\">",
+								tempUser.translate("password"), "</a>")
 							}) %>
 				</td>
 				</tr>
