@@ -10,17 +10,19 @@
 
 <h2 align="center">All ACE database tables</h2>
 
-<ul><li><a href="#cw">Tables storing users and courses</a> 
+<ul><li><a href="#cw">Tables storing users</a> 
 <ul><li class="database">institutions_v1
 </li><li class="database">users_v4
 </li><li class="database">languages_v1
 </li><li class="database">language_codes_v1
-</li><li class="database">cw_courses_v3
+</li></ul>
+</li><li><a href="#courses">Tables storing courses</a> 
+<ul><li class="database">cw_courses_v3
 </li><li class="database">coinstructors_v2
-</li><li class="database">allowed_ips_v1
 </li><li class="database">cw_course_enrollment_v3
-</li><li class="database">exam_students_v2
 </li><li class="database">preenrollment_v4
+</li><li class="database">exam_students_v2
+</li><li class="database">allowed_ips_v1
 </li></ul>
 </li><li><a href="#Qs">Tables storing questions</a> 
 <ul><li class="database">chapters_v1
@@ -43,15 +45,17 @@
 </li><li class="database">unit_conversions_v1
 </li><li class="database">canonicalized_units_v1
 </li></ul>
-</li><li><a href="#assgn">Tables storing assignments and responses</a> 
+</li><li><a href="#assgn">Tables storing assignments</a> 
 <ul><li class="database">hwsets_v5
 </li><li class="database">hwset_qs_v2
-</li><li class="database">hwsets_for_import_v1
+</li><li class="database">assigned_questions_v4
 </li><li class="database">hwset_rxn_condns_v1
 </li><li class="database">hwset_grading_params_v1
 </li><li class="database">hwset_extensions_v1
-</li><li class="database">assigned_questions_v4
-</li><li class="database">response_rgroups_v1
+</li><li class="database">hwsets_for_import_v1
+</li></ul>
+</li><li><a href="#resp">Tables storing responses</a> 
+<ul><li class="database">response_rgroups_v1
 </li><li class="database">responses_v6
 </li><li class="database">reactor_results_v4
 </li></ul>
@@ -79,18 +83,23 @@
 
 <a name="cw"></a>
 <hr/>
-<h3>Tables storing users and courses</h3> 
+<h3>Tables storing users</h3> 
 
 <!--#include file="db/institutions.html"-->
 <!--#include file="db/users.html"-->
 <!--#include file="db/languages.html"-->
 <!--#include file="db/language_codes.html"-->
+
+<a name="courses"></a>
+<p>&nbsp;</p><hr/>
+<h3>Tables storing courses</h3> 
+
 <!--#include file="db/cw_courses.html"-->
 <!--#include file="db/coinstructors.html"-->
-<!--#include file="db/allowed_ips.html"-->
 <!--#include file="db/cw_course_enrollment.html"-->
-<!--#include file="db/exam_students.html"-->
 <!--#include file="db/preenrollment.html"-->
+<!--#include file="db/exam_students.html"-->
+<!--#include file="db/allowed_ips.html"-->
 
 <a name="Qs"></a>
 <p>&nbsp;</p><hr/>
@@ -121,15 +130,20 @@
 
 <a name="assgn"></a>
 <p>&nbsp;</p><hr/>
-<h3>Tables storing assignments and responses</h3>
+<h3>Tables storing assignments</h3>
 
 <!--#include file="db/hwsets.html"-->
 <!--#include file="db/hwset_qs.html"-->
-<!--#include file="db/hwsets_for_import.html"-->
+<!--#include file="db/assigned_questions.html"-->
 <!--#include file="db/hwset_rxn_condns.html"-->
 <!--#include file="db/hwset_grading_params.html"-->
 <!--#include file="db/hwset_extensions.html"-->
-<!--#include file="db/assigned_questions.html"-->
+<!--#include file="db/hwsets_for_import.html"-->
+
+<a name="resp"></a>
+<p>&nbsp;</p><hr/>
+<h3>Tables storing responses</h3>
+
 <!--#include file="db/response_rgroups.html"-->
 <!--#include file="db/responses.html"-->
 <!--#include file="db/reactor_results.html"-->
