@@ -8,18 +8,29 @@
 <body>
 <h3>ChemAxon licenses required for ACE </h3>
 
-<p>
-ACE needs two different licenses to use ChemAxon products: one
-for JChem Base, and one for MarvinJS. </p>
-
-<ul>
-</p></li><li><p>Place the JChem license file in 
-<span class="filename">/home/tomcat9/.chemaxon/</span>, and 
-point to it a symlink 
+<h3>Implementing a new JChem license</h3>
+<ol>
+<li>Rename the new JChem license file as 
+<span class="filename">license.cxl.expires-YYYY-MM-DD.cxl</span>.
+</li><li>
+Copy the new license file into <span
+class="code">/home/tomcat9/.chemaxon/</span>.
+</li><li>Change the new license file's owner and group to 
+<span class="code">tomcat9</span>.
+</li><li>Replace the old symlink
 <span class="filename" style="color:blue;">license.cxl</span>
-in the same directory.
+with a new symlink pointing to the new license file.
+</li>
+</ol>
 
-</p></li><li><p>Place the MarvinJS license code in 
+<h3>Implementing a new MarvinJS license</h3>
+<ol>
+<li>Visit <a href="https://pro.chemicalize.com/app/marvin/settings">this
+ChemAxon site</a>.
+
+</li><li>Copy the public API key.
+
+</li><li>Paste the public API key into
 <span class="filename">$WEB/WEB-INF/epoch.properties</span>.
 
 </ul>
