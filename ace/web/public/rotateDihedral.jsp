@@ -117,7 +117,6 @@
 <script src="<%= pathToRoot %>js/buttonImgs.js" type="text/javascript"></script>
 <script src="<%= pathToRoot %>js/marvinJSStart.js" type="text/javascript"></script>
 <script src="<%= pathToRoot %>js/3DTemplatesMJS.js" type="text/javascript"></script>
-<script src="<%= pathToRoot %>js/3DTemplatesMJS.js" type="text/javascript"></script>
 <script src="<%= pathToRoot %>js/openwindows.js" type="text/javascript"></script>
 <script src="<%= pathToRoot %>js/xmlLib.js" type="text/javascript"></script>
 <script src="<%= pathToRoot %>nosession/marvinJS/js/promise.min.js"
