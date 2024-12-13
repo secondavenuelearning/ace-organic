@@ -14,6 +14,7 @@ import chemaxon.struc.MObject;
 import chemaxon.struc.Molecule;
 import chemaxon.struc.MoleculeGraph;
 import chemaxon.struc.MolAtom;
+import chemaxon.struc.MolBond;
 import chemaxon.struc.MPoint;
 import chemaxon.struc.RxnMolecule;
 import chemaxon.struc.graphics.MEFlow;
@@ -482,9 +483,8 @@ public final class MolString
 					false);
 			final boolean isLewis = molStr.contains("Lewis ");
 			dims = getBestAppletSize(mol, isLewis);
-			debugPrint(SELF + "isLewis = ", isLewis, /* ", fromMarvinJS = ",
-					fromMarvinJS, /**/ ", imgIdStr = ", imgIdStr, ", prefersPNG = ",
-					prefersPNG);
+			debugPrint(SELF + "isLewis = ", isLewis, ", imgIdStr = ", imgIdStr, 
+					", prefersPNG = ", prefersPNG);
 			imageStr = getJChemImage(mol, qFlags, isLewis, prefersPNG, dims);
 			debugPrint(SELF + "imageStr:\n", imageStr);
 		} catch (MolFormatException e) {
@@ -620,6 +620,150 @@ public final class MolString
 			e2.printStackTrace();
 		}
 	} // deleteImage(String)
+
+	/** Gets an English description of the Marvin drawing for BLV people.
+	 * @param	mrvStr	the MRV of the Marvin drawing
+	 * @return	an English description of the drawing
+	 */
+	public static String getBLVDescription(String mrvStr) {
+		final String SELF = "MolString.getBLVDescription: ";
+		final StringBuilder bld = new StringBuilder();
+		try {
+			final Molecule wholeMol = (Utils.isEmpty(mrvStr) ? new Molecule()
+					: MolImporter.importMol(mrvStr));
+			final Molecule[] frags = wholeMol.clone().convertToFrags();
+			final int numFrags = frags.length;
+			bld.append("<p>The MarvinJS drawing contains ")
+					.append(numFrags).append(" molecule")
+					.append(numFrags == 1 ? "" : 's').append(".</p>");
+			for (int molNum = 0; molNum < frags.length; molNum++) {
+				final Molecule mol = frags[molNum];
+				// describe formula and charge
+				if (numFrags > 1) {
+					bld.append("<p>Molecule ").append(molNum + 1);
+				} else { 
+					bld.append("<p>The molecule");
+				} // if numFrags
+				bld.append(" has the formula ")
+						.append(Utils.toDisplay(mol.getFormula()))
+						.append(getChgDescrip(mol.getTotalCharge()))
+						.append(".</p>");
+				// describe all atoms and their implicit H counts
+				bld.append("</p><p>The atoms are ");
+				final MolAtom[] atoms = mol.getAtomArray();
+				final int numAtoms = atoms.length;
+				int atomNum = 0;
+				for (final MolAtom atom : atoms) {
+					bld.append(getAtomDescrip(atom));
+					if (!atom.getSymbol().equals("C")) {
+						final int implicitHCount = atom.getImplicitHcount();
+						if (implicitHCount > 0) {
+							bld.append(" (with ").append(implicitHCount)
+									.append(" visible H atom");
+							if (implicitHCount != 1) bld.append('s');
+							bld.append(')');
+						} // if implicit H atoms
+					} // if not C
+					bld.append(atomNum < numAtoms - 2 ? ", "
+							: atomNum < numAtoms - 1 ? ", and " 
+							: "");
+					atomNum++;
+				} // for each atom
+				bld.append(".</p>");
+				// describe all bonds and their orders
+				bld.append("</p><p>The bonds connecting the atoms are ");
+				final MolBond[] bonds = mol.getBondArray();
+				final int numBonds = bonds.length;
+				int bondNum = 0;
+				for (final MolBond bond : bonds) {
+					bld.append(getBondDescrip(bond))
+							.append(bondNum < numBonds - 2 ? ", "
+							: bondNum < numBonds - 1 ? ", and " 
+							: "");
+					bondNum++;
+				} // for each bond
+				bld.append(".</p>");
+				// describe number of rings and their sizes
+				final int[][] ringsAtomIndices = mol.getSSSR();
+				final int numRings = ringsAtomIndices.length;
+				if (numRings > 0) {
+					bld.append("<p>It has ").append(numRings).append(" ring");
+					bld.append(numRings > 1 ? "s.</br>" : " consisting of ");
+					int ringNum = 0;
+					for (final int[] ringAtomIndices : ringsAtomIndices) {
+						final int ringSize = ringAtomIndices.length;
+						if (numRings > 1) {
+							bld.append("Ring ").append(ringNum + 1)
+									.append(" consists of ");
+						} // if there are multiple rings
+						bld.append(ringSize).append(" atoms: ");
+						int ringAtomNum = 0;
+						for (int atomIndex : ringAtomIndices) { 
+							final MolAtom atom = mol.getAtom(atomIndex);
+							bld.append(getAtomDescrip(atom))
+									.append(ringAtomNum < ringSize - 2 ? ", "
+										: ringAtomNum < ringSize - 1 ? ", and " 
+										: "");
+							ringAtomNum++;
+						} // for each atom in the ring
+						bld.append(".</br>");
+						ringNum++;
+					} // for each ring
+				} else {
+					bld.append("<p>It has no rings.</p> ");
+				} // if there are rings
+			} // for each fragment %>
+		} catch (MolFormatException e) {
+			Utils.alwaysPrint(SELF + "MolFormatException for:\n", mrvStr);
+			e.printStackTrace();
+		}
+		return bld.toString();
+	} // getBLVDescription(String)
+
+	/** Gets the HTML to show the charge.
+	 * @param	chg	the charge of the atom or molecule
+	 * @return	the HTML describing the charge
+	 */
+	private static final StringBuilder getChgDescrip(int chg) {
+		final StringBuilder chgBld = new StringBuilder();
+		if (chg != 0) {
+			chgBld.append("<sup>");
+			final boolean isNeg = chg < 0;
+			final int absChg = (isNeg ? -chg : chg);
+			if (absChg != 1) chgBld.append(absChg);
+			chgBld.append(isNeg ? "&minus;" : '+');
+			chgBld.append("</sup>");
+		} // if there's a charge 
+		return chgBld;
+	} // getChgDescrip(int)
+
+	/** Gets the symbol and index number of the atom.
+	 * @param	atom	an atom in the molecule
+	 * @return	the symbol and index of the atom as a StringBuilder
+	 */
+	private static final StringBuilder getAtomDescrip(MolAtom atom) {
+		final StringBuilder bld = new StringBuilder()
+				.append(atom.getSymbol())
+				.append(atom.getParent().indexOf(atom) + 1);
+		bld.append(getChgDescrip(atom.getCharge()));
+		return bld;
+	} // getAtomDescrip(MolAtom)
+
+	/** Gets the index number and order of the bond.
+	 * @param	bond	a bond in the molecule
+	 * @return	the order and index of the bond as a StringBuilder
+	 */
+	private static final StringBuilder getBondDescrip(MolBond bond) {
+		final int order = bond.getType();
+		final StringBuilder bld = new StringBuilder()
+				.append(getAtomDescrip(bond.getAtom1()))
+				.append(order == 3 ? "&#9776" 
+					: order == 2 ? "=" 
+					: order == 1 ? "&ndash;" 
+					: "[unknown order]")
+				.append(getAtomDescrip(bond.getAtom2()));
+		return bld;
+	} // getBondDescrip(MolBond)
 
 /* ***************** MRV manipulations *******************/
 
