@@ -834,10 +834,14 @@ public final class ChemUtils
 		return getValenceElectrons(atom.getAtno());
 	} // getValenceElectrons(MolAtom)
 
-	/** Get the number of valence electrons of an atom, which
-	 * is (1) column for columns 1 to 10, (2) column &minus; 10 for
-	 * columns 11 to 18, and (3) for lanthanides &amp; actinides,
-	 * 3 + f electrons, except the last column = 3.
+	/** Get the number of valence electrons of an atom, which is:
+	 * <ol>
+	 * <li>for lanthanides &amp; actinides: number of f electrons;
+	 * <li>for columns &ge; 13 (B column or heavier)
+	 * <li><i>or</i> columns 11-12 and row &le; 5 (Cu, Zn, Ag, Cd): column % 10;
+	 * <li>for columns 1 to 10 or for columns 11-12 and row &ge; 6 
+	 * (Au, Hg): column.
+	 * </ol>
 	 * Noble gases are treated as having 8 valence electrons.
 	 * @param	atno	atomic number of an atom
 	 * @return	the number of valence electrons
@@ -849,7 +853,10 @@ public final class ChemUtils
 		return (isMulticenterAtom(atno) ? 0
 				: MathUtils.inRange(atno, Ce_to_Yb) ? atno - PeriodicSystem.Xe 
 				: MathUtils.inRange(atno, Th_to_No) ? atno - PeriodicSystem.Rn
-				: column >= 12 ? column % 10 : column);
+				: column >= 13 // main block plus Cu, Zn, Ag, Cd 
+						|| (column >= 11 && PeriodicSystem.getRow(atno) <= 5) 
+					? column % 10 
+				: column); // all columns up to 10 plus Au and Hg
 	} // getValenceElectrons(int)
 
 	/** Get the maximum number of electrons that can fill an atom's outer shell

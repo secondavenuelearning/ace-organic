@@ -1,0 +1,256 @@
+CREATE OR REPLACE FUNCTION GRADE_FACTOR_V3                                      
+function grade_factor_v3(                                                       
+                                                                                
+    hw_id_in responses_v6.hw_id%type,                                           
+    student_id_in responses_v6.student_id%type,                                 
+    pb_id_in responses_v6.pb_id%type,                                           
+    tries_in responses_v6.tries%type,                                           
+    date_time_in responses_v6.date_time%type)                                   
+RETURN number IS factor number;                                                 
+cursor c1 is                                                                    
+select s0.factor0 * s1.factor1 * s2.factor2                                     
+from (                                                                          
+    select factor as factor0                                                    
+    from hwset_grading_params_v1                                                
+    where param_type = 'A' and hw_id = hw_id_in                                 
+    and limit_min < tries_in and tries_in <= limit_max                          
+    union all select 1 from dual                                                
+    where not exists (                                                          
+        select factor                                                           
+        from hwset_grading_params_v1                                            
+        where param_type = 'A' and hw_id = hw_id_in                             
+        and limit_min < tries_in and tries_in <= limit_max                      
+    )                                                                           
+) s0, (                                                                         
+    select limit_min, limit_max, factor as factor1                              
+    from hwset_grading_params_v1                                                
+    where param_type = 'T' and hw_id = hw_id_in                                 
+    union all select -9999999999, 0, 1 from dual                                
+    where hw_id_in in (                                                         
+        select hw_id from hwset_grading_params_v1 where param_type = 'T'        
+    )                                                                           
+    union all select -9999999999, 9999999999, 1 from dual                       
+    where hw_id_in not in (                                                     
+        select hw_id from hwset_grading_params_v1 where param_type = 'T'        
+    )                                                                           
+) s1, (                                                                         
+    select points as factor2                                                    
+    from hwset_qs_v2                                                            
+    where hw_id = hw_id_in and pb_id = pb_id_in                                 
+) s2, (                                                                         
+    select to_date(date_time_in, 'YYYY/MM/DD HH24:MI:SS')                       
+            - to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as days_past_due,      
+        decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days                
+    from hwsets_v5 where hw_id = hw_id_in                                       
+) s3, (                                                                         
+    select student_id, extension                                                
+    from hwset_extensions_v1                                                    
+    where hw_id = hw_id_in and student_id = student_id_in                       
+    union all select student_id_in, 0 from dual                                 
+    where student_id_in not in (                                                
+        select student_id from hwset_extensions_v1                              
+        where hw_id = hw_id_in                                                  
+    )                                                                           
+) s4                                                                            
+where s3.days_past_due - s4.extension * s3.in_days > s1.limit_min * s3.in_days  
+and s3.days_past_due - s4.extension * s3.in_days <= s1.limit_max * s3.in_days;  
+BEGIN                                                                           
+    open c1;                                                                    
+    fetch c1 into factor;                                                       
+    close c1;                                                                   
+    return factor;                                                              
+END;                                                                            
+CREATE OR REPLACE FUNCTION INSTRUCTOR_GRADE_FACTOR_V2                           
+function instructor_grade_factor_v2(                                            
+                                                                                
+    hw_id_in responses_v6.hw_id%type,                                           
+    pb_id_in responses_v6.pb_id%type,                                           
+    tries_in responses_v6.tries%type,                                           
+    date_time_in responses_v6.date_time%type)                                   
+RETURN number IS factor number;                                                 
+cursor c1 is                                                                    
+select s0.factor0 * s1.factor1 * s2.factor2                                     
+from (                                                                          
+    select factor as factor0                                                    
+    from hwset_grading_params_v1                                                
+    where param_type = 'A' and hw_id = hw_id_in                                 
+    and limit_min < tries_in and limit_max >= tries_in                          
+    union all select 1 from dual                                                
+    where not exists (                                                          
+        select factor from hwset_grading_params_v1                              
+        where param_type = 'A' and hw_id = hw_id_in                             
+        and limit_min < tries_in and limit_max >= tries_in                      
+    )                                                                           
+) s0, (                                                                         
+    select limit_min, limit_max, factor as factor1                              
+    from hwset_grading_params_v1                                                
+    where param_type = 'T' and hw_id = hw_id_in                                 
+    union all select -9999999999, 0, 1 from dual                                
+    where hw_id_in in (                                                         
+        select hw_id from hwset_grading_params_v1 where param_type = 'T'        
+    )                                                                           
+    union all select -9999999999, 9999999999, 1 from dual                       
+    where hw_id_in not in (                                                     
+        select hw_id from hwset_grading_params_v1 where param_type = 'T'        
+    )                                                                           
+) s1, (                                                                         
+    select points as factor2                                                    
+    from hwset_qs_v2                                                            
+    where hw_id = hw_id_in and pb_id = pb_id_in                                 
+) s2, (                                                                         
+    select to_date(date_time_in, 'YYYY/MM/DD HH24:MI:SS')                       
+            - to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as days_past_due,      
+        decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days                
+    from hwsets_v5 where hw_id = hw_id_in                                       
+) s3                                                                            
+where s3.days_past_due > s1.limit_min * s3.in_days                              
+and s3.days_past_due <= s1.limit_max * s3.in_days;                              
+BEGIN                                                                           
+    open c1;                                                                    
+    fetch c1 into factor;                                                       
+    close c1;                                                                   
+    return factor;                                                              
+END;                                                                            
+CREATE OR REPLACE PROCEDURE RECALCULATE_MODIFIED_GRADES_V2                      
+procedure recalculate_modified_grades_v2(                                       
+                                                                                
+    hw_id_in responses_v6.hw_id%type)                                           
+is begin                                                                        
+update responses_v6 set modified_grade =                                        
+(select s4.grade                                                                
+    * s0.factor0                                                                
+    * s1.factor1                                                                
+from (                                                                          
+    select limit_min, limit_max, factor as factor0                              
+    from hwset_grading_params_v1                                                
+    where param_type = 'A' and hw_id = hw_id_in                                 
+    union all select 0, 9999999999, 1 from dual                                 
+    where hw_id_in not in (                                                     
+        select hw_id from hwset_grading_params_v1 where param_type = 'A'        
+    )                                                                           
+) s0, (                                                                         
+    select limit_min, limit_max, factor as factor1                              
+    from hwset_grading_params_v1                                                
+    where param_type = 'T' and hw_id = hw_id_in                                 
+    union all select -9999999999, 0, 1 from dual                                
+    where hw_id_in in (                                                         
+        select hw_id from hwset_grading_params_v1 where param_type = 'T'        
+    )                                                                           
+    union all select -9999999999, 9999999999, 1 from dual                       
+    where hw_id_in not in (                                                     
+        select hw_id from hwset_grading_params_v1 where param_type = 'T'        
+    )                                                                           
+) s1, (                                                                         
+    select to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as date_due,              
+        decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days                
+    from hwsets_v5 where hw_id = hw_id_in                                       
+) s2, (                                                                         
+    select student_id, extension                                                
+    from hwset_extensions_v1 where hw_id = hw_id_in                             
+    union all select unique student_id, 0 from responses_v6                     
+    where hw_id = hw_id_in and student_id not in (                              
+        select student_id from hwset_extensions_v1 where hw_id = hw_id_in       
+    )                                                                           
+) s3, (                                                                         
+    select student_id,                                                          
+        responses_v6.pb_id,                                                     
+        tries,                                                                  
+        grade * points as grade,                                                
+        to_date(date_time, 'YYYY/MM/DD HH24:MI:SS') as date_time                
+    from responses_v6                                                           
+    join hwset_qs_v2                                                            
+    on responses_v6.hw_id = hwset_qs_v2.hw_id                                   
+    and responses_v6.pb_id = hwset_qs_v2.pb_id                                  
+    where grade != 0                                                            
+    and responses_v6.hw_id = hw_id_in                                           
+) s4                                                                            
+where s4.tries > s0.limit_min                                                   
+and s4.tries <= s0.limit_max                                                    
+and s4.date_time                                                                
+    - s2.date_due                                                               
+    - s3.extension * s2.in_days                                                 
+    > s1.limit_min * s2.in_days                                                 
+and s4.date_time                                                                
+    - s2.date_due                                                               
+    - s3.extension * s2.in_days                                                 
+    <= s1.limit_max * s2.in_days                                                
+and s4.student_id = s3.student_id                                               
+and responses_v6.student_id = s4.student_id                                     
+and responses_v6.pb_id = s4.pb_id                                               
+and responses_v6.tries = s4.tries                                               
+)                                                                               
+where hw_id = hw_id_in                                                          
+and grade != 0;                                                                 
+end;                                                                            
+CREATE OR REPLACE PROCEDURE RECALC_1_STUDENT_GRADES_V2                          
+procedure recalc_1_student_grades_v2(                                           
+                                                                                
+    hw_id_in responses_v6.hw_id%type,                                           
+    student_id_in responses_v6.student_id%type)                                 
+is begin                                                                        
+update responses_v6 set modified_grade =                                        
+(select s4.grade                                                                
+    * s0.factor0                                                                
+    * s1.factor1                                                                
+from (                                                                          
+    select limit_min, limit_max, factor as factor0                              
+    from hwset_grading_params_v1                                                
+    where param_type = 'A' and hw_id = hw_id_in                                 
+    union all select 0, 9999999999, 1 from dual                                 
+    where hw_id_in not in (                                                     
+    select hw_id from hwset_grading_params_v1 where param_type = 'A'            
+    )                                                                           
+) s0, (                                                                         
+    select limit_min, limit_max, factor as factor1                              
+    from hwset_grading_params_v1                                                
+    where param_type = 'T' and hw_id = hw_id_in                                 
+    union all select -9999999999, 0, 1 from dual                                
+    where hw_id_in in (                                                         
+        select hw_id from hwset_grading_params_v1 where param_type = 'T'        
+    )                                                                           
+    union all select -9999999999, 9999999999, 1 from dual                       
+    where hw_id_in not in (                                                     
+        select hw_id from hwset_grading_params_v1 where param_type = 'T'        
+    )                                                                           
+) s1, (                                                                         
+    select to_date(date_due, 'YYYY/MM/DD HH24:MI:SS') as date_due,              
+        decode(bitand(flags, 4), 0, 1, 1 / (60 * 24)) as in_days                
+    from hwsets_v5 where hw_id = hw_id_in                                       
+) s2, (                                                                         
+    select extension from hwset_extensions_v1                                   
+    where hw_id = hw_id_in and student_id = student_id_in                       
+    union all select 0 from dual                                                
+    where not exists (                                                          
+        select extension from hwset_extensions_v1                               
+        where hw_id = hw_id_in and student_id = student_id_in                   
+    )                                                                           
+) s3, (                                                                         
+    select responses_v6.pb_id,                                                  
+        tries,                                                                  
+        grade * points as grade,                                                
+        to_date(date_time, 'YYYY/MM/DD HH24:MI:SS') as date_time                
+    from responses_v6                                                           
+    join hwset_qs_v2                                                            
+    on responses_v6.hw_id = hwset_qs_v2.hw_id                                   
+    and responses_v6.pb_id = hwset_qs_v2.pb_id                                  
+    where grade != 0                                                            
+    and responses_v6.hw_id = hw_id_in                                           
+    and student_id = student_id_in                                              
+) s4                                                                            
+where s4.tries > s0.limit_min                                                   
+and s4.tries <= s0.limit_max                                                    
+and s4.date_time                                                                
+    - s2.date_due                                                               
+    - s3.extension * s2.in_days                                                 
+    > s1.limit_min * s2.in_days                                                 
+and s4.date_time                                                                
+    - s2.date_due                                                               
+    - s3.extension * s2.in_days                                                 
+    <= s1.limit_max * s2.in_days                                                
+and responses_v6.pb_id = s4.pb_id                                               
+and responses_v6.tries = s4.tries                                               
+)                                                                               
+where hw_id = hw_id_in                                                          
+and grade != 0                                                                  
+and responses_v6.student_id = student_id_in;                                    
+end;                                                                            

@@ -184,8 +184,8 @@ public interface QuestionConstants extends XMLConstants {
 	/** Number of lists in qData. */
 	int NUM_QDATA_LISTS = 2;
 
-	/** Parameter for QuestionRW.getQuestion[s].  Indicates full download of
-	 * question.  Alternative is super-light download (qFlags and qData only). */
+	/** Parameter for QuestionRW.getQuestion[s]. Indicates full download of
+	 * question. Alternative is super-light download (qFlags and qData only). */
 	boolean FULL_LOAD = true;
 	/** Parameter for QuestionRW.getQuestion[s].  */
 	boolean ADD_HEADER = true;
