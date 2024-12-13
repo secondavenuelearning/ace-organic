@@ -78,7 +78,15 @@
 
 	if (!Utils.isEmpty(selectedAtomsStr) && doCalculation) {
 		if (numSelectedAtoms == 2) {
-			type = "distance between the selected atoms";
+			final StringBuilder bld = new StringBuilder();
+			bld.append("distance between atoms ");
+			for (int atomIndexNum = 0; atomIndexNum < numSelectedAtoms; atomIndexNum++) {
+				final int atomIndex = atomIndices[atomIndexNum];
+				final MolAtom atom = molecule.getAtom(atomIndex);
+				if (atomIndexNum > 0) bld.append(" and ");
+				bld.append(atom.getSymbol()).append(atomIndex + 1);
+			} // for each atom
+			type = bld.toString();
 			measurement = calculator.getDistance(atomIndices);
 		} else if (numSelectedAtoms == 3 || numSelectedAtoms == 4) {
 			doCalculation = ChemUtils.arrangeAsBonded(molecule, atomIndices);
