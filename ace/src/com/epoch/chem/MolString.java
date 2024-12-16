@@ -621,9 +621,62 @@ public final class MolString
 		}
 	} // deleteImage(String)
 
+<<<<<<< Updated upstream
 	/** Gets an English description of the Marvin drawing for BLV people.
 	 * @param	mrvStr	the MRV of the Marvin drawing
 	 * @return	an English description of the drawing
+=======
+	/** Gets an HTML string describing the charge.
+	 * @param	chg	the charge of the atom or molecule
+	 * @return	the string describing the charge, formatted for HTML
+	 */
+	private static final StringBuilder getChgDescrip(int chg) {
+		final StringBuilder chgBld = new StringBuilder();
+		if (chg != 0) {
+			chgBld.append("<sup>");
+			final boolean isNeg = chg < 0;
+			final int absChg = (isNeg ? -chg : chg);
+			if (absChg != 1) chgBld.append(absChg);
+			chgBld.append(isNeg ? "&minus;" : '+');
+			chgBld.append("</sup>");
+		} // if there's a charge 
+		return chgBld;
+	} // getChgDescrip(int)
+
+	/** Gets a string, formatted for HTML, describing the symbol, index number,
+	 * and charge of the atom.
+	 * @param	atom	an atom in the molecule
+	 * @return	the symbol, index, and charge of the atom, formatted for HTML
+	 */
+	private static final StringBuilder getAtomDescrip(MolAtom atom) {
+		final StringBuilder bld = new StringBuilder()
+				.append(atom.getSymbol())
+				.append(atom.getParent().indexOf(atom) + 1);
+		bld.append(getChgDescrip(atom.getCharge()));
+		return bld;
+	} // getAtomDescrip(MolAtom)
+
+	/** Gets a string, formatted for HTML, describing the index number and order
+	 * of the bond.
+	 * @param	bond	a bond in the molecule
+	 * @return	the order and index of the bond, formatted for HTML
+	 */
+	private static final StringBuilder getBondDescrip(MolBond bond) {
+		final int order = bond.getType();
+		final StringBuilder bld = new StringBuilder()
+				.append(getAtomDescrip(bond.getAtom1()))
+				.append(order == 3 ? "&#9776;" 
+					: order == 2 ? "=" 
+					: order == 1 ? "&ndash;" 
+					: "[unknown order]")
+				.append(getAtomDescrip(bond.getAtom2()));
+		return bld;
+	} // getBondDescrip(MolBond)
+
+	/** Gets an English description of the Marvin drawing for BLV people.
+	 * @param	mrvStr	the MRV of the Marvin drawing
+	 * @return	an English description of the drawing, formatted for HTML
+>>>>>>> Stashed changes
 	 */
 	public static String getBLVDescription(String mrvStr) {
 		final String SELF = "MolString.getBLVDescription: ";
@@ -644,7 +697,19 @@ public final class MolString
 				} else { 
 					bld.append("<p>The molecule");
 				} // if numFrags
+<<<<<<< Updated upstream
 				bld.append(" has the formula ")
+=======
+				bld.append(" has");
+				try {
+					bld.append(" the IUPAC name ")
+						.append(MolExporter.exportToFormat(mol, "name"))
+						.append(" and");
+				} catch (IOException e) {
+					;  // do nothing
+				} // try
+				bld.append(" the formula ")
+>>>>>>> Stashed changes
 						.append(Utils.toDisplay(mol.getFormula()))
 						.append(getChgDescrip(mol.getTotalCharge()))
 						.append(".</p>");
@@ -720,6 +785,7 @@ public final class MolString
 		return bld.toString();
 	} // getBLVDescription(String)
 
+<<<<<<< Updated upstream
 	/** Gets the HTML to show the charge.
 	 * @param	chg	the charge of the atom or molecule
 	 * @return	the HTML describing the charge
@@ -765,6 +831,8 @@ public final class MolString
 		return bld;
 	} // getBondDescrip(MolBond)
 
+=======
+>>>>>>> Stashed changes
 /* ***************** MRV manipulations *******************/
 
 	/** Color an object red in an MRV string representing a molecule.
