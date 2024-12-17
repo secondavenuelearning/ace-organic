@@ -683,11 +683,11 @@ public final class MolString
 			bld.append("<p>The MarvinJS drawing contains ")
 					.append(numFrags).append(" molecule")
 					.append(numFrags == 1 ? "" : 's').append(".</p>");
-			for (int molNum = 0; molNum < frags.length; molNum++) {
+			for (int molNum = 0; molNum < numFrags; molNum++) {
 				final Molecule mol = frags[molNum];
 				// describe formula and charge
 				if (numFrags > 1) {
-					bld.append("<p>Molecule ").append(molNum + 1);
+					bld.append("<p><hr/><p>Molecule ").append(molNum + 1);
 				} else { 
 					bld.append("<p>The molecule");
 				} // if numFrags
@@ -768,6 +768,9 @@ public final class MolString
 					bld.append("<p>It has no rings.</p> ");
 				} // if there are rings
 			} // for each fragment %>
+			if (numFrags > 1) {
+				bld.append("<p><hr/>");
+			} // if numFrags
 		} catch (MolFormatException e) {
 			Utils.alwaysPrint(SELF + "MolFormatException for:\n", mrvStr);
 			e.printStackTrace();

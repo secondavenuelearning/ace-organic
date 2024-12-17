@@ -40,13 +40,27 @@
 	function getStarted() {
 		opener.marvinSketcherInstances['<%= openerAppletName %>'].
 				exportStructure('<%= MRV_EXPORT %>').then(function(mol) {
-			startMarvinJS(
-					mol,
-					MARVIN, 
-					<%= qFlags %>, 
-					'<%= APPLET_NAME %>', 
-					'<%= pathToRoot %>',
-					changeOpener); 
+			var qFlags = <%= qFlags %>; 
+			opener.marvinSketcherInstances['<%= openerAppletName %>'].
+					getDisplaySettings().then(function(settings) {
+				var lonepaircalculationenabled = settings.lonepaircalculationenabled;
+				if (!lonepaircalculationenabled) {
+					qFlags -= SHOWLONEPAIRS; 
+					// bug: if show lone pairs is off, manually
+					// added lone pairs are not shown. if show lone pairs is
+					// turned back on, automatic lone pair calculation is turned
+					// on as well.
+				}
+				startMarvinJS(
+						mol,
+						MARVIN, 
+						qFlags, 
+						'<%= APPLET_NAME %>', 
+						'<%= pathToRoot %>',
+						changeOpener); 
+			}, function(error) {
+				alert('Display settings transfer failed:' + error);	
+			});
 		}, function(error) {
 			alert('Molecule export from opener failed:' + error);	
 		});

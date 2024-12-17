@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="<%= pathToRoot %>nosession/marvinJS/css/doc.css" type="text/css"/>
 <link rel="stylesheet" href="<%= pathToRoot %>includes/epoch.css" type="text/css"/>
 </head>
-<body style="overflow:auto;">
+<body class="regtext" style="overflow:auto;">
 <p><%= MolString.getBLVDescription(mrvStr) %>
 </body>
 </html>
