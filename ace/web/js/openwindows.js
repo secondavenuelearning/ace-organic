@@ -95,13 +95,27 @@ function openJmolWindow(url) {
 // Elemental analysis window
 function openAnalysisWindow(url) {
 	"use strict";
+	// second parameter for window.open() must be identical to second
+	// parameter for prepareForm() in js/marvinJSStart.js 
 	var w = window.open(url, 'Elemental Analysis',
+		'width=400,height=200,left=200,top=70,resizable=yes,scrollbars=yes,status=yes');
+	w.focus();
+}
+
+// Window showing description of a drawing for BLV people 
+function openBLVDescriptionWindow(url) {
+	// second parameter for window.open() must be identical to second
+	// parameter for prepareForm() in js/marvinJSStart.js 
+	"use strict";
+	var w = window.open(url, 'Description for BLV People',
 		'width=400,height=200,left=200,top=70,resizable=yes,scrollbars=yes,status=yes');
 	w.focus();
 }
 
 // Measure distance/angle/dihedral window
 function openMeasureWindow(url) {
+	// second parameter for window.open() must be identical to second
+	// parameter for prepareForm() in js/marvinJSStart.js 
 	"use strict";
 	var w = window.open(url, 'Measure',
 		'width=400,height=200,left=200,top=70,resizable=yes,scrollbars=yes,status=yes');

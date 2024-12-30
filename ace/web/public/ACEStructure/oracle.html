@@ -21,6 +21,32 @@
 database communication classes found in 
 <span class="filename">/opt/tomcat9/lib/<span style="color:blue;">servlet-api.jar</span></span>.</p>
 
+<p>We run Oracle inside a program called Docker. 
+To start Oracle:
+
+<blockquote>
+<span class="filename">docker start ORACLE
+<br/>docker exec -i -t ORACLE /etc/init.d/oracle-xe start
+</blockquote>
+
+To restart Oracle after the docker has crashed:
+
+<blockquote>
+<span class="filename">sudo service docker restart
+<br/>docker start ORACLE
+</blockquote>
+
+<p>
+To use Oracle manually:
+
+<blockquote>
+<span class="filename">docker exec -i -t ORACLE bash</span>
+<br/><span class="filename">sqlplus</span>
+<br/><span class="filename">aceorg15</span>
+<br/>[Oracle password]
+</blockquote>
+
+
 <h3>Tomcat configuration files</h3>
 
 <p>We use shell environment variables to set

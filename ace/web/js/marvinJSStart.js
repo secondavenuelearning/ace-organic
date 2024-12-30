@@ -287,6 +287,8 @@ function addCopySynthesisButton(appletName, pathToRoot) {
 			modifiedMrv = modifyMrvWithRxnConditions(mol, rxnIds, pathToRoot);
 			if (!copyToClipboard(modifiedMrv)) {
 				// display MRV for manual copy
+				// second parameter for prepareForm() must be identical to second
+				// parameter for window.open() in js/openwindows.js 
 				newForm = prepareForm(targetPage, 'SourceCode');
 				newForm.appendChild(prepareField('mrvStr', mol));
 				newForm.appendChild(prepareField('rxnIdsStr', 
@@ -314,6 +316,8 @@ function addElementalAnalysisButton(appletName) {
 	marvinSketcherInstances[appletName].addButton(buttonAttrs, function() {
 		marvinSketcherInstances[appletName].exportStructure('mrv').
 				then(function(mol) {
+			// second parameter for prepareForm() must be identical to second
+			// parameter for window.open() in js/openwindows.js 
 			newForm = prepareForm(targetPage, 'Elemental Analysis');
 			newForm.appendChild(prepareField('mrvStr', mol));
 			document.body.appendChild(newForm); // necessary for Firefox
@@ -324,6 +328,31 @@ function addElementalAnalysisButton(appletName) {
 		});
 	});
 } // addElementalAnalysisButton()
+
+// Adds a button to generate a description of a drawing for BLV people.
+function addBLVDescriptionButton(appletName) {
+	var targetPage = '\/ace\/includes\/showBLVDescription.jsp',
+		newForm,
+		buttonAttrs = {
+			'name' : 'description for BLV people',
+			'imageUrl' : getButtonImgAsDataURL('BLV'),
+			'toolbar' : 'S'
+		};
+	marvinSketcherInstances[appletName].addButton(buttonAttrs, function() {
+		marvinSketcherInstances[appletName].exportStructure('mrv').
+				then(function(mol) {
+			// second parameter for prepareForm() must be identical to second
+			// parameter for window.open() in js/openwindows.js 
+			newForm = prepareForm(targetPage, 'Description for BLV People');
+			newForm.appendChild(prepareField('mrvStr', mol));
+			document.body.appendChild(newForm); // necessary for Firefox
+			openBLVDescriptionWindow(targetPage);
+			newForm.submit();
+		}, function(error) {
+			alert('Molecule export to MRV failed: ' + error);	
+		});
+	});
+} // addBLVDescriptionButton()
 
 // Adds a button to MarvinJS that allows one to measure length/angle/dihedral.
 function addMeasureButton(appletName) {
@@ -341,7 +370,8 @@ function addMeasureButton(appletName) {
 			marvinSketcherInstances[appletName].getSelection().
 					then(function(selection) { 
 				selectedAtomsStr = selection.atoms;
-				// target page name must be exactly the same as in openwindows.js
+				// second parameter for prepareForm() must be identical to second
+				// parameter for window.open() in js/openwindows.js 
 				newForm = prepareForm(targetPage, 'Measure');
 				newForm.appendChild(prepareField('mrvStr', mol));
 				newForm.appendChild(prepareField('selectedAtomsStr', 
@@ -419,7 +449,6 @@ function startMarvinJS(mol, qTypeRaw, qFlags, appletName, pathToRoot,
 	} // how big to make canvas
 	if (appletName === 'sketcher') {
 		sketcherWidth = '95%';
-		// sketcherHeight = 0.9 * window.innerHeight + 'px';
 		sketcherHeight = 0.9 * document.documentElement.clientHeight + 'px';
 	} // if sketcher window
 	styleProps = [
@@ -452,6 +481,7 @@ function startMarvinJS(mol, qTypeRaw, qFlags, appletName, pathToRoot,
 		if (!is3DQ) {
 			addManualLonePairButton(appletName);
 		} // if not 3D
+		addBLVDescriptionButton(appletName);
 		marvinSketcherInstances[appletName].setDisplaySettings({
 			toolbars: 'reporting',
 			copyasmrv: true,
