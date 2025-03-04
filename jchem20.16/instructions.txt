@@ -1,0 +1,6 @@
+The jchem files should go in this directory. The current version of 
+ACE is using jchem version 20.16. Other versions may not work as intended.
+
+If you plan on using a different version of jchem, you will want to update the configureJChem
+perl script located in DEV-5.1/marvin-extra/scripts. You must also update the jchem directory name to reflect the 
+jchem version you are using.

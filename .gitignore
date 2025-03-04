@@ -1,1 +1,3 @@
 DEV-5.1/ace/build/
+jchem*/*
+!jchem*/instructions.txt
