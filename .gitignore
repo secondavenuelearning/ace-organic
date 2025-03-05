@@ -1,3 +1,6 @@
 DEV-5.1/ace/build/
-jchem*/*
-!jchem*/instructions.txt
+DEV-5.1/settings.sh
+jchem*
+DEV-5.1/**/META-INF/context.xml
+stanford-parser-2011-09-14/
+scripts/

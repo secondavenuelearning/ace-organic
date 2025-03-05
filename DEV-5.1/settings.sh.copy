@@ -1,0 +1,13 @@
+BASE=
+WHO=DEV-5.1
+JVERS=20.16
+ACE=$BASE/$WHO
+WEB=$ACE/ace/web
+CATALINA_HOME=/opt/tomcat9
+CATALINA_BASE=/opt/tomcat9
+JRE_HOME=
+sv=DEV-5.1
+s=$BASE/$sv
+sj=$s/ace/web
+st=$s/ace/src/com/epoch
+sl=$CATALINA_BASE/logs/$sv.`date +%Y-%m-%d`.log
