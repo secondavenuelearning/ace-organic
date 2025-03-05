@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context
+    privileged="true"
+>
+
+    <!-- Default set of monitored resources. If one of these changes, the
+        web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <Resource name="" type="javax.sql.DataSource"
+      driverClassName=""
+      url=""
+      username=""
+      password=""
+      maxTotal=""
+    />
+
+    <Resources allowLinking="true" />
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+</Context>
