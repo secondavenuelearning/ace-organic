@@ -14,8 +14,8 @@ VERSION = DEV-5.1
 HOME = /home/aceorg
 WS = $(HOME)/aceorg/$(VERSION)/ace
 JCHEMDIR = /home/aceorg/aceorg/jchem$(VERSION)/lib
-# TOMCATLIB=/usr/share/tomcat8/lib
-TOMCATLIB=/opt/tomcat9/lib
+TOMCATLIB=/usr/share/tomcat9/lib
+# TOMCATLIB=/opt/tomcat9/lib
 DIR = $(WS)/build
 DEST = $(DIR)/com/epoch/$(HERE)# where we compile to
 # where compiled code is put to make it live
@@ -24,7 +24,7 @@ FD = $(HOME)/aceorg/$(VERSION)/ace/web/WEB-INF/classes/com/
 
 LOCKFILE = $(HOME)/aceorg/$(VERSION)/ace/.lock
 
-LIBS = $(JCHEMDIR)/jchem.jar:$(TOMCATLIB)/tomcat-dbcp.jar:$(TOMCATLIB)/commons-pool.jar:$(TOMCATLIB)/servlet-api.jar:$(TOMCATLIB)/commons-lang.jar:$(TOMCATLIB)/unbescape.jar:$(TOMCATLIB)/commons-math.jar:$(TOMCATLIB)/commons-collections.jar:$(TOMCATLIB)/guava.jar:$(DIR):/home/aceorg/aceorg/stanford-parser-2011-09-14/stanford-parser.jar
+LIBS = $(JCHEMDIR)/jchem.jar:$(TOMCATLIB)/tomcat-dbcp.jar:$(TOMCATLIB)/commons-pool.jar:$(TOMCATLIB)/servlet-api.jar:$(TOMCATLIB)/commons-lang.jar:$(TOMCATLIB)/unbescape.jar:$(TOMCATLIB)/commons-math.jar:$(TOMCATLIB)/commons-collections.jar:$(TOMCATLIB)/guava.jar:$(DIR):$(HOME)/stanford-parser-2011-09-14/stanford-parser.jar
 
 SOURCES = $(wildcard *.java)
 OBJECTS = $(patsubst %.java,$(DEST)/%.class,$(SOURCES))
